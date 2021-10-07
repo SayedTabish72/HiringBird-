@@ -17,6 +17,7 @@ import wfh from "../../../public/wfh.svg";
 function Categories() {
     return (
         <html>
+        <title>Locations</title>
         <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" />    
