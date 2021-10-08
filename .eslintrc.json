@@ -19,6 +19,7 @@
     "rules": {
       "react/react-in-jsx-scope": "off",
       "no-unused-vars": "warn",
-      "react/prop-types": "off"
+      "react/prop-types": "off",
+      "linebreak-style": ["error", (require("os").EOL === "\r\n" ? "windows" : "unix")]
     }
   }
