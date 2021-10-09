@@ -1,5 +1,6 @@
 {
     "singleQuote": false,
     "tapWith" : 2,
-    "semi": true
+    "semi": true,
+    "endOfLine": "auto"
 }
