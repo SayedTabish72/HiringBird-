@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -108,15 +107,14 @@ export const Lowerdiv = styled.div`
   justify-content: space-between;
   margin-top: 4%;
 
-  @media (max-width: 588px,min-width:413px) {
+  @media (max-width: 588px) {
     width: 100%;
     align-items: center;
     margin-left: 70px;
   }
 
   @media (max-width: 412px) {
-    
-    margin-left:135px;
+    margin-left: 135px;
   }
 
   @media (max-width: 381px) {
@@ -146,7 +144,7 @@ export const Categorycard = styled.div`
     backdrop-filter: blur(40px);
   }
 
-  @media (max-width: 589px&&min-width:413px) {
+  @media (max-width: 589px) {
     width: 140px;
     height: 140px;
     flex: 0 0 140px;

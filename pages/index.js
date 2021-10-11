@@ -1,4 +1,7 @@
 import Head from "next/head";
+import Categories from "./components/homepage/categories";
+import Contactus from "./components/homepage/Contactus";
+import Locations from "./components/homepage/locations";
 import Section from "./components/homepage/Section";
 
 export default function Home() {
@@ -11,6 +14,9 @@ export default function Home() {
       </Head>
 
       <Section />
+      <Categories />
+      <Locations />
+      <Contactus />
     </>
   );
 }
