@@ -155,7 +155,6 @@ export const Categorycard = styled.div`
     height: 130px;
     flex: 0 0 130px;
   }
-    
 `;
 
 export const Categorycard1 = styled.div`

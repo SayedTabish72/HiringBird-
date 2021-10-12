@@ -40,7 +40,6 @@ export const Links = styled.div`
     flex-direction: column;
     padding: 10px 0;
     width: 100%;
-    ${"" /* height: 40vh; */}
     height: 300px;
     position: absolute;
     right: 0;
@@ -48,7 +47,7 @@ export const Links = styled.div`
     left: ${({ click }) => (click ? 0 : "-100%")};
     opacity: 1;
     transition: all 0.5s ease;
-    background: #E5E5E5;
+    background: #e5e5e5;
   }
 `;
 
@@ -62,7 +61,7 @@ export const Link = styled.a`
     justify-content: center;
     height: 80px;
     border-bottom: 2px solid transparent;
-    $:hover {
+    &:hover {
       border-bottom: 2px solid #4b59f7;
     }
   }
@@ -86,7 +85,7 @@ export const Button = styled.button`
     margin-bottom: 25px;
     margin-left: 20px;
     padding: 12px 64px;
-    ${'' /* width: 80%;  */}
+    ${"" /* width: 80%;  */}
   }
 `;
 

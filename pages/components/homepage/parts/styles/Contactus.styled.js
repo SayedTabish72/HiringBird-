@@ -85,8 +85,6 @@ export const Logo = styled.div`
   left: 68px;
   top: 669px;
 
-  
-  
   @media (max-width: 600px) {
     width: 42px;
     height: 42px;
@@ -95,7 +93,6 @@ export const Logo = styled.div`
 
     filter: drop-shadow(-4.26087px 0px 14.6087px rgba(242, 106, 126, 0.44));
   }
-  
 `;
 export const Button = styled.button`
   padding: 17px 35px;

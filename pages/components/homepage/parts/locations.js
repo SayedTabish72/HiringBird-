@@ -14,14 +14,14 @@ import {
   Span1,
 } from "./styles/Locations.styled";
 import Image from "next/image";
-import ncr from "../../../public/delhincr.svg";
-import bengaluru from "../../../public/bengaluru.svg";
-import chennai from "../../../public/chennai.svg";
-import hyderabad from "../../../public/hyderabad.svg";
-import kolkata from "../../../public/kolkata.svg";
-import mumbai from "../../../public/mumbai.svg";
-import pune from "../../../public/pune.svg";
-import wfh from "../../../public/wfh.svg";
+import ncr from "../../../../public/delhincr.svg";
+import bengaluru from "../../../../public/bengaluru.svg";
+import chennai from "../../../../public/chennai.svg";
+import hyderabad from "../../../../public/hyderabad.svg";
+import kolkata from "../../../../public/kolkata.svg";
+import mumbai from "../../../../public/mumbai.svg";
+import pune from "../../../../public/pune.svg";
+import wfh from "../../../../public/wfh.svg";
 
 function Locations() {
   return (

@@ -14,15 +14,15 @@ import {
   Span1,
 } from "./styles/Categories.styled";
 import Image from "next/image";
-import engg from "../../../public/engg.svg";
-import commerce from "../../../public/commerce.svg";
-import manage from "../../../public/level.svg";
-import medical from "../../../public/medical.svg";
-import science from "../../../public/science.svg";
-import LT from "../../../public/LT.svg";
-import humanities from "../../../public/humanities.svg";
-import law from "../../../public/law.svg";
-import arts from "../../../public/arts.svg";
+import engg from "../../../../public/engg.svg";
+import commerce from "../../../../public/commerce.svg";
+import manage from "../../../../public/level.svg";
+import medical from "../../../../public/medical.svg";
+import science from "../../../../public/science.svg";
+import LT from "../../../../public/LT.svg";
+import humanities from "../../../../public/humanities.svg";
+import law from "../../../../public/law.svg";
+import arts from "../../../../public/arts.svg";
 
 function Categories() {
   return (

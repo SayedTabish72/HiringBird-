@@ -13,8 +13,8 @@ import {
   Logo,
 } from "./styles/Contactus.styled";
 
-import help from "../../../public/help.svg";
-import mainimg from "../../../public/contactus1.svg";
+import help from "../../../../public/help.svg";
+import mainimg from "../../../../public/contactus1.svg";
 
 function Contactus() {
   return (
@@ -29,9 +29,7 @@ function Contactus() {
             consectetur adipiscing elit. Net.
           </Text>
           <Button>Join Skilzen</Button>
-          <Logo>
-            
-          </Logo>
+          <Logo></Logo>
         </Leftdiv>
         <Rightdiv>
           <Image src={mainimg} alt="rightimg" />

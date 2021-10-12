@@ -20,7 +20,7 @@ import {
   Search,
   Input,
   ButtonSearch,
-  SearchImg
+  SearchImg,
 } from "./styles/Hero.styled";
 
 function Hero() {
@@ -28,7 +28,10 @@ function Hero() {
     <HeroContainer>
       <HeroDiv>
         <HeroLeft>
-          <Heading>Find your dream <br/><Head>Internship</Head></Heading>
+          <Heading>
+            Find your dream <br />
+            <Head>Internship</Head>
+          </Heading>
           <Button>Get Started</Button>
           <Para>
             The only way to do great work is to love what you do. If you haven’t
@@ -42,22 +45,22 @@ function Hero() {
         </HeroRight>
       </HeroDiv>
       <HeroSearch>
-          <HeroSearchLeft>
-              <Img src="./earbugs.svg" />
-          </HeroSearchLeft>
-          <HeroSearchRight>
-              <Search>
-                  <SearchIcon>
-                    <SearchImg src="./search.svg" />
-                  </SearchIcon>
-                  <SearchField>
-                    <Input placeholder="Search Internships here..."></Input>
-                  </SearchField>
-                  <SearchButton>
-                        <ButtonSearch>Search</ButtonSearch>
-                  </SearchButton>
-              </Search>
-          </HeroSearchRight>
+        <HeroSearchLeft>
+          <Img src="./earbugs.svg" />
+        </HeroSearchLeft>
+        <HeroSearchRight>
+          <Search>
+            <SearchIcon>
+              <SearchImg src="./search.svg" />
+            </SearchIcon>
+            <SearchField>
+              <Input placeholder="Search Internships here..."></Input>
+            </SearchField>
+            <SearchButton>
+              <ButtonSearch>Search</ButtonSearch>
+            </SearchButton>
+          </Search>
+        </HeroSearchRight>
       </HeroSearch>
     </HeroContainer>
   );
