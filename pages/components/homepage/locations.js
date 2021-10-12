@@ -4,18 +4,12 @@ import {
   Divstart,
   Innerdiv1,
   Innerdiv2,
-<<<<<<< HEAD
-  Spanright,
-  Lowerdiv,
-  Categorycard,
-=======
   Span50,
   Spanright,
   Spanright2,
   Lowerdiv,
   Categorycard,
   Button,
->>>>>>> f6bc0741a3ef2a425be6fde9ba4c8794cc357e7a
   Categorycard1,
   Span1,
 } from "./styles/Locations.styled";
@@ -29,11 +23,7 @@ import mumbai from "../../../public/mumbai.svg";
 import pune from "../../../public/pune.svg";
 import wfh from "../../../public/wfh.svg";
 
-<<<<<<< HEAD
-function Categories() {
-=======
 function Locations() {
->>>>>>> f6bc0741a3ef2a425be6fde9ba4c8794cc357e7a
   return (
     <Container>
       <Divstart>
@@ -88,8 +78,4 @@ function Locations() {
   );
 }
 
-<<<<<<< HEAD
-export default Categories;
-=======
 export default Locations;
->>>>>>> f6bc0741a3ef2a425be6fde9ba4c8794cc357e7a
