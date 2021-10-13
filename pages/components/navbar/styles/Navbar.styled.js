@@ -1,23 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-left: 4.16%;
+  margin-right: 4.16%;
   height: 77px;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (max-width: 1158px) {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-
-  @media (max-width: 400px) {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 `;
 
 export const Image = styled.img``;
