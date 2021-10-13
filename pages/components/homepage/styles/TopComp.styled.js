@@ -30,12 +30,12 @@ import styled from "styled-components";
   @media (min-width: 621px) and (max-width: 1679px){
    
         
-        margin-left: -30px;
-        padding-right: 220vh;
-        padding-bottom: 600px;
-        height:95vh;
-     
-  }
+    margin-left: -30px;
+    padding-right: 220vh;
+    padding-bottom: 600px;
+    height:92vh;
+ 
+}
   @media  screen and (max-width: 620px){
       
     height: 280vh;
@@ -217,6 +217,7 @@ width: 159.57px;
 height: 159.57px;
 margin-left: 130vh;
 top: 10.79px;
+margin-top: -9vh;
 
 
 position:static;
@@ -270,7 +271,7 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1240px;
+margin-left: 1140px;
 margin-top: -365px;
 position:static;
 
@@ -294,7 +295,7 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1240px;
+margin-left: 1140px;
 margin-top: 55px;
 padding-top:20px;
 position:static;
@@ -319,7 +320,7 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1420px;
+margin-left: 1300px;
 margin-top: -370px;
 
 position:static;
@@ -341,7 +342,7 @@ filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1420px;
+margin-left: 1320px;
 margin-top: 55px;
 padding-top:20px;
 position:static;
@@ -378,7 +379,7 @@ margin-top: -33vh;
  width: 159.57px;
 height: 159.57px;
 margin-left: 142vh;
-margin-top: -20vh;
+margin-top: -24vh;
 top: -10.79px;
 @media  screen and  (max-width: 620px) {
     transform: scale(3);
@@ -416,7 +417,7 @@ top: -10.79px;
   width: 159.57px;
   height: 159.57px;
   margin-left: 183vh;
-  margin-top: -20vh;
+  margin-top: -23vh;
   top: -10.79px;
   @media  screen and (max-width: 620px) {
     transform: scale(3.0);
