@@ -133,7 +133,7 @@ position: absolute;
 width: 266px;
 height: 46px;
 left: 85vh;
-top: 274vh;
+top: 304vh;
 
 font-family: Inter;
 font-style: normal;
