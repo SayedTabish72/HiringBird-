@@ -27,7 +27,7 @@ import styled from "styled-components";
       
   }
 
-  @media (min-width: 621px) and (max-width: 1840px){
+  @media (min-width: 621px) and (max-width: 1679px){
    
         
         margin-left: -30px;
