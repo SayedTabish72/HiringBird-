@@ -207,5 +207,5 @@ border-radius: 4px;
 
 
 &:hover{background: #F26A7E;}
-`
+`;
 
