@@ -215,7 +215,7 @@ const Paypal1 =styled.div`
 
 width: 159.57px;
 height: 159.57px;
-margin-left: 130vh;
+margin-left: 125vh;
 top: 10.79px;
 margin-top: -9vh;
 
@@ -271,7 +271,7 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1140px;
+margin-left: 1190px;
 margin-top: -365px;
 position:static;
 
@@ -284,7 +284,7 @@ filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
 }
 /* Inside Auto Layout */
 @media (min-width: 621px) and (max-width: 1679px){
-  margin-left: 1080px;
+  margin-left: 1020px;
 }
 `;
 
@@ -295,7 +295,7 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1140px;
+margin-left: 1210px;
 margin-top: 55px;
 padding-top:20px;
 position:static;
@@ -320,7 +320,7 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1300px;
+margin-left: 1360px;
 margin-top: -370px;
 
 position:static;
@@ -342,7 +342,7 @@ filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1320px;
+margin-left: 1370px;
 margin-top: 55px;
 padding-top:20px;
 position:static;
@@ -371,7 +371,10 @@ margin-top: -33vh;
   margin-top: -10vh;
   padding-top:23px;
 }
-
+@media (min-width: 621px) and (max-width: 1679px){
+  margin-top: -34vh;
+  padding-top: -4px;
+}
 
 `;
  const Slack = styled.div`
@@ -379,7 +382,7 @@ margin-top: -33vh;
  width: 159.57px;
 height: 159.57px;
 margin-left: 142vh;
-margin-top: -24vh;
+margin-top: -20vh;
 top: -10.79px;
 @media  screen and  (max-width: 620px) {
     transform: scale(3);
@@ -397,7 +400,7 @@ top: -10.79px;
   position:static;
   width: 159.57px;
   height: 159.57px;
-  margin-left: 163vh;
+  margin-left: 160vh;
   margin-top: -20vh;
   top: -10.79px;
   @media  screen and (max-width: 620px) {
@@ -416,8 +419,8 @@ top: -10.79px;
   position:static;
   width: 159.57px;
   height: 159.57px;
-  margin-left: 183vh;
-  margin-top: -23vh;
+  margin-left: 179vh;
+  margin-top: -20vh;
   top: -10.79px;
   @media  screen and (max-width: 620px) {
     transform: scale(3.0);
@@ -426,7 +429,7 @@ top: -10.79px;
   padding-top:6.2px;
 }
 @media screen and  (max-width: 1679px){
-  margin-top: -22vh;
+  margin-top: -24vh;
 }
 
   `;
