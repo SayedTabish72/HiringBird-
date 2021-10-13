@@ -33,7 +33,7 @@ import styled from "styled-components";
         margin-left: -30px;
         padding-right: 220vh;
         padding-bottom: 600px;
-        height:85vh;
+        height:95vh;
      
   }
   @media  screen and (max-width: 620px){
@@ -97,7 +97,10 @@ color: #F26A7E;
 @media (max-width: 620px){
   display:none;
 }
-
+@media (min-width: 621px) and (max-width: 1679px){
+  padding-top: 30vh;
+  margin-left: 22vh;
+}
 
 
 `;
@@ -146,9 +149,9 @@ color: #404366;
 
 }
 
-@media (max-width: 1030px){
-  padding-top: 9vh;
-  margin-left: -1vh;
+@media (min-width: 621px) and (max-width: 1679px){
+  padding-top: 10vh;
+  margin-left: -2vh;
 }
 @media(max-width: 320px){
   margin-top: 30vh;
@@ -385,7 +388,7 @@ top: -10.79px;
 }
 @media (min-width: 621px ) and (max-width: 1679px){
   padding-top: 0px;
-  margin-top: -20vh;
+  margin-top: -27vh;
 }
 
  `;
