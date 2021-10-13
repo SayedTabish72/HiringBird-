@@ -99,41 +99,32 @@ export const Spanright2 = styled.div`
 `;
 
 export const Lowerdiv = styled.div`
-  display: flex;
-  height: 70%;
-  width: 80%;
-  flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: space-between;
-  margin-top: 4%;
+display: flex;
+height: 70%;
+width: 80%;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+margin-top: 4%;
 
-  @media (max-width: 588px) {
-    width: 100%;
-    align-items: center;
-    margin-left: 70px;
-  }
+@media (max-width: 381px) {
+  width: 100%;
+  align-items: center;
+  margin-left: 35px;
+}  
 
-  @media (max-width: 412px) {
-    margin-left: 135px;
-  }
-
-  @media (max-width: 381px) {
-    width: 100%;
-    align-items: center;
-    margin-left: 35px;
-  }
 `;
 
 export const Categorycard = styled.div`
-  width: 174px;
+width: 174px;
   height: 13em;
-  background: #fff8f8;
   border: 1px solid rgba(75, 75, 75, 0.3);
   border-radius: 8px;
   flex: 0 0 14em;
   margin-top: 2%;
   box-sizing: border-box;
-
+  margin-right: 10px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -149,28 +140,35 @@ export const Categorycard = styled.div`
     height: 140px;
     flex: 0 0 140px;
   }
-
-  @media (max-width: 412px) {
-    width: 130px;
-    height: 130px;
-    flex: 0 0 130px;
-  }
 `;
 
 export const Categorycard1 = styled.div`
-  height: 13em;
-  flex: 0 0 14em;
-  margin-top: 2%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 174px;
 
-  @media (max-width: 589px) {
-    width: 140px;
-    height: 140px;
-    flex: 0 0 140px;
-  }
+height: 13em;
+border: 0px solid rgba(75, 75, 75, 0.3);
+border-radius: 8px;
+flex: 0 0 14em;
+margin-top: 2%;
+box-sizing: border-box;
+margin-right: 10px;
+margin-left: 10px;
+
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+flex-direction: column;
+
+&:hover {
+  box-shadow: 0px 8px 24px rgba(216, 216, 216, 0.3);
+  backdrop-filter: blur(40px);
+}
+
+@media (max-width: 589px) {
+  width: 140px;
+  height: 140px;
+  flex: 0 0 140px;
+}
 `;
 
 export const Logo = styled.img`
