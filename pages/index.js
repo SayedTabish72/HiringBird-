@@ -1,6 +1,6 @@
 import Head from "next/head";
 import HomePage from "./components/homepage/Home";
-import Topcomp from "./components/homepage/parts/Topcomp"
+
 export default function Home() {
   return (
     <>
