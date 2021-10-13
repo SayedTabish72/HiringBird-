@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Section from "./components/homepage/Section";
-import Topcomp from "./components/homepage/Topcomp";
-
+import HomePage from "./components/homepage/Home";
+import Topcomp from "./components/homepage/parts/Topcomp"
 export default function Home() {
   return (
     <>
@@ -11,8 +10,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
-      <Topcomp/>
+      <HomePage />
+     
     </>
   );
 }
