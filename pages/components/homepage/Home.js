@@ -1,8 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import Navbar from "./parts/Navbar";
-=======
+
 import Navbar from "../navbar/Navbar";
 
 import Hero from "./parts/Hero";
@@ -26,9 +25,6 @@ const theme = {
 // import Founder from "./parts/Founder";
 // import { Foundercontainer } from "./parts/styles/Foundercontainer.styled";
 
-const theme = {
-  mobile: "589px",
-};
 
 
 function Home() {
