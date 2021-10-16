@@ -4,6 +4,7 @@ import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { signIn } from "next-auth/react";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
@@ -31,9 +32,33 @@ const Login = () => {
             <h2>Sign in</h2>
 
             <div className="icons">
-              <img src="/images/fb.svg" alt="" />
-              <img src="/images/google.svg" alt="" />
-              <img src="/images/linkedin.svg" alt="" />
+              <img
+                onClick={() => {
+                  signIn("facebook", {
+                    callbackUrl: "http://localhost:3000",
+                  });
+                }}
+                src="/images/fb.svg"
+                alt=""
+              />
+              <img
+                onClick={() => {
+                  signIn("google", {
+                    callbackUrl: "http://localhost:3000",
+                  });
+                }}
+                src="/images/google.svg"
+                alt=""
+              />
+              <img
+                onClick={() =>
+                  signIn("linkedin", {
+                    callbackUrl: "http://localhost:3000",
+                  })
+                }
+                src="/images/linkedin.svg"
+                alt=""
+              />
             </div>
 
             <div className="fields">
@@ -44,7 +69,7 @@ const Login = () => {
                 label="Email"
                 placeholder="you@example.com"
                 margin="normal"
-                fullwidth
+                fullWidth={true}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -59,7 +84,7 @@ const Login = () => {
                   shrink: true,
                 }}
                 margin="normal"
-                fullwidth
+                fullWidth={true}
                 id="standard-password-input"
                 label="Password"
                 type={showPass ? "text" : "password"}

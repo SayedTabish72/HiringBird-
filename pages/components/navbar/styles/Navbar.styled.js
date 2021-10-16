@@ -41,10 +41,11 @@ export const Links = styled.div`
   }
 `;
 
-export const Link = styled.a`
+export const StyledLink = styled.a`
   color: #404366;
   font-size: 16px;
   font-weight: 500;
+  cursor: pointer;
   @media (max-width: 783px) {
     display: flex;
     align-items: center;
@@ -86,4 +87,11 @@ export const ImageContainer = styled.div`
 export const LinkContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+export const Avatar = styled.img`
+  border-radius: 99px;
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
 `;
