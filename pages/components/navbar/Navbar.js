@@ -44,8 +44,9 @@ function Navbar() {
               <Link href="/login">
                 <StyledLink>Sign In</StyledLink>
               </Link>
-
-              <Button>Sign Up</Button>
+              <Link href="/signup">
+                <Button>Sign Up</Button>
+              </Link>
             </>
           )}
         </Links>
