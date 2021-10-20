@@ -13,6 +13,12 @@ const Container = styled.div`
   @media (max-width: 600px) {
     padding: 10px;
   }
+  @media (max-width: 589px) {
+    max-width: 1000px;
+    min-width: 780px;
+    margin-top: 40px;
+    margin-left: 30px;
+  }
 `;
 const Top = styled.div`
   display: flex;

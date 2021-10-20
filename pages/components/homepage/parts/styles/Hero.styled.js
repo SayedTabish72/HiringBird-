@@ -14,9 +14,14 @@ export const HeroContainer = styled.div`
   padding-bottom: 20px;
   background-color: #f5f5f5;
 
-  @media (max-width: 783px) {
-    padding-left: 25px;
-    padding-right: 25px;
+  // @media (max-width: 783px) {
+  //   padding-left: 25px;
+  //   padding-right: 25px;
+  // }
+  @media (max-width: 589px) {
+    max-width: 1000px;
+    min-width: 780px;
+    margin-top: 40px;
   }
 `;
 
@@ -182,6 +187,11 @@ export const Search = styled.div`
   justify-content: flex-start;
   background-color: #fff;
   border-radius: 4px;
+  @media (max-width: 589px) {
+    max-width: 1000px;
+    min-width: 780px;
+    margin-left: 30px;
+  }
 `;
 
 export const Img = styled.img`
