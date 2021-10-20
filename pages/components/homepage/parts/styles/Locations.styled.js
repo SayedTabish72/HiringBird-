@@ -2,20 +2,28 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  margin-top: 100px;
+  margin-bottom: 80px;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  @media (max-width: 589px) {
+    max-width: 1000px;
+    min-width: 780px;
+  }
 `;
 
 export const Divstart = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
+  @media (max-width: 589px) {
+    flex-direction : column;
+  }
 `;
 
 export const Innerdiv1 = styled.div`
@@ -103,8 +111,8 @@ export const Lowerdiv = styled.div`
   height: 70%;
   width: 80%;
   flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   margin-top: 4%;
 
   @media (max-width: 381px) {
@@ -122,7 +130,8 @@ export const Categorycard = styled.div`
   flex: 0 0 14em;
   margin-top: 2%;
   box-sizing: border-box;
-
+  margin-right: 10px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -149,6 +158,8 @@ export const Categorycard1 = styled.div`
   flex: 0 0 14em;
   margin-top: 2%;
   box-sizing: border-box;
+  margin-right: 10px;
+  margin-left: 10px;
 
   display: flex;
   align-items: center;
