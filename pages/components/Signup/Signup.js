@@ -35,7 +35,7 @@ import { signIn } from "next-auth/react";
 
 function Signup() {
   const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  // const [lname, setLname] = useState("");
   const [email, setemail] = useState("");
   // const [phone, setphone] = useState("");
   const [pass, setpass] = useState("");
@@ -110,7 +110,7 @@ function Signup() {
               <InputField
                 type="text"
                 placeholder="Doe"
-                onChange={(e) => setLname(e.target.value)}
+                // onChange={(e) => setLname(e.target.value)}
               ></InputField>
             </Input>
           </Info>
