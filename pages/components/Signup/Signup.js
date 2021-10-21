@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
-import Router from "next/router";
+
 import {
   Container,
   Image1,
@@ -33,8 +33,6 @@ import {
 } from "./styles/Signup.styled";
 import { signIn } from "next-auth/react";
 
-const createCancelToken = () => axios.CancelToken.source();
-
 function Signup() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
@@ -42,25 +40,6 @@ function Signup() {
   const [phone, setphone] = useState("");
   const [pass, setpass] = useState("");
   const [repass, setrepass] = useState("");
-
-  // const submitdata = async () => {
-  //   const response = await fetch("http://localhost:8000/register", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       name: `{fname}+" "+{lname}`,
-  //       email,
-  //       password: pass,
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   const data = await response.json();
-  //   console.log(data);
-  // };
-
-  const cancelToken = createCancelToken();
 
   const onCreateuser = (e) => {
     e.preventDefault();
@@ -81,22 +60,6 @@ function Signup() {
       });
   };
 
-
-  
-  // axios
-  //   .post("http://localhost:8000/register", {
-  //     name: `{fname}+" "+{lname}`,
-  //     email: email,
-  //     pasword: pass,
-  //   })
-  //   .then(
-  //     (response) => {
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
   return (
     <Container>
       <Image1 src="/bg1.svg" />
