@@ -37,9 +37,9 @@ function Signup() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setemail] = useState("");
-  const [phone, setphone] = useState("");
+  // const [phone, setphone] = useState("");
   const [pass, setpass] = useState("");
-  const [repass, setrepass] = useState("");
+  // const [repass, setrepass] = useState("");
 
   const onCreateuser = (e) => {
     e.preventDefault();
@@ -49,15 +49,9 @@ function Signup() {
       password: pass,
     };
 
-    axios
-      .post(
-        "http://localhost:8000/register",
-
-        userdata
-      )
-      .then((res) => {
-        console.log(res);
-      });
+    axios.post("http://localhost:8000/register", userdata).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
@@ -138,7 +132,7 @@ function Signup() {
               <InputField
                 type="number"
                 placeholder="7007409205"
-                onChange={(e) => setphone(e.target.value)}
+                // onChange={(e) => setphone(e.target.value)}
               ></InputField>
             </Input>
           </Info>
@@ -159,7 +153,7 @@ function Signup() {
             <InputField
               type="password"
               placeholder="************"
-              onChange={(e) => setrepass(e.target.value)}
+              // onChange={(e) => setrepass(e.target.value)}
             ></InputField>
           </InputSeperate>
           <CheckboxContainer>
