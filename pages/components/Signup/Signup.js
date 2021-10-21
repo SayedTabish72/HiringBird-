@@ -1,5 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import { useState } from "react";
+import axios from "axios";
+
+
 import {
   Container,
   Image1,
@@ -31,6 +35,26 @@ import {
 import { signIn } from "next-auth/react";
 
 function Signup() {
+  const [fname, setFname] = useState("");
+  // const [lname, setLname] = useState("");
+  const [email, setemail] = useState("");
+  // const [phone, setphone] = useState("");
+  const [pass, setpass] = useState("");
+  // const [repass, setrepass] = useState("");
+
+  const onCreateuser = (e) => {
+    e.preventDefault();
+    const userdata = {
+      name: fname,
+      email: email,
+      password: pass,
+    };
+
+    axios.post("http://localhost:8000/register", userdata).then((res) => {
+      console.log(res);
+    });
+  };
+
   return (
     <Container>
       <Image1 src="/bg1.svg" />
@@ -74,13 +98,21 @@ function Signup() {
               <InputName>
                 Name <Star>*</Star>
               </InputName>
-              <InputField type="text" placeholder="John"></InputField>
+              <InputField
+                type="text"
+                placeholder="John"
+                onChange={(e) => setFname(e.target.value)}
+              ></InputField>
             </Input>
             <Input>
               <InputName>
                 Last Name <Star>*</Star>
               </InputName>
-              <InputField type="text" placeholder="Doe"></InputField>
+              <InputField
+                type="text"
+                placeholder="Doe"
+                // onChange={(e) => setLname(e.target.value)}
+              ></InputField>
             </Input>
           </Info>
           <Info>
@@ -91,26 +123,39 @@ function Signup() {
               <InputField
                 type="email"
                 placeholder="Johndoe@gmail.com"
+                onChange={(e) => setemail(e.target.value)}
               ></InputField>
             </Input>
             <Input>
               <InputName>
                 Mobile Number <Star>*</Star>
               </InputName>
-              <InputField type="number" placeholder="7007409205"></InputField>
+              <InputField
+                type="number"
+                placeholder="7007409205"
+                // onChange={(e) => setphone(e.target.value)}
+              ></InputField>
             </Input>
           </Info>
           <InputSeperate>
             <InputName>
               Password <Star>*</Star>
             </InputName>
-            <InputField type="text" placeholder="abrakadabra"></InputField>
+            <InputField
+              type="text"
+              placeholder="abrakadabra"
+              onChange={(e) => setpass(e.target.value)}
+            ></InputField>
           </InputSeperate>
           <InputSeperate>
             <InputName>
               Re-enter Password <Star>*</Star>
             </InputName>
-            <InputField type="password" placeholder="************"></InputField>
+            <InputField
+              type="password"
+              placeholder="************"
+              // onChange={(e) => setrepass(e.target.value)}
+            ></InputField>
           </InputSeperate>
           <CheckboxContainer>
             <CheckboxField type="checkbox"></CheckboxField>
@@ -118,7 +163,7 @@ function Signup() {
           </CheckboxContainer>
 
           <Wrap>
-            <SignupButton>Sign Up</SignupButton>
+            <SignupButton onClick={onCreateuser}>Sign Up</SignupButton>
             <SignupText>
               Already on Skilzen ? Go to{" "}
               <Link href="/login">
