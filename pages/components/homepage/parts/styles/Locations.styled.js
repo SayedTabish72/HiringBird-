@@ -10,14 +10,20 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  @media (max-width: 589px) {
+    max-width: 1000px;
+    min-width: 780px;
+  }
 `;
 
 export const Divstart = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
+  @media (max-width: 589px) {
+    flex-direction : column;
+  }
 `;
 
 export const Innerdiv1 = styled.div`

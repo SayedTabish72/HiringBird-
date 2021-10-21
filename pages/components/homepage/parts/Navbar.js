@@ -9,6 +9,7 @@ import {
   LinkContainer,
   Menu,
 } from "./styles/Navbar.styled";
+import { useSession, signIn, signOut, getSession } from "next-auth/react";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -28,8 +29,14 @@ function Navbar() {
         <Links onClick={handleClick} click={click}>
           <Link>Post an Internship</Link>
           <Link>Find Internships</Link>
-          <Link>Sign In</Link>
-          <Button>Sign Up</Button>
+          {session ? (
+            <img src={session.user.image} alt="" />
+          ) : (
+            <>
+              <Link>Sign In</Link>
+              <Button>Sign Up</Button>
+            </>
+          )}
         </Links>
       </LinkContainer>
     </Container>

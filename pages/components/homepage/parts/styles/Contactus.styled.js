@@ -4,6 +4,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 589px) {
+    max-width: 1000px;
+    min-width: 780px;
+    margin-top: 40px;
+  }
 `;
 
 export const Container1 = styled.div`
