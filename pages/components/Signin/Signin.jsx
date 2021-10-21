@@ -1,13 +1,49 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import styled from "styled-components";
-import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "../../../utils/axios";
 import { signIn } from "next-auth/react";
 
-const Login = () => {
+const Signin = () => {
+  const router = useRouter();
+  const [errorText, setErrorText] = useState("");
   const [showPass, setShowPass] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().required("Please Enter your password"),
+      // .matches(
+      //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      // ),
+    }),
+    onSubmit: (values) => {
+      console.log({ values });
+      axios
+        .post("/login", values)
+        .then((res) => {
+          console.log("user", res.data);
+          // store tokens in localstorage
+          // store user in redux
+          // redirect to homepage
+          router.push("/");
+        })
+        .catch((err) => {
+          setErrorText(err.response.data.message);
+        });
+    },
+  });
+
   return (
     <OuterContainer>
       <Blob1>
@@ -27,7 +63,7 @@ const Login = () => {
           />
         </Left>
         <Right>
-          <Form>
+          <Form onSubmit={formik.handleSubmit}>
             <h1>Welcome Back!</h1>
             <h2>Sign in</h2>
 
@@ -65,16 +101,25 @@ const Login = () => {
               <CustomTextField
                 required
                 autoFocus
-                id="standard-email"
+                id="email"
+                name="email"
+                type="email"
                 label="Email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+                error={formik.touched.email && formik.errors.email}
                 placeholder="you@example.com"
                 margin="normal"
                 fullWidth={true}
                 InputLabelProps={{
                   shrink: true,
                 }}
-                // defaultValue="Hello World"
-                // helperText="Incorrect entry."
+                helperText={
+                  formik.touched.email && formik.errors.email ? (
+                    <div>{formik.errors.email}</div>
+                  ) : null
+                }
                 variant="standard"
               />
               <CustomTextField
@@ -85,8 +130,18 @@ const Login = () => {
                 }}
                 margin="normal"
                 fullWidth={true}
-                id="standard-password-input"
+                id="password"
+                name="password"
                 label="Password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+                error={formik.touched.password && formik.errors.password}
+                helperText={
+                  formik.touched.password && formik.errors.password ? (
+                    <div>{formik.errors.password}</div>
+                  ) : null
+                }
                 type={showPass ? "text" : "password"}
                 autoComplete="current-password"
                 variant="standard"
@@ -131,8 +186,15 @@ const Login = () => {
                 />
               </div>
             </div>
+
+            {errorText && (
+              <ErrorBox>
+                <p>{errorText}</p>
+              </ErrorBox>
+            )}
+
             <Footer>
-              <button>Sign In</button>
+              <button type="submit">Sign In</button>
               <p>
                 New User? <span>Sign Up</span>
               </p>
@@ -147,7 +209,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;
 
 const OuterContainer = styled.div`
   position: relative;
@@ -170,8 +232,8 @@ const InnerContainer = styled.div`
   @media (max-width: 1200px) {
     flex-direction: column;
     overflow-y: scroll;
-    width: 95%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
   }
   @media (max-width: 600px) {
     width: 100%;
@@ -237,7 +299,7 @@ const Right = styled.div`
   padding: 15px;
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   height: 100%;
   h1 {
     color: #ec1f28;
@@ -279,17 +341,17 @@ const CustomTextField = styled(TextField)`
   .MuiInputBase-input {
     font-family: "Inter", sans-serif;
   }
-  label.Mui-focused {
-    color: #f26a7e;
-  }
+  /* label.Mui-focused {
+    color: gray;
+  } */
 
   label {
     font-family: "Inter", sans-serif;
   }
 
-  .MuiInput-underline:after {
-    border-bottom-color: #f26a7e;
-  }
+  /* .MuiInput-underline:after {
+    border-bottom-color: gray;
+  } */
 `;
 
 const Footer = styled.div`
@@ -320,4 +382,10 @@ const Footer = styled.div`
     font-weight: bold;
     color: #f26a7e;
   }
+`;
+
+const ErrorBox = styled.div`
+  background-color: #f86d6d;
+  color: #fff;
+  padding: 17px;
 `;
