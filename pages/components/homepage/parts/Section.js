@@ -1,23 +1,26 @@
 import React from "react";
 import Image from "next/image";
-import { Bottom, Container, Top, Wrap } from "./styles/Section.styled";
+import styled from "styled-components";
+import { Container } from "./styles/CommonComponents/Container.styled";
 
 const Section = () => {
   return (
     <Container>
       <Top>
-        <div className="left">
-          <h1>How does it work?</h1>
-        </div>
-        <div className="right">
-          <h5>
+        <Left>
+          <h1>
+            How does it <br /> work?
+          </h1>
+        </Left>
+        <Right>
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed atque
             nihil labore repudiandae eligendi, animi accusamus facere.
             Perferendis et quaerat eos magni veritatis, itaque unde, quis quas a
             maiores facere.
-          </h5>
+          </p>
           <button>Apply Now</button>
-        </div>
+        </Right>
       </Top>
       <Bottom>
         <Wrap>
@@ -43,3 +46,66 @@ const Section = () => {
 };
 
 export default Section;
+
+const Top = styled.div`
+  display: flex;
+  margin-bottom: 4rem;
+  @media (max-width: 945px) {
+    flex-direction: column;
+  }
+`;
+const Left = styled.div`
+  flex-basis: 50%;
+  h1 {
+    font-weight: 800;
+    font-size: 72px;
+    color: #404366;
+    margin-bottom: 1rem;
+  }
+`;
+const Right = styled.div`
+  flex-basis: 50%;
+  p {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    color: #18191f;
+    margin-bottom: 1em;
+  }
+  button {
+    background: #f26a7e;
+    border-radius: 4px;
+    padding: 10px 26px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+`;
+
+const Bottom = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 6rem;
+  @media (max-width: 945px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2rem;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-gap: 1rem;
+  }
+`;
+
+const Wrap = styled.div`
+  border: 1px solid lightgrey;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 6px;
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+  h3 {
+    margin-bottom: 1em;
+  }
+`;
