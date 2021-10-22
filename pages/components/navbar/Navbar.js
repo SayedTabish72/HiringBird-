@@ -41,7 +41,7 @@ function Navbar() {
             />
           ) : (
             <>
-              <Link href="/login">
+              <Link href="/signin">
                 <StyledLink>Sign In</StyledLink>
               </Link>
               <Link href="/signup">

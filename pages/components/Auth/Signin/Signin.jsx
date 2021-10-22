@@ -6,8 +6,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "../../../utils/axios";
+import axios from "../../../../utils/axios";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { Button } from "../commonStyles/Button.styled";
 
 const Signin = () => {
   const router = useRouter();
@@ -34,12 +36,14 @@ const Signin = () => {
         .then((res) => {
           console.log("user", res.data);
           // store tokens in localstorage
+          localStorage.setItem("access_token", res.data.accessToken);
+          localStorage.setItem("refresh_token", res.data.refreshToken);
           // store user in redux
           // redirect to homepage
           router.push("/");
         })
         .catch((err) => {
-          setErrorText(err.response.data.message);
+          console.log(err);
         });
     },
   });
@@ -194,9 +198,9 @@ const Signin = () => {
             )}
 
             <Footer>
-              <button type="submit">Sign In</button>
+              <Button type="submit">Sign In</Button>
               <p>
-                New User? <span>Sign Up</span>
+                New User? <Link href="/signup">Sign Up</Link>
               </p>
             </Footer>
           </Form>
@@ -359,7 +363,7 @@ const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  button {
+  /* button {
     background-color: #fff;
     padding: 13px 20px;
     font-weight: bold;
@@ -377,7 +381,7 @@ const Footer = styled.div`
     &:active {
       transform: scale(0.9);
     }
-  }
+  } */
   span {
     font-weight: bold;
     color: #f26a7e;
