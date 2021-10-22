@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 
-
 import {
   Container,
   Image1,
@@ -96,7 +95,7 @@ function Signup() {
           <Info>
             <Input>
               <InputName>
-                Name <Star>*</Star>
+                First Name <Star>*</Star>
               </InputName>
               <InputField
                 type="text"
@@ -166,7 +165,7 @@ function Signup() {
             <SignupButton onClick={onCreateuser}>Sign Up</SignupButton>
             <SignupText>
               Already on Skilzen ? Go to{" "}
-              <Link href="/login">
+              <Link href="/signin">
                 <Pink>Sign In</Pink>
               </Link>
             </SignupText>
