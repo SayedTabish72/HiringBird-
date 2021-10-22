@@ -26,7 +26,6 @@ function Home() {
       <Locations />
       <AboutUs />
       <Section />
-      <Contactus />
       <Founder />
     </>
   );

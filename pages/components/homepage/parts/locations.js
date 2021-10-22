@@ -1,31 +1,4 @@
-import React from "react";
-import {
-  HeroSearch,
-  HeroSearchLeft,
-  HeroSearchRight,
-  SearchIcon,
-  SearchField,
-  SearchButton,
-  Search,
-  ButtonSearch,
-  Img,
-  Input,
-  SearchImg,
-} from "./styles/Hero.styled";
-import {
-  Container,
-  Divstart,
-  Innerdiv1,
-  Innerdiv2,
-  Span50,
-  Spanright,
-  Spanright2,
-  Lowerdiv,
-  Categorycard,
-  Button,
-  Categorycard1,
-  Span1,
-} from "./styles/Locations.styled";
+import styled from "styled-components";
 import Image from "next/image";
 import ncr from "../../../../public/delhincr.svg";
 import bengaluru from "../../../../public/bengaluru.svg";
@@ -35,80 +8,97 @@ import kolkata from "../../../../public/kolkata.svg";
 import mumbai from "../../../../public/mumbai.svg";
 import pune from "../../../../public/pune.svg";
 import wfh from "../../../../public/wfh.svg";
+import { Container } from "./styles/CommonComponents/Container.styled";
 
 function Locations() {
   return (
-    <>
-      <Container>
-        <Divstart>
-          <Innerdiv1>
-            <Span1>Locations</Span1>
-          </Innerdiv1>
-          <Innerdiv2>
-            <Spanright>
-              We are currently encouraging Work From Home Internships for the
-              safety for all our loved ones. Find the best internship
-              opportunities here to launch your professional career.
-            </Spanright>
-            <br />
-          </Innerdiv2>
-        </Divstart>
+    <Container>
+      <Top>
+        <Left>
+          <h1>Location</h1>
+        </Left>
+        <Right>
+          <p>
+            We are currently encouraging Work From Home Internships for the
+            safety for all our loved ones. Find the best internship
+            opportunities here to launch your professional career.
+          </p>
+        </Right>
+      </Top>
+      <Bottom>
+        <Wrap>
+          <img src="/delhincr.svg" alt="" />
+          <h5>New Delhi NCR</h5>
+        </Wrap>
 
-        <Lowerdiv>
-          <Categorycard1>
-            <Image src={ncr} alt="engg" />
-            <span>New Delhi NCR</span>
-          </Categorycard1>
-          <Categorycard>
-            <Image src={mumbai} alt="engg" />
-            <span>Mumbai</span>
-          </Categorycard>
-          <Categorycard>
-            <Image src={pune} alt="engg" />
-            <span>Pune</span>
-          </Categorycard>
-          <Categorycard>
-            <Image src={kolkata} alt="engg" />
-            <span>Kolkata</span>
-          </Categorycard>
-          <Categorycard>
-            <Image src={chennai} alt="engg" />
-            <span>Chennai</span>
-          </Categorycard>
-          <Categorycard>
-            <Image src={bengaluru} alt="engg" />
-            <span>Bengaluru</span>
-          </Categorycard>
-          <Categorycard>
-            <Image src={hyderabad} alt="engg" />
-            <span>Hyderabad</span>
-          </Categorycard>
-          <Categorycard>
-            <Image src={wfh} alt="engg" />
-            <span>Work From Home</span>
-          </Categorycard>
-        </Lowerdiv>
-      </Container>
-      <HeroSearch>
-        <HeroSearchLeft>
-          <Img src="./earbugs.svg" />
-        </HeroSearchLeft>
-        <HeroSearchRight>
-          <Search>
-            <SearchIcon>
-              <SearchImg src="./search.svg" />
-            </SearchIcon>
-            <SearchField>
-              <Input placeholder="Search Location here..."></Input>
-            </SearchField>
-            <SearchButton>
-              <ButtonSearch>Search</ButtonSearch>
-            </SearchButton>
-          </Search>
-        </HeroSearchRight>
-      </HeroSearch>
-    </>
+        <Wrap>
+          <img src="/bengaluru.svg" alt="" />
+          <h5>Bengaluru</h5>
+        </Wrap>
+
+        <Wrap>
+          <img src="/chennai.svg" alt="" />
+          <h5>Chennai</h5>
+        </Wrap>
+
+        <Wrap>
+          <img src="/hyderabad.svg" alt="" />
+          <h5>New Delhi NCR</h5>
+        </Wrap>
+
+        <Wrap>
+          <img src="/kolkata.svg" alt="" />
+          <h5>New Delhi NCR</h5>
+        </Wrap>
+      </Bottom>
+    </Container>
   );
 }
 
 export default Locations;
+
+const Top = styled.div`
+  margin-bottom: 3rem;
+`;
+const Left = styled.div`
+  h1 {
+    font-weight: 800;
+    font-size: 72px;
+    color: #404366;
+  }
+`;
+const Right = styled.div`
+  p {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 32px;
+    color: #18191f;
+  }
+`;
+const Bottom = styled.div`
+  display: flex;
+  margin-inline: auto;
+  max-width: min(100%, 60rem);
+  flex-flow: row wrap;
+  gap: 20px;
+`;
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  height: 200px;
+  flex-basis: 23%;
+  img {
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 900px) {
+    flex-basis: 31%;
+  }
+  @media (max-width: 600px) {
+    flex-basis: 47%;
+  }
+`;

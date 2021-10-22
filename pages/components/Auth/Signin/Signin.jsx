@@ -43,7 +43,7 @@ const Signin = () => {
           router.push("/");
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.response.data.message);
         });
     },
   });
@@ -200,7 +200,10 @@ const Signin = () => {
             <Footer>
               <Button type="submit">Sign In</Button>
               <p>
-                New User? <Link href="/signup">Sign Up</Link>
+                New User?{" "}
+                <Link href="/signup">
+                  <StyledLink>SignUp</StyledLink>
+                </Link>
               </p>
             </Footer>
           </Form>
@@ -333,6 +336,7 @@ const Form = styled.form`
   .fields {
     display: flex;
     flex-direction: column;
+    margin-bottom: 4em;
   }
   .bottom {
     display: flex;
@@ -392,4 +396,13 @@ const ErrorBox = styled.div`
   background-color: #f86d6d;
   color: #fff;
   padding: 17px;
+`;
+
+const StyledLink = styled.a`
+  color: #f26a7e;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  &:active {
+    transform: scale(0.8);
+  }
 `;

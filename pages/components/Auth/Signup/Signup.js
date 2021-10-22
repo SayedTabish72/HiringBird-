@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { useState } from "react";
-import axios from "axios";
-
 import {
   Container,
   Image1,
@@ -32,8 +30,11 @@ import {
   Pink,
 } from "./styles/Signup.styled";
 import { signIn } from "next-auth/react";
+import axios from "../../../../utils/axios";
+import router, { useRouter } from "next/router";
 
 function Signup() {
+  const router = useRouter();
   const [fname, setFname] = useState("");
   // const [lname, setLname] = useState("");
   const [email, setemail] = useState("");
@@ -49,9 +50,15 @@ function Signup() {
       password: pass,
     };
 
-    axios.post("http://localhost:8000/register", userdata).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post("/register", userdata)
+      .then((res) => {
+        console.log(res.data);
+        router.push("/signin");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+      });
   };
 
   return (
