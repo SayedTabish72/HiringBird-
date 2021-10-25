@@ -81,10 +81,11 @@ export const Button = styled.button`
   background-color: #f26a7e;
   margin-right: 20px;
   color: #fff;
+  padding: 17px 35px;
   font-size: 16px;
   border: none;
-  padding: 10px 26px;
-  border-radius: 4px;
+  margin-bottom: 1em;
+  border-radius: 6px;
   &:hover {
     background-color: #fc5b73;
     transition: all 0.3s ease;
