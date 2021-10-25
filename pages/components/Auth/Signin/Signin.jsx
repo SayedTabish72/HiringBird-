@@ -44,6 +44,7 @@ const Signin = () => {
         })
         .catch((err) => {
           console.log(err.response.data.message);
+          setErrorText(err.response.data.message);
         });
     },
   });
@@ -336,7 +337,6 @@ const Form = styled.form`
   .fields {
     display: flex;
     flex-direction: column;
-    margin-bottom: 4em;
   }
   .bottom {
     display: flex;
