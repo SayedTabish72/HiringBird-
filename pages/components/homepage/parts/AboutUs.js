@@ -1,24 +1,27 @@
 import React from "react";
 import { Container } from "./styles/CommonComponents/Container.styled";
 import styled from "styled-components";
+import Tabs from "../Tabs";
 
+const TabItem = (props) => <div {...props} />;
 const AboutUs = () => {
   return (
     <Container>
       <Split>
         <Left>
-          <div className="head">
-            <h1>About us</h1>
-            <h1>Our Mission</h1>
-          </div>
-
-          <div className="body">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-              deserunt vero quis unde. Vitae in impedit quo eos maxime illo
-              perferendis ducimus, magni tenetur accusantium quis facere iure,
-              molestiae sint!
-            </p>
+          <div className="tabs">
+            <Tabs defaultIndex="1" onTabClick={console.log}>
+              <TabItem label="About us" index="1">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit
+                id illum sint, at minus est laudantium aliquam recusandae
+                debitis exercitationem iusto error excepturi repellat earum esse
+                quibusdam. Consequuntur, dolor quidem.
+              </TabItem>
+              <TabItem label="Our mission" index="2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptate, pariatur.
+              </TabItem>
+            </Tabs>
           </div>
         </Left>
         <Right>
@@ -42,6 +45,9 @@ const Left = styled.div`
   flex-basis: 50%;
   @media (max-width: 860px) {
     margin-top: 0;
+  }
+  .tabs {
+    margin-top: 3rem;
   }
   .head {
     display: flex;
@@ -89,4 +95,8 @@ const Right = styled.div`
     max-width: 100%;
     margin-inline: auto;
   }
+`;
+
+const CustomTabs = styled(Tabs)`
+  padding: 3rem;
 `;
