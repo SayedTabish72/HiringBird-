@@ -113,7 +113,7 @@ const Belowred = styled.h3`
 position: absolute;
 width: 565px;
 height: 32px;
-left: 182px;
+left: 162px;
 top: 49vh;
 
 font-family: Inter;
@@ -178,7 +178,7 @@ border-radius: 6px;
 font-family: Inter;
 color: white;
 cursor: pointer;
-@media  screen and (max-width:620px){
+@media  (max-width:620px){
     /* button/big/hover */
 transform:scale(3.3);
 
@@ -218,11 +218,12 @@ height: 159.57px;
 margin-left: 125vh;
 top: 10.79px;
 margin-top: -9vh;
+padding-top:10px;
 
 
 position:static;
 
-@media  screen and (max-width: 620px) {
+@media  (max-width: 620px) {
     transform: scale(3);
     margin-left: 55vh;
   margin-top: 100vh;
@@ -244,9 +245,9 @@ const Paypal2 = styled.div`
 
 width: 159.57px;
 height: 159.57px;
-margin-left: 130vh;
+margin-left: 128vh;
 margin-top: 43.79px;
-padding-top: 30px;
+padding-top: 35px;
 position:static;
 @media  screen and (max-width: 620px) {
     transform: scale(2.8);
@@ -268,7 +269,7 @@ position:static;
 const Mc1 = styled.div`
 /* Logo 6 */
 
-
+margin-left: 145vh;
 
 width: 159.57px;
 height: 159.57px;
@@ -278,7 +279,7 @@ margin-top: -355px;
 
 filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
 
-@media  only screen and  (max-width: 620px) {
+@media   (max-width: 620px) {
     transform: scale(3);
     margin-left: 123vh;
   margin-top: -50vh;
@@ -296,11 +297,11 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-margin-left: 1210px;
+margin-left: 1200px;
 margin-top: 55px;
 padding-top:20px;
 position:static;
-@media  screen and (max-width: 620px) {
+@media  (max-width: 620px) {
     transform: scale(3);
     margin-left: 120vh;
   margin-top: -2vh;
@@ -321,20 +322,21 @@ top: 10.79px;
 position: static;
 width: 159.57px;
 height: 159.57px;
-padding-left: 60px;
+margin-left: 165vh;
 margin-top: -370px;
 
 position:static;
+
 filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
+
 /* Inside Auto Layout */
-@media  screen and  (max-width: 620px) {
+@media   (max-width: 620px) {
     transform: scale(3);
-    margin-left: 160vh;
-  margin-top: -55vh;
+    margin-left: 180vh;
+  margin-top: -54vh;
+  padding-top:9px;
 }
-@media (min-width: 621px) and (max-width: 1679px){
-  margin-left: 1250px;
-}
+
 
 `;
  const Sf2 = styled.div`
@@ -347,15 +349,14 @@ margin-left: 1370px;
 margin-top: 55px;
 padding-top:20px;
 position:static;
-@media  screen and (max-width: 620px) {
+@media (max-width: 620px) {
     transform: scale(3);
     margin-left: 180vh;
   margin-top: -2vh;
   padding-top:33vh;
 }
-@media (min-width: 621px ) and (max-width: 1679px){
-  margin-left: 168vh;
-  padding-top: 4vh;
+@media (max-width:1320px){
+  margin-left: 170vh;
 }
  `;
 const Blu = styled.div`
@@ -366,36 +367,38 @@ height: 159.57px;
 margin-left: 120vh;
 margin-top: -33vh;
 
-@media  screen and (max-width: 620px) {
+@media  (max-width: 620px) {
     transform: scale(3);
     margin-left: 25vh;
   margin-top: -10vh;
-  padding-top:23px;
+  padding-top:73px;
 }
-@media (min-width: 621px) and (max-width: 1679px){
-  margin-top: -34vh;
-  padding-top: -4px;
+@media (max-width:1330px){
+  margin-top: -40vh;
+  position:static;
 }
+
 
 `;
  const Slack = styled.div`
  
  width: 159.57px;
 height: 159.57px;
-margin-left: 142vh;
-margin-top: 20vh;
-padding-top: 201vh;
+margin-left: 139vh;
+margin-top: -20vh;
 
-@media  screen and  (max-width: 620px) {
+
+@media    (max-width: 620px) {
     transform: scale(3);
     margin-left: 85vh;
   margin-top: -17vh;
-  padding-top:10px;
+  padding-top:64px;
 }
-@media (min-width: 621px ) and (max-width: 1679px){
-  padding-top: 0px;
-  margin-top: -20vh;
+@media (max-width:1330px){
+  margin-top: -24vh;
 }
+
+
 
  `;
   const Greenmonke = styled.div`
@@ -403,18 +406,18 @@ padding-top: 201vh;
   width: 159.57px;
   height: 159.57px;
   margin-left: 160vh;
-  padding-top: 14vh;
+  margin-top:-20vh;
   top: -10.79px;
   @media  screen and (max-width: 620px) {
     transform: scale(3);
-    margin-left: 150vh;
-  margin-top: -22vh;
-  padding-top:5px;
-}
-@media screen and  (max-width: 1679px){
-  margin-top: -33vh;
+    margin-left: 145vh;
+  margin-top: -19vh;
+  padding-top:65px;
 }
 
+@media (max-width:1330px){
+  margin-top: -23vh;
+}
   
   `;
   const Db = styled.div`
@@ -424,14 +427,14 @@ padding-top: 201vh;
   margin-left: 179vh;
   margin-top: -20vh;
   top: -10.79px;
-  @media  screen and (max-width: 620px) {
+  @media  (max-width: 620px) {
     transform: scale(3.0);
-    margin-left: 210vh;
-  margin-top: -25vh;
-  padding-top:6.2px;
+    margin-left: 200vh;
+  margin-top: -35vh;
+  padding-top:70px;
 }
-@media screen and  (max-width: 1679px){
-  margin-top: -7vh;
+@media (max-width:1330px){
+  margin-top: -24vh;
 }
 
   `;
