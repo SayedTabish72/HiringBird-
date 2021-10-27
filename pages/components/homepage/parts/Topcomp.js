@@ -7,11 +7,12 @@ import blu from "../icons/blu.svg"
 import slack from "../icons/slack.svg"
 import gm from "../icons/gm.svg"
 import db from "../icons/db.svg"
+import { Container } from "./styles/CommonComponents/Container.styled";
 import { Homepagepurple, Topcomptext,Redfont,Belowred,Joinbut,Paypal1,Paypal2,Mc1,Mc2,Sf1,Sf2,Blu,Slack,Greenmonke,Db,Fade } from "./styles/TopComp.styled";
 
 const Topcomp = () => {
   return (
-    <>
+    <Container>
     <Homepagepurple>
           <Topcomptext className="normal">Top Companies <br/> Hiring</Topcomptext>
 
@@ -37,7 +38,7 @@ renowned companies </Redfont>
           </Homepagepurple>
          
       
-  </>
+  </Container>
   )
 }
 
