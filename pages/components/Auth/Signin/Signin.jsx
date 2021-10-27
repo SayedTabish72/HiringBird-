@@ -4,8 +4,6 @@ import styled from "styled-components";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import axios from "../../../../utils/axios";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
@@ -15,39 +13,6 @@ const Signin = () => {
   const router = useRouter();
   const [errorText, setErrorText] = useState("");
   const [showPass, setShowPass] = useState(false);
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email address").required("Required"),
-      password: Yup.string().required("Please Enter your password"),
-      // .matches(
-      //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-      // ),
-    }),
-    onSubmit: (values) => {
-      console.log({ values });
-      axios
-        .post("/login", values)
-        .then((res) => {
-          console.log("user", res.data);
-          // store tokens in localstorage
-          localStorage.setItem("access_token", res.data.accessToken);
-          localStorage.setItem("refresh_token", res.data.refreshToken);
-          // store user in redux
-          // redirect to homepage
-          router.push("/");
-        })
-        .catch((err) => {
-          console.log(err.response.data.message);
-          setErrorText(err.response.data.message);
-        });
-    },
-  });
 
   return (
     <OuterContainer>
@@ -68,7 +33,7 @@ const Signin = () => {
           />
         </Left>
         <Right>
-          <Form onSubmit={formik.handleSubmit}>
+          <Form>
             <h1>Welcome Back!</h1>
             <h2>Sign in</h2>
 
@@ -110,21 +75,12 @@ const Signin = () => {
                 name="email"
                 type="email"
                 label="Email"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-                error={formik.touched.email && formik.errors.email}
                 placeholder="you@example.com"
                 margin="normal"
                 fullWidth={true}
                 InputLabelProps={{
                   shrink: true,
                 }}
-                helperText={
-                  formik.touched.email && formik.errors.email ? (
-                    <div>{formik.errors.email}</div>
-                  ) : null
-                }
                 variant="standard"
               />
               <CustomTextField
@@ -138,15 +94,6 @@ const Signin = () => {
                 id="password"
                 name="password"
                 label="Password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-                error={formik.touched.password && formik.errors.password}
-                helperText={
-                  formik.touched.password && formik.errors.password ? (
-                    <div>{formik.errors.password}</div>
-                  ) : null
-                }
                 type={showPass ? "text" : "password"}
                 autoComplete="current-password"
                 variant="standard"
