@@ -26,7 +26,7 @@ function Home() {
       <Locations />
       <AboutUs />
       <Section />
-      <Topcomp/>
+      {/* <Topcomp/> */}
       <Founder />
     </>
   );
