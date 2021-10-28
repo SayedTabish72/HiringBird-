@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Links,
@@ -16,7 +16,12 @@ import Link from "next/link";
 function Navbar() {
   const { data: session, status } = useSession();
   console.log({ session, status });
+  const [user, setUser] = useState(null);
   const [click, setClick] = useState(false);
+  console.log(user);
+  useEffect(() => {
+    setUser(localStorage.getItem("access_token"));
+  }, []);
 
   const handleClick = () => {
     setClick(!click);
@@ -31,16 +36,17 @@ function Navbar() {
         <Menu src="./menu.svg" onClick={handleClick}></Menu>
 
         <Links onClick={handleClick} click={click}>
-          <StyledLink>Post an Internship</StyledLink>
-          <StyledLink>Find Internships</StyledLink>
-          {session?.user ? (
-            <Avatar
-              onClick={() => signOut()}
-              src={session?.user?.image}
-              alt=""
-            />
+          {user ? (
+            <>
+              <StyledLink>About Us</StyledLink>
+              <StyledLink>Contact Us</StyledLink>
+              <Button>Find internships</Button>
+            </>
           ) : (
             <>
+              <StyledLink>Post an Internship</StyledLink>
+              <StyledLink>Find Internships</StyledLink>
+
               <Link href="/signin">
                 <StyledLink>Sign In</StyledLink>
               </Link>
