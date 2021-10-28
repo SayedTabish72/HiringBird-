@@ -101,6 +101,9 @@ const Left = styled.div`
     font-size: 72px;
     color: #404366;
     margin-bottom: 2rem;
+    @media (max-width: 600px) {
+      font-size: 44px;
+    }
   }
 `;
 const Right = styled.div`

@@ -97,24 +97,32 @@ const BottomSplit = styled.div`
   margin-top: 2rem;
   width: 90%;
   border: 1px solid #c9cbe2;
-  padding: 6px 10px;
+  position: relative;
   border-radius: 4px;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
   margin-inline: auto;
   img {
-    height: 2rem;
+    height: 1.6rem;
+    margin-left: 0.5em;
   }
   input {
     flex: 1;
-    padding: 0.7rem;
+    padding: 0.7rem 0;
+
     margin: 0 0.5rem;
     border: none;
     outline: none;
     font-size: 1rem;
   }
   button {
+    position: absolute;
     background: #404366;
+    right: 0;
     border-radius: 4px;
-    padding: 0.8rem 1.3rem;
+    padding: 0 40px;
+    height: 100%;
     color: #fff;
     cursor: pointer;
     border: none;
