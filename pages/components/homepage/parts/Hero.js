@@ -18,10 +18,10 @@ import {
   SearchField,
   SearchButton,
   Search,
-  Input,
   ButtonSearch,
   SearchImg,
 } from "./styles/Hero.styled";
+import {TextField, Input} from "../parts/styles/CommonComponents/Textbox.styled"
 
 function Hero() {
   return (
@@ -53,9 +53,9 @@ function Hero() {
             <SearchIcon>
               <SearchImg src="./search.svg" />
             </SearchIcon>
-            <SearchField>
+            <TextField>
               <Input placeholder="Search Internships here..."></Input>
-            </SearchField>
+            </TextField>
             <SearchButton>
               <ButtonSearch>Search</ButtonSearch>
             </SearchButton>
