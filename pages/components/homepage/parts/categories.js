@@ -1,91 +1,163 @@
 import React from "react";
-import {
-  Container,
-  Divstart,
-  Innerdiv1,
-  Innerdiv2,
-  Span50,
-  Spanright,
-  Spanright2,
-  Lowerdiv,
-  Categorycard,
-  Button,
-  Categorycard1,
-  Span1,
-} from "./styles/Categories.styled";
-import Image from "next/image";
-import engg from "../../../../public/engg.svg";
-import commerce from "../../../../public/commerce.svg";
-import manage from "../../../../public/level.svg";
-import medical from "../../../../public/medical.svg";
-import science from "../../../../public/science.svg";
-import LT from "../../../../public/LT.svg";
-import humanities from "../../../../public/humanities.svg";
-import law from "../../../../public/law.svg";
-import arts from "../../../../public/arts.svg";
+import styled from "styled-components";
+import { Container } from "./styles/CommonComponents/Container.styled";
 
 function Categories() {
   return (
     <Container>
-      <Divstart>
-        <Innerdiv1>
-          <Span50>50+</Span50>
-          <Span1>Categories</Span1>
-        </Innerdiv1>
-        <Innerdiv2>
-          <Spanright>
+      <Top>
+        <Left>
+          <h1>
+            50+ <br /> Categories
+          </h1>
+        </Left>
+        <Right>
+          <p>
             Explore our handpicked catagory of Internships and unlock your
             journey with us today! Select one to view the internships
-          </Spanright>
-          <br />
-          <Spanright2>View all Internships</Spanright2>
-        </Innerdiv2>
-      </Divstart>
-
-      <Lowerdiv>
-        <Categorycard>
-          {/* <Logo src='../../public/engg.svg' alt="engg"/> */}
-          <Image src={engg} alt="engg" />
-          <span>Engineering</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={commerce} alt="engg" />
-          <span>Commerce</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={manage} alt="engg" />
-          <span>Management</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={medical} alt="engg" />
-          <span>Medical</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={science} alt="engg" />
-          <span>Science</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={LT} alt="engg" />
-          <span>L.T.</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={humanities} alt="engg" />
-          <span>Humanities</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={law} alt="engg" />
-          <span>Law</span>
-        </Categorycard>
-        <Categorycard>
-          <Image src={arts} alt="engg" />
-          <span>Arts</span>
-        </Categorycard>
-        <Categorycard1>
-          <Button>View more</Button>
-        </Categorycard1>
-      </Lowerdiv>
+          </p>
+          <h5>View all internships</h5>
+        </Right>
+      </Top>
+      <Bottom>
+        <Wrap>
+          <img src="engg.svg" alt="" />
+          <h3>Engineering</h3>
+        </Wrap>
+        <Wrap>
+          <img src="commerce.svg" alt="" />
+          <h3>Commerce</h3>
+        </Wrap>
+        <Wrap>
+          <img src="level.svg" alt="" />
+          <h3>Management</h3>
+        </Wrap>
+        <Wrap>
+          <img src="medical.svg" alt="" />
+          <h3>Medical</h3>
+        </Wrap>
+        <Wrap>
+          <img src="science.svg" alt="" />
+          <h3>Science</h3>
+        </Wrap>
+        <Wrap>
+          <img src="LT.svg" alt="" />
+          <h3>L.T</h3>
+        </Wrap>
+        <Wrap>
+          <img src="humanities.svg" alt="" />
+          <h3>Humanities</h3>
+        </Wrap>
+        <Wrap>
+          <img src="law.svg" alt="" />
+          <h3>Law</h3>
+        </Wrap>
+        <Wrap>
+          <img src="arts.svg" alt="" />
+          <h3>Arts</h3>
+        </Wrap>
+        <Wrap>
+          <button>View more</button>
+        </Wrap>
+      </Bottom>
     </Container>
   );
 }
 
 export default Categories;
+
+const Top = styled.div`
+  display: flex;
+  * {
+    flex-basis: 100%;
+  }
+  margin-bottom: 5%;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+const Bottom = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  @media (max-width: 1160px) {
+    flex-direction: column;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+`;
+const Left = styled.div`
+  h1 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 72px;
+    color: #404366;
+    margin-bottom: 2rem;
+    @media (max-width: 600px) {
+      font-size: 44px;
+    }
+  }
+`;
+const Right = styled.div`
+  margin-left: 2rem;
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    color: #18191f;
+    margin-bottom: 4%;
+  }
+  h5 {
+    text-decoration: underline;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #18191f;
+  }
+`;
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 7px;
+  &:first-child {
+    background: #fff8f8;
+  }
+  &:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    padding: 20%;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+  button {
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 1px solid #f26a7e;
+    background-color: #fff;
+    cursor: pointer;
+  }
+`;
