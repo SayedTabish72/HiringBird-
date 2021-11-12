@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import Navbar from "./components/navbar/navbar";
-import Search from "./components/internshipDetails/Search";
-import Filter from "./components/internshipDetails/Filter";
-import Footer from "./components/internshipDetails/Footer";
-import HeadBar from "./components/internshipDetails/HeadBar";
+import Navbar from "../components/navbar/navbar";
+import Search from "../components/internshipDetails/Search";
+import Filter from "../components/internshipDetails/Filter";
+import Footer from "../components/internshipDetails/Footer";
+import HeadBar from "../components/internshipDetails/HeadBar";
 
-export default function Home() {
+export default function home() {
   return (
     <>
       <Head>
