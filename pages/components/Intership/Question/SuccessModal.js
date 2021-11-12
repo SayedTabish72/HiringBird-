@@ -12,6 +12,22 @@ const SuccessModal = ({ show, setShowModal }) => {
   return (
     <Wrapper ref={modalRef} onClick={closeModal} show={show}>
       <Container>
+        <CloseBtn
+          onClick={() => setShowModal(false)}
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </CloseBtn>
         <img
           className="celebrate"
           src="/intershipdetail/success-icon.png"
@@ -92,8 +108,17 @@ const Wrapper = styled.div`
   animation: ${fadeInWrapper} 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
+const CloseBtn = styled.svg`
+  color: #f26a7e;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+`;
+
 const Container = styled.div`
   background-color: #fff;
+  position: relative;
   margin-inline: auto;
   margin: 2.5rem;
   height: fit-content;

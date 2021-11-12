@@ -44,7 +44,7 @@ const Body = () => {
           <h5>
             Q.Why do you think you are suitable for this role? <span>*</span>
           </h5>
-          <input type="text" placeholder="Type here" />
+          <textarea rows="6" placeholder="Type here" />
           <div className="upload-file">
             <p>or</p>
             <CustomFileInput>
@@ -118,6 +118,7 @@ export default Body;
 const Wrapper = styled.div`
   width: min(95%, 80rem);
   padding: 2rem 2rem;
+  margin-bottom: 1em;
   @media (max-width: 600px) {
     padding: 3%;
   }
@@ -147,6 +148,13 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5em;
+    textarea {
+      outline: none;
+      border: 1px solid #c9cbe2;
+      padding: 1em;
+      font-family: inter, sans-serif;
+      border-radius: 5px;
+    }
     .upload-file {
       display: flex;
       margin-left: 1.2em;
