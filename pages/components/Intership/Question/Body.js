@@ -1,106 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import SuccessModal from "./SuccessModal";
 
 const Body = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSubmit = () => {
+    setShowModal(true);
+  };
   return (
-    <Wrapper>
-      <div className="head">
-        <h1>UI/UX Design internship at Skilzen</h1>
-      </div>
-
-      <h2>Assessment questions</h2>
-      <div className="question">
-        <h5>
-          Q.How many years of work experience do you have using Figma/sketch
-          software ? <span>*</span>
-        </h5>
-        <input type="text" placeholder="e.g. 1 (only numerical Value)" />
-      </div>
-
-      <div className="question">
-        <h5>
-          Q.Rate your self in figma tool skill out of 5? Where 5 being highest{" "}
-          <span>*</span>
-        </h5>
-        <input type="text" placeholder="e.g. 1 (only numerical Value)" />
-      </div>
-
-      <div className="question">
-        <h5>
-          Q.Add the link to your design portfolio. <span>*</span>
-        </h5>
-        <input type="text" placeholder="Add link" />
-      </div>
-
-      <div className="question">
-        <h5>
-          Q.Why do you think you are suitable for this role? <span>*</span>
-        </h5>
-        <input type="text" placeholder="Type here" />
-        <div className="upload-file">
-          <p>or</p>
-          <CustomFileInput>
-            <label htmlFor="upload-photo">
-              <span>Upload file</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className=""
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="#A9ACCB"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                />
-              </svg>
-            </label>
-            <input type="file" name="photo" id="upload-photo" />
-          </CustomFileInput>
+    <>
+      <SuccessModal show={showModal} setShowModal={setShowModal} />
+      <Wrapper>
+        <div className="head">
+          <h1>UI/UX Design internship at Skilzen</h1>
         </div>
-      </div>
 
-      <ResumeContainer>
-        <h1>
-          Resume <span>*</span>
-        </h1>
-        <div className="flex">
-          {/* checkbox */}
-          <CustomCheckbox className="child">
-            <input type="checkbox" id="check" hidden />
-            <label htmlFor="check"></label>
-            <span>Use resume.pdf</span>
-          </CustomCheckbox>
-          {/* or letter */}
-          <p className="child">or</p>
-          {/* upload file btn */}
-          <CustomFileInput className="child">
-            <label htmlFor="upload-photo">
-              <span>Upload file</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className=""
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="#A9ACCB"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                />
-              </svg>
-            </label>
-            <input type="file" name="photo" id="upload-photo" />
-          </CustomFileInput>
+        <h2>Assessment questions</h2>
+        <div className="question">
+          <h5>
+            Q.How many years of work experience do you have using Figma/sketch
+            software ? <span>*</span>
+          </h5>
+          <input type="text" placeholder="e.g. 1 (only numerical Value)" />
         </div>
-      </ResumeContainer>
 
-      <button>Submit</button>
-    </Wrapper>
+        <div className="question">
+          <h5>
+            Q.Rate your self in figma tool skill out of 5? Where 5 being highest{" "}
+            <span>*</span>
+          </h5>
+          <input type="text" placeholder="e.g. 1 (only numerical Value)" />
+        </div>
+
+        <div className="question">
+          <h5>
+            Q.Add the link to your design portfolio. <span>*</span>
+          </h5>
+          <input type="text" placeholder="Add link" />
+        </div>
+
+        <div className="question">
+          <h5>
+            Q.Why do you think you are suitable for this role? <span>*</span>
+          </h5>
+          <input type="text" placeholder="Type here" />
+          <div className="upload-file">
+            <p>or</p>
+            <CustomFileInput>
+              <label htmlFor="upload-photo">
+                <span>Upload file</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className=""
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#A9ACCB"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                  />
+                </svg>
+              </label>
+              <input type="file" name="photo" id="upload-photo" />
+            </CustomFileInput>
+          </div>
+        </div>
+
+        <ResumeContainer>
+          <h1>
+            Resume <span>*</span>
+          </h1>
+          <div className="flex">
+            {/* checkbox */}
+            <CustomCheckbox className="child">
+              <input type="checkbox" id="check" hidden />
+              <label htmlFor="check"></label>
+              <span>Use resume.pdf</span>
+            </CustomCheckbox>
+            {/* or letter */}
+            <p className="child">or</p>
+            {/* upload file btn */}
+            <CustomFileInput className="child">
+              <label htmlFor="upload-photo">
+                <span>Upload file</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className=""
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#A9ACCB"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                  />
+                </svg>
+              </label>
+              <input type="file" name="photo" id="upload-photo" />
+            </CustomFileInput>
+          </div>
+        </ResumeContainer>
+
+        <button onClick={handleSubmit}>Submit</button>
+      </Wrapper>
+    </>
   );
 };
 
@@ -173,6 +182,7 @@ const Wrapper = styled.div`
     border: none;
     font-weight: 600;
     font-size: 14px;
+    cursor: pointer;
     border-radius: 4px;
     align-self: flex-end;
     margin-top: 2em;
