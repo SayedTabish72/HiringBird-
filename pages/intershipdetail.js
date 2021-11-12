@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import styled from "styled-components";
-
+import Link from "next/link";
 const intershipdetail = () => {
   return (
     <>
@@ -72,7 +72,23 @@ const intershipdetail = () => {
               <h2>UI/UX Design Intern</h2>
               <div className="flex">
                 <h4>Skilzen</h4>
-                <a href="#">www.skilzen.com</a>
+                <div className="link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#F898A6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                  <a href="#">www.skilzen.com</a>
+                </div>
               </div>
               <div className="flex">
                 <p>2 Days ago</p>
@@ -113,7 +129,10 @@ const intershipdetail = () => {
               </div>
             </div>
             <div className="bottom">
-              <button>Apply Now</button>
+              <Link href="/intership/questions">
+                <button>Apply Now</button>
+              </Link>
+
               <div className="share">
                 <img src="/intershipdetail/whatsapp-icon.png" alt="" />
                 <p>Share</p>
@@ -279,6 +298,15 @@ const Body = styled.div`
         .flex {
           display: flex;
           align-items: center;
+          margin-top: 0.5em;
+          .link {
+            margin-left: 0.6em;
+            display: flex;
+            align-items: center;
+            svg {
+              height: 1.2rem;
+            }
+          }
           h4 {
             font-weight: 500;
             font-size: 20px;
@@ -286,7 +314,7 @@ const Body = styled.div`
           }
           a {
             color: #f898a6;
-            margin-left: 0.6em;
+            margin-left: 0.2em;
           }
           p + p {
             margin-left: 0.6em;
