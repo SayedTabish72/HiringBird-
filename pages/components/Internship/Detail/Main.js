@@ -90,7 +90,7 @@ const Main = () => {
             </Wrap>
           </div>
           <div className="bottom">
-            <Link href="/intership/questions">
+            <Link href="/internship/questions">
               <button>Apply Now</button>
             </Link>
             <ShareBtn>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import Questions from "../components/Intership/Question";
+import Questions from "../components/Internship/Question";
 
 const questions = () => {
   return (
