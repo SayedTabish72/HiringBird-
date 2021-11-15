@@ -10,8 +10,8 @@ export const HeadContainer = styled.div`
   margin-bottom: -50px;
 `;
 
-export const HeadLeft = styled.div` 
-flex: 1;
+export const HeadLeft = styled.div`
+  flex: 1;
 `;
 
 export const HeadTitle = styled.h4`
@@ -25,8 +25,7 @@ export const HeadTitle = styled.h4`
   color: #404366;
 `;
 
-export const DropdownWrap = styled.div`
-`
+export const DropdownWrap = styled.div``;
 
 export const HeadRight = styled.div`
   text-align: right;
@@ -43,5 +42,5 @@ export const HeadIcon = styled.img`
 `;
 
 export const HeaderIcons = styled.div`
-  
+  margin-left: 20px;
 `;
