@@ -130,7 +130,7 @@ const Main = () => {
           </p>
         </JobDesc>
         <Responsibility className="common-container">
-          <h1>Selected intern's day-to-day responsibilities include:</h1>
+          <h1>Selected interns day-to-day responsibilities include:</h1>
           <p>
             1. Preparing and presenting designs, wireframes, and prototypes to
             internal teams and key stakeholders <br /> 2. Developing interaction

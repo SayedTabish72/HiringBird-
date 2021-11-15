@@ -1,34 +1,33 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FilterContainer, Img, Wrap } from "./styles/Filter.styled";
 import OutlineButton from "./OutlineButton";
 import Dropdown from "./Dropdown";
 
 function Filter() {
-
-  const [options, setOptions] = useState([
-    { value: "2k-4k", check: false },
-    { value: "4k-6k", check: false },
-    { value: "6k-8k", check: false },
-    { value: "8k&above", check: false },
-  ]);
-
   return (
     <FilterContainer>
       <Wrap>
         <Dropdown
           title="CATEGORY"
           options={[
-            { value: "2k-4k", check: false },
+            { value: "2k-4k", check: true },
             { value: "4k-6k", check: false },
-            { value: "6k-8k", check: false },
-            { value: "8k&above", check: false },
+            { value: "6k-8k", check: true },
+            { value: "8k & above", check: false },
           ]}
         />
       </Wrap>
       <Wrap>
         <Dropdown
           title="DURATION"
-          options={options}
+          options={[
+            { value: "1 month", check: true },
+            { value: "2 months", check: false },
+            { value: "3-4 months", check: true },
+            { value: "4-5 months", check: false },
+            { value: "6 months", check: false },
+            { value: "6 above", check: false },
+          ]}
         />
       </Wrap>
       <Wrap>
@@ -46,10 +45,10 @@ function Filter() {
         <Dropdown
           title="INTERNSHIP TYPE"
           options={[
-            { value: "2k-4k", check: false },
-            { value: "4k-6k", check: false },
-            { value: "6k-8k", check: false },
-            { value: "8k&above", check: false },
+            { value: "Part-time", check: false },
+            { value: "Full-time", check: false },
+            { value: "Internship", check: false },
+            { value: "Remote", check: false },
           ]}
         />
       </Wrap>

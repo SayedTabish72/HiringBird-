@@ -1,22 +1,8 @@
 import React, { useState } from "react";
-import {
-  DropdownSelect,
-  Option,
-  Img,
-  Options,
-  Checkbox,
-} from "./styles/Dropdown.styled";
+import { DropdownSelect, Option, Img, Options } from "./styles/Dropdown.styled";
 
 const Dropdown = ({ title, options }) => {
   const [show, setShow] = useState(false);
-  const handleClick = (e) => {
-    if(checked.includes(e.target.value)) {
-      const index = checked.indexOf(e.target.value);
-      checked.splice(index, 1);
-    } else {
-      checked.push(e.target.value);
-    }
-  }
 
   return (
     <DropdownSelect>
@@ -39,17 +25,20 @@ const Dropdown = ({ title, options }) => {
                 <Img onClick={() => setShow(!show)} src="/up-arrow.svg" />
               )}
             </Option>
-            {
-              options.map((option, index) => {
-                return(
-                  <Option key={index}>
-                    <label>{option.value}</label>
-                    <input type="checkbox" checked={option.check}/>
-                  </Option>
-                )
-              })
-            }
-          
+            {options.map((option, index) => {
+              return (
+                <Option key={index}>
+                  <label>{option.value}</label>
+                  <input
+                    type="checkbox"
+                    id="check"
+                    checked={option.check}
+                    hidden
+                  />
+                  <label htmlFor="check" className="check"></label>
+                </Option>
+              );
+            })}
           </Options>
         </>
       )}
@@ -58,4 +47,3 @@ const Dropdown = ({ title, options }) => {
 };
 
 export default Dropdown;
-
