@@ -3,19 +3,20 @@ import styled from "styled-components";
 import SuccessModal from "./SuccessModal";
 import axios from "../../../../utils/axios";
 import { useRouter } from "next/router";
+import ErrorModal from "./ErrorModal";
 
 const Body = () => {
   const router = useRouter();
   const { id } = router.query;
+  const [errorModal, setErrorModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const [values, setValues] = useState({
     experience: "",
     figma_skill: "",
     url: "",
     reason: "",
   });
-
-  console.log({ values });
 
   const [errors, setErrors] = useState({});
 
@@ -94,9 +95,23 @@ const Body = () => {
         .then((res) => {
           console.log(res.data);
           setShowModal(true);
+          setValues({
+            experience: "",
+            figma_skill: "",
+            url: "",
+            reason: "",
+          });
         })
         .catch((err) => {
           console.log(err.response.data);
+          setErrMsg(err.response.data.message);
+          setErrorModal(true);
+          setValues({
+            experience: "",
+            figma_skill: "",
+            url: "",
+            reason: "",
+          });
         });
     } else {
       console.log("solve the errors");
@@ -105,6 +120,12 @@ const Body = () => {
 
   return (
     <>
+      <ErrorModal
+        errorModal={errorModal}
+        setErrorModal={setErrorModal}
+        err={errMsg}
+        id={id}
+      />
       <SuccessModal show={showModal} setShowModal={setShowModal} />
       <Wrapper onSubmit={handleSubmit}>
         <div className="head">
