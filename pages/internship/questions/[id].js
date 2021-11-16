@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import Questions from "../components/Internship/Question";
+import Questions from "../../components/Internship/Question";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const questions = () => {
   return (

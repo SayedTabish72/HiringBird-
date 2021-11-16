@@ -4,16 +4,17 @@ const instance = axios.create({
   baseURL: "http://localhost:8800",
 });
 
-// instance.interceptors.request.use(
-//   (config) => {
-//     if (localStorage.getItem("profile")) {
-//       config.headers.Authorization = `Bearer ${JSON.stringify(
-//         localStorage.getItem("profile")
-//       )}`;
-//     }
-//     return config;
-//   },
-//   (err) => {}
-// );
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage?.getItem("access_token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    console.log(error);
+  }
+);
 
 export default instance;

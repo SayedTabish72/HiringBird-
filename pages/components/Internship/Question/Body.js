@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SuccessModal from "./SuccessModal";
+import axios from "../../../../utils/axios";
+import { useRouter } from "next/router";
 
 const Body = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const [showModal, setShowModal] = useState(false);
   const [values, setValues] = useState({
     experience: "",
     figma_skill: "",
     url: "",
     reason: "",
-    file: "",
   });
+
+  console.log({ values });
 
   const [errors, setErrors] = useState({});
 
@@ -63,9 +68,38 @@ const Body = () => {
     const errObj = validate(values);
     setErrors(errObj);
     if (checkObjEmpty(errObj)) {
-      setShowModal(true);
+      axios
+        .put(`/internship/apply/${id}`, {
+          answers: [
+            {
+              questionID:
+                "How many years of work experience do you have using Figma/sketch software",
+              answer: values.experience,
+            },
+            {
+              questionID:
+                "Rate your self in figma tool skill out of 5? Where 5 being highest",
+              answer: values.figma_skill,
+            },
+            {
+              questionID: "Add the link to your design portfolio",
+              answer: values.url,
+            },
+            {
+              questionID: "Why do you think you are suitable for this role",
+              answer: values.reason,
+            },
+          ],
+        })
+        .then((res) => {
+          console.log(res.data);
+          setShowModal(true);
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
     } else {
-      alert("Please fill all the fields correctly");
+      console.log("solve the errors");
     }
   };
 
@@ -84,7 +118,6 @@ const Body = () => {
             software ? <span>*</span>
           </h5>
           <input
-            style={{ color: `${errors.experience && "red"}` }}
             name="experience"
             value={values.experience}
             onChange={handleChange}
@@ -220,7 +253,7 @@ const Body = () => {
                   />
                 </svg>
               </label>
-              <input type="file" />
+              <input type="file" name="pdf" id="pdf" />
             </CustomFileInput>
           </div>
         </ResumeContainer>
