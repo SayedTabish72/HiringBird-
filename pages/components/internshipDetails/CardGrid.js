@@ -80,10 +80,15 @@ export default function CardGridComp({ internships }) {
 
               <CardButtons>
                 <button>Apply Now</button>
-                <button>
-                  View Details
-                  <Img src="/right-caret.svg" style={{ margin: "0 0 0 8px" }} />
-                </button>
+                <Link href={`/internship/${data.id}`}>
+                  <button>
+                    View Details
+                    <Img
+                      src="/right-caret.svg"
+                      style={{ margin: "0 0 0 8px" }}
+                    />
+                  </button>
+                </Link>
               </CardButtons>
             </Card>
           );

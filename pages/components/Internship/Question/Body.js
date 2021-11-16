@@ -1,17 +1,112 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SuccessModal from "./SuccessModal";
+import axios from "../../../../utils/axios";
+import { useRouter } from "next/router";
 
 const Body = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const [showModal, setShowModal] = useState(false);
+  const [values, setValues] = useState({
+    experience: "",
+    figma_skill: "",
+    url: "",
+    reason: "",
+  });
 
-  const handleSubmit = () => {
-    setShowModal(true);
+  console.log({ values });
+
+  const [errors, setErrors] = useState({});
+
+  const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/;
+  const rx_url =
+    /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+
+  function checkObjEmpty(obj) {
+    return Object.keys(obj).every((key) => obj[key] === "");
+  }
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.experience) {
+      errors.experience = "Required";
+    } else if (values.experience > 100) {
+      errors.experience = "Must be less than 100";
+    } else if (!rx_live.test(values.experience)) {
+      errors.experience = "Invalid";
+    }
+    if (!values.figma_skill) {
+      errors.figma_skill = "Required";
+    } else if (values.figma_skill > 5) {
+      errors.figma_skill = "Must be less than 5";
+    } else if (!rx_live.test(values.figma_skill)) {
+      errors.figma_skill = "Invalid";
+    }
+    if (!values.url) {
+      errors.url = "Required";
+    } else if (!rx_url.test(values.url)) {
+      errors.url = "Invalid";
+    }
+
+    if (!values.reason) {
+      errors.reason = "Required";
+    } else if (values.reason.length > 100) {
+      errors.reason = "Must be less than 100 words";
+    }
+
+    return errors;
   };
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("clicked");
+    const errObj = validate(values);
+    setErrors(errObj);
+    if (checkObjEmpty(errObj)) {
+      axios
+        .put(`/internship/apply/${id}`, {
+          answers: [
+            {
+              questionID:
+                "How many years of work experience do you have using Figma/sketch software",
+              answer: values.experience,
+            },
+            {
+              questionID:
+                "Rate your self in figma tool skill out of 5? Where 5 being highest",
+              answer: values.figma_skill,
+            },
+            {
+              questionID: "Add the link to your design portfolio",
+              answer: values.url,
+            },
+            {
+              questionID: "Why do you think you are suitable for this role",
+              answer: values.reason,
+            },
+          ],
+        })
+        .then((res) => {
+          console.log(res.data);
+          setShowModal(true);
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+    } else {
+      console.log("solve the errors");
+    }
+  };
+
   return (
     <>
       <SuccessModal show={showModal} setShowModal={setShowModal} />
-      <Wrapper>
+      <Wrapper onSubmit={handleSubmit}>
         <div className="head">
           <h1>UI/UX Design internship at Skilzen</h1>
         </div>
@@ -22,7 +117,21 @@ const Body = () => {
             Q.How many years of work experience do you have using Figma/sketch
             software ? <span>*</span>
           </h5>
-          <input type="text" placeholder="e.g. 1 (only numerical Value)" />
+          <input
+            name="experience"
+            value={values.experience}
+            onChange={handleChange}
+            type="text"
+            placeholder="e.g. 1 (only numerical Value)"
+          />
+          {errors.experience && (
+            <ErrorBox>
+              <p>{errors.experience}</p>
+              <svg width="20" height="20">
+                <circle cx="50%" cy="50%" r="8" fill="red" />
+              </svg>
+            </ErrorBox>
+          )}
         </div>
 
         <div className="question">
@@ -30,21 +139,63 @@ const Body = () => {
             Q.Rate your self in figma tool skill out of 5? Where 5 being highest{" "}
             <span>*</span>
           </h5>
-          <input type="text" placeholder="e.g. 1 (only numerical Value)" />
+          <input
+            name="figma_skill"
+            value={values.figma_skill}
+            onChange={handleChange}
+            type="text"
+            placeholder="e.g. 1 (only numerical Value)"
+          />
+          {errors.figma_skill && (
+            <ErrorBox>
+              <p>{errors.figma_skill}</p>
+              <svg width="20" height="20">
+                <circle cx="50%" cy="50%" r="8" fill="red" />
+              </svg>
+            </ErrorBox>
+          )}
         </div>
 
         <div className="question">
           <h5>
             Q.Add the link to your design portfolio. <span>*</span>
           </h5>
-          <input type="text" placeholder="Add link" />
+          <input
+            name="url"
+            value={values.url}
+            onChange={handleChange}
+            type="text"
+            placeholder="Add link"
+          />
+          {errors.url && (
+            <ErrorBox>
+              <p>{errors.url}</p>
+              <svg width="20" height="20">
+                <circle cx="50%" cy="50%" r="8" fill="red" />
+              </svg>
+            </ErrorBox>
+          )}
         </div>
 
         <div className="question">
           <h5>
             Q.Why do you think you are suitable for this role? <span>*</span>
           </h5>
-          <textarea rows="6" placeholder="Type here" />
+          <textarea
+            name="reason"
+            value={values.reason}
+            onChange={handleChange}
+            rows="6"
+            placeholder="Type here"
+          />
+          {errors.reason && (
+            <ErrorBox>
+              <p>{errors.reason}</p>
+              <svg width="20" height="20">
+                <circle cx="50%" cy="50%" r="8" fill="red" />
+              </svg>
+            </ErrorBox>
+          )}
           <div className="upload-file">
             <p>or</p>
             <CustomFileInput>
@@ -65,7 +216,7 @@ const Body = () => {
                   />
                 </svg>
               </label>
-              <input type="file" name="photo" id="upload-photo" />
+              <input type="file" name="" id="upload-photo" />
             </CustomFileInput>
           </div>
         </div>
@@ -102,12 +253,12 @@ const Body = () => {
                   />
                 </svg>
               </label>
-              <input type="file" name="photo" id="upload-photo" />
+              <input type="file" name="pdf" id="pdf" />
             </CustomFileInput>
           </div>
         </ResumeContainer>
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button type="submit">Submit</button>
       </Wrapper>
     </>
   );
@@ -115,7 +266,7 @@ const Body = () => {
 
 export default Body;
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   width: min(95%, 80rem);
   padding: 2rem 2rem;
   margin-bottom: 1em;
@@ -283,5 +434,26 @@ const CustomCheckbox = styled.div`
       transform: translate(-50%, -50%) rotate(45deg);
       opacity: 0;
     }
+  }
+`;
+
+const ErrorBox = styled.div`
+  border: 1px solid #ec1f28;
+  position: relative;
+  padding: 1em;
+  border-radius: 3px;
+  background: #fff9fa;
+  margin-top: 1em;
+  p {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.216454px;
+    color: #395185;
+  }
+  svg {
+    position: absolute;
+    left: -0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;

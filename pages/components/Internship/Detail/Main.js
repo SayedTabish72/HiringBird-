@@ -1,9 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import axios from "../../../../utils/axios";
 
 const Main = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const [internship, setInternship] = useState({});
+  useEffect(() => {
+    axios
+      .get(`/internship/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setInternship(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, [id]);
+
+  function convertDateTotimeago(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+      return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+  }
+
   return (
     <Wrapper>
       <BackBtn>
@@ -21,14 +63,14 @@ const Main = () => {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        <a href="#">Back</a>
+        <a onClick={() => router.back()}>Back</a>
       </BackBtn>
       <Body>
         <Head>
           <Left>
-            <h1>UI/UX Design Intern</h1>
+            <h1>{internship?.jobName}</h1>
             <Flex>
-              <h2>Skilzen</h2>
+              <h2>{internship?.companyName}</h2>
               <LinkContainer>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -44,12 +86,15 @@ const Main = () => {
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
                 </svg>
-                <a href="#">www.skilzen.com</a>
+                <a href="#">{internship?.companyUrl}</a>
               </LinkContainer>
             </Flex>
             <Flex>
-              <p>2 Days ago</p>
-              <p>15 Applicants applied</p>
+              <p>
+                {convertDateTotimeago(new Date(internship?.createdAt)) +
+                  "  ago"}
+              </p>
+              <p>{`${internship?.numberOfApplicants} Applicants applied`}</p>
             </Flex>
           </Left>
           <Right>
@@ -90,7 +135,7 @@ const Main = () => {
             </Wrap>
           </div>
           <div className="bottom">
-            <Link href="/intership/questions">
+            <Link href={`/internship/questions/${internship?.id}`}>
               <button>Apply Now</button>
             </Link>
             <ShareBtn>
@@ -102,32 +147,18 @@ const Main = () => {
         <Skills className="common-container">
           <h1>Skills(s) Required</h1>
           <div className="childrens">
-            <p>User Research</p>
-            <p>Wireframing</p>
-            <p>Sketch</p>
-            <p>Adobe XD</p>
-            <p>Figma</p>
+            {internship?.skills?.map((skill, i) => (
+              <p key={i}>{skill}</p>
+            ))}
           </div>
         </Skills>
         <About className="common-container">
           <h1>About Skilzen</h1>
-          <p>
-            Designers are responsible for the design of digitally-enabled
-            products and services. They use their broad skillset across the
-            service, interaction, and visual design domains to work on holistic
-            design solutions, from early-stage idea generation until detailed
-            design of service features and user stories in a digital product.
-          </p>
+          <p>{internship?.aboutCompany}</p>
         </About>
         <JobDesc className="common-container">
           <h1>Job Description</h1>
-          <p>
-            Designers are responsible for the design of digitally-enabled
-            products and services. They use their broad skillset across the
-            service, interaction, and visual design domains to work on holistic
-            design solutions, from early-stage idea generation until detailed
-            design of service features and user stories in a digital product.
-          </p>
+          <p>{internship?.jobDescription}</p>
         </JobDesc>
         <Responsibility className="common-container">
           <h1>Selected interns day-to-day responsibilities include:</h1>

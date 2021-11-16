@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import TextField from "@mui/material/TextField";
-import axios from "../../../../utils/axios";
+import axios from "axios";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ const Signin = () => {
   const SIGN_IN = (e) => {
     e.preventDefault();
     axios
-      .post("/login", {
+      .post("http://localhost:8800/login", {
         email,
         password,
       })
