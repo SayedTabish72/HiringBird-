@@ -71,7 +71,9 @@ export default function ListCard({ internships }) {
                     </Time>
                     <StartInternship>
                       <StartIcon src="/calendar.svg" />
-                      <StartText>{data.startDate}</StartText>
+                      <StartText>
+                        {new Date(data.startDate).toLocaleDateString("en-GB")}
+                      </StartText>
                     </StartInternship>
                   </IconText>
                   <SkillsRequired>
@@ -87,8 +89,14 @@ export default function ListCard({ internships }) {
                   <HomeOfficeText>{data.internshipType}</HomeOfficeText>
                 </WorkFrom>
                 <Applicants>
-                  <Text>20 Days ago</Text>
-                  <Text>150 Applicants</Text>
+                  <Text>
+                    {Math.ceil(
+                      (new Date() - new Date(data.startDate)) /
+                        (1000 * 60 * 60 * 24)
+                    )}{" "}
+                    Days ago
+                  </Text>
+                  <Text>{data.numberOfApplicants} Applicants</Text>
                 </Applicants>
               </AboutInternship>
             </Data>

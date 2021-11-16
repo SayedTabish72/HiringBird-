@@ -5,6 +5,7 @@ import Search from "../components/internshipDetails/Search";
 import Filter from "../components/internshipDetails/Filter";
 import Footer from "../components/internshipDetails/Footer";
 import HeadBar from "../components/internshipDetails/HeadBar";
+import ResponsiveFilter from "../components/internshipDetails/ResponsiveFilter";
 
 export default function home() {
   return (
@@ -28,6 +29,7 @@ export default function home() {
       <Navbar />
       <Search />
       <Filter />
+      <ResponsiveFilter />
       <HeadBar />
       <Footer />
     </>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Option, Options } from "./styles/Dropdown.styled";
+import { Option, Options, OptionTitle } from "./styles/Dropdown.styled";
 import { Img, DropdownSelect, Span } from "./styles/Dropdown2.styled";
 
 const Dropdown2 = ({ title, options }) => {
@@ -10,7 +10,7 @@ const Dropdown2 = ({ title, options }) => {
 
   return (
     <DropdownSelect>
-      {title}{" "}
+      {title}
       {!show ? (
         <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
       ) : (
@@ -21,14 +21,24 @@ const Dropdown2 = ({ title, options }) => {
       ) : (
         <>
           <Options>
-            <Option>
-              {title}{" "}
+            <OptionTitle>
+              <span
+                style={{ color: show ? "#404366" : "#C9CBE2" }}
+                onClick={() => setShow(!show)}
+                className="option-title"
+              >
+                {title}
+              </span>
               {!show ? (
                 <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
               ) : (
-                <Img onClick={() => setShow(!show)} src="/up-arrow.svg" />
+                <Img
+                  className="up-show"
+                  onClick={() => setShow(!show)}
+                  src="/up-arrow.svg"
+                />
               )}
-            </Option>
+            </OptionTitle>
 
             <DropdownSelect>
               <Span style={{ color: showNested1 ? "#404366" : "#C9CBE2" }}>
@@ -45,6 +55,7 @@ const Dropdown2 = ({ title, options }) => {
                   src="/up-arrow.svg"
                 />
               )}
+
               {showNested1 ? (
                 <>
                   <Option>
@@ -63,7 +74,13 @@ const Dropdown2 = ({ title, options }) => {
               )}
             </DropdownSelect>
             <DropdownSelect>
-              <Span style={{ color: showNested2 ? "#404366" : "#C9CBE2" }}>
+              <Span
+                style={{
+                  color: showNested2
+                    ? "#404366 marginBottom: '10px'"
+                    : "#C9CBE2",
+                }}
+              >
                 {options[1].title1}
               </Span>
               {!showNested2 ? (
@@ -77,6 +94,7 @@ const Dropdown2 = ({ title, options }) => {
                   src="/up-arrow.svg"
                 />
               )}
+
               {showNested2 ? (
                 <>
                   <Option>
@@ -113,6 +131,7 @@ const Dropdown2 = ({ title, options }) => {
                   src="/up-arrow.svg"
                 />
               )}
+
               {showNested3 ? (
                 <>
                   <Option>
