@@ -14,7 +14,7 @@ import ListView from "./ListView";
 import Dropdown2 from "./Dropdown2";
 
 function HeadBar() {
-  const [gridShowToggle, setGridShowToggle] = useState(false);
+  const [gridShowToggle, setGridShowToggle] = useState(true);
   const eventHandler = () => {
     setGridShowToggle(!gridShowToggle);
   };

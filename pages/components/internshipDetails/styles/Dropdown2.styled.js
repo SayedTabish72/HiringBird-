@@ -26,4 +26,5 @@ export const Span = styled.span`
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+  margin-bottom: 20px;
 `;

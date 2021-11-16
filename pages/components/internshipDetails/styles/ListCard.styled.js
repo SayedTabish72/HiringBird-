@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-
 export const ListCardWrap = styled.div`
-display: flex;
-flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const WrapData = styled.div`
   display: flex;
@@ -38,7 +37,7 @@ export const SkillsRequired = styled.h4`
   margin: 8px 0;
   color: #c9cbe2;
   display: flex;
-  p{
+  p {
     margin-right: 8px;
     margin-top: 0;
     margin-bottom: 0;
@@ -127,9 +126,9 @@ export const Icons = styled.div`
 `;
 
 export const Icon = styled.img`
-margin-right: 10px;
-width: 23px;
-height: 22px;
+  margin-right: 10px;
+  width: 23px;
+  height: 22px;
 `;
 
 export const Applicants = styled.div`
@@ -159,7 +158,7 @@ export const HomeOfficeText = styled.span`
   line-height: 15px;
   display: flex;
   align-items: center;
-
+  text-transform: capitalize;
   color: #404366;
 `;
 
@@ -170,7 +169,8 @@ export const HomeOffice = styled.img`
 `;
 
 export const LogoContainer = styled.div`
-padding-right: 10px;`;
+  padding-right: 10px;
+`;
 
 export const AboutInternship = styled.div`
   display: flex;

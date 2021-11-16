@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Detail/Navbar";
+import Navbar from "../../navbar/Navbar";
 import Body from "./Body";
 
 const Questions = () => {

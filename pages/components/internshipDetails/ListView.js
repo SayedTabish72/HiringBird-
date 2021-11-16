@@ -10,7 +10,7 @@ function ListView({ internships }) {
     <Wrapper>
       <LeftWrap>
         <ListCard internships={internships} />
-        <Pagination>
+        {/* <Pagination>
           <img src="/left-arrow.svg" alt="go-left" />
           {pages.map((page) => {
             return <Number key={page}>{page}</Number>;
@@ -20,7 +20,7 @@ function ListView({ internships }) {
             style={{ marginLeft: "25px" }}
             alt="go-right"
           />
-        </Pagination>
+        </Pagination> */}
       </LeftWrap>
       <RightWrap>
         <RightDetailCard />
