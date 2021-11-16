@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/navbar/Navbar";
 import Search from "../components/internshipDetails/Search";
 import Filter from "../components/internshipDetails/Filter";
 import Footer from "../components/internshipDetails/Footer";
