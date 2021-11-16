@@ -1,10 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { InternshipContext } from "../../../context/internship.context";
 import styled from "styled-components";
 import ListCard from "./ListCard";
 import RightDetailCard from "./RightDetailCard";
 
 function ListView({ internships }) {
   const pages = [1, 2, 3, 4, 5, 6, 7, 8];
+  const { activeId } = useContext(InternshipContext);
+
+  const [activeInternship, setactiveInternship] = useState();
+
+  useEffect(() => {
+    if (internships.length <= 0) return;
+    if (!activeId) return;
+    const temp = internships.filter((internship) => internship.id === activeId);
+    setactiveInternship(temp[0]);
+  }, [internships, activeId]);
 
   return (
     <Wrapper>
@@ -23,7 +34,9 @@ function ListView({ internships }) {
         </Pagination>
       </LeftWrap>
       <RightWrap>
-        <RightDetailCard />
+        {activeInternship && (
+          <RightDetailCard activeInternship={activeInternship} />
+        )}
       </RightWrap>
     </Wrapper>
   );

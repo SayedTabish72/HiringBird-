@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InternshipContext } from "../../../context/internship.context";
 import {
   ListCardWrap,
   Wrapper,
@@ -33,11 +34,12 @@ import {
 } from "./styles/ListCard.styled";
 
 export default function ListCard({ internships }) {
+  const { setInternshipId } = useContext(InternshipContext);
   return (
     <ListCardWrap>
       {internships.map((data) => {
         return (
-          <Wrapper key={data.id}>
+          <Wrapper key={data.id} onClick={() => setInternshipId(data.id)}>
             <LogoContainer>
               <Logo src="/skilzen-logo.png" />
             </LogoContainer>

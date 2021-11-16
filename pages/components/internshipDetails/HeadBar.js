@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { InternshipContext } from "../../../context/internship.context";
 import {
   HeadContainer,
   HeadLeft,
@@ -18,20 +19,25 @@ function HeadBar() {
   const eventHandler = () => {
     setGridShowToggle(!gridShowToggle);
   };
-
-  const [internships, setInternships] = useState([]);
+  const { internships, getInternship } = useContext(InternshipContext);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8800/internship?page=1&limit=18")
-      .then((response) => {
-        console.log(response.data.data);
-        setInternships(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    getInternship();
   }, []);
+
+  // const [internships, setInternships] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8800/internship?page=1&limit=18")
+  //     .then((response) => {
+  //       console.log(response.data.data);
+  //       setInternships(response.data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <>
