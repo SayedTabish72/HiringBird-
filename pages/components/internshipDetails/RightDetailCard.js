@@ -1,27 +1,26 @@
 import React from "react";
 
-function RightDetailCard() {
+function RightDetailCard({ activeInternship }) {
   return (
     <div>
       <div className="content">
         <div className="content_head">
           <div className="left">
-            <h2>React Developer</h2>
+            <h2>{activeInternship.jobName}</h2>
             <div className="flex">
-              <h4>Skillzen</h4>
+              <h4>{activeInternship.companyName}</h4>
               <a href="#">
                 <img src="/link-icon.svg" alt="link" />
-                www.skilzen.com
               </a>
             </div>
             <div className="flex">
               <p>2 Days ago</p>
-              <p>15 Applicants applied</p>
+              <p>{activeInternship.numberOfApplicants}</p>
             </div>
           </div>
           <div className="right">
             <img src="/skilzen-logo.png" alt="skilzen" />
-            <span>#HB4321</span>
+            <span>{activeInternship.jobId}</span>
           </div>
         </div>
 
@@ -32,7 +31,9 @@ function RightDetailCard() {
               <h5>
                 Stipend <img src="/stipend.svg" />{" "}
               </h5>
-              <h3>0 - 5000 INR</h3>
+              <h3>
+                {activeInternship.minStipen} - {activeInternship.maxStipen}
+              </h3>
             </div>
             <div className="wrap">
               <h5>
@@ -49,7 +50,7 @@ function RightDetailCard() {
                 <h5>
                   Duration <img src="/calendar.svg" alt="calendar" />
                 </h5>
-                <h3>2 Months</h3>
+                <h3>{activeInternship.internshipPeriod} Months</h3>
               </div>
               <div className="wrap">
                 <h5>
@@ -61,7 +62,11 @@ function RightDetailCard() {
                 <h5>
                   Apply By <img src="/calendar.svg" alt="calendar" />
                 </h5>
-                <h3>29/05/2021</h3>
+                <h3>
+                  {new Date(activeInternship.applyBy).toLocaleDateString(
+                    "en-GB"
+                  )}
+                </h3>
               </div>
             </div>
           </div>

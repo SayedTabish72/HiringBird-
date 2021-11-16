@@ -8,6 +8,24 @@ export const HeadContainer = styled.div`
   margin: 0 48px;
   margin-top: 20px;
   margin-bottom: -50px;
+  @media (max-width: 500px) {
+    margin: 0 35px;
+  }
+  @media (max-width: 500px) {
+    margin: 0 30px;
+  }
+  @media (max-width: 707px) {
+    margin-bottom: -50px;
+  }
+  @media (max-width: 699px) {
+    margin-bottom: -30px;
+  }
+  @media (max-width: 995px) {
+    margin-top: -10px;
+  }
+  @media (max-width: 600px) {
+    margin-top: -18px;
+  }
 `;
 
 export const HeadLeft = styled.div`
@@ -33,6 +51,12 @@ export const HeadRight = styled.div`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
+  @media (max-width: 527px) {
+    flex: 0;
+  }
+  @media (max-width: 673px) {
+    display: none;
+  }
 `;
 
 export const HeadIcon = styled.img`

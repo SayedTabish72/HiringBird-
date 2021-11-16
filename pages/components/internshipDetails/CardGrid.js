@@ -42,7 +42,14 @@ export default function CardGridComp({ internships }) {
                 <Heading>{data.companyName}</Heading>
                 <Id>HB4321</Id>
                 <SubHeading>{data.jobName}</SubHeading>
-                <p>20 Days ago &nbsp; 150 Applicants</p>
+                <p>
+                  {" "}
+                  {Math.ceil(
+                    (new Date() - new Date(data.startDate)) /
+                      (1000 * 60 * 60 * 24)
+                  )}{" "}
+                  Days ago &nbsp; {data.numberOfApplicants} Applicants
+                </p>
               </CardComp>
 
               <CardDetails>
@@ -61,7 +68,7 @@ export default function CardGridComp({ internships }) {
 
                 <DetailsEle>
                   <Img src="/calendar.svg" width="12px" height="12px" />
-                  <p>{data.applyBy}</p>
+                  <p> {new Date(data.applyBy).toLocaleDateString("en-GB")}</p>
                 </DetailsEle>
               </CardDetails>
 

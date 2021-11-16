@@ -9,10 +9,33 @@ export const DropdownSelect = styled.ul`
   color: #a9accb;
   transition: all 0.3 ease-in-out;
   margin-right: 30px;
+  @media (max-width: 1060px) {
+    margin-right: 5px;
+  }
 `;
 
 export const Img = styled.img`
   width: 17px;
+  margin-left: 10px;
+`;
+
+export const OptionTitle = styled.div`
+  .up-show {
+    margin-top: -17px;
+  }
+  .option-title {
+    margin-bottom: 20px;
+  }
+  list-style-type: none;
+  padding: 5px 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #c9cbe2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Option = styled.li`
@@ -20,7 +43,7 @@ export const Option = styled.li`
   &:hover {
     color: #404366;
   }
-
+ 
   list-style-type: none;
   padding: 5px 10px;
   font-style: normal;

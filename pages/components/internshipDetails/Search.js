@@ -1,19 +1,25 @@
 import React from "react";
 import {
   SearchContainer,
-  InputField,
+  InputField1,
+  InputField2,
   InputContainer,
   Img,
+  Button,
+  SearchBar,
+  SearchBarContainer,
 } from "./styles/Search.styled";
-import { Button } from "../navbar/styles/navbar.styled";
 
 function Search() {
   return (
     <SearchContainer>
       <InputContainer>
-        <InputField placeholder="e.g. UX Design or HB1234"></InputField>
+        <SearchBarContainer>
+          <SearchBar src="/searchbar.svg" />
+        </SearchBarContainer>
+        <InputField1 placeholder="e.g. UX Design or HB1234"></InputField1>
         <Img src="/line.svg" />
-        <InputField placeholder="city, state or zip code"></InputField>
+        <InputField2 placeholder="city, state or zip code"></InputField2>
       </InputContainer>
       <Button>Search</Button>
     </SearchContainer>

@@ -1,7 +1,7 @@
 import React from "react";
 import Main from "./Main";
-import Search from "./Search";
 import Navbar from "../../navbar/Navbar";
+import Search from "./Search";
 
 const Detail = () => {
   return (

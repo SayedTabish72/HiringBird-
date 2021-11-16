@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InternshipContext } from "../../../context/internship.context";
 import {
   ListCardWrap,
   Wrapper,
@@ -33,11 +34,12 @@ import {
 } from "./styles/ListCard.styled";
 
 export default function ListCard({ internships }) {
+  const { setInternshipId } = useContext(InternshipContext);
   return (
     <ListCardWrap>
       {internships.map((data) => {
         return (
-          <Wrapper key={data.id}>
+          <Wrapper key={data.id} onClick={() => setInternshipId(data.id)}>
             <LogoContainer>
               <Logo src="/skilzen-logo.png" />
             </LogoContainer>
@@ -69,7 +71,9 @@ export default function ListCard({ internships }) {
                     </Time>
                     <StartInternship>
                       <StartIcon src="/calendar.svg" />
-                      <StartText>{data.startDate}</StartText>
+                      <StartText>
+                        {new Date(data.startDate).toLocaleDateString("en-GB")}
+                      </StartText>
                     </StartInternship>
                   </IconText>
                   <SkillsRequired>
@@ -85,8 +89,14 @@ export default function ListCard({ internships }) {
                   <HomeOfficeText>{data.internshipType}</HomeOfficeText>
                 </WorkFrom>
                 <Applicants>
-                  <Text>20 Days ago</Text>
-                  <Text>150 Applicants</Text>
+                  <Text>
+                    {Math.ceil(
+                      (new Date() - new Date(data.startDate)) /
+                        (1000 * 60 * 60 * 24)
+                    )}{" "}
+                    Days ago
+                  </Text>
+                  <Text>{data.numberOfApplicants} Applicants</Text>
                 </Applicants>
               </AboutInternship>
             </Data>

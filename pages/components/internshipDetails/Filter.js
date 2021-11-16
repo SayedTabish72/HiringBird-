@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FilterContainer, Img, Wrap } from "./styles/Filter.styled";
+import React from "react";
+import { FilterContainer, Wrap } from "./styles/Filter.styled";
 import OutlineButton from "./OutlineButton";
 import Dropdown from "./Dropdown";
 
