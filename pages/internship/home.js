@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Head from "next/head";
 import Navbar from "../components/navbar/Navbar";
 import Search from "../components/internshipDetails/Search";
@@ -6,10 +6,12 @@ import Filter from "../components/internshipDetails/Filter";
 import Footer from "../components/internshipDetails/Footer";
 import HeadBar from "../components/internshipDetails/HeadBar";
 import ResponsiveFilter from "../components/internshipDetails/ResponsiveFilter";
-// import LocationModel from "../components/internshipDetails/LocationModel";
+import LocationModel from "../components/internshipDetails/LocationModel";
+import { InternshipContext } from "../../context/internship.context";
 
 export default function home() {
-  // const [showModal, setShowModal] = useState(false);
+  const { showLocationModel } = useContext(InternshipContext);
+  useEffect(() => {}, [showLocationModel]);
   return (
     <>
       <Head>
@@ -31,7 +33,7 @@ export default function home() {
       <Navbar />
       <Search />
       <Filter />
-      {/* <LocationModel show={showModal} setShowModal={setShowModal} /> */}
+      <LocationModel show={showLocationModel} />
       <ResponsiveFilter />
       <HeadBar />
       <Footer />

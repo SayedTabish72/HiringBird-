@@ -38,7 +38,7 @@ function HeadBar() {
   //       console.log(error);
   //     });
   // }, []);
-
+  console.log(internships);
   return (
     <>
       <HeadContainer>
