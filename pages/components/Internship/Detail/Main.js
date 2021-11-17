@@ -264,6 +264,7 @@ const Body = styled.div`
   border: 1px solid #c9cbe2;
   border-radius: 15px;
   padding: 1.5em;
+  margin-bottom: 20px;
 `;
 
 const Head = styled.div`
