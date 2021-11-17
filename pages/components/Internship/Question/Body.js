@@ -401,9 +401,12 @@ const ResumeContainer = styled.div`
   }
   .flex {
     display: flex;
+    gap: 1rem;
     align-items: center;
-    .child {
-      margin-right: 1em;
+    @media (max-width: 700px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
     }
     p {
       color: #a9accb;
