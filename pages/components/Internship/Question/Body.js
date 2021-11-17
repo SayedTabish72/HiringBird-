@@ -30,6 +30,7 @@ const Body = () => {
       })
       .catch((err) => {
         console.log(err.response.data);
+        // err
       });
   }, [id]);
 
