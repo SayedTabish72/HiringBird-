@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
+  // const routeIntern = () => {
+  //   let path = `/internship/home`;
+  //   history.push(path);
+  // };
   return (
     <Wrapper>
       <Left>
@@ -34,7 +39,9 @@ const Navbar = () => {
       <Right>
         <SLink href="#">About Us</SLink>
         <SLink href="#">Contact Us</SLink>
-        <SBtn>Find Interships</SBtn>
+        <SBtn>
+          <Link href="/internship/home"> Find Interships </Link>
+        </SBtn>
         <Icons>
           <svg
             className="icon"

@@ -1,4 +1,5 @@
 import React from "react";
+import { Data } from "./styles/ListCard.styled";
 
 function RightDetailCard({ activeInternship }) {
   return (
@@ -32,15 +33,44 @@ function RightDetailCard({ activeInternship }) {
               <h5>
                 Stipend <img src="/stipend.svg" />{" "}
               </h5>
-              <h3>
-                {activeInternship.minStipen} - {activeInternship.maxStipen}
-              </h3>
+              {(() => {
+                if (activeInternship.compensation == true) {
+                  return (
+                    <>
+                      <h3>
+                        {activeInternship.minStipen} -{" "}
+                        {activeInternship.maxStipen} INR
+                      </h3>
+                    </>
+                  );
+                } else if (activeInternship.compensation == false);
+                {
+                  return (
+                    <>
+                      <h3>Unpaid</h3>
+                    </>
+                  );
+                }
+              })()}
             </div>
             <div className="wrap">
-              <h5>
-                Internship type <img src="/wfhome.svg" />
-              </h5>
-              <h3>Work From Home</h3>
+              {(() => {
+                if (activeInternship.internshipType == "workfromhome") {
+                  return (
+                    <>
+                      <h5>Internship Type</h5> <h3>Work From Home</h3>
+                    </>
+                  );
+                } else if (activeInternship.internshipType == "onsite");
+                {
+                  return (
+                    <>
+                      <h5>Internship Type</h5>{" "}
+                      <h3>Onsite - {activeInternship.location}</h3>
+                    </>
+                  );
+                }
+              })()}
             </div>
             <div className="wrap">
               <h5>Number of openings</h5>
@@ -57,7 +87,11 @@ function RightDetailCard({ activeInternship }) {
                 <h5>
                   Start date <img src="/start-date.svg" alt="start-date" />
                 </h5>
-                <h3>2 June 2021</h3>
+                <h3>
+                  {new Date(activeInternship.startDate).toLocaleDateString(
+                    "en-GB"
+                  )}
+                </h3>
               </div>
               <div className="wrap">
                 <h5>
@@ -85,61 +119,41 @@ function RightDetailCard({ activeInternship }) {
           <div className="common-container">
             <h1>Skills(s) Required</h1>
             <div className="childrens">
-              <p>User Research</p>
-              <p>Wireframing</p>
-              <p>Sketch</p>
-              <p>Figma</p>
+              {activeInternship.skills.map((data) => {
+                return <p key={data}>{data}</p>;
+              })}
             </div>
           </div>
 
           <div className="common-container">
-            <h1>About Skilzen</h1>
-            <p>
-              Designers are responsible for the design of digitally-enabled
-              products and services. They use their broad skillset across the
-              service, interaction, and visual design domains to work on
-              holistic design solutions, from early-stage idea generation until
-              detailed design of service features and user stories in a digital
-              product.
-            </p>
+            <h1>About {activeInternship.companyName}</h1>
+            <p>{activeInternship.aboutCompany}</p>
           </div>
 
           <div className="common-container">
             <h1>Job Description</h1>
-            <p>
-              Designers are responsible for the design of digitally-enabled
-              products and services. They use their broad skillset across the
-              service, interaction, and visual design domains to work on
-              holistic design solutions, from early-stage idea generation until
-              detailed design of service features and user stories in a digital
-              product.
-            </p>
+            <p>{activeInternship.jobDescription}</p>
           </div>
 
           <div className="common-container">
             <h1>Selected interns day-to-day responsibilities include:</h1>
             <p>
-              1. Preparing and presenting designs, wireframes, and prototypes to
-              internal teams and key stakeholders <br /> 2. Developing
-              interaction flows, UI mockups, and low-fidelity prototypes <br />{" "}
-              3. Since we are undergoing a website overhaul, you will contribute
-              to designing our website pages <br /> 4. Developing an
-              understanding of the end-users through secondary and primary
-              researc <br /> 5. Conduct testing of applications, websites, and
-              software to assess user experience <br /> 6. Identifying and
-              troubleshooting UX problems <br /> 7. Creating infographics and
-              other such collateral to present our clients.
+              <ul>
+                {activeInternship.responsibilities.map((data) => {
+                  return <li key={data}>{data}</li>;
+                })}
+              </ul>
             </p>
           </div>
 
           <div className="common-container">
-            <h1>Who can Apply:</h1>
+            <h1>Perks: </h1>
             <p>
-              1. Have already graduated or are currently in any year of study{" "}
-              <br />
-              2. Have relevant skills and interests <br /> 3. Are available for
-              a duration of at least 3 months <br /> 4. Are available for the
-              work from home internship
+              <ul>
+                {activeInternship.perks.map((data) => {
+                  return <li key={data}>{data}</li>;
+                })}
+              </ul>
             </p>
           </div>
 

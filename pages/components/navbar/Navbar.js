@@ -118,7 +118,7 @@ const Navbar = () => {
       ) : (
         <Menus>
           <a href="#">Post an Internship</a>
-          <a href="#">Find Internships</a>
+          <a href="/internship/home">Find Internships</a>
           <Link href="/signin">
             <button className="secondary_btn">Sign In</button>
           </Link>

@@ -61,9 +61,24 @@ export default function ListCard({ internships }) {
                   <IconText>
                     <Stipend>
                       <StipendIcon src="/stipend.svg" />
-                      <StipendRange>
-                        {data.minStipen}-{data.maxStipen}
-                      </StipendRange>
+                      {(() => {
+                        if (data.compensation == true) {
+                          return (
+                            <>
+                              <StipendRange>
+                                {data.minStipen} - {data.maxStipen} INR
+                              </StipendRange>
+                            </>
+                          );
+                        } else if (data.compensation == false);
+                        {
+                          return (
+                            <>
+                              <StipendRange>Unpaid</StipendRange>
+                            </>
+                          );
+                        }
+                      })()}
                     </Stipend>
                     <Time>
                       <TimeIcon src="/calendar.svg" />

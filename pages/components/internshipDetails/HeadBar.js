@@ -43,7 +43,7 @@ function HeadBar() {
     <>
       <HeadContainer>
         <HeadLeft>
-          <HeadTitle>120 internships for UI/UX Design</HeadTitle>
+          <HeadTitle>Internships</HeadTitle>
         </HeadLeft>
         <HeadRight>
           <DropdownWrap>

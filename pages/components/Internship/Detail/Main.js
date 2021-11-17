@@ -111,27 +111,63 @@ const Main = () => {
           <div className="grid">
             <Wrap>
               <h5>Stipend</h5>
-              <h3>7500 - 10000 INR</h3>
+              {(() => {
+                if (internship?.compensation == true) {
+                  return (
+                    <>
+                      <h3>
+                        {internship?.minStipen} - {internship?.maxStipen} INR
+                      </h3>
+                    </>
+                  );
+                } else if (internship?.compensation == false);
+                {
+                  return (
+                    <>
+                      <h3>Unpaid</h3>
+                    </>
+                  );
+                }
+              })()}
             </Wrap>
             <Wrap>
-              <h5>Internship type</h5>
-              <h3>Work from Home</h3>
+              {(() => {
+                if (internship?.internshipType == "workfromhome") {
+                  return (
+                    <>
+                      <h5>Internship Type</h5> <h3>Work From Home</h3>
+                    </>
+                  );
+                } else if (internship?.internshipType == "onsite");
+                {
+                  return (
+                    <>
+                      <h5>Internship Type</h5>{" "}
+                      <h3>Onsite - {internship?.location}</h3>
+                    </>
+                  );
+                }
+              })()}
             </Wrap>
             <Wrap>
               <h5>Number of openings</h5>
-              <h3>2</h3>
+              <h3>{internship?.noOfOpening}</h3>
             </Wrap>
             <Wrap>
               <h5>Internship start date</h5>
-              <h3>24/06/2021</h3>
+              <h3>
+                {new Date(internship?.startDate).toLocaleDateString("en-GB")}
+              </h3>
             </Wrap>
             <Wrap>
               <h5>Duration</h5>
-              <h3>2 Months</h3>
+              <h3>{internship?.internshipPeriod} Months</h3>
             </Wrap>
             <Wrap>
               <h5>Apply By</h5>
-              <h3>29/05/2021</h3>
+              <h3>
+                {new Date(internship?.applyBy).toLocaleDateString("en-GB")}
+              </h3>
             </Wrap>
           </div>
           <div className="bottom">
@@ -163,26 +199,21 @@ const Main = () => {
         <Responsibility className="common-container">
           <h1>Selected interns day-to-day responsibilities include:</h1>
           <p>
-            1. Preparing and presenting designs, wireframes, and prototypes to
-            internal teams and key stakeholders <br /> 2. Developing interaction
-            flows, UI mockups, and low-fidelity prototypes <br /> 3. Since we
-            are undergoing a website overhaul, you will contribute to designing
-            our website pages <br /> 4. Developing an understanding of the
-            end-users through secondary and primary researc <br /> 5. Conduct
-            testing of applications, websites, and software to assess user
-            experience <br /> 6. Identifying and troubleshooting UX problems{" "}
-            <br /> 7. Creating infographics and other such collateral to present
-            our clients.
+            {internship?.responsibilities?.map((data, i) => {
+              return (
+                <li type="1" key={i}>
+                  {data}
+                </li>
+              );
+            })}
           </p>
         </Responsibility>
         <Eligibility className="common-container">
           <h1>Who can Apply:</h1>
           <p>
-            1. Have already graduated or are currently in any year of study{" "}
-            <br />
-            2. Have relevant skills and interests <br /> 3. Are available for a
-            duration of at least 3 months <br /> 4. Are available for the work
-            from home internship
+            {internship?.perks?.map((data, i) => {
+              return <li key={i}>{data}</li>;
+            })}
           </p>
         </Eligibility>
 

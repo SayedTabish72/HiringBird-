@@ -56,9 +56,24 @@ export default function CardGridComp({ internships }) {
                 <Wrap>
                   <DetailsEle>
                     <Img src="/stipend.svg" width="12px" height="12px" />
-                    <p>
-                      {data.minStipen}-{data.maxStipen} {data.currencyType}
-                    </p>
+                    {(() => {
+                      if (data.compensation == true) {
+                        return (
+                          <>
+                            <p>
+                              {data.minStipen} - {data.maxStipen} INR
+                            </p>
+                          </>
+                        );
+                      } else if (data.compensation == false);
+                      {
+                        return (
+                          <>
+                            <p>Unpaid</p>
+                          </>
+                        );
+                      }
+                    })()}
                   </DetailsEle>
                   <DetailsEle>
                     <Img src="/calendar.svg" width="12px" height="12px" />
