@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { InternshipContext } from "../../../context/internship.context";
 
 export default function CardGridComp({ internships }) {
+  const { getPaginatedInternships } = useContext(InternshipContext);
   return (
     <>
       <CardGrid>
@@ -109,10 +111,10 @@ export default function CardGridComp({ internships }) {
           );
         })}
       </CardGrid>
-      <Pagination>
-        <Link href="/" passHref>
-          <LoadMore>Load More</LoadMore>
-        </Link>
+      <Pagination onClick={() => getPaginatedInternships()}>
+        {/* <Link href="/" passHref> */}
+        <LoadMore>Load More</LoadMore>
+        {/* </Link> */}
       </Pagination>
     </>
   );

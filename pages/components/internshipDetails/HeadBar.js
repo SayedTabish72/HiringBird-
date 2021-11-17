@@ -43,7 +43,7 @@ function HeadBar() {
     <>
       <HeadContainer>
         <HeadLeft>
-          <HeadTitle>Internships</HeadTitle>
+          <HeadTitle>{internships.length} Internships</HeadTitle>
         </HeadLeft>
         <HeadRight>
           <DropdownWrap>

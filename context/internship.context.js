@@ -16,11 +16,12 @@ const useProvideInternship = () => {
   const [internships, setInternship] = React.useState([]);
   const [activeId, setActiveId] = React.useState();
   const [showLocationModel, setshowLocationModel] = React.useState(false);
+  const [page, setPage] = React.useState(1);
 
   const getInternship = async () => {
     try {
       await axios
-        .get("http://localhost:8800/internship?page=1&limit=18")
+        .get(`http://localhost:8800/internship?page=${page}&limit=18`)
         .then((res) => {
           const resData = res.data;
           console.log(resData);
@@ -29,6 +30,13 @@ const useProvideInternship = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const getPaginatedInternships = async () => {
+    if (page < internships.length) {
+      setPage(page + 1);
+    }
+    getInternship();
   };
 
   const setLocationModel = () => {
@@ -50,5 +58,6 @@ const useProvideInternship = () => {
     activeId,
     showLocationModel,
     setLocationModel,
+    getPaginatedInternships,
   };
 };
