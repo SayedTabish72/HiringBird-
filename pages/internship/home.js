@@ -6,8 +6,10 @@ import Filter from "../components/internshipDetails/Filter";
 import Footer from "../components/internshipDetails/Footer";
 import HeadBar from "../components/internshipDetails/HeadBar";
 import ResponsiveFilter from "../components/internshipDetails/ResponsiveFilter";
+// import LocationModel from "../components/internshipDetails/LocationModel";
 
 export default function home() {
+  // const [showModal, setShowModal] = useState(false);
   return (
     <>
       <Head>
@@ -29,6 +31,7 @@ export default function home() {
       <Navbar />
       <Search />
       <Filter />
+      {/* <LocationModel show={showModal} setShowModal={setShowModal} /> */}
       <ResponsiveFilter />
       <HeadBar />
       <Footer />

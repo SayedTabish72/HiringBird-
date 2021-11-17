@@ -9,14 +9,17 @@ import {
 
 const Dropdown = ({ title, options }) => {
   const [show, setShow] = useState(false);
+  const handleShow = () => {
+    setShow(!show);
+  };
 
   return (
     <DropdownSelect>
       {title}{" "}
       {!show ? (
-        <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
+        <Img onClick={() => handleShow()} src="/down-arrow.svg" />
       ) : (
-        <Img onClick={() => setShow(!show)} src="/up-arrow.svg" />
+        <Img src="/up-arrow.svg" />
       )}
       {!show ? (
         " "
@@ -25,18 +28,18 @@ const Dropdown = ({ title, options }) => {
           <Options>
             <OptionTitle>
               <span
-                onClick={() => setShow(!show)}
                 style={{ color: show ? "#404366" : "#C9CBE2" }}
                 className="option-title"
+                onClick={() => handleShow()}
               >
                 {title}
               </span>
               {!show ? (
-                <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
+                <Img onClick={() => handleShow()} src="/down-arrow.svg" />
               ) : (
                 <Img
                   className="up-show"
-                  onClick={() => setShow(!show)}
+                  onClick={() => handleShow()}
                   src="/up-arrow.svg"
                 />
               )}
