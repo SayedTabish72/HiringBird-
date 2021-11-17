@@ -75,7 +75,7 @@ export const Options = styled.div`
   border-radius: 12px;
   padding: 10px;
   padding-bottom: 5px;
-  z-index: 10000;
+  z-index: 10;
   @media (max-width: 600px) {
     top: 190px;
   }

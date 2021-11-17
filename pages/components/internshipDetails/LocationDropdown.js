@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   DropdownSelect,
   Option,
@@ -6,10 +6,12 @@ import {
   Options,
   OptionSearch,
 } from "./styles/LocationDropdown.styled";
+import { InternshipContext } from "../../../context/internship.context";
 
 const Dropdown = ({ title, options }) => {
   const [show, setShow] = useState(false);
   const [activeLocation, setActiveLocation] = useState([]);
+  const { setLocationModel } = useContext(InternshipContext);
   console.log(activeLocation);
 
   const handleDropdownTitleClick = () => {
@@ -43,7 +45,7 @@ const Dropdown = ({ title, options }) => {
                   </Option>
                 );
               })}
-              <OptionSearch>
+              <OptionSearch onClick={() => setLocationModel()}>
                 <label>Search More</label>
               </OptionSearch>
             </Options>

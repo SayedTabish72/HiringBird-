@@ -15,6 +15,7 @@ export const InternshipProvider = (props) => {
 const useProvideInternship = () => {
   const [internships, setInternship] = React.useState([]);
   const [activeId, setActiveId] = React.useState();
+  const [showLocationModel, setshowLocationModel] = React.useState(false);
 
   const getInternship = async () => {
     try {
@@ -30,6 +31,10 @@ const useProvideInternship = () => {
     }
   };
 
+  const setLocationModel = () => {
+    setshowLocationModel(!showLocationModel);
+  };
+
   const setInternshipId = async (id) => {
     try {
       setActiveId(id);
@@ -43,5 +48,7 @@ const useProvideInternship = () => {
     getInternship,
     setInternshipId,
     activeId,
+    showLocationModel,
+    setLocationModel,
   };
 };
