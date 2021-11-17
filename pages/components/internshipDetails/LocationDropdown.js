@@ -4,54 +4,53 @@ import {
   Option,
   Img,
   Options,
-  OptionTitle,
   OptionSearch,
 } from "./styles/LocationDropdown.styled";
 
 const Dropdown = ({ title, options }) => {
   const [show, setShow] = useState(false);
+  const [activeLocation, setActiveLocation] = useState([]);
+  console.log(activeLocation);
+
+  const handleDropdownTitleClick = () => {
+    setShow(!show);
+    setActiveLocation([]);
+  };
 
   return (
-    <DropdownSelect>
-      {title}{" "}
-      {!show ? (
+    <>
+      <DropdownSelect>
+        <span onClick={handleDropdownTitleClick}>{title}</span>
         <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
-      ) : (
-        <Img onClick={() => setShow(!show)} src="/up-arrow.svg" />
-      )}
-      {!show ? (
-        " "
-      ) : (
-        <>
-          <Options>
-            <OptionTitle>
-              <span
-                onClick={() => setShow(!show)}
-                style={{ color: show ? "#404366" : "#C9CBE2" }}
-              >
-                {title}
-              </span>
-              {!show ? (
-                <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
-              ) : (
-                <Img onClick={() => setShow(!show)} src="/up-arrow.svg" />
-              )}
-            </OptionTitle>
-            {options.map((option, index) => {
-              return (
-                <Option key={index}>
-                  <label>{option.value}</label>
-                  <Img src="/green-tick.svg" />
-                </Option>
-              );
-            })}
-            <OptionSearch>
-              <label>Search More</label>
-            </OptionSearch>
-          </Options>
-        </>
-      )}
-    </DropdownSelect>
+        {!show ? (
+          " "
+        ) : (
+          <>
+            <Options>
+              {options.map((option, index) => {
+                return (
+                  <Option key={index}>
+                    <label onClick={() => setActiveLocation([option.value])}>
+                      {option.value}
+                    </label>
+                    <Img
+                      style={{
+                        display:
+                          option.value === activeLocation[0] ? "" : "none",
+                      }}
+                      src="/green-tick.svg"
+                    />
+                  </Option>
+                );
+              })}
+              <OptionSearch>
+                <label>Search More</label>
+              </OptionSearch>
+            </Options>
+          </>
+        )}
+      </DropdownSelect>
+    </>
   );
 };
 

@@ -19,19 +19,6 @@ export const Img = styled.img`
   margin-left: 10px;
 `;
 
-export const OptionTitle = styled.div`
-  list-style-type: none;
-  padding: 5px 10px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: #c9cbe2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const OptionSearch = styled.li`
   list-style-type: none;
   padding: 5px 10px;
@@ -80,7 +67,7 @@ color: #C9CBE2;
 `;
 
 export const Options = styled.div`
-  top: 210px;
+  top: 235px;
   background-color: #fff;
   position: absolute;
   right: 30px;
@@ -90,6 +77,6 @@ export const Options = styled.div`
   padding-bottom: 5px;
   z-index: 10000;
   @media (max-width: 600px) {
-    top: 160px;
+    top: 190px;
   }
 `;
