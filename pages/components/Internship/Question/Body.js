@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SuccessModal from "./SuccessModal";
 import axios from "../../../../utils/axios";
@@ -11,12 +11,27 @@ const Body = () => {
   const [errorModal, setErrorModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const [internship, setInternship] = useState({});
   const [values, setValues] = useState({
     experience: "",
     figma_skill: "",
     url: "",
     reason: "",
   });
+
+  useEffect(() => {
+    axios
+      .get(`/internship/${id}`)
+      .then((res) => {
+        setInternship({
+          jobName: res?.data?.jobName,
+          companyName: res?.data?.companyName,
+        });
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, [id]);
 
   const [errors, setErrors] = useState({});
 
@@ -129,7 +144,9 @@ const Body = () => {
       <SuccessModal show={showModal} setShowModal={setShowModal} />
       <Wrapper onSubmit={handleSubmit}>
         <div className="head">
-          <h1>UI/UX Design internship at Skilzen</h1>
+          <h1>
+            {internship?.jobName} at {internship?.companyName}
+          </h1>
         </div>
 
         <h2>Assessment questions</h2>
