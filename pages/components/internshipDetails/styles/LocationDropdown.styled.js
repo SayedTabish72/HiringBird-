@@ -24,12 +24,25 @@ export const OptionTitle = styled.div`
   padding: 5px 10px;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 19px;
   color: #c9cbe2;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const OptionSearch = styled.li`
+  list-style-type: none;
+  padding: 5px 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f26a7e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Option = styled.li`
@@ -42,12 +55,13 @@ export const Option = styled.li`
   padding: 5px 10px;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 19px;
   color: #c9cbe2;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 0.4px solid #C9CBE2;
 
 
   .label {
@@ -73,6 +87,7 @@ export const Options = styled.div`
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   padding: 10px;
+  padding-bottom: 5px;
   z-index: 10000;
   @media (max-width: 600px) {
     top: 160px;
