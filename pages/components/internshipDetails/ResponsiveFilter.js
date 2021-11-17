@@ -19,10 +19,13 @@ function ResponsiveFilter() {
         <LocationDropdown
           title="LOCATION"
           options={[
-            { value: "2k-4k", check: true },
-            { value: "4k-6k", check: false },
-            { value: "6k-8k", check: true },
-            { value: "8k & above", check: false },
+            { value: "Delhi NCR", check: true },
+            { value: "Mumbai", check: false },
+            { value: "Bangalore", check: true },
+            { value: "Hyderabad", check: false },
+            { value: "Kolkata", check: false },
+            { value: "Chennai", check: false },
+            { value: "Chandigarh", check: false },
           ]}
         />
       </FilterRight>

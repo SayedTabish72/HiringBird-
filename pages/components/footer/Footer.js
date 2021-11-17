@@ -33,20 +33,20 @@ function Footer() {
           <Span1
             style={{ display: "flex", alignItems: "center", height: "3rem" }}
           >
-            <Img src="/phone.svg" />
+            <Img src="phone.svg" />
             <span style={{ textIndent: "1em" }}>+91-9999000999</span>
           </Span1>
           <Span1 style={{ display: "flex" }}>
-            <Img src="/mail.svg" />
+            <Img src="mail.svg" />
             <span style={{ textIndent: "1em" }}>Hiring.bird@gmail.com</span>
           </Span1>
 
           <Heading1 style={{ paddingTop: "1rem" }}>Follow Us</Heading1>
           <div style={{ display: "flex" }}>
-            <Img src="/fb.svg" />
-            <Img style={{ paddingLeft: "1rem" }} src="/linkedin.svg" />
-            <Img style={{ paddingLeft: "1rem" }} src="/twitter.svg" />
-            <Img style={{ paddingLeft: "1rem" }} src="/insta.svg" />
+            <Img src="fb.svg" />
+            <Img style={{ paddingLeft: "1rem" }} src="linkedin.svg" />
+            <Img style={{ paddingLeft: "1rem" }} src="twitter.svg" />
+            <Img style={{ paddingLeft: "1rem" }} src="insta.svg" />
           </div>
           <Img src="footerlogos.png" />
         </Inner>
@@ -91,7 +91,7 @@ function Footer() {
             <Span1
               style={{ display: "flex", alignItems: "center", height: "3rem" }}
             >
-              <Img src="phone.svg" />
+              <Img src="phone.png" alt="phone" />
               <span style={{ textIndent: "1em" }}>+91-9999000999</span>
             </Span1>
             <Span1 style={{ display: "flex" }}>
@@ -106,7 +106,7 @@ function Footer() {
               <Img style={{ paddingLeft: "1rem" }} src="twitter.svg" />
               <Img style={{ paddingLeft: "1rem" }} src="insta.svg" />
             </div>
-            <Img src="footerlogo.png" />
+            <Img src="/footerlogo.png" />
           </Top>
         </Right>
       </InnerContainer>

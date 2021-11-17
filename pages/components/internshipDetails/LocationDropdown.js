@@ -5,6 +5,7 @@ import {
   Img,
   Options,
   OptionTitle,
+  OptionSearch,
 } from "./styles/LocationDropdown.styled";
 
 const Dropdown = ({ title, options }) => {
@@ -40,9 +41,13 @@ const Dropdown = ({ title, options }) => {
               return (
                 <Option key={index}>
                   <label>{option.value}</label>
+                  <Img src="/green-tick.svg" />
                 </Option>
               );
             })}
+            <OptionSearch>
+              <label>Search More</label>
+            </OptionSearch>
           </Options>
         </>
       )}

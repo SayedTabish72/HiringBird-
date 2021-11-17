@@ -2,7 +2,7 @@ import React from "react";
 
 function RightDetailCard({ activeInternship }) {
   return (
-    <div>
+    <div style={{ marginBottom: "20px" }}>
       <div className="content">
         <div className="content_head">
           <div className="left">
@@ -11,16 +11,17 @@ function RightDetailCard({ activeInternship }) {
               <h4>{activeInternship.companyName}</h4>
               <a href="#">
                 <img src="/link-icon.svg" alt="link" />
+                www.skilzen.com
               </a>
             </div>
             <div className="flex">
               <p>2 Days ago</p>
-              <p>{activeInternship.numberOfApplicants}</p>
+              <p>{activeInternship.numberOfApplicants} Applicants applied</p>
             </div>
           </div>
           <div className="right">
             <img src="/skilzen-logo.png" alt="skilzen" />
-            <span>{activeInternship.jobId}</span>
+            <span>#HB4321</span>
           </div>
         </div>
 
