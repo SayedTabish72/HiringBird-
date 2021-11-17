@@ -100,7 +100,7 @@ const RightWrap = styled.div`
     padding-right: 4rem;
     .content_head {
       border-bottom: 1px solid #c9cbe2;
-      padding-bottom: 0.6em;
+      padding-bottom: 1.2em;
       display: flex;
       justify-content: space-between;
       .right { 
