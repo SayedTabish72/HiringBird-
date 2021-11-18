@@ -22,7 +22,7 @@ export const Divstart = styled.div`
   flex-wrap: wrap;
   width: 80%;
   @media (max-width: 589px) {
-    flex-direction:column;
+    flex-direction: column;
   }
 `;
 
@@ -107,24 +107,23 @@ export const Spanright2 = styled.div`
 `;
 
 export const Lowerdiv = styled.div`
-display: flex;
-height: 70%;
-width: 80%;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
-margin-top: 4%;
-
-@media (max-width: 381px) {
-  width: 100%;
+  display: flex;
+  height: 70%;
+  width: 80%;
+  flex-wrap: wrap;
   align-items: center;
-  margin-left: 35px;
-}  
+  justify-content: center;
+  margin-top: 4%;
 
+  @media (max-width: 381px) {
+    width: 100%;
+    align-items: center;
+    margin-left: 35px;
+  }
 `;
 
 export const Categorycard = styled.div`
-width: 174px;
+  width: 174px;
   height: 13em;
   border: 1px solid rgba(75, 75, 75, 0.3);
   border-radius: 8px;
@@ -151,32 +150,32 @@ width: 174px;
 `;
 
 export const Categorycard1 = styled.div`
-width: 174px;
+  width: 174px;
 
-height: 13em;
-border: 0px solid rgba(75, 75, 75, 0.3);
-border-radius: 8px;
-flex: 0 0 14em;
-margin-top: 2%;
-box-sizing: border-box;
-margin-right: 10px;
-margin-left: 10px;
+  height: 13em;
+  border: 0px solid rgba(75, 75, 75, 0.3);
+  border-radius: 8px;
+  flex: 0 0 14em;
+  margin-top: 2%;
+  box-sizing: border-box;
+  margin-right: 10px;
+  margin-left: 10px;
 
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 
-&:hover {
-  box-shadow: 0px 8px 24px rgba(216, 216, 216, 0.3);
-  backdrop-filter: blur(40px);
-}
+  &:hover {
+    box-shadow: 0px 8px 24px rgba(216, 216, 216, 0.3);
+    backdrop-filter: blur(40px);
+  }
 
-@media (max-width: 589px) {
-  width: 140px;
-  height: 140px;
-  flex: 0 0 140px;
-}
+  @media (max-width: 589px) {
+    width: 140px;
+    height: 140px;
+    flex: 0 0 140px;
+  }
 `;
 
 export const Logo = styled.img`

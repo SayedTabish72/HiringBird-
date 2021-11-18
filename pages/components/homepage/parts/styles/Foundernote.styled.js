@@ -1,28 +1,27 @@
 import styled from "styled-components";
 
 export const Foundernote = styled.div`
-display: flex;
-justify-content: center;
-background-color: #C9CBE2;
-div {
+  display: flex;
+  justify-content: center;
+  background-color: #c9cbe2;
+  div {
     width: 100%;
-    background-color: #C9CBE2;
-}
+    background-color: #c9cbe2;
+  }
 
-h1 {
+  h1 {
     font-family: Inter;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
-    width : 400px;
+    width: 400px;
     /* identical to box height, or 245% */
-    font-feature-settings: 'salt' on, 'liga' off;
-    
+    font-feature-settings: "salt" on, "liga" off;
+
     color: #404366;
-}
+  }
 
-p {
-
+  p {
     width: 640px;
     margin-left: 20px;
     font-family: Inter;
@@ -32,87 +31,87 @@ p {
     padding-right: 60px;
 
     /* or 133% */
-    font-feature-settings: 'salt' on, 'liga' off;
+    font-feature-settings: "salt" on, "liga" off;
 
     color: #404366;
-}
+  }
 
-img {
+  img {
     width: 300px;
     height: 428px;
     border-radius: 19px;
-}
+  }
 
-span {
-    color: #F26A7E;
+  span {
+    color: #f26a7e;
     font-size: 120px;
     font-weight: bold;
-    opacity: 0.5
-}
+    opacity: 0.5;
+  }
 
-.maintext {
+  .maintext {
     display: flex;
-}
+  }
 
-.fullname{
-    color: #F26A7E;
+  .fullname {
+    color: #f26a7e;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-top: 20px
-}
+    margin-top: 20px;
+  }
 
-.ceo{
+  .ceo {
     font-size: small;
     margin: none;
-    line-height: 0
-}
+    line-height: 0;
+  }
 
-@media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column-reverse;
     align-items: center;
-    background-color: #C9CBE28A;
+    background-color: #c9cbe28a;
     width: device-width;
-    img{
-        margin-left: 27%;
+    img {
+      margin-left: 27%;
     }
-    h1{
-        margin-left:24%;
-        margin-bottom: 30px
+    h1 {
+      margin-left: 24%;
+      margin-bottom: 30px;
     }
-p{
-    margin-right: 60px;
-    margin-top: 30px;
-}
-}
-`
+    p {
+      margin-right: 60px;
+      margin-top: 30px;
+    }
+  }
+`;
 
 export const Team = styled.div`
-.team{
+  .team {
     margin-top: 20px;
     display: flex;
-    margin-left:100px;
-}
+    margin-left: 100px;
+  }
 
-.teamimg{
-    height:100px;
-    width:100px;
-    border-radius:50%;
+  .teamimg {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
     margin-left: 60px;
-}
+  }
 
-h4{
+  h4 {
     font-family: Inter;
     font-style: normal;
     font-weight: bold;
     font-size: 21.2442px;
     color: #404366;
-}
+  }
 
-@media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     .team {
-        margin-left: 0px;
-        margin-right: 40px;
-        background-color: #C9CBE2;
+      margin-left: 0px;
+      margin-right: 40px;
+      background-color: #c9cbe2;
     }
-}
-`
+  }
+`;

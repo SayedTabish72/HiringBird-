@@ -17,8 +17,6 @@ import { ApplyNow } from "./styles/CommonComponents/ApplyNow.styled";
 import help from "../../../../public/help.svg";
 import mainimg from "../../../../public/contactus1.svg";
 
-
-
 function Contactus() {
   return (
     <Container>
