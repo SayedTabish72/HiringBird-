@@ -12,6 +12,7 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const { id } = router.query;
 
   const SIGN_IN = (e) => {
     e.preventDefault();
@@ -23,7 +24,11 @@ const Signin = () => {
       .then((res) => {
         console.log(res.data);
         localStorage.setItem("access_token", res.data.authToken.accessToken);
-        router.push("/");
+        if (id) {
+          router.push(`/internship/questions/${id}`);
+        } else {
+          router.push("/");
+        }
       })
       .catch((err) => {
         console.log(err?.response?.data?.message);

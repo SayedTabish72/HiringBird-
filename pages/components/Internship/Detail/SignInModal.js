@@ -1,49 +1,30 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
-const ErrorModal = ({ errorModal, setErrorModal, err, id }) => {
-  const modalRef = useRef();
-  const router = useRouter();
-
-  const closeModal = (e) => {
-    if (e.target === modalRef.current) {
-      setErrorModal(false);
-    }
-  };
+const SignInModal = ({ showModal, setShowModal, id }) => {
   return (
-    <Wrapper ref={modalRef} onClick={closeModal} show={errorModal}>
+    <Wrapper show={showModal}>
       <Container>
         <img src="/intershipdetail/warning.png" alt="" />
         <h1>Error</h1>
-        <p>{err}</p>
+        <p>You need to be Logged in</p>
         <div className="line" />
-        <Link href="/internship/home">
-          <button onClick={() => setErrorModal(false)}>
-            Find Internships{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+        <Link
+          href={{
+            pathname: "/signin",
+            query: { id },
+          }}
+        >
+          <button onClick={() => setShowModal(false)}>SIGN IN</button>
         </Link>
       </Container>
     </Wrapper>
   );
 };
 
-export default ErrorModal;
+export default SignInModal;
+
 const fadeInWrapper = keyframes`
   from {
     opacity: 0;
@@ -53,6 +34,7 @@ const fadeInWrapper = keyframes`
     opacity: 1;
   }
 `;
+
 const Wrapper = styled.div`
   position: fixed;
   top: 0;
@@ -66,7 +48,6 @@ const Wrapper = styled.div`
   z-index: 99;
   animation: ${fadeInWrapper} 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
-
 const Container = styled.div`
   background: #fff;
   border-radius: 1rem;
@@ -95,7 +76,7 @@ const Container = styled.div`
     width: 100%;
   }
   button {
-    background: #f26a7e;
+    background: #ee5354;
     border: none;
     color: #fff;
     padding: 1em 1.5em;
@@ -103,12 +84,5 @@ const Container = styled.div`
     font-weight: 500;
     font-family: "Inter", sans-serif;
     cursor: pointer;
-    letter-spacing: 0.05em;
-    svg {
-      float: right;
-      height: 1rem;
-    }
   }
 `;
-
-const Content = styled.div``;
