@@ -25,10 +25,13 @@ const useProvideInternship = () => {
         .get(`http://localhost:8800/internship?page=${props}&limit=1`)
         .then((res) => {
           const resData = res.data;
-          console.log(resData);
           setPage(resData.nextPage);
-          setInternship([...internships, ...resData.data]);
-          setLastPage(resData.totalPages);
+          if (lastPage < resData.totalPages) {
+            setInternship([...internships, ...resData.data]);
+          }
+          if (activeId === undefined) {
+            setActiveId(resData.data[0].id);
+          }
         });
     } catch (error) {
       console.log(error);
@@ -36,9 +39,8 @@ const useProvideInternship = () => {
   };
 
   const getPaginatedInternships = async () => {
-    if (page < lastPage) {
-      getInternship(page);
-    }
+    getInternship(page);
+    setLastPage(lastPage + 1);
   };
 
   const setLocationModel = () => {
