@@ -17,11 +17,15 @@ export const DropdownSelect = styled.ul`
 export const Img = styled.img`
   width: 17px;
   margin-left: 10px;
+  cursor: pointer;
 `;
 
 export const OptionTitle = styled.div`
   .up-show {
     margin-top: -17px;
+  }
+  span {
+    cursor: pointer;
   }
   .option-title {
     margin-bottom: 20px;
