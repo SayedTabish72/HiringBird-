@@ -22,7 +22,7 @@ function HeadBar() {
   const { internships, getInternship } = useContext(InternshipContext);
 
   useEffect(() => {
-    getInternship();
+    getInternship(1);
   }, []);
 
   // const [internships, setInternships] = useState([]);
