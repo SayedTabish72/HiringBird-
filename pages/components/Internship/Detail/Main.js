@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "../../../../utils/axios";
+import jwt_decode from "jwt-decode";
+import SignInModal from "./SignInModal";
 
 const Main = () => {
   const router = useRouter();
   const { id } = router.query;
+  const [showModal, setShowModal] = useState(false);
   const [internship, setInternship] = useState({});
   useEffect(() => {
     axios
@@ -20,6 +23,20 @@ const Main = () => {
         console.log(err.response.data);
       });
   }, [id]);
+
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const access_token = localStorage.getItem("access_token");
+    if (access_token) {
+      const payload = jwt_decode(access_token);
+      if (Date.now() >= payload.exp * 1000) {
+        localStorage.removeItem("access_token");
+        setUser(null);
+      } else {
+        setUser(payload);
+      }
+    }
+  }, []);
 
   function convertDateTotimeago(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
@@ -47,175 +64,182 @@ const Main = () => {
   }
 
   return (
-    <Wrapper>
-      <BackBtn>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className=""
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        <a onClick={() => router.back()}>Back</a>
-      </BackBtn>
-      <Body>
-        <Head>
-          <Left>
-            <h1>{internship?.jobName}</h1>
-            <Flex>
-              <h2>{internship?.companyName}</h2>
-              <LinkContainer>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="#F898A6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-                <a href="#">{internship?.companyUrl}</a>
-              </LinkContainer>
-            </Flex>
-            <Flex>
-              <p>
-                {convertDateTotimeago(new Date(internship?.createdAt)) +
-                  "  ago"}
-              </p>
-              <p>{`${internship?.numberOfApplicants} Applicants applied`}</p>
-            </Flex>
-          </Left>
-          <Right>
-            <Image
-              width={72}
-              height={70}
-              objectFit="contain"
-              src="/intershipdetail/skillzen.png"
-              alt=""
+    <>
+      <SignInModal showModal={showModal} setShowModal={setShowModal} id={id} />
+      <Wrapper>
+        <BackBtn>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className=""
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
             />
-          </Right>
-        </Head>
-        <Overview>
-          <div className="grid">
-            <Wrap>
-              <h5>Stipend</h5>
-              {(() => {
-                if (internship?.compensation == true) {
-                  return (
-                    <>
-                      <h3>
-                        {internship?.minStipen} - {internship?.maxStipen} INR
-                      </h3>
-                    </>
-                  );
-                } else if (internship?.compensation == false);
-                {
-                  return (
-                    <>
-                      <h3>Unpaid</h3>
-                    </>
-                  );
-                }
-              })()}
-            </Wrap>
-            <Wrap>
-              {(() => {
-                if (internship?.internshipType == "workfromhome") {
-                  return (
-                    <>
-                      <h5>Internship Type</h5> <h3>Work From Home</h3>
-                    </>
-                  );
-                } else if (internship?.internshipType == "onsite");
-                {
-                  return (
-                    <>
-                      <h5>Internship Type</h5>{" "}
-                      <h3>Onsite - {internship?.location}</h3>
-                    </>
-                  );
-                }
-              })()}
-            </Wrap>
-            <Wrap>
-              <h5>Number of openings</h5>
-              <h3>{internship?.noOfOpening}</h3>
-            </Wrap>
-            <Wrap>
-              <h5>Internship start date</h5>
-              <h3>
-                {new Date(internship?.startDate).toLocaleDateString("en-GB")}
-              </h3>
-            </Wrap>
-            <Wrap>
-              <h5>Duration</h5>
-              <h3>{internship?.internshipPeriod} Months</h3>
-            </Wrap>
-            <Wrap>
-              <h5>Apply By</h5>
-              <h3>
-                {new Date(internship?.applyBy).toLocaleDateString("en-GB")}
-              </h3>
-            </Wrap>
-          </div>
-          <div className="bottom">
-            <Link href={`/internship/questions/${internship?.id}`}>
-              <button>Apply Now</button>
-            </Link>
-            <ShareBtn>
-              <img src="/intershipdetail/whatsapp-icon.png" alt="" />
-              <p>Share</p>
-            </ShareBtn>
-          </div>
-        </Overview>
-        <Skills className="common-container">
-          <h1>Skills(s) Required</h1>
-          <div className="childrens">
-            {internship?.skills?.map((skill, i) => (
-              <p key={i}>{skill}</p>
-            ))}
-          </div>
-        </Skills>
-        <About className="common-container">
-          <h1>About Skilzen</h1>
-          <p>{internship?.aboutCompany}</p>
-        </About>
-        <JobDesc className="common-container">
-          <h1>Job Description</h1>
-          <p>{internship?.jobDescription}</p>
-        </JobDesc>
-        <Responsibility className="common-container">
-          <h1>Selected interns day-to-day responsibilities include:</h1>
-          <p>
-            {internship?.responsibilities?.map((data, i) => {
-              return (
-                <li type="1" key={i}>
-                  {data}
-                </li>
-              );
-            })}
-          </p>
-        </Responsibility>
-        <Eligibility className="common-container">
-          <h1>Who can Apply:</h1>
-          <p>
-            {internship?.perks?.map((data, i) => {
-              return <li key={i}>{data}</li>;
-            })}
-          </p>
-        </Eligibility>
+          </svg>
+          <a onClick={() => router.back()}>Back</a>
+        </BackBtn>
+        <Body>
+          <Head>
+            <Left>
+              <h1>{internship?.jobName}</h1>
+              <Flex>
+                <h2>{internship?.companyName}</h2>
+                <LinkContainer>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#F898A6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                  <a href="#">{internship?.companyUrl}</a>
+                </LinkContainer>
+              </Flex>
+              <Flex>
+                <p>
+                  {convertDateTotimeago(new Date(internship?.createdAt)) +
+                    "  ago"}
+                </p>
+                <p>{`${internship?.numberOfApplicants} Applicants applied`}</p>
+              </Flex>
+            </Left>
+            <Right>
+              <Image
+                width={72}
+                height={70}
+                objectFit="contain"
+                src="/intershipdetail/skillzen.png"
+                alt=""
+              />
+            </Right>
+          </Head>
+          <Overview>
+            <div className="grid">
+              <Wrap>
+                <h5>Stipend</h5>
+                {(() => {
+                  if (internship?.compensation == true) {
+                    return (
+                      <>
+                        <h3>
+                          {internship?.minStipen} - {internship?.maxStipen} INR
+                        </h3>
+                      </>
+                    );
+                  } else if (internship?.compensation == false);
+                  {
+                    return (
+                      <>
+                        <h3>Unpaid</h3>
+                      </>
+                    );
+                  }
+                })()}
+              </Wrap>
+              <Wrap>
+                {(() => {
+                  if (internship?.internshipType == "workfromhome") {
+                    return (
+                      <>
+                        <h5>Internship Type</h5> <h3>Work From Home</h3>
+                      </>
+                    );
+                  } else if (internship?.internshipType == "onsite");
+                  {
+                    return (
+                      <>
+                        <h5>Internship Type</h5>{" "}
+                        <h3>Onsite - {internship?.location}</h3>
+                      </>
+                    );
+                  }
+                })()}
+              </Wrap>
+              <Wrap>
+                <h5>Number of openings</h5>
+                <h3>{internship?.noOfOpening}</h3>
+              </Wrap>
+              <Wrap>
+                <h5>Internship start date</h5>
+                <h3>
+                  {new Date(internship?.startDate).toLocaleDateString("en-GB")}
+                </h3>
+              </Wrap>
+              <Wrap>
+                <h5>Duration</h5>
+                <h3>{internship?.internshipPeriod} Months</h3>
+              </Wrap>
+              <Wrap>
+                <h5>Apply By</h5>
+                <h3>
+                  {new Date(internship?.applyBy).toLocaleDateString("en-GB")}
+                </h3>
+              </Wrap>
+            </div>
+            <div className="bottom">
+              {user ? (
+                <Link href={`/internship/questions/${internship?.id}`}>
+                  <button>Apply Now</button>
+                </Link>
+              ) : (
+                <button onClick={() => setShowModal(true)}>Apply Now</button>
+              )}
+
+              <ShareBtn>
+                <img src="/intershipdetail/whatsapp-icon.png" alt="" />
+                <p>Share</p>
+              </ShareBtn>
+            </div>
+          </Overview>
+          <Skills className="common-container">
+            <h1>Skills(s) Required</h1>
+            <div className="childrens">
+              {internship?.skills?.map((skill, i) => (
+                <p key={i}>{skill}</p>
+              ))}
+            </div>
+          </Skills>
+          <About className="common-container">
+            <h1>About Skilzen</h1>
+            <p>{internship?.aboutCompany}</p>
+          </About>
+          <JobDesc className="common-container">
+            <h1>Job Description</h1>
+            <p>{internship?.jobDescription}</p>
+          </JobDesc>
+          <Responsibility className="common-container">
+            <h1>Selected interns day-to-day responsibilities include:</h1>
+            <p>
+              {internship?.responsibilities?.map((data, i) => {
+                return (
+                  <li type="1" key={i}>
+                    {data}
+                  </li>
+                );
+              })}
+            </p>
+          </Responsibility>
+          <Eligibility className="common-container">
+            <h1>Who can Apply:</h1>
+            <p>
+              {internship?.perks?.map((data, i) => {
+                return <li key={i}>{data}</li>;
+              })}
+            </p>
+          </Eligibility>
 
         <BottomDiv>
           <Link href={`/internship/questions/${internship?.id}`}>

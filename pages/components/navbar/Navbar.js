@@ -21,14 +21,16 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Left>
-        <Image
-          height={61}
-          objectFit="contain"
-          layout="fixed"
-          width={177}
-          src="/intershipdetail/hiringbird-logo.png"
-          alt=""
-        />
+        <Link href="/">
+          <Image
+            height={61}
+            objectFit="contain"
+            layout="fixed"
+            width={177}
+            src="/intershipdetail/hiringbird-logo.png"
+            alt=""
+          />
+        </Link>
       </Left>
       <HamBurger>
         <svg
@@ -50,7 +52,9 @@ const Navbar = () => {
         <Right>
           <SLink href="#">About Us</SLink>
           <SLink href="#">Contact Us</SLink>
+          {/* <Link href="/internship/home"> */}
           <SBtn>Find Interships</SBtn>
+          {/* </Link> */}
           <Icons>
             <svg
               className="icon"
@@ -81,7 +85,13 @@ const Navbar = () => {
                 fill="#404366"
               />
             </svg>
-            <Avatar className="icon">
+            <Avatar
+              onClick={() => {
+                localStorage.removeItem("access_token");
+                setUser(null);
+              }}
+              className="icon"
+            >
               <svg
                 width="15"
                 height="15"
@@ -118,7 +128,7 @@ const Navbar = () => {
       ) : (
         <Menus>
           <a href="#">Post an Internship</a>
-          <a href="/internship/home">Find Internships</a>
+          <Link href="/internship/home">Find Internships</Link>
           <Link href="/signin">
             <button className="secondary_btn">Sign In</button>
           </Link>

@@ -38,6 +38,7 @@ const Body = () => {
 
   const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/;
   const rx_url =
+    // eslint-disable-next-line no-useless-escape
     /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
 
   function checkObjEmpty(obj) {
