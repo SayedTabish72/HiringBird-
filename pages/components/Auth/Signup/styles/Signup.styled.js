@@ -45,14 +45,14 @@ export const MiniContainer = styled.div`
     /* height: 670px;
      */
   }
-   height: auto;
+  height: auto;
 
   @media (max-width: 1138px) {
     width: 85%;
   }
-  @media (max-width: 446px) { */}
+  @media (max-width: 446px) {
     margin: 30px auto;
-  } 
+  }
 `;
 
 export const LeftDiv = styled.div`

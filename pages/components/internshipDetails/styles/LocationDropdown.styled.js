@@ -33,11 +33,10 @@ export const OptionSearch = styled.li`
 `;
 
 export const Option = styled.li`
-
   &:hover {
     color: #404366;
   }
- 
+
   list-style-type: none;
   padding: 5px 10px;
   font-style: normal;
@@ -48,21 +47,16 @@ export const Option = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.4px solid #C9CBE2;
-
+  border-bottom: 0.4px solid #c9cbe2;
 
   .label {
     margin-left: -10px;
     font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 19px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
 
-color: #C9CBE2;
-
-  }
-  
-
+    color: #c9cbe2;
   }
 `;
 

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { InternshipContext } from "../../../context/internship.context";
 
 export default function CardGridComp({ internships }) {
+  const { getPaginatedInternships } = useContext(InternshipContext);
   return (
     <>
       <CardGrid>
@@ -29,7 +31,7 @@ export default function CardGridComp({ internships }) {
                   />
                   <Img
                     src="/heart.svg"
-                    fill={data.fav ? "#F26A7E" : "#C9CBE2"}
+                    fill={data.fav ? "#F26A7E" : "#A3A6C3"}
                     width="24px"
                     height="24px"
                     style={{ margin: "0 8px" }}
@@ -109,10 +111,10 @@ export default function CardGridComp({ internships }) {
           );
         })}
       </CardGrid>
-      <Pagination>
-        <Link href="/" passHref>
-          <LoadMore>Load More</LoadMore>
-        </Link>
+      <Pagination onClick={() => getPaginatedInternships()}>
+        {/* <Link href="/" passHref> */}
+        <LoadMore>Load More</LoadMore>
+        {/* </Link> */}
       </Pagination>
     </>
   );
@@ -143,7 +145,7 @@ const Wrap = styled.div`
 `;
 
 const Id = styled.span`
-  color: #c9cbe2;
+  color: #a3a6c3;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -177,7 +179,7 @@ const Card = styled.div`
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
   padding-top: 1rem;
-  border: 1px solid #c9cbe2;
+  border: 1px solid #a3a6c3;
   border-radius: 10px;
   background: #ffffff;
 `;
@@ -237,7 +239,7 @@ const CardComp = styled.div`
     line-height: 15px;
     display: flex;
     align-items: center;
-    color: #c9cbe2;
+    color: #a3a6c3;
   }
 `;
 
@@ -275,7 +277,7 @@ const CardSkills = styled.div`
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
-    color: #c9cbe2;
+    color: #404366;
     margin: 8px;
   }
 `;
@@ -313,7 +315,7 @@ const CardButtons = styled.div`
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-    color: #c9cbe2;
+    color: #a3a6c3;
     display: flex;
     align-items: center;
   }

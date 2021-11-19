@@ -19,6 +19,7 @@ export const DropdownSelect = styled.ul`
 export const Img = styled.img`
   width: 17px;
   margin-left: 10px;
+  cursor: pointer;
 `;
 
 export const Span = styled.span`

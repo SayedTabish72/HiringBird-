@@ -22,7 +22,7 @@ export const Divstart = styled.div`
   flex-wrap: wrap;
   width: 80%;
   @media (max-width: 589px) {
-    flex-direction : column;
+    flex-direction: column;
   }
 `;
 

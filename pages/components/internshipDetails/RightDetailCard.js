@@ -137,24 +137,21 @@ function RightDetailCard({ activeInternship }) {
 
           <div className="common-container">
             <h1>Selected interns day-to-day responsibilities include:</h1>
-            <p>
-              <ul>
-                {activeInternship.responsibilities.map((data) => {
-                  return <li key={data}>{data}</li>;
-                })}
-              </ul>
-            </p>
+            <ul>
+              {activeInternship.responsibilities.map((data) => {
+                return <li key={data}>{data}</li>;
+              })}
+            </ul>
           </div>
 
           <div className="common-container">
             <h1>Perks: </h1>
-            <p>
-              <ul>
-                {activeInternship.perks.map((data) => {
-                  return <li key={data}>{data}</li>;
-                })}
-              </ul>
-            </p>
+
+            <ul>
+              {activeInternship.perks.map((data) => {
+                return <li key={data}>{data}</li>;
+              })}
+            </ul>
           </div>
 
           <div className="bottom">

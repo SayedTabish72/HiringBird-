@@ -22,7 +22,7 @@ function HeadBar() {
   const { internships, getInternship } = useContext(InternshipContext);
 
   useEffect(() => {
-    getInternship();
+    getInternship(1);
   }, []);
 
   // const [internships, setInternships] = useState([]);
@@ -43,7 +43,7 @@ function HeadBar() {
     <>
       <HeadContainer>
         <HeadLeft>
-          <HeadTitle>Internships</HeadTitle>
+          <HeadTitle>{internships.length} Internships</HeadTitle>
         </HeadLeft>
         <HeadRight>
           <DropdownWrap>

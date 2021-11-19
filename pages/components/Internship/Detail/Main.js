@@ -241,13 +241,14 @@ const Main = () => {
             </p>
           </Eligibility>
 
-          <BottomDiv>
-            <button>Apply</button>
-            <a href="#">Report Spam</a>
-          </BottomDiv>
-        </Body>
-      </Wrapper>
-    </>
+        <BottomDiv>
+          <Link href={`/internship/questions/${internship?.id}`}>
+            <button>Apply Now</button>
+          </Link>
+          <a href="#">Report Spam</a>
+        </BottomDiv>
+      </Body>
+    </Wrapper>
   );
 };
 
