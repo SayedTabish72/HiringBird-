@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import TextField from "@mui/material/TextField";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
@@ -108,18 +107,23 @@ const Signin = () => {
                 <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  type="text"
+                  type={`${showPass ? "text" : "password"}`}
                   placeholder="yourpassword"
                 />
                 <p>Forgot Password?</p>
                 {/* checkbox */}
                 <div className="checkbox-container">
-                  <input type="checkbox" name="" id="" />
+                  <input
+                    onChange={(e) => setShowPass(e.target.checked)}
+                    type="checkbox"
+                    name=""
+                    id="password-checkbox"
+                  />
                   <label htmlFor="">Show Password</label>
                 </div>
                 {/* checkbox */}
                 <div className="checkbox-container">
-                  <input type="checkbox" name="" id="" />
+                  <input type="checkbox" name="" id="loggedin-checkbox" />
                   <label htmlFor="">Keep me logged in</label>
                 </div>
 
@@ -299,6 +303,7 @@ const Split = styled.div`
           font-size: 14px;
           line-height: 17px;
           color: #404366;
+          font-family: "Inter", "san-serfi";
           border-bottom: 0.76489px solid #cddbea;
           &::placeholder {
             color: #c9cbe2;
@@ -368,34 +373,6 @@ const OuterContainer = styled.div`
   position: relative;
 `;
 
-const InnerContainer = styled.div`
-  position: absolute;
-  display: flex;
-  max-width: 1450px;
-  width: 90%;
-  height: 80%;
-  border-radius: 10px;
-  background-color: white;
-  z-index: 1;
-  overflow: hidden;
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    overflow-y: scroll;
-    width: 100%;
-    height: 100%;
-  }
-  @media (max-width: 600px) {
-    width: 100%;
-    height: 100%;
-  }
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-`;
-
 const Blob1 = styled.div`
   img {
     height: 100%;
@@ -415,136 +392,4 @@ const Blob2 = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-`;
-
-const Left = styled.div`
-  width: 500px;
-  background-color: #fff8f8;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (max-width: 1200px) {
-    width: 100%;
-  }
-  .skillzen-logo {
-    height: 40px;
-    margin: 10px;
-    @media (max-width: 1200px) {
-    }
-  }
-  .signin-vecotor {
-    height: 220px;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    @media (max-width: 1200px) {
-      margin: 20px auto 40px auto;
-    }
-  }
-  align-items: flex-start;
-`;
-const Right = styled.div`
-  height: 100%;
-  flex: 1;
-  padding: 15px;
-`;
-
-const Form = styled.form`
-  height: 100%;
-  h1 {
-    color: #ec1f28;
-    font-size: 37px;
-    line-height: 50.83px;
-    margin-bottom: 10px;
-  }
-  h2 {
-    line-height: 38.73px;
-    margin-bottom: 10px;
-    font-size: 27px;
-  }
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  .icons {
-    margin: 20px 0;
-    img {
-      margin-right: 20px;
-      cursor: pointer;
-      transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-      &:active {
-        transform: scale(1.1);
-      }
-    }
-  }
-  .fields {
-    display: flex;
-    flex-direction: column;
-  }
-  .bottom {
-    display: flex;
-    align-items: center;
-    flex-flow: row wrap;
-  }
-`;
-
-const CustomTextField = styled(TextField)`
-  .MuiInputBase-input {
-    font-family: "Inter", sans-serif;
-  }
-  /* label.Mui-focused {
-    color: gray;
-  } */
-
-  label {
-    font-family: "Inter", sans-serif;
-  }
-
-  /* .MuiInput-underline:after {
-    border-bottom-color: gray;
-  } */
-`;
-
-const Footer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* button {
-    background-color: #fff;
-    padding: 13px 20px;
-    font-weight: bold;
-    font-size: 17px;
-    border: 1px solid #f26a7e;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 100px;
-    margin-bottom: 10px;
-    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-    &:hover {
-      background-color: #f26a7e;
-      color: #fff;
-    }
-    &:active {
-      transform: scale(0.9);
-    }
-  } */
-  span {
-    font-weight: bold;
-    color: #f26a7e;
-  }
-`;
-
-const ErrorBox = styled.div`
-  background-color: #f86d6d;
-  color: #fff;
-  padding: 17px;
-`;
-
-const StyledLink = styled.a`
-  color: #f26a7e;
-  cursor: pointer;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-  &:active {
-    transform: scale(0.8);
-  }
 `;
