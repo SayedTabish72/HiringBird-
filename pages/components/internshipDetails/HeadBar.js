@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { InternshipContext } from "../../../context/internship.context";
 import {
   HeadContainer,
@@ -38,7 +38,7 @@ function HeadBar() {
   //       console.log(error);
   //     });
   // }, []);
-  console.log(internships);
+
   return (
     <>
       <HeadContainer>

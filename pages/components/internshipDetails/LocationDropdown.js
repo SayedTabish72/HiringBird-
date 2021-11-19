@@ -12,7 +12,6 @@ const Dropdown = ({ title, options }) => {
   const [show, setShow] = useState(false);
   const [activeLocation, setActiveLocation] = useState([]);
   const { setLocationModel } = useContext(InternshipContext);
-  console.log(activeLocation);
 
   const handleDropdownTitleClick = () => {
     setShow(!show);
