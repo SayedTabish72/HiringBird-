@@ -261,11 +261,12 @@ const Split = styled.div`
         margin: 1em 0;
       }
       .button-container {
-        margin-top: auto;
+        margin-top: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
+        padding-bottom: 20px;
         button {
           border: 1px solid red;
           padding: 15px 25px;

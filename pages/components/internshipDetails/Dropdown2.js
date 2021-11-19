@@ -76,9 +76,7 @@ const Dropdown2 = ({ title, options }) => {
             <DropdownSelect>
               <Span
                 style={{
-                  color: showNested2
-                    ? "#404366 marginBottom: '10px'"
-                    : "#C9CBE2",
+                  color: showNested2 ? "#404366" : "#C9CBE2",
                 }}
               >
                 {options[1].title1}
