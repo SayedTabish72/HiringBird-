@@ -1,18 +1,18 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-
-export default function useAuth() {
-  const [user, setUser] = useState(null);
+import jwt_decode from "jwt-decode";
+const useAuth = (dispatch) => {
   useEffect(() => {
-    console.log("working...");
-    setUser({
-      name: "densec",
-      email: "densec@gmail.com",
-    });
-    // call user api
-    // store user in redux
-    // else
-    // logout user
-  }, []);
-  return user;
-}
+    const access_token = localStorage.getItem("access_token");
+    if (access_token) {
+      const payload = jwt_decode(access_token);
+      if (Date.now() >= payload.exp * 1000) {
+        localStorage.removeItem("access_token");
+        dispatch({ type: "LOGOUT" });
+      } else {
+        dispatch({ type: "LOGIN", payload });
+      }
+    }
+  }, [dispatch]);
+};
+
+export default useAuth;

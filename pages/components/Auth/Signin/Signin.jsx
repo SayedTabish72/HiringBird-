@@ -12,6 +12,7 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const { id } = router.query;
+  console.log({ id });
 
   const SIGN_IN = (e) => {
     e.preventDefault();

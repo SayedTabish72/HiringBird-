@@ -241,14 +241,15 @@ const Main = () => {
             </p>
           </Eligibility>
 
-        <BottomDiv>
-          <Link href={`/internship/questions/${internship?.id}`}>
-            <button>Apply Now</button>
-          </Link>
-          <a href="#">Report Spam</a>
-        </BottomDiv>
-      </Body>
-    </Wrapper>
+          <BottomDiv>
+            <Link href={`/internship/questions/${internship?.id}`}>
+              <button>Apply Now</button>
+            </Link>
+            <a href="#">Report Spam</a>
+          </BottomDiv>
+        </Body>
+      </Wrapper>
+    </>
   );
 };
 
@@ -382,8 +383,9 @@ const Eligibility = styled.div``;
 
 const Flex = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 0.5rem;
+  flex-direction: column;
   margin-top: 0.4em;
   h2 {
     font-weight: 500;
