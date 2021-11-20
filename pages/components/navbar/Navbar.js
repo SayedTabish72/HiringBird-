@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import jwt_decode from "jwt-decode";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../redux/auth/action";
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const access_token = localStorage.getItem("access_token");
-    if (access_token) {
-      const payload = jwt_decode(access_token);
-      if (Date.now() >= payload.exp * 1000) {
-        localStorage.removeItem("access_token");
-        setUser(null);
-      } else {
-        setUser(payload);
-      }
-    }
-  }, []);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.isAuthenticated);
   return (
     <Wrapper>
       <Left>
@@ -87,8 +77,7 @@ const Navbar = () => {
             </svg>
             <Avatar
               onClick={() => {
-                localStorage.removeItem("access_token");
-                setUser(null);
+                dispatch(logout());
               }}
               className="icon"
             >

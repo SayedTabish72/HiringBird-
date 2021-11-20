@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import { login, logout } from "../redux/auth/action";
 const useAuth = (dispatch) => {
   useEffect(() => {
     const access_token = localStorage.getItem("access_token");
@@ -7,9 +8,9 @@ const useAuth = (dispatch) => {
       const payload = jwt_decode(access_token);
       if (Date.now() >= payload.exp * 1000) {
         localStorage.removeItem("access_token");
-        dispatch({ type: "LOGOUT" });
+        dispatch(logout());
       } else {
-        dispatch({ type: "LOGIN", payload });
+        dispatch(login(payload));
       }
     }
   }, [dispatch]);
