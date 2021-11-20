@@ -4,40 +4,39 @@ import styled from "styled-components";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { Login } from "../../../../api";
 
 const Signin = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const { id } = router.query;
+  console.log({ id });
 
   const SIGN_IN = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8800/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        console.log(res.data);
-        localStorage.setItem("access_token", res.data.authToken.accessToken);
-        if (id) {
-          router.push(`/internship/questions/${id}`);
-        } else {
-          router.push("/");
-        }
-      })
-      .catch((err) => {
-        console.log(err?.response?.data?.message);
-        if (Array.isArray(err?.response?.data?.message)) {
-          setErrors(err.response.data.message);
-        } else {
-          setErrors([err.response.data.message]);
-        }
-      });
+
+    dispatch(
+      Login(
+        {
+          email,
+          password,
+        },
+        id,
+        router
+      )
+    );
   };
+
+  // if (Array.isArray(err?.response?.data?.message)) {
+  //   setErrors(err.response.data.message);
+  // } else {
+  //   setErrors([err.response.data.message]);
+  // }
 
   return (
     <OuterContainer>

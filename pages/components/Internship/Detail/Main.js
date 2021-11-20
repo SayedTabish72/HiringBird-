@@ -383,8 +383,9 @@ const Eligibility = styled.div``;
 
 const Flex = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 0.5rem;
+  flex-direction: column;
   margin-top: 0.4em;
   h2 {
     font-weight: 500;
