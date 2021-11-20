@@ -29,6 +29,14 @@ const useProvideInternship = () => {
           if (lastPage < resData.totalPages) {
             setInternship([...internships, ...resData.data]);
           }
+          if (
+            resData.totalPages === 1 &&
+            resData.nextPage === 1 &&
+            lastPage === 1
+          ) {
+            setInternship([...internships, ...resData.data]);
+            setLastPage(lastPage + 1);
+          }
           if (activeId === undefined) {
             setActiveId(resData.data[0].id);
           }
