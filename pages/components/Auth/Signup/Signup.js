@@ -36,18 +36,22 @@ import router, { useRouter } from "next/router";
 function Signup() {
   const router = useRouter();
   const [fname, setFname] = useState("");
-  // const [lname, setLname] = useState("");
+  const [lname, setLname] = useState("");
   const [email, setemail] = useState("");
-  // const [phone, setphone] = useState("");
+  const [phone, setphone] = useState("");
   const [pass, setpass] = useState("");
   // const [repass, setrepass] = useState("");
 
   const onCreateuser = (e) => {
     e.preventDefault();
     const userdata = {
-      name: fname,
+      firstName: fname,
+      lastName: lname,
       email: email,
       password: pass,
+      mobileNumber: phone,
+      countryCode: "+91",
+      userType: "student",
     };
 
     axios
@@ -117,7 +121,7 @@ function Signup() {
               <InputField
                 type="text"
                 placeholder="Doe"
-                // onChange={(e) => setLname(e.target.value)}
+                onChange={(e) => setLname(e.target.value)}
               ></InputField>
             </Input>
           </Info>
@@ -139,7 +143,7 @@ function Signup() {
               <InputField
                 type="number"
                 placeholder="7007409205"
-                // onChange={(e) => setphone(e.target.value)}
+                onChange={(e) => setphone(e.target.value)}
               ></InputField>
             </Input>
           </Info>

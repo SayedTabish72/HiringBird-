@@ -1,13 +1,51 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Menus,
+  Wrapper,
+  Left,
+  Right,
+  Icons,
+  SLink,
+  SBtn,
+  Avatar,
+  HamBurger,
+  DropdownSelect,
+  Option,
+  Img,
+  Options,
+  OptionTitle,
+} from "./styles/Navbar.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/auth/action";
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.isAuthenticated);
+  const handleClose = () => {
+    setShow(!show);
+  };
+
+  useEffect(() => {
+    const access_token = localStorage.getItem("access_token");
+    if (access_token) {
+      const payload = jwt_decode(access_token);
+      if (Date.now() >= payload.exp * 1000) {
+        localStorage.removeItem("access_token");
+        setUser(null);
+      } else {
+        setUser(payload);
+      }
+    }
+  }, []);
+
+
+
+
+
   return (
     <Wrapper>
       <Left>
@@ -75,12 +113,51 @@ const Navbar = () => {
                 fill="#404366"
               />
             </svg>
-            <Avatar
-              onClick={() => {
+
+
+            <DropdownSelect>
+              {/****************** User Dropdown started  ********************/}
+
+              {!show ? (
+                " "
+              ) : (
+                <>
+                  <Options>
+                    <OptionTitle onClick={() => handleClose()}>
+                      <span
+                        style={{ color: show ? "#404366" : "#C9CBE2" }}
+                        className="option-title"
+                      >
+                        MY ACCOUNT
+                      </span>
+                      {show && <Img className="up-show" src="/up-arrow.svg" />}
+                    </OptionTitle>
+                    <Option>
+                      <label>My Profile</label>
+                    </Option>
+                    <Option>
+                      <label>Applied Internships</label>
+                    </Option>
+                    <Option>
+                      <label>Saved Internships</label>
+                    </Option>
+                    <Option
+                      onClick={() => {
                 dispatch(logout());
               }}
-              className="icon"
-            >
+                    >
+                      <label>Log out</label>
+                    </Option>
+                  </Options>
+                </>
+              )}
+            </DropdownSelect>
+
+            {/****************** User Dropdown ended  ********************/}
+
+            <Avatar className="icon" onClick={() => handleClose()}>
+
+
               <svg
                 width="15"
                 height="15"
@@ -131,208 +208,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-const Menus = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  @media (max-width: 720px) {
-    gap: 1rem;
-  }
-  @media (max-width: 666px) {
-    display: none;
-  }
-  a {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: #404366;
-    text-decoration: none;
-    @media (max-width: 720px) {
-      font-size: 14px;
-    }
-  }
-  .secondary_btn {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    color: #404366;
-    cursor: pointer;
-    background: none;
-    border: none;
-    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-    &:active {
-      transform: scale(0.95);
-    }
-    @media (max-width: 720px) {
-      font-size: 16px;
-    }
-  }
-  .primary_btn {
-    background: #f26a7e;
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    color: #ffffff;
-    padding: 10px 26px;
-    border: none;
-    cursor: pointer;
-    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-    &:active {
-      transform: scale(0.95);
-    }
-    @media (max-width: 720px) {
-      font-size: 12px;
-    }
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: min(98%, 90rem);
-  margin-inline: auto;
-`;
-const Left = styled.div`
-  flex: 1;
-`;
-const Right = styled.div`
-  display: flex;
-  align-items: center;
-  .icon {
-    margin-right: 1rem;
-  }
-  @media (max-width: 736px) {
-    /* display: none; */
-    a {
-      margin-right: 1em;
-      font-size: 14px;
-    }
-    button {
-      margin-right: 1.2em;
-      font-size: 13px;
-    }
-  }
-  @media (max-width: 666px) {
-    display: none;
-  }
-`;
-const Icons = styled.div`
-  display: flex;
-  align-items: center;
-  svg {
-    cursor: pointer;
-    /* margin-right: 1rem; */
-  }
-`;
-const SLink = styled.a`
-  margin-right: 2em;
-  font-weight: 500;
-  font-size: 16px;
-  color: #404366;
-  text-decoration: none;
-`;
-const SBtn = styled.button`
-  margin-right: 1.6em;
-  background-color: #f26a7e;
-  padding: 10px 26px;
-  color: #fff;
-  border: none;
-  font-weight: 600;
-  font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-`;
-
-const Avatar = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  padding: 6px;
-  border: 2.5px solid #f37386;
-  height: 2.5rem;
-  width: 2.5rem;
-  svg {
-    &:last-child {
-      margin-top: 1px;
-    }
-  }
-`;
-
-const HamBurger = styled.div`
-  @media (min-width: 666px) {
-    display: none;
-  }
-  svg {
-    height: 2rem;
-    cursor: pointer;
-  }
-`;
-
-// import React, { useEffect, useState } from "react";
-// import {
-//   Container,
-//   Links,
-//   StyledLink,
-//   Button,
-//   Image,
-//   ImageContainer,
-//   LinkContainer,
-//   Menu,
-//   Avatar,
-// } from "./styles/Navbar.styled";
-// import { useSession, signIn, signOut, getSession } from "next-auth/react";
-// import Link from "next/link";
-
-// function Navbar() {
-//   const { data: session, status } = useSession();
-//   console.log({ session, status });
-//   const [user, setUser] = useState(null);
-//   const [click, setClick] = useState(false);
-//   console.log(user);
-//   useEffect(() => {
-//     setUser(localStorage.getItem("access_token"));
-//   }, []);
-
-//   const handleClick = () => {
-//     setClick(!click);
-//   };
-
-//   return (
-//     <Container>
-//       <ImageContainer>
-//         <Image src="/logo.svg" />
-//       </ImageContainer>
-//       <LinkContainer>
-//         <Menu src="/menubar.svg" onClick={handleClick}></Menu>
-
-//         <Links onClick={handleClick} click={click}>
-//           {user ? (
-//             <>
-//               <StyledLink>About Us</StyledLink>
-//               <StyledLink>Contact Us</StyledLink>
-//               <Button>Find internships</Button>
-//             </>
-//           ) : (
-//             <>
-//               <StyledLink>Post an Internship</StyledLink>
-//               <StyledLink>Find Internships</StyledLink>
-
-//               <Link href="/signin">
-//                 <StyledLink>Sign In</StyledLink>
-//               </Link>
-//               <Link href="/signup">
-//                 <Button>Sign Up</Button>
-//               </Link>
-//             </>
-//           )}
-//         </Links>
-//       </LinkContainer>
-//     </Container>
-//   );
-// }
-
-// export default Navbar;
