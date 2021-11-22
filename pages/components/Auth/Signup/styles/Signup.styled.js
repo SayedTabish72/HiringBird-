@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  @media (max-height: 700px) {
+    margin-top: 60px;
+  }
 `;
 
 export const Image1 = styled.img`
@@ -34,19 +40,11 @@ export const Image2 = styled.img`
 
 export const MiniContainer = styled.div`
   width: 77.5%;
-  margin: 40px auto;
   background-color: #fff;
   display: flex;
   border-radius: 20px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   position: relative;
-  ${
-    ""
-    /* height: 670px;
-     */
-  }
-  height: auto;
-
   @media (max-width: 1138px) {
     width: 85%;
   }

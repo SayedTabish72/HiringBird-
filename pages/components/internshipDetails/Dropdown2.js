@@ -34,21 +34,16 @@ const Dropdown2 = ({ title, options }) => {
             </OptionTitle>
 
             <DropdownSelect>
-              <Span style={{ color: showNested1 ? "#404366" : "#C9CBE2" }}>
-                {options[0].title1}
-              </Span>
-              {!showNested1 ? (
-                <Img
-                  onClick={() => setNested1Show(!showNested1)}
-                  src="/down-arrow.svg"
-                />
-              ) : (
-                <Img
-                  onClick={() => setNested1Show(!showNested1)}
-                  src="/up-arrow.svg"
-                />
-              )}
-
+              <span onClick={() => setNested1Show(!showNested1)}>
+                <Span style={{ color: showNested1 ? "#404366" : "#C9CBE2" }}>
+                  {options[0].title1}
+                </Span>
+                {!showNested1 ? (
+                  <Img src="/down-arrow.svg" />
+                ) : (
+                  <Img src="/up-arrow.svg" />
+                )}
+              </span>
               {showNested1 ? (
                 <>
                   <Option>
@@ -67,25 +62,20 @@ const Dropdown2 = ({ title, options }) => {
               )}
             </DropdownSelect>
             <DropdownSelect>
-              <Span
-                style={{
-                  color: showNested2 ? "#404366" : "#C9CBE2",
-                }}
-              >
-                {options[1].title1}
-              </Span>
-              {!showNested2 ? (
-                <Img
-                  onClick={() => setNested2Show(!showNested2)}
-                  src="/down-arrow.svg"
-                />
-              ) : (
-                <Img
-                  onClick={() => setNested2Show(!showNested2)}
-                  src="/up-arrow.svg"
-                />
-              )}
-
+              <span onClick={() => setNested2Show(!showNested2)}>
+                <Span
+                  style={{
+                    color: showNested2 ? "#404366" : "#C9CBE2",
+                  }}
+                >
+                  {options[1].title1}
+                </Span>
+                {!showNested2 ? (
+                  <Img src="/down-arrow.svg" />
+                ) : (
+                  <Img src="/up-arrow.svg" />
+                )}
+              </span>
               {showNested2 ? (
                 <>
                   <Option>
@@ -104,25 +94,23 @@ const Dropdown2 = ({ title, options }) => {
               )}
             </DropdownSelect>
             <DropdownSelect>
-              <Span
-                style={{
-                  color: showNested3 ? "#404366" : "#C9CBE2",
-                }}
-              >
-                {options[2].title1}
-              </Span>
-              {!showNested3 ? (
-                <Img
-                  onClick={() => setNested3Show(!showNested3)}
-                  src="/down-arrow.svg"
-                />
-              ) : (
-                <Img
-                  onClick={() => setNested3Show(!showNested3)}
-                  src="/up-arrow.svg"
-                />
-              )}
-
+              <span onClick={() => setNested3Show(!showNested3)}>
+                <Span
+                  style={{
+                    color: showNested3 ? "#404366" : "#C9CBE2",
+                  }}
+                >
+                  {options[2].title1}
+                </Span>
+                {!showNested3 ? (
+                  <Img src="/down-arrow.svg" />
+                ) : (
+                  <Img
+                    onClick={() => setNested3Show(!showNested3)}
+                    src="/up-arrow.svg"
+                  />
+                )}
+              </span>
               {showNested3 ? (
                 <>
                   <Option>
