@@ -1,44 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import jwt_decode from "jwt-decode";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../redux/auth/action";
 import {
-  Menus,
   Wrapper,
   Left,
+  Menus,
+  HamBurger,
   Right,
-  Icons,
   SLink,
   SBtn,
+  Icons,
   Avatar,
-  HamBurger,
-  DropdownSelect,
-  Option,
-  Img,
-  Options,
-  OptionTitle,
 } from "./styles/Navbar.styled";
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
-  const [show, setShow] = useState(false);
-  const handleClose = () => {
-    setShow(!show);
-  };
-
-  useEffect(() => {
-    const access_token = localStorage.getItem("access_token");
-    if (access_token) {
-      const payload = jwt_decode(access_token);
-      if (Date.now() >= payload.exp * 1000) {
-        localStorage.removeItem("access_token");
-        setUser(null);
-      } else {
-        setUser(payload);
-      }
-    }
-  }, []);
-
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.isAuthenticated);
   return (
     <Wrapper>
       <Left>
@@ -106,49 +85,12 @@ const Navbar = () => {
                 fill="#404366"
               />
             </svg>
-
-            <DropdownSelect>
-              {/****************** User Dropdown started  ********************/}
-
-              {!show ? (
-                " "
-              ) : (
-                <>
-                  <Options>
-                    <OptionTitle onClick={() => handleClose()}>
-                      <span
-                        style={{ color: show ? "#404366" : "#C9CBE2" }}
-                        className="option-title"
-                      >
-                        MY ACCOUNT
-                      </span>
-                      {show && <Img className="up-show" src="/up-arrow.svg" />}
-                    </OptionTitle>
-                    <Option>
-                      <label>My Profile</label>
-                    </Option>
-                    <Option>
-                      <label>Applied Internships</label>
-                    </Option>
-                    <Option>
-                      <label>Saved Internships</label>
-                    </Option>
-                    <Option
-                      onClick={() => {
-                        localStorage.removeItem("access_token");
-                        setUser(null);
-                      }}
-                    >
-                      <label>Log out</label>
-                    </Option>
-                  </Options>
-                </>
-              )}
-            </DropdownSelect>
-
-            {/****************** User Dropdown ended  ********************/}
-
-            <Avatar className="icon" onClick={() => handleClose()}>
+            <Avatar
+              onClick={() => {
+                dispatch(logout());
+              }}
+              className="icon"
+            >
               <svg
                 width="15"
                 height="15"
