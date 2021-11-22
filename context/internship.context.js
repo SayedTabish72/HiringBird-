@@ -77,5 +77,6 @@ const useProvideInternship = () => {
     setLocationModel,
     getPaginatedInternships,
     setFilterModel,
+    showFilterModel,
   };
 };
