@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   FilterContainer,
   FilterLeft,
@@ -7,13 +7,15 @@ import {
   Img2,
 } from "./styles/ResponsiveFilter.styled";
 import LocationDropdown from "./LocationDropdown";
+import { InternshipContext } from "../../../context/internship.context";
 
 function ResponsiveFilter() {
+  const { setFilterModel } = useContext(InternshipContext);
   return (
     <FilterContainer>
       <FilterLeft>
         <Img1 src="/up-down-arrow.svg" />
-        <Img2 src="/top-bottom.svg" />
+        <Img2 src="/top-bottom.svg" onClick={() => setFilterModel()} />
       </FilterLeft>
       <FilterRight>
         <LocationDropdown

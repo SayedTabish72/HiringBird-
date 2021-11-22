@@ -16,6 +16,7 @@ const useProvideInternship = () => {
   const [internships, setInternship] = React.useState([]);
   const [activeId, setActiveId] = React.useState();
   const [showLocationModel, setshowLocationModel] = React.useState(false);
+  const [showFilterModel, setshowFilterModel] = React.useState(false);
   const [page, setPage] = React.useState(1);
   const [lastPage, setLastPage] = React.useState(1);
 
@@ -55,6 +56,10 @@ const useProvideInternship = () => {
     setshowLocationModel(!showLocationModel);
   };
 
+  const setFilterModel = () => {
+    setshowFilterModel(!showFilterModel);
+  };
+
   const setInternshipId = async (id) => {
     try {
       setActiveId(id);
@@ -71,5 +76,6 @@ const useProvideInternship = () => {
     showLocationModel,
     setLocationModel,
     getPaginatedInternships,
+    setFilterModel,
   };
 };
