@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   DropdownSelect,
   Option,
@@ -7,14 +7,34 @@ import {
   OptionTitle,
 } from "./styles/Dropdown.styled";
 
+const useClickOutside = (handler) => {
+  const domNode = useRef();
+  useEffect(() => {
+    let maybeHandler = (event) => {
+      if (!domNode.current.contains(event.target)) {
+        handler();
+      }
+    };
+    document.addEventListener("mousedown", maybeHandler);
+    return () => {
+      document.removeEventListener("mousedown", maybeHandler);
+    };
+  });
+  return domNode;
+};
+
 const Dropdown = ({ title, options }) => {
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(!show);
   };
 
+  let domNode = useClickOutside(() => {
+    setShow(false);
+  });
+
   return (
-    <DropdownSelect>
+    <DropdownSelect ref={domNode}>
       <span onClick={() => handleShow()}>
         {title}{" "}
         {!show ? <Img src="/down-arrow.svg" /> : <Img src="/up-arrow.svg" />}

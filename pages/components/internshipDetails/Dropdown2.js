@@ -1,6 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Option, Options, OptionTitle } from "./styles/Dropdown.styled";
 import { Img, DropdownSelect, Span } from "./styles/Dropdown2.styled";
+
+const useClickOutside = (handler) => {
+  const domNode = useRef();
+  useEffect(() => {
+    let maybeHandler = (event) => {
+      if (!domNode.current.contains(event.target)) {
+        handler();
+      }
+    };
+    document.addEventListener("mousedown", maybeHandler);
+    return () => {
+      document.removeEventListener("mousedown", maybeHandler);
+    };
+  });
+  return domNode;
+};
 
 const Dropdown2 = ({ title, options }) => {
   const [show, setShow] = useState(false);
@@ -8,8 +24,12 @@ const Dropdown2 = ({ title, options }) => {
   const [showNested2, setNested2Show] = useState(false);
   const [showNested3, setNested3Show] = useState(false);
 
+  let domNode = useClickOutside(() => {
+    setShow(false);
+  });
+
   return (
-    <DropdownSelect>
+    <DropdownSelect ref={domNode}>
       <span onClick={() => setShow(!show)}>
         {title}
         {!show ? <Img src="/down-arrow.svg" /> : <Img src="/up-arrow.svg" />}
