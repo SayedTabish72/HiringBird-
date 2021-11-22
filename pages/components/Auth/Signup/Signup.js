@@ -182,7 +182,9 @@ function Signup() {
             </SignupText>
           </Wrap>
         </RightDiv>
-        <Cross src="/cross.svg" />
+        <Link href="/">
+          <Cross src="/cross.svg" />
+        </Link>
       </MiniContainer>
     </Container>
   );
