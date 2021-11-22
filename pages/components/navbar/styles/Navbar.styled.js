@@ -197,6 +197,18 @@ export const Options = styled.div`
   z-index: 10000;
 `;
 
+export const SigninOptions = styled.div`
+  top: 10px;
+  background-color: #fff;
+  position: absolute;
+  right: -520px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 15px;
+  width: 210px;
+  z-index: 10000;
+`;
+
 export const OptionTitle = styled.div`
   .up-show {
     margin-top: -8px;
