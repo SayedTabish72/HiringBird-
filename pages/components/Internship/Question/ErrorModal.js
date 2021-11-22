@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -7,20 +7,23 @@ const ErrorModal = ({ errorModal, setErrorModal, err, id }) => {
   const modalRef = useRef();
   const router = useRouter();
 
-  const closeModal = (e) => {
-    if (e.target === modalRef.current) {
-      setErrorModal(false);
+  useEffect(() => {
+    if (errorModal) {
+      document.body.style.overflow = "hidden";
     }
-  };
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [errorModal]);
   return (
-    <Wrapper ref={modalRef} onClick={closeModal} show={errorModal}>
+    <Wrapper show={errorModal}>
       <Container>
         <img src="/intershipdetail/warning.png" alt="" />
         <h1>Error</h1>
         <p>{err}</p>
         <div className="line" />
         <Link href="/internship/home">
-          <button onClick={() => setErrorModal(false)}>
+          <button>
             Find Internships{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,6 +80,7 @@ const Container = styled.div`
   align-items: center;
   width: min(90%, 30rem);
   gap: 0.5rem;
+  animation: ${fadeInWrapper} 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   img {
     object-fit: contain;
     height: 5rem;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import {
   Menus,
@@ -18,10 +17,14 @@ import {
   Options,
   OptionTitle,
 } from "./styles/Navbar.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../redux/auth/action";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.isAuthenticated);
   const handleClose = () => {
     setShow(!show);
   };
@@ -38,6 +41,10 @@ const Navbar = () => {
       }
     }
   }, []);
+
+
+
+
 
   return (
     <Wrapper>
@@ -107,6 +114,7 @@ const Navbar = () => {
               />
             </svg>
 
+
             <DropdownSelect>
               {/****************** User Dropdown started  ********************/}
 
@@ -135,9 +143,8 @@ const Navbar = () => {
                     </Option>
                     <Option
                       onClick={() => {
-                        localStorage.removeItem("access_token");
-                        setUser(null);
-                      }}
+                dispatch(logout());
+              }}
                     >
                       <label>Log out</label>
                     </Option>
@@ -149,6 +156,8 @@ const Navbar = () => {
             {/****************** User Dropdown ended  ********************/}
 
             <Avatar className="icon" onClick={() => handleClose()}>
+
+
               <svg
                 width="15"
                 height="15"
