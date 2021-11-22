@@ -236,7 +236,7 @@ const Navbar = () => {
                       }}
                       className="option-title"
                     >
-                      Sign In / Sign Up
+                      Sign Up
                     </span>
                   </OptionTitle>
                   <Option style={{ marginBottom: "15px" }}>
@@ -292,7 +292,7 @@ const Navbar = () => {
                       }}
                       className="option-title"
                     >
-                      Sign In / Sign Up
+                      Sign In
                     </span>
                   </OptionTitle>
                   <Option style={{ marginBottom: "15px" }}>
