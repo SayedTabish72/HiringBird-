@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-<<<<<<< HEAD
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../../redux/auth/action";
-=======
->>>>>>> 707901dc86187fdd0afabd882c7fdfec786bd093
 import {
   Wrapper,
   Left,
@@ -16,16 +11,18 @@ import {
   SBtn,
   Icons,
   Avatar,
+  DropdownSelect,
+  Options,
+  OptionTitle,
+  Img,
+  Option,
 } from "./styles/Navbar.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/auth/action";
+import jwt_decode from "jwt-decode";
 
 const Navbar = () => {
-<<<<<<< HEAD
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.isAuthenticated);
-=======
-  const [user, setUser] = useState(null);
+  const [user1, setUser1] = useState(null);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.isAuthenticated);
@@ -36,21 +33,17 @@ const Navbar = () => {
   useEffect(() => {
     const access_token = localStorage.getItem("access_token");
     if (access_token) {
+      // eslint-disable-next-line no-undef
       const payload = jwt_decode(access_token);
       if (Date.now() >= payload.exp * 1000) {
         localStorage.removeItem("access_token");
-        setUser(null);
+        setUser1(null);
       } else {
-        setUser(payload);
+        setUser1(payload);
       }
     }
   }, []);
 
-
-
-
-
->>>>>>> 707901dc86187fdd0afabd882c7fdfec786bd093
   return (
     <Wrapper>
       <Left>
@@ -118,15 +111,6 @@ const Navbar = () => {
                 fill="#404366"
               />
             </svg>
-<<<<<<< HEAD
-            <Avatar
-              onClick={() => {
-                dispatch(logout());
-              }}
-              className="icon"
-            >
-=======
-
 
             <DropdownSelect>
               {/****************** User Dropdown started  ********************/}
@@ -156,8 +140,8 @@ const Navbar = () => {
                     </Option>
                     <Option
                       onClick={() => {
-                dispatch(logout());
-              }}
+                        dispatch(logout());
+                      }}
                     >
                       <label>Log out</label>
                     </Option>
@@ -169,9 +153,6 @@ const Navbar = () => {
             {/****************** User Dropdown ended  ********************/}
 
             <Avatar className="icon" onClick={() => handleClose()}>
-
-
->>>>>>> 707901dc86187fdd0afabd882c7fdfec786bd093
               <svg
                 width="15"
                 height="15"
