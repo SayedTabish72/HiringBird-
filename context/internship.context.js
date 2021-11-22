@@ -22,7 +22,7 @@ const useProvideInternship = () => {
   const getInternship = async (props) => {
     try {
       await axios
-        .get(`http://localhost:8800/internship?page=${props}&limit=1`)
+        .get(`http://localhost:8800/internship?page=${props}&limit=18`)
         .then((res) => {
           const resData = res.data;
           setPage(resData.nextPage);
