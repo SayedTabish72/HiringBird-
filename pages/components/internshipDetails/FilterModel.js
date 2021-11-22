@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { InternshipContext } from "../../../context/internship.context";
 import RightFilterModel from "./RightFilterModel";
@@ -6,6 +6,25 @@ import RightFilterModel from "./RightFilterModel";
 const LocationModel = ({ show }) => {
   const modalRef = useRef();
   const { setFilterModel } = useContext(InternshipContext);
+  const [showDuration, setshowDuration] = useState(true);
+  const [showInternshipType, setshowInternshipType] = useState(false);
+  const [showStipendRange, setshowStipendRange] = useState(false);
+
+  const handleShowDuration = () => {
+    setshowDuration(true);
+    setshowInternshipType(false);
+    setshowStipendRange(false);
+  };
+  const handleShowInternshipType = () => {
+    setshowDuration(false);
+    setshowInternshipType(true);
+    setshowStipendRange(false);
+  };
+  const handleShowStipendRange = () => {
+    setshowDuration(false);
+    setshowInternshipType(false);
+    setshowStipendRange(true);
+  };
 
   return (
     <Wrapper ref={modalRef} show={show}>
@@ -32,27 +51,45 @@ const LocationModel = ({ show }) => {
         </ModalTitle>
         <Parent>
           <Left>
-            <LeftDiv1>
+            <LeftDiv1 onClick={() => handleShowDuration()}>
               <span>Duration</span>
             </LeftDiv1>
-            <LeftDiv1>
+            <LeftDiv1 onClick={() => handleShowInternshipType()}>
               <span>Internship Type </span>
             </LeftDiv1>
-            <LeftDiv1>
+            <LeftDiv1 onClick={() => handleShowStipendRange()}>
               <span>Stipend Range</span>
             </LeftDiv1>
           </Left>
           <Right>
-            <RightFilterModel
-              options={[
-                "1 month",
-                "2 months",
-                "3-4 months",
-                "4-5 months",
-                "6 months",
-                "6 above",
-              ]}
-            />
+            {showDuration ? (
+              <RightFilterModel
+                options={[
+                  "1 month",
+                  "2 months",
+                  "3-4 months",
+                  "4-5 months",
+                  "6 months",
+                  "6 above",
+                ]}
+              />
+            ) : (
+              ""
+            )}
+            {showInternshipType ? (
+              <RightFilterModel
+                options={["Full time", "Part time", "Temporary", "Remote"]}
+              />
+            ) : (
+              ""
+            )}
+            {showStipendRange ? (
+              <RightFilterModel
+                options={["2k - 4k", "4k - 6k", "6k - 8k", "8k - 10k", "10k +"]}
+              />
+            ) : (
+              ""
+            )}
           </Right>
         </Parent>
         <ButtonContainer>
