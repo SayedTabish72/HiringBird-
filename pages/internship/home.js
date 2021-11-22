@@ -7,11 +7,12 @@ import Footer from "../components/internshipDetails/Footer";
 import HeadBar from "../components/internshipDetails/HeadBar";
 import ResponsiveFilter from "../components/internshipDetails/ResponsiveFilter";
 import LocationModel from "../components/internshipDetails/LocationModel";
+import FilterModel from "../components/internshipDetails/FilterModel";
 import { InternshipContext } from "../../context/internship.context";
 
 export default function home() {
-  const { showLocationModel } = useContext(InternshipContext);
-  useEffect(() => {}, [showLocationModel]);
+  const { showLocationModel, showFilterModel } = useContext(InternshipContext);
+  useEffect(() => {}, [showLocationModel, showFilterModel]);
   return (
     <>
       <Head>
@@ -33,6 +34,7 @@ export default function home() {
       <Navbar />
       <Search />
       <Filter />
+      <FilterModel show={showFilterModel} />
       <LocationModel show={showLocationModel} />
       <ResponsiveFilter />
       <HeadBar />
