@@ -10,33 +10,26 @@ const Dropdown2 = ({ title, options }) => {
 
   return (
     <DropdownSelect>
-      {title}
-      {!show ? (
-        <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
-      ) : (
-        <Img onClick={() => setShow(!show)} src="/up-arrow.svg" />
-      )}
+      <span onClick={() => setShow(!show)}>
+        {title}
+        {!show ? <Img src="/down-arrow.svg" /> : <Img src="/up-arrow.svg" />}
+      </span>
       {!show ? (
         " "
       ) : (
         <>
           <Options>
-            <OptionTitle>
+            <OptionTitle onClick={() => setShow(!show)}>
               <span
                 style={{ color: show ? "#404366" : "#C9CBE2" }}
-                onClick={() => setShow(!show)}
                 className="option-title"
               >
                 {title}
               </span>
               {!show ? (
-                <Img onClick={() => setShow(!show)} src="/down-arrow.svg" />
+                <Img src="/down-arrow.svg" />
               ) : (
-                <Img
-                  className="up-show"
-                  onClick={() => setShow(!show)}
-                  src="/up-arrow.svg"
-                />
+                <Img className="up-show" src="/up-arrow.svg" />
               )}
             </OptionTitle>
 

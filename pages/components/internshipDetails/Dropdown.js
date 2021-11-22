@@ -15,33 +15,26 @@ const Dropdown = ({ title, options }) => {
 
   return (
     <DropdownSelect>
-      {title}{" "}
-      {!show ? (
-        <Img onClick={() => handleShow()} src="/down-arrow.svg" />
-      ) : (
-        <Img src="/up-arrow.svg" />
-      )}
+      <span onClick={() => handleShow()}>
+        {title}{" "}
+        {!show ? <Img src="/down-arrow.svg" /> : <Img src="/up-arrow.svg" />}
+      </span>
       {!show ? (
         " "
       ) : (
         <>
           <Options>
-            <OptionTitle>
+            <OptionTitle onClick={() => handleShow()}>
               <span
                 style={{ color: show ? "#404366" : "#C9CBE2" }}
                 className="option-title"
-                onClick={() => handleShow()}
               >
                 {title}
               </span>
               {!show ? (
-                <Img onClick={() => handleShow()} src="/down-arrow.svg" />
+                <Img src="/down-arrow.svg" />
               ) : (
-                <Img
-                  className="up-show"
-                  onClick={() => handleShow()}
-                  src="/up-arrow.svg"
-                />
+                <Img className="up-show" src="/up-arrow.svg" />
               )}
             </OptionTitle>
             {options.map((option, index) => {
