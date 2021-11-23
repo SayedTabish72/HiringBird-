@@ -179,20 +179,4 @@ export const Checkbox = styled.input`
       border: 1px dotted blue;
     }
   }
-  /* appearance: none;
-    -webkit-appearance: none;
-    height:20px;
-    width:20px;
-    background-color: pink;
-    border-radius: 5px;
-    cursor:pointer;
-
-
-    &:before {
-      content: '✔';
-      position: absolute;
-      top: -1px; left: 2px;
-      font-size: 16px;
-      color: #09ad7e;
-      transition: all .2s; /* on prévoit une animation */
 `;

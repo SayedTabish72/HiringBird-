@@ -51,14 +51,41 @@ const LocationModel = ({ show }) => {
         </ModalTitle>
         <Parent>
           <Left>
-            <LeftDiv1 onClick={() => handleShowDuration()}>
-              <span>Duration</span>
+            <LeftDiv1
+              onClick={() => handleShowDuration()}
+              style={{
+                border: showDuration ? "1px solid #c9cbe2" : "",
+                background: showDuration ? "#fff" : "",
+                marginBottom: "10px",
+              }}
+            >
+              <span style={{ color: showDuration ? "#404366" : "" }}>
+                Duration
+              </span>
             </LeftDiv1>
-            <LeftDiv1 onClick={() => handleShowInternshipType()}>
-              <span>Internship Type </span>
+            <LeftDiv1
+              style={{
+                border: showInternshipType ? "1px solid #c9cbe2" : "",
+                background: showInternshipType ? "#fff" : "",
+                marginBottom: "10px",
+              }}
+              onClick={() => handleShowInternshipType()}
+            >
+              <span style={{ color: showInternshipType ? "#404366" : "" }}>
+                Internship Type{" "}
+              </span>
             </LeftDiv1>
-            <LeftDiv1 onClick={() => handleShowStipendRange()}>
-              <span>Stipend Range</span>
+            <LeftDiv1
+              style={{
+                border: showStipendRange ? "1px solid #c9cbe2" : "",
+                background: showStipendRange ? "#fff" : "",
+              }}
+              onClick={() => handleShowStipendRange()}
+            >
+              <span style={{ color: showStipendRange ? "#404366" : "" }}>
+                {" "}
+                Stipend Range
+              </span>
             </LeftDiv1>
           </Left>
           <Right>
@@ -139,21 +166,19 @@ const Right = styled.div`
 `;
 
 const LeftDiv1 = styled.div`
-  background: #ffffff;
-  border: 1px solid #c9cbe2;
-  box-sizing: border-box;
+  background: #f8f8f8;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
-  margin-bottom: 10px;
   span {
+    padding: 12px 10px;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
     display: flex;
     align-items: center;
     text-transform: capitalize;
-    color: #404366;
-    padding: 12px 10px;
+    color: #a9accb;
+    box-sizing: border-box;
   }
 `;
 
