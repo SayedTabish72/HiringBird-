@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { InternshipContext } from "../../../context/internship.context";
 
 export default function CardGridComp({ internships }) {
   const { getPaginatedInternships } = useContext(InternshipContext);
+
   return (
     <>
       <CardGrid>
@@ -97,7 +98,15 @@ export default function CardGridComp({ internships }) {
 
               <CardButtons>
                 <button>Apply Now</button>
-                <Link href={`/internship/${data.id}`}>
+                <Link
+                  href={{
+                    pathname: `/internship/[id]`,
+                    query: {
+                      id: data?.id,
+                    },
+                  }}
+                  as={`/internship/detail/${data?.companyName.trim()}`}
+                >
                   <button>
                     View Details
                     <Img
