@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 
 const SignInModal = ({ showModal, setShowModal, id }) => {
+  const modalRef = useRef();
+
+  const closeModal = (e) => {
+    if (e.target === modalRef.current) {
+      setShowModal(false);
+    }
+  };
   return (
-    <Wrapper show={showModal}>
+    <Wrapper ref={modalRef} onClick={closeModal} show={showModal}>
       <Container>
         <img src="/intershipdetail/warning.png" alt="" />
         <h1>Warning</h1>
@@ -15,6 +22,7 @@ const SignInModal = ({ showModal, setShowModal, id }) => {
             pathname: "/signin",
             query: { id },
           }}
+          as={`/signin/redirectUrl`}
         >
           <button onClick={() => setShowModal(false)}>SIGN IN</button>
         </Link>

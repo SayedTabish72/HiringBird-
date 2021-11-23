@@ -6,9 +6,11 @@ import { useRouter } from "next/router";
 import axios from "../../../../utils/axios";
 import jwt_decode from "jwt-decode";
 import SignInModal from "./SignInModal";
+import { useSelector } from "react-redux";
 
 const Main = () => {
   const router = useRouter();
+  const user = useSelector((state) => state.auth.user);
   const { id } = router.query;
   const [showModal, setShowModal] = useState(false);
   const [internship, setInternship] = useState({});
@@ -23,20 +25,6 @@ const Main = () => {
         console.log(err.response.data);
       });
   }, [id]);
-
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const access_token = localStorage.getItem("access_token");
-    if (access_token) {
-      const payload = jwt_decode(access_token);
-      if (Date.now() >= payload.exp * 1000) {
-        localStorage.removeItem("access_token");
-        setUser(null);
-      } else {
-        setUser(payload);
-      }
-    }
-  }, []);
 
   function convertDateTotimeago(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
@@ -82,7 +70,7 @@ const Main = () => {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          <a onClick={() => router.back()}>Back</a>
+          <p onClick={() => router.back({ scroll: false })}>Back</p>
         </BackBtn>
         <Body>
           <Head>
@@ -191,7 +179,13 @@ const Main = () => {
             </div>
             <div className="bottom">
               {user ? (
-                <Link href={`/internship/questions/${internship?.id}`}>
+                <Link
+                  href={{
+                    pathname: `/internship/questions/[id]`,
+                    query: { id: internship?.id },
+                  }}
+                  as={`/internship-questions/${internship?.companyName}`}
+                >
                   <button>Apply Now</button>
                 </Link>
               ) : (
@@ -263,13 +257,18 @@ const BackBtn = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.6em;
+  &:active {
+    opacity: 0.5;
+  }
   svg {
     color: #98a8b8;
-    height: 1.5rem;
+    cursor: pointer;
+    height: 1.4rem;
   }
-  a {
+  p {
     color: #98a8b8;
-    font-size: 24px;
+    font-size: 19px;
+    cursor: pointer;
     text-decoration: none;
   }
 `;

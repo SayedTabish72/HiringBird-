@@ -11,7 +11,11 @@ export const Login = (formData, id, router) => async (dispatch) => {
     dispatch(login(response.data));
 
     if (id) {
-      router.push(`/internship/questions/${id}`);
+      // router.push(`/internship/questions/${id}`);
+      router.push({
+        pathname: "/internship/questions/[id]",
+        query: { id },
+      });
     } else {
       router.push("/");
     }
