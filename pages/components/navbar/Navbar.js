@@ -91,7 +91,7 @@ const Navbar = () => {
       {user ? (
         <Right>
           <SLink href="#about-us">About Us</SLink>
-          <SLink href="#">Contact Us</SLink>
+          <SLink href="#contact-us">Contact Us</SLink>
           <Link href="/internship/home">
             <SBtn>Find Interships</SBtn>
           </Link>

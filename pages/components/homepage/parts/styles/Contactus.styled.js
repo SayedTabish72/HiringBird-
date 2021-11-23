@@ -1,49 +1,35 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @media (max-width: 589px) {
-    max-width: 1000px;
-    min-width: 780px;
-    margin-top: 40px;
-  }
-`;
+export const Container = styled.div``;
 
 export const Container1 = styled.div`
   display: flex;
-  width: 80%;
-
-  @media (max-width: 589px) {
+  @media (max-width: 860px) {
     flex-direction: column;
   }
 `;
 
 export const Leftdiv = styled.div`
+  flex-basis: 50%;
   display: flex;
-  width: 50%;
-  align-items: flex-start;
-  justify-content: center;
   flex-direction: column;
-  margin-top: 15%;
+  align-items: flex-start;
 `;
 export const Rightdiv = styled.div`
-  display: flex;
-  width: 50%;
-  align-items: flex-end;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 15%;
-
-  @media (max-width: 589px) {
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  flex-basis: 50%;
+  margin-left: 3rem;
+  @media (max-width: 1000px) {
+    margin-left: 1rem;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
   }
 `;
 
 export const Heading = styled.div`
+  margin: 1.5rem 0 4rem 0;
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -54,15 +40,16 @@ export const Heading = styled.div`
   font-feature-settings: "salt" on, "liga" off;
   border-bottom: 5px solid #f26a7e;
   border-radius: 4px;
-
   color: #404366;
 
-  @media (max-width: 529px) {
+  @media (max-width: 600px) {
     font-weight: 500;
     font-size: 22px;
+    margin-bottom: 2rem;
   }
 `;
 export const Text = styled.div`
+  margin-bottom: 2rem;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -73,54 +60,20 @@ export const Text = styled.div`
   font-feature-settings: "salt" on, "liga" off;
 
   color: #18191f;
-  margin-top: 10%;
-  width: 70%;
-
-  @media (max-width: 589px) {
-    font-size: 16px;
-    line-height: 26px;
-    width: 200%;
-  }
-`;
-
-export const Logo = styled.div`
-  position: absolute;
-  width: 69px;
-  height: 69px;
-  left: 68px;
-  top: 669px;
 
   @media (max-width: 600px) {
-    width: 42px;
-    height: 42px;
-    left: 80%;
-    top: 20rem;
-
-    filter: drop-shadow(-4.26087px 0px 14.6087px rgba(242, 106, 126, 0.44));
+    font-size: 16px;
+    line-height: 26px;
   }
 `;
+
+export const Logo = styled.div``;
 export const Button = styled.button`
   padding: 17px 35px;
-  color: #ffffff;
   background: #f26a7e;
   border-radius: 6px;
-  border: 0px;
-  margin-top: 5%;
-
-  @media (max-width: 589px) {
-    display: none;
-  }
+  color: #fff;
+  border: none;
+  cursor: pointer;
 `;
-export const Button1 = styled.button`
-  display: none;
-
-  @media (max-width: 589px) {
-    padding: 17px 35px;
-    display: flex;
-    color: #ffffff;
-    background: #f26a7e;
-    border-radius: 6px;
-    border: 0px;
-    margin-top: 5%;
-  }
-`;
+export const Button1 = styled.button``;

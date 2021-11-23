@@ -7,6 +7,7 @@ import Locations from "./parts/locations";
 import AboutUs from "./parts/AboutUs";
 import Founder from "./parts/Founder";
 import Footer from "../footer/Footer";
+import Contactus from "./parts/Contactus";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <AboutUs />
       <Section />
       <Founder />
+      <Contactus />
       <Footer />
     </>
   );
