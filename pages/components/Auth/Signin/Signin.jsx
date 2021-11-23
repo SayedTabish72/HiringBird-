@@ -109,6 +109,7 @@ const Signin = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   type={`${showPass ? "text" : "password"}`}
                   placeholder="yourpassword"
+                  autoComplete="new-password"
                 />
                 <p>Forgot Password?</p>
                 {/* checkbox */}

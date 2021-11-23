@@ -112,6 +112,7 @@ function Signup() {
                 type="text"
                 placeholder="John"
                 onChange={(e) => setFname(e.target.value)}
+                autocomplete="off"
               ></InputField>
             </Input>
             <Input>
@@ -122,6 +123,7 @@ function Signup() {
                 type="text"
                 placeholder="Doe"
                 onChange={(e) => setLname(e.target.value)}
+                autocomplete="off"
               ></InputField>
             </Input>
           </Info>
@@ -134,6 +136,7 @@ function Signup() {
                 type="email"
                 placeholder="Johndoe@gmail.com"
                 onChange={(e) => setemail(e.target.value)}
+                autocomplete="off"
               ></InputField>
             </Input>
             <Input>
@@ -141,7 +144,7 @@ function Signup() {
                 Mobile Number <Star>*</Star>
               </InputName>
               <InputField
-                type="number"
+                type="text"
                 placeholder="7007409205"
                 onChange={(e) => setphone(e.target.value)}
               ></InputField>
@@ -164,6 +167,7 @@ function Signup() {
             <InputField
               type="password"
               placeholder="************"
+              autoComplete="new-password"
               // onChange={(e) => setrepass(e.target.value)}
             ></InputField>
           </InputSeperate>

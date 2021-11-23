@@ -68,6 +68,7 @@ export default Founder;
 
 const FounderContainer = styled.div`
   background-color: #c9cbe2;
+  font-family: "Inter", sans-serif;
 `;
 
 const Split = styled.div`

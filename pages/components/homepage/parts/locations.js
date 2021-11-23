@@ -58,7 +58,14 @@ function Locations() {
 export default Locations;
 
 const Top = styled.div`
-  margin-bottom: 3rem;
+  display: flex;
+  * {
+    flex-basis: 100%;
+  }
+  margin-bottom: 5%;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 const Left = styled.div`
   h1 {
@@ -91,6 +98,12 @@ const Wrap = styled.div`
   border-radius: 4px;
   height: 200px;
   flex-basis: 23%;
+  transition: all 0.2s;
+  }
+  &:hover {
+    background: #fff8f8;
+  }
+
   img {
     object-fit: cover;
     margin-bottom: 10px;

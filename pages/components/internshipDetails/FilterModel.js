@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { InternshipContext } from "../../../context/internship.context";
 import RightFilterModel from "./RightFilterModel";
@@ -6,6 +6,25 @@ import RightFilterModel from "./RightFilterModel";
 const LocationModel = ({ show }) => {
   const modalRef = useRef();
   const { setFilterModel } = useContext(InternshipContext);
+  const [showDuration, setshowDuration] = useState(true);
+  const [showInternshipType, setshowInternshipType] = useState(false);
+  const [showStipendRange, setshowStipendRange] = useState(false);
+
+  const handleShowDuration = () => {
+    setshowDuration(true);
+    setshowInternshipType(false);
+    setshowStipendRange(false);
+  };
+  const handleShowInternshipType = () => {
+    setshowDuration(false);
+    setshowInternshipType(true);
+    setshowStipendRange(false);
+  };
+  const handleShowStipendRange = () => {
+    setshowDuration(false);
+    setshowInternshipType(false);
+    setshowStipendRange(true);
+  };
 
   return (
     <Wrapper ref={modalRef} show={show}>
@@ -32,27 +51,72 @@ const LocationModel = ({ show }) => {
         </ModalTitle>
         <Parent>
           <Left>
-            <LeftDiv1>
-              <span>Duration</span>
+            <LeftDiv1
+              onClick={() => handleShowDuration()}
+              style={{
+                border: showDuration ? "1px solid #c9cbe2" : "",
+                background: showDuration ? "#fff" : "",
+                marginBottom: "10px",
+              }}
+            >
+              <span style={{ color: showDuration ? "#404366" : "" }}>
+                Duration
+              </span>
             </LeftDiv1>
-            <LeftDiv1>
-              <span>Internship Type </span>
+            <LeftDiv1
+              style={{
+                border: showInternshipType ? "1px solid #c9cbe2" : "",
+                background: showInternshipType ? "#fff" : "",
+                marginBottom: "10px",
+              }}
+              onClick={() => handleShowInternshipType()}
+            >
+              <span style={{ color: showInternshipType ? "#404366" : "" }}>
+                Internship Type{" "}
+              </span>
             </LeftDiv1>
-            <LeftDiv1>
-              <span>Stipend Range</span>
+            <LeftDiv1
+              style={{
+                border: showStipendRange ? "1px solid #c9cbe2" : "",
+                background: showStipendRange ? "#fff" : "",
+              }}
+              onClick={() => handleShowStipendRange()}
+            >
+              <span style={{ color: showStipendRange ? "#404366" : "" }}>
+                {" "}
+                Stipend Range
+              </span>
             </LeftDiv1>
           </Left>
           <Right>
-            <RightFilterModel
-              options={[
-                "1 month",
-                "2 months",
-                "3-4 months",
-                "4-5 months",
-                "6 months",
-                "6 above",
-              ]}
-            />
+            {showDuration ? (
+              <RightFilterModel
+                options={[
+                  "1 month",
+                  "2 months",
+                  "3-4 months",
+                  "4-5 months",
+                  "6 months",
+                  "6 above",
+                ]}
+              />
+            ) : (
+              ""
+            )}
+            {showInternshipType ? (
+              <RightFilterModel
+                options={["Full time", "Part time", "Temporary", "Remote"]}
+              />
+            ) : (
+              ""
+            )}
+            {showStipendRange ? (
+              <RightFilterModel
+                options={["2k - 4k", "4k - 6k", "6k - 8k", "8k - 10k", "10k +"]}
+              />
+            ) : (
+              ""
+            )}
           </Right>
         </Parent>
         <ButtonContainer>
@@ -102,21 +166,19 @@ const Right = styled.div`
 `;
 
 const LeftDiv1 = styled.div`
-  background: #ffffff;
-  border: 1px solid #c9cbe2;
-  box-sizing: border-box;
+  background: #f8f8f8;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
-  margin-bottom: 10px;
   span {
+    padding: 12px 10px;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
     display: flex;
     align-items: center;
     text-transform: capitalize;
-    color: #404366;
-    padding: 12px 10px;
+    color: #a9accb;
+    box-sizing: border-box;
   }
 `;
 
