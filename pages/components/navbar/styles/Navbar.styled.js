@@ -61,6 +61,7 @@ export const Wrapper = styled.div`
   align-items: center;
   width: min(98%, 90rem);
   margin-inline: auto;
+  font-family: "Inter", sans-serif;
 `;
 export const Left = styled.div`
   flex: 1;

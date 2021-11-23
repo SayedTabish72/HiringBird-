@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: "Inter", sans-serif;
 `;
 
 export const InnerContainer = styled.div`
