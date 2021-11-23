@@ -3,7 +3,7 @@ import { userActionTypes } from "./action";
 const userInitialState = {
   isAuthenticated: false,
   user: null,
-  errors: null,
+  errors: [],
 };
 
 export default function reducer(state = userInitialState, action) {
@@ -20,6 +20,14 @@ export default function reducer(state = userInitialState, action) {
         ...state,
         isAuthenticated: false,
         user: null,
+      };
+    case userActionTypes.setError:
+      console.log(action.payload);
+      return {
+        ...state,
+        errors: Array.isArray(action.payload)
+          ? action.payload
+          : [action.payload],
       };
     default:
       return state;

@@ -90,11 +90,11 @@ const Navbar = () => {
       </HamBurger>
       {user ? (
         <Right>
-          <SLink href="#">About Us</SLink>
+          <SLink href="#about-us">About Us</SLink>
           <SLink href="#">Contact Us</SLink>
-          {/* <Link href="/internship/home"> */}
-          <SBtn>Find Interships</SBtn>
-          {/* </Link> */}
+          <Link href="/internship/home">
+            <SBtn>Find Interships</SBtn>
+          </Link>
           <Icons>
             <svg
               className="icon"

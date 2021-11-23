@@ -1,5 +1,5 @@
 import axios from "axios";
-import { login } from "../redux/auth/action";
+import { login, setError } from "../redux/auth/action";
 
 export const Login = (formData, id, router) => async (dispatch) => {
   try {
@@ -16,6 +16,6 @@ export const Login = (formData, id, router) => async (dispatch) => {
       router.push("/");
     }
   } catch (error) {
-    console.log(error.response.data);
+    dispatch(setError(error.response.data.message));
   }
 };

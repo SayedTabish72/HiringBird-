@@ -11,7 +11,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Inter', sans-serif;
   }
-  
+  html {
+  scroll-behavior: smooth;
+}
 `;
 
 export default GlobalStyle;

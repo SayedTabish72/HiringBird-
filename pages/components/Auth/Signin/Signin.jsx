@@ -11,14 +11,16 @@ import {
   Blob1,
   Blob2,
 } from "./styles/Signin.styled";
+import { useSelector } from "react-redux";
 
 const Signin = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const errors = useSelector((state) => state.auth.errors);
+  console.log({ errors });
   const { id } = router.query;
   console.log({ id });
 
@@ -36,12 +38,6 @@ const Signin = () => {
       )
     );
   };
-
-  // if (Array.isArray(err?.response?.data?.message)) {
-  //   setErrors(err.response.data.message);
-  // } else {
-  //   setErrors([err.response.data.message]);
-  // }
 
   return (
     <OuterContainer>
@@ -133,13 +129,17 @@ const Signin = () => {
 
                 <div
                   style={{
-                    display: `${errors.length != 0 ? "block" : "none"}`,
+                    display: `${errors?.length != 0 ? "block" : "none"}`,
                   }}
                   className="error-box"
                 >
                   {errors?.map((e, i) => (
                     <div
-                      style={{ display: "flex", alignItems: "center" }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginTop: "-3px",
+                      }}
                       key={i}
                     >
                       <div className="small-circle" />

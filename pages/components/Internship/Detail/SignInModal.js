@@ -7,7 +7,7 @@ const SignInModal = ({ showModal, setShowModal, id }) => {
     <Wrapper show={showModal}>
       <Container>
         <img src="/intershipdetail/warning.png" alt="" />
-        <h1>Error</h1>
+        <h1>Warning</h1>
         <p>You need to be Logged in</p>
         <div className="line" />
         <Link
