@@ -6,7 +6,7 @@ import Tabs from "../Tabs";
 const TabItem = (props) => <div {...props} />;
 const AboutUs = () => {
   return (
-    <Container>
+    <Container id="about-us">
       <Split>
         <Left>
           <div className="tabs">

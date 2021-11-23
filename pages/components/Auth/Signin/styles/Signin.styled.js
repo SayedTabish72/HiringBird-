@@ -45,6 +45,7 @@ export const Split = styled.div`
     display: flex;
     align-items: center;
     overflow-y: scroll;
+    padding-left: 15px;
     &::-webkit-scrollbar {
       display: none;
       scrollbar-width: none;
