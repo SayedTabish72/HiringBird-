@@ -135,9 +135,12 @@ const Wrap = styled.div`
   padding: 30px;
   border: 1px solid lightgrey;
   border-radius: 7px;
-  &:first-child {
+  transition: all 0.2s;
+  }
+  &:hover {
     background: #fff8f8;
   }
+
   &:last-child {
     display: flex;
     align-items: center;
