@@ -8,7 +8,7 @@ import AboutUs from "./parts/AboutUs";
 import Founder from "./parts/Founder";
 import Footer from "../footer/Footer";
 import Contactus from "./parts/Contactus";
-
+import Topcomp from "./parts/Topcomp";
 function Home() {
   return (
     <>
@@ -20,6 +20,7 @@ function Home() {
       <Section />
       <Founder />
       <Contactus />
+      <Topcomp/>
       <Footer />
     </>
   );
