@@ -111,7 +111,7 @@ const Signin = () => {
                   placeholder="yourpassword"
                   autoComplete="new-password"
                 />
-                <p>Forgot Password?</p>
+               <Link href="/forgotpass"><p>Forgot Password?</p></Link>
                 {/* checkbox */}
                 <div className="checkbox-container">
                   <input
