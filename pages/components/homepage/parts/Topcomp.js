@@ -226,7 +226,7 @@ const Top = styled.h1`
 
 
 margin-top:30vh;
-width:90vh;
+width:110vh;
 
 @media (max-width:600px){
   width:0px;
