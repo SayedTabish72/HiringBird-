@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -22,10 +22,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/auth/action";
 import jwt_decode from "jwt-decode";
 import Notifications from "./Notifications";
+import useOutsideClick from "../../../hooks/useOutsideClick";
 
 const Navbar = () => {
   const [user1, setUser1] = useState(null);
   const [show, setShow] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
   const [showSignin, setShowSignin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -34,6 +37,9 @@ const Navbar = () => {
   const handleClose = () => {
     setShow(!show);
   };
+  useOutsideClick(dropdownRef, () => {
+    if (showDropdown) setShowDropdown(false);
+  });
   const handleNotifications = () => {
     setShowNotifications(!showNotifications);
   };
@@ -72,21 +78,28 @@ const Navbar = () => {
           />
         </Link>
       </Left>
-      <HamBurger>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className=""
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <HamBurger show={showDropdown}>
+        <div
+          className="icon"
+          onClick={() => {
+            setShowDropdown(true);
+          }}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
+
+        <div className="dropdown" ref={dropdownRef}>
+          <ul>
+            <li>My Profile</li>
+            <li>Notifications</li>
+            <li>Messages</li>
+            <li>Posted Internships</li>
+            <li>Saved Internships</li>
+            <li className="special">Log out</li>
+          </ul>
+        </div>
       </HamBurger>
       {user ? (
         <Right>

@@ -1,16 +1,10 @@
 import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
+import Link from "next/link";
 
 const SuccessModal = ({ show, setShowModal }) => {
-  const modalRef = useRef();
-
-  const closeModal = (e) => {
-    if (e.target === modalRef.current) {
-      setShowModal(false);
-    }
-  };
   return (
-    <Wrapper ref={modalRef} onClick={closeModal} show={show}>
+    <Wrapper show={show}>
       <Container>
         <CloseBtn
           onClick={() => setShowModal(false)}
@@ -43,7 +37,9 @@ const SuccessModal = ({ show, setShowModal }) => {
         </h2>
         <div className="flex">
           <p>SKIP FOR NOW</p>
-          <button>Find Internships</button>
+          <Link href="/internship/home">
+            <button>Find Internships</button>
+          </Link>
         </div>
 
         <SkillzenLove>

@@ -227,7 +227,7 @@ const Main = () => {
             </p>
           </Responsibility>
           <Eligibility className="common-container">
-            <h1>Who can Apply:</h1>
+            <h1>Perks:</h1>
             <p>
               {internship?.perks?.map((data, i) => {
                 return <li key={i}>{data}</li>;

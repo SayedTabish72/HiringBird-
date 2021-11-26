@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Menus = styled.div`
   display: flex;
@@ -131,7 +131,90 @@ export const Avatar = styled.div`
   }
 `;
 
+const FadeIn = keyframes`
+  0% {
+    transform: translateY(10px);
+  
+  }
+  100% {
+    transform: translateY(0px);
+  
+  }
+`;
+const FadeOut = keyframes`
+  0% {
+   
+    transform: translateY(0px);
+  }
+  100% {
+ 
+    transform: translateY(10px);
+  
+  }
+`;
 export const HamBurger = styled.div`
+  position: relative;
+  user-select: none;
+  .icon {
+    cursor: pointer;
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: 0.4s;
+    }
+    .bar1 {
+      transform: ${({ show }) =>
+        show ? "rotate(45deg) translate(5px, 6px)" : "rotate(0)"};
+    }
+    .bar2 {
+      opacity: ${({ show }) => (show ? "0" : "1")};
+    }
+    .bar3 {
+      transform: ${({ show }) =>
+        show ? "rotate(-45deg) translate(5px, -6px)" : "rotate(0)"};
+    }
+  }
+  .dropdown {
+    opacity: ${(props) => (props.show ? "1" : "0")};
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    position: absolute;
+    transition: opacity 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    right: 0.5rem;
+    top: 2.3rem;
+    animation: ${({ show }) => (show ? FadeIn : FadeOut)} 250ms
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    z-index: 99;
+    background: #fff;
+    width: 13.5rem;
+    ul {
+      padding: 1.2rem 1.5rem;
+      list-style: none;
+      * {
+        margin-bottom: 1.2em;
+      }
+      .special {
+        font-weight: 600;
+        font-size: 17px;
+        color: #395185;
+      }
+      li {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 16px;
+        color: #a9accb;
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        &:active {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
   @media (min-width: 666px) {
     display: none;
   }
