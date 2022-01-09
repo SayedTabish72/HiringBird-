@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import SuccessModal from "./SuccessModal";
 import axios from "../../../../utils/axios";
 import { useRouter } from "next/router";
 import ErrorModal from "./ErrorModal";
+import questions from "../../../../utils/questions";
 
 const Body = () => {
   const router = useRouter();
@@ -18,6 +19,19 @@ const Body = () => {
     url: "",
     reason: "",
   });
+  console.log({ values });
+  const [file, setFile] = useState(null);
+  const hiddenFileInput = useRef(null);
+  const [uploaded, setUploaded] = useState(false);
+
+  // convert lastmodified to date
+  const convertDate = (date) => {
+    const d = new Date(date);
+    const month = `0${d.getMonth() + 1}`.slice(-2);
+    const day = `0${d.getDate()}`.slice(-2);
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   useEffect(() => {
     axios
@@ -72,6 +86,9 @@ const Body = () => {
     } else if (values.reason.length > 100) {
       errors.reason = "Must be less than 100 words";
     }
+    if (!file) {
+      errors.file = "Required";
+    }
 
     return errors;
   };
@@ -80,63 +97,70 @@ const Body = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("clicked");
     const errObj = validate(values);
     setErrors(errObj);
     if (checkObjEmpty(errObj)) {
+      const formData = new FormData();
+      formData.append(
+        "answers",
+        JSON.stringify([
+          {
+            questionID: 1,
+            answer: values.experience,
+          },
+          {
+            questionID: 2,
+            answer: values.figma_skill,
+          },
+          {
+            questionID: 3,
+            answer: values.url,
+          },
+          {
+            questionID: 4,
+            answer: values.reason,
+          },
+        ])
+      );
       axios
-        .put(`/internship/apply/${id}`, {
-          answers: [
-            {
-              questionID:
-                "How many years of work experience do you have using Figma/sketch software",
-              answer: values.experience,
-            },
-            {
-              questionID:
-                "Rate your self in figma tool skill out of 5? Where 5 being highest",
-              answer: values.figma_skill,
-            },
-            {
-              questionID: "Add the link to your design portfolio",
-              answer: values.url,
-            },
-            {
-              questionID: "Why do you think you are suitable for this role",
-              answer: values.reason,
-            },
-          ],
+        .post(`/internship/apply/${id}`, formData, {
+          headers: { "content-type": "multipart/form-data" },
         })
         .then((res) => {
           console.log(res.data);
           setShowModal(true);
-          setValues({
-            experience: "",
-            figma_skill: "",
-            url: "",
-            reason: "",
-          });
         })
         .catch((err) => {
           console.log(err.response.data);
           setErrMsg(err.response.data.message);
           setErrorModal(true);
-          setValues({
-            experience: "",
-            figma_skill: "",
-            url: "",
-            reason: "",
-          });
         });
     } else {
-      console.log("solve the errors");
+      console.log("solve validation errors");
     }
+  };
+
+  // const validateFile = (file) => {
+  //   const fileTypes = ["application/pdf", "application/docx"];
+  //   if (fileTypes.includes(file.type)) {
+  //     setFile(file);
+  //   } else {
+  //     alert("Please upload a valid file");
+  //   }
+  // };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    setFile(file);
+    file && setUploaded(true);
   };
 
   return (
     <>
+      {/* poppups */}
       <ErrorModal
         errorModal={errorModal}
         setErrorModal={setErrorModal}
@@ -144,161 +168,194 @@ const Body = () => {
         id={id}
       />
       <SuccessModal show={showModal} setShowModal={setShowModal} />
+      {/* poppups */}
+
       <Wrapper onSubmit={handleSubmit}>
-        <div className="head">
+        <Head>
           <h1>
-            {internship?.jobName} at {internship?.companyName}
+            {internship.jobName} at {internship?.companyName}
           </h1>
-        </div>
+        </Head>
 
-        <h2>Assessment questions</h2>
-        <div className="question">
-          <h5>
-            Q.How many years of work experience do you have using Figma/sketch
-            software ? <span>*</span>
-          </h5>
-          <input
-            name="experience"
-            value={values.experience}
-            onChange={handleChange}
-            type="text"
-            placeholder="e.g. 1 (only numerical Value)"
-          />
-          {errors.experience && (
-            <ErrorBox>
-              <p>{errors.experience}</p>
-              <svg width="20" height="20">
-                <circle cx="50%" cy="50%" r="8" fill="red" />
-              </svg>
-            </ErrorBox>
-          )}
-        </div>
+        <QuestionsContainer>
+          {questions.map((q) => (
+            <Question key={q.id}>
+              <h5>
+                Q. {q.questionTitle}
+                <span>*</span>
+              </h5>
+              {q.textarea ? (
+                <>
+                  <textarea
+                    name={q.keyword}
+                    value={values[q.keyword]}
+                    onChange={handleChange}
+                    id=""
+                    cols="30"
+                    rows="10"
+                    onBlur={() => {
+                      const errObj = validate(values);
+                      setErrors(errObj);
+                    }}
+                    style={{
+                      resize: "vertical",
+                      outline: "none",
+                      border: "0.76489px solid #C9CBE2",
+                      padding: "1rem",
+                      fontWeight: "500",
+                      fontSize: "15px",
+                    }}
+                  ></textarea>
+                  <div className="customFileInput">
+                    <button
+                      onClick={() => hiddenFileInput.current.click()}
+                      type="button"
+                    >
+                      Upload
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                        />
+                      </svg>
+                    </button>
+                    <input
+                      onChange={handleFileUpload}
+                      style={{ display: "none" }}
+                      type="file"
+                      name=""
+                      id=""
+                      ref={hiddenFileInput}
+                      accept=".docx,.pdf"
+                    />
+                  </div>
+                </>
+              ) : (
+                <input
+                  name={q.keyword}
+                  value={values[q.keyword]}
+                  onChange={handleChange}
+                  type={q.answerType}
+                  placeholder={q.inputPlaceholder}
+                />
+              )}
 
-        <div className="question">
-          <h5>
-            Q.Rate your self in figma tool skill out of 5? Where 5 being highest{" "}
-            <span>*</span>
-          </h5>
-          <input
-            name="figma_skill"
-            value={values.figma_skill}
-            onChange={handleChange}
-            type="text"
-            placeholder="e.g. 1 (only numerical Value)"
-          />
-          {errors.figma_skill && (
-            <ErrorBox>
-              <p>{errors.figma_skill}</p>
-              <svg width="20" height="20">
-                <circle cx="50%" cy="50%" r="8" fill="red" />
-              </svg>
-            </ErrorBox>
-          )}
-        </div>
-
-        <div className="question">
-          <h5>
-            Q.Add the link to your design portfolio. <span>*</span>
-          </h5>
-          <input
-            name="url"
-            value={values.url}
-            onChange={handleChange}
-            type="text"
-            placeholder="Add link"
-          />
-          {errors.url && (
-            <ErrorBox>
-              <p>{errors.url}</p>
-              <svg width="20" height="20">
-                <circle cx="50%" cy="50%" r="8" fill="red" />
-              </svg>
-            </ErrorBox>
-          )}
-        </div>
-
-        <div className="question">
-          <h5>
-            Q.Why do you think you are suitable for this role? <span>*</span>
-          </h5>
-          <textarea
-            name="reason"
-            value={values.reason}
-            onChange={handleChange}
-            rows="6"
-            placeholder="Type here"
-          />
-          {errors.reason && (
-            <ErrorBox>
-              <p>{errors.reason}</p>
-              <svg width="20" height="20">
-                <circle cx="50%" cy="50%" r="8" fill="red" />
-              </svg>
-            </ErrorBox>
-          )}
-          <div className="upload-file">
-            <p>or</p>
-            <CustomFileInput>
-              <label htmlFor="upload-photo">
-                <span>Upload file</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className=""
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="#A9ACCB"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                  />
-                </svg>
-              </label>
-              <input type="file" name="" id="upload-photo" />
-            </CustomFileInput>
-          </div>
-        </div>
+              {errors[q.keyword] && (
+                <ErrorBox>
+                  <p>{errors[q.keyword]}</p>
+                  <svg width="20" height="20">
+                    <circle cx="50%" cy="50%" r="8" fill="red" />
+                  </svg>
+                </ErrorBox>
+              )}
+            </Question>
+          ))}
+        </QuestionsContainer>
 
         <ResumeContainer>
-          <h1>
+          <h2>
             Resume <span>*</span>
-          </h1>
-          <div className="flex">
-            {/* checkbox */}
+          </h2>
+          <div style={{ display: "flex", alignItems: "center", gap: ".8rem" }}>
             <CustomCheckbox className="child">
               <input type="checkbox" id="check" hidden />
               <label htmlFor="check"></label>
               <span>Use resume.pdf</span>
             </CustomCheckbox>
-            {/* or letter */}
-            <p className="child">or</p>
-            {/* upload file btn */}
-            <CustomFileInput className="child">
-              <label htmlFor="upload-photo">
-                <span>Upload file</span>
+            <span style={{ color: "#A9ACCB" }}>or</span>
+            {uploaded ? (
+              <div className="uploaded-file">
+                <div
+                  style={{
+                    background: `${
+                      file.name.includes("pdf") ? "#F26A7E" : "#1a73e8"
+                    }`,
+                    padding: ".6rem",
+                    borderRadius: "5px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "white",
+                  }}
+                >
+                  <p>{file.name.includes("pdf") ? "PDF" : "DOCX"}</p>
+                </div>
+                <div className="uploadedFile__content">
+                  <h5>{file.name}</h5>
+                  <p>Last used {convertDate(file.lastModified)}</p>
+                </div>
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className=""
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="#A9ACCB"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  onClick={() => {
+                    setFile(null);
+                    setUploaded(false);
+                  }}
                 >
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
                   />
                 </svg>
-              </label>
-              <input type="file" name="pdf" id="pdf" />
-            </CustomFileInput>
+              </div>
+            ) : (
+              <>
+                <div className="customFileInput">
+                  <button
+                    onClick={() => hiddenFileInput.current.click()}
+                    type="button"
+                  >
+                    Upload
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                      />
+                    </svg>
+                  </button>
+                  <input
+                    onChange={handleFileUpload}
+                    style={{ display: "none" }}
+                    type="file"
+                    name=""
+                    id=""
+                    ref={hiddenFileInput}
+                    accept=".docx,.pdf"
+                  />
+                </div>
+                {errors.file && (
+                  <ErrorBox>
+                    <p>{errors.file}</p>
+                    <svg width="20" height="20">
+                      <circle cx="50%" cy="50%" r="8" fill="red" />
+                    </svg>
+                  </ErrorBox>
+                )}
+              </>
+            )}
           </div>
         </ResumeContainer>
-
-        <button type="submit">Submit</button>
+        <SubmitBtn type="submit">Submit</SubmitBtn>
       </Wrapper>
     </>
   );
@@ -308,132 +365,156 @@ export default Body;
 
 const Wrapper = styled.form`
   width: min(95%, 80rem);
-  padding: 2rem 2rem;
-  margin-bottom: 1em;
-  @media (max-width: 600px) {
-    padding: 3%;
-  }
+  margin: 2% auto;
+
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0px 30px 72px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  border: 1px solid #e6e6e6;
+
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
-  box-shadow: 0px 30px 72px rgba(0, 0, 0, 0.05);
-  border: 1px solid lightgrey;
-  margin-top: 2%;
-  margin-inline: auto;
-  color: #404366;
+  align-items: flex-start;
+`;
+const Head = styled.div`
+  margin-bottom: 5%;
   h1 {
     font-weight: 500;
+    line-height: 39px;
+    color: #404366;
     font-size: 32px;
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   }
-  /* background-color: #f5f5f5; */
-  .head {
-    margin-bottom: 3em;
-  }
-  h2 {
+`;
+
+const QuestionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 2.4%;
+`;
+const Question = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h5 {
     font-weight: 500;
-    font-size: 28px;
-    margin-bottom: 0.8em;
-  }
-  .question {
-    max-width: 55rem;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5em;
-    textarea {
-      outline: none;
-      border: 1px solid #c9cbe2;
-      padding: 1em;
-      font-family: inter, sans-serif;
-      border-radius: 5px;
-    }
-    .upload-file {
-      display: flex;
-      margin-left: 1.2em;
-      margin-top: 1em;
-      align-items: center;
-      p {
-        margin-right: 1em;
-        color: #a9accb;
-      }
-    }
-
-    h5 {
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 24px;
-      margin-bottom: 0.6em;
-      span {
-        color: red;
-      }
-    }
-    input {
-      outline: none;
-      border: none;
-      padding: 0.4em 0.5em;
-      border-bottom: 1px solid #c9cbe2;
-      margin-left: 1.2em;
-    }
-  }
-  button {
-    background-color: #f26a7e;
-    padding: 10px 26px;
-    color: #fff;
-    border: none;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    align-self: flex-end;
-    margin-top: 2em;
-  }
-`;
-
-const CustomFileInput = styled.div`
-  label {
-    cursor: pointer;
-    display: flex;
-    border: 2px solid #f1a6b1;
-    border-radius: 5px;
-    align-items: center;
-    width: fit-content;
-    padding: 8px 14px;
-    svg {
-      height: 1.6rem;
-    }
+    font-size: 18px;
+    letter-spacing: 0.0987159px;
+    color: #404366;
     span {
-      font-weight: 500;
-      margin-right: 0.2em;
+      color: red;
+    }
+    @media (max-width: 768px) {
+      font-size: 15px;
     }
   }
+
   input {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #c9cbe2;
+    outline: none;
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .customFileInput {
+    button {
+      border-radius: 6px;
+      padding: 12px 30px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #404366;
+      border: 1px solid #f26a7e;
+      cursor: pointer;
+      background: ${(props) => (props.uploaded ? "#f26a7e" : "#ffffff")};
+
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      svg {
+        color: #a9accb;
+        height: 1.3rem;
+      }
+    }
   }
 `;
+
 const ResumeContainer = styled.div`
-  h1 {
-    margin-bottom: 0.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  h2 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.0987159px;
+    color: #404366;
     span {
       color: red;
     }
   }
-  .flex {
+
+  .uploaded-file {
     display: flex;
-    gap: 1rem;
     align-items: center;
-    @media (max-width: 700px) {
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: flex-start;
+    gap: 0.6rem;
+
+    user-select: none;
+    background: #ffffff;
+    border: 1px solid #98a8b8;
+    border-radius: 12px;
+    padding: 12px 10px;
+    svg {
+      height: 1.3rem;
+      cursor: pointer;
     }
-    p {
-      color: #a9accb;
+    .uploadedFile__content {
+      h5 {
+        font-weight: 500;
+        font-size: 15.7px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.0987159px;
+        color: #404366;
+      }
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.0987159px;
+        color: #a9accb;
+      }
     }
-    .checkbox {
-      span {
-        margin-left: 0.4em;
-        font-size: 16px;
+  }
+
+  .customFileInput {
+    button {
+      border-radius: 6px;
+      padding: 12px 30px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #404366;
+      border: 1px solid #f26a7e;
+      cursor: pointer;
+      background: ${(props) => (props.uploaded ? "#f26a7e" : "#ffffff")};
+
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      svg {
+        color: #a9accb;
+        height: 1.3rem;
       }
     }
   }
@@ -486,7 +567,6 @@ const ErrorBox = styled.div`
   padding: 1em;
   border-radius: 3px;
   background: #fff9fa;
-  margin-top: 1em;
   p {
     font-size: 12px;
     line-height: 15px;
@@ -498,5 +578,20 @@ const ErrorBox = styled.div`
     left: -0.65rem;
     top: 50%;
     transform: translateY(-50%);
+  }
+`;
+
+const SubmitBtn = styled.button`
+  background: #f26a7e;
+  border-radius: 6px;
+  padding: 14px 33px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 1em;
+  @media (min-width: 768px) {
+    margin-left: auto;
   }
 `;
