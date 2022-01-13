@@ -97,7 +97,18 @@ export default function CardGridComp({ internships }) {
               </CardSkills>
 
               <CardButtons>
-                <button>Apply Now</button>
+                <Link
+                  href={{
+                    pathname: `/internship/[id]`,
+                    query: {
+                      id: data?.id,
+                    },
+                  }}
+                  as={`/internship/detail/${data?.companyName.trim()}`}
+                >
+                  <button>Apply Now</button>
+                </Link>
+
                 <Link
                   href={{
                     pathname: `/internship/[id]`,
