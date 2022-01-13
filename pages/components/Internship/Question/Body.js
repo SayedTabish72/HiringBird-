@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import SuccessModal from "./SuccessModal";
-import axios from "../../../../utils/axios";
+// import axios from "../../../../utils/axios";
+import axios from "axios";
 import { useRouter } from "next/router";
 import ErrorModal from "./ErrorModal";
 import questions from "../../../../utils/questions";
@@ -103,6 +104,7 @@ const Body = () => {
     setErrors(errObj);
     if (checkObjEmpty(errObj)) {
       const formData = new FormData();
+      formData.append("resume", file);
       formData.append(
         "answers",
         JSON.stringify([
@@ -125,9 +127,7 @@ const Body = () => {
         ])
       );
       axios
-        .post(`/internship/apply/${id}`, formData, {
-          headers: { "content-type": "multipart/form-data" },
-        })
+        .post("http://localhost:8000/api/v1/auth/file-upload", formData)
         .then((res) => {
           console.log(res.data);
           setShowModal(true);
@@ -176,7 +176,6 @@ const Body = () => {
             {internship.jobName} at {internship?.companyName}
           </h1>
         </Head>
-
         <QuestionsContainer>
           {questions.map((q) => (
             <Question key={q.id}>
@@ -193,10 +192,6 @@ const Body = () => {
                     id=""
                     cols="30"
                     rows="10"
-                    onBlur={() => {
-                      const errObj = validate(values);
-                      setErrors(errObj);
-                    }}
                     style={{
                       resize: "vertical",
                       outline: "none",
