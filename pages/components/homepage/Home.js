@@ -6,7 +6,7 @@ import Categories from "./parts/categories";
 import Locations from "./parts/locations";
 import AboutUs from "./parts/AboutUs";
 import Founder from "./parts/Founder";
-import Footer from "../footer/Footer";
+import Footer from "../Footer";
 import Contactus from "./parts/Contactus";
 import Topcomp from "./parts/Topcomp";
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
       {/* <AboutUs /> */}
       {/* <Founder /> */}
       {/* <Contactus /> */}
-      <Topcomp />
+      {/* <Topcomp /> */}
       <Footer />
     </>
   );
