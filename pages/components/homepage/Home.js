@@ -9,6 +9,7 @@ import Founder from "./parts/Founder";
 import Footer from "../Footer";
 import Contactus from "./parts/Contactus";
 import Topcomp from "./parts/Topcomp";
+import TopColleges from "./parts/TopColleges";
 function Home() {
   return (
     <>
@@ -17,10 +18,8 @@ function Home() {
       <Section />
       <Categories />
       <Locations />
-      {/* <AboutUs /> */}
-      {/* <Founder /> */}
-      {/* <Contactus /> */}
-      {/* <Topcomp /> */}
+      <TopColleges />
+      <Topcomp />
       <Footer />
     </>
   );
