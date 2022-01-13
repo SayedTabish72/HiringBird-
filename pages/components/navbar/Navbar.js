@@ -73,7 +73,7 @@ const Navbar = () => {
             objectFit="contain"
             layout="fixed"
             width={177}
-            src="/intershipdetail/hiringbird-logo.png"
+            src="/intershipdetail/hb-logo.png"
             alt=""
           />
         </Link>
