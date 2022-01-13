@@ -94,6 +94,7 @@ const BottomSplit = styled.div`
   display: flex;
   align-items: center;
   margin-top: 2rem;
+  padding: 4px;
   width: 90%;
   border: 1px solid #c9cbe2;
   position: relative;

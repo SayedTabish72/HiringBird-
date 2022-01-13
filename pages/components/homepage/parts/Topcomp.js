@@ -1,87 +1,88 @@
 import React from "react";
 import Image from "next/image";
-import paypal from "../icons/paypa.svg"
-import mc from "../icons/mc.svg"
-import sf from "../icons/sf.svg"
-import blu from "../icons/blu.svg"
-import slack from "../icons/slack.svg"
-import gm from "../icons/gm.svg"
-import db from "../icons/db.svg"
-import topimg from "../icons/companis.png"
-import respo from "../icons/respo.png"
+import paypal from "../icons/paypa.svg";
+import mc from "../icons/mc.svg";
+import sf from "../icons/sf.svg";
+import blu from "../icons/blu.svg";
+import slack from "../icons/slack.svg";
+import gm from "../icons/gm.svg";
+import db from "../icons/db.svg";
+import topimg from "../icons/companis.png";
+import respo from "../icons/respo.png";
 import { Container } from "./styles/CommonComponents/Container.styled";
-import {Slacks1, Homepagepurple, Topcomptext,Redfont,Belowred,Joinbut,Paypal1,Paypal2,Mc1,Mc2,Sf1,Sf2,Blu,Slack,Greenmonke,Db,Fade } from "./styles/TopComp.styled";
+import {
+  Slacks1,
+  Homepagepurple,
+  Topcomptext,
+  Redfont,
+  Belowred,
+  Joinbut,
+  Paypal1,
+  Paypal2,
+  Mc1,
+  Mc2,
+  Sf1,
+  Sf2,
+  Blu,
+  Slack,
+  Greenmonke,
+  Db,
+  Fade,
+} from "./styles/TopComp.styled";
 
 import styled from "styled-components";
-
 
 const Topcomp = () => {
   return (
     <FounderContainer>
-    <Container>
-      <Split>
-        <h1 className="top">Top Companies  Hiring</h1>
-        <Top style={{color:'#F26A7E'}}>Get internships in renowned companies</Top>
-        
-        <Cho>Choose HiringBird for your next internship opportunity</Cho>
-        <Slack>
-        <Image src={topimg}></Image>
-          
-        </Slack>
+      <Container>
+        <Split>
+          <h1 className="top">Top Companies Hiring</h1>
+          <Top style={{ color: "#F26A7E" }}>
+            Get internships in renowned companies
+          </Top>
 
-        <Slacks1>
-        <Image src={respo}></Image>
-        </Slacks1>
+          <Cho>Choose HiringBird for your next internship opportunity</Cho>
+          <Slack>
+            <Image src={topimg}></Image>
+          </Slack>
 
-        <Joinbut>Join Skilzen</Joinbut>
-        <div className="desc">
-          
-          <div className="desc_right">
-            <p>
-              
-            </p>
-           
-          </div>
-        </div>
+          <Slacks1>
+            <Image src={respo}></Image>
+          </Slacks1>
 
-        <Right>
-          
-        </Right>
-      </Split>
-      <Team>
-        <h2>
-         
-        </h2>
-
-        <div className="team_members">
-          <div className="wrap">
-           
+          <Joinbut>Join Skilzen</Joinbut>
+          <div className="desc">
+            <div className="desc_right">
+              <p></p>
+            </div>
           </div>
 
-          <div className="wrap">
-            
-          </div>
+          <Right></Right>
+        </Split>
+        <Team>
+          <h2></h2>
 
-          <div className="wrap">
-            
-          </div>
+          <div className="team_members">
+            <div className="wrap"></div>
 
-          <div className="wrap">
-            
-          </div>
-        </div>
-      </Team>
-    </Container>
-  </FounderContainer>
-  )
-}
+            <div className="wrap"></div>
 
-export default Topcomp
+            <div className="wrap"></div>
+
+            <div className="wrap"></div>
+          </div>
+        </Team>
+      </Container>
+    </FounderContainer>
+  );
+};
+
+export default Topcomp;
 const FounderContainer = styled.div`
-  background-color: #e9e9f2
-  ;
-  @media(max-width:600px){
-    background:white;
+  background-color: #e9e9f2;
+  @media (max-width: 600px) {
+    background: white;
   }
 `;
 
@@ -99,35 +100,31 @@ const Split = styled.div`
     @media (max-width: 600px) {
       grid-column: 1/3;
       font-size: 52px;
-      
     }
   }
-  .top{
-    
+  .top {
     @media (max-width: 600px) {
       grid-column: 1/3;
       font-size: 42px;
-      width:52vh;
+      width: 52vh;
     }
   }
-  .get{
-    
-    margin-top:25vh;
-    width:40vh;
+  .get {
+    margin-top: 25vh;
+    width: 40vh;
     @media (max-width: 600px) {
       grid-column: 1/3;
       font-size: 52px;
-      margin-top:12vh;
-      width:32vh;
+      margin-top: 12vh;
+      width: 32vh;
     }
-
   }
-  .cho{
+  .cho {
     @media (max-width: 600px) {
       grid-column: 1/3;
       font-size: 52px;
-      margin-top:32vh;
-      width:12vh;
+      margin-top: 32vh;
+      width: 12vh;
     }
   }
   .desc {
@@ -169,39 +166,36 @@ const Split = styled.div`
     }
   }
 `;
-const Cho =  styled.h4`
-margin-top:-1vh;
-width:82vh;
-font-size:3vh;
-color:#404366;
-@media (max-width:600px){
-  font-size:19px;
-  width:42vh;
-  margin-left:6vh;
-  margin-top:30vh;
-  paddin-left:20vh;
-}
-
-
+const Cho = styled.h4`
+  margin-top: -1vh;
+  width: 82vh;
+  font-size: 3vh;
+  color: #404366;
+  @media (max-width: 600px) {
+    font-size: 19px;
+    width: 42vh;
+    margin-left: 6vh;
+    margin-top: 30vh;
+    paddin-left: 20vh;
+  }
 `;
-const Ima =styled.div`
-/* Logo 2 */
+const Ima = styled.div`
+  /* Logo 2 */
 
-position: static;
-width: 59.57px;
-height: 59.57px;
-left: 119.15px;
-top: -10.29px;
+  position: static;
+  width: 59.57px;
+  height: 59.57px;
+  left: 119.15px;
+  top: -10.29px;
 
-background: url(.png);
-filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
+  background: url(.png);
+  filter: drop-shadow(0px 9.30838px 18.6168px rgba(41, 41, 42, 0.07));
 
-/* Inside Auto Layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-margin: 0px 59.5736px;
-
+  /* Inside Auto Layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 59.5736px;
 `;
 const Left = styled.div``;
 const Right = styled.div`
@@ -223,17 +217,14 @@ const Right = styled.div`
   }
 `;
 const Top = styled.h1`
+  margin-top: 30vh;
+  width: 110vh;
 
-
-margin-top:30vh;
-width:110vh;
-
-@media (max-width:600px){
-  width:0px;
-  display:none;
-  font-size:-11vh;
-}
-
+  @media (max-width: 600px) {
+    width: 0px;
+    display: none;
+    font-size: -11vh;
+  }
 `;
 const Team = styled.div`
   display: flex;
