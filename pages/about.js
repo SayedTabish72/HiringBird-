@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer";
 import AboutUs from "./components/homepage/parts/AboutUs";
 import Founder from "./components/homepage/parts/Founder";
+import Achievements from "./components/homepage/parts/Achievements";
 import Head from "next/head";
 
 const signup = () => {
@@ -16,6 +17,7 @@ const signup = () => {
       <Navbar />
       <AboutUs />
       <Founder />
+      <Achievements />
       <Footer />
     </>
   );
