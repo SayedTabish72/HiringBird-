@@ -7,12 +7,14 @@ import Locations from "./parts/locations";
 import Footer from "../Footer";
 import Topcomp from "./parts/Topcomp";
 import TopColleges from "./parts/TopColleges";
+import FeaturedInternships from "./parts/FeaturedInternships";
 function Home() {
   return (
     <>
       <Navbar />
       <Hero />
       <Section />
+      <FeaturedInternships />
       <Categories />
       <Locations />
       <TopColleges />
