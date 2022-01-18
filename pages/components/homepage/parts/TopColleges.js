@@ -6,7 +6,7 @@ function TopColleges() {
     <Container>
       <SmallContainer>
         <OneRow>
-          <Text>Top Colleges</Text>
+          <Text data-testid="heading">Top Colleges</Text>
           <CollegesLogoContainer>
             <Logo src="/c2.svg" alt="college" />
             <Logo src="/c1.svg" alt="college" />

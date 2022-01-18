@@ -8,7 +8,7 @@ const Section = () => {
     <Container>
       <Top>
         <Left>
-          <h1>
+          <h1 data-testid="heading">
             How does it <br /> work?
           </h1>
         </Left>

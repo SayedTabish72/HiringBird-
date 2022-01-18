@@ -7,7 +7,7 @@ function Hero() {
     <Container>
       <TopSplit>
         <Left>
-          <div className="heading">
+          <div data-testid="heading" className="heading">
             <h2>Find your dream</h2>
             <h1>Internship</h1>
           </div>

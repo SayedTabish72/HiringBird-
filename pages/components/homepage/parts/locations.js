@@ -1,13 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
-import ncr from "../../../../public/delhincr.svg";
-import bengaluru from "../../../../public/bengaluru.svg";
-import chennai from "../../../../public/chennai.svg";
-import hyderabad from "../../../../public/hyderabad.svg";
-import kolkata from "../../../../public/kolkata.svg";
-import mumbai from "../../../../public/mumbai.svg";
-import pune from "../../../../public/pune.svg";
-import wfh from "../../../../public/wfh.svg";
 import { Container } from "./styles/CommonComponents/Container.styled";
 
 function Locations() {
@@ -15,7 +6,7 @@ function Locations() {
     <Container>
       <Top>
         <Left>
-          <h1>Location</h1>
+          <h1 data-testid="heading">Location</h1>
         </Left>
         <Right>
           <p>

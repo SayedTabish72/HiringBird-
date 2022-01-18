@@ -7,7 +7,7 @@ function Categories() {
     <Container>
       <Top>
         <Left>
-          <h1>
+          <h1 data-testid="heading">
             50+ <br /> Categories
           </h1>
         </Left>

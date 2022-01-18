@@ -15,7 +15,7 @@ function FeaturedInternships() {
     <Container>
       <Top>
         <Left>
-          <h1>
+          <h1 data-testid="heading">
             Featured <br />
             Internships
           </h1>
