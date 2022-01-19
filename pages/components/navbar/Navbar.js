@@ -68,14 +68,7 @@ const Navbar = () => {
     <Wrapper>
       <Left>
         <Link href="/">
-          <Image
-            height={61}
-            objectFit="contain"
-            layout="fixed"
-            width={177}
-            src="/intershipdetail/hb-logo.png"
-            alt=""
-          />
+          <img src="/footer/hb-logo.svg" alt="" />
         </Link>
       </Left>
       <HamBurger show={showDropdown}>

@@ -4,10 +4,7 @@ export const Menus = styled.div`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  @media (max-width: 720px) {
-    gap: 1rem;
-  }
-  @media (max-width: 666px) {
+  @media (max-width: 835px) {
     display: none;
   }
   a {
@@ -59,12 +56,18 @@ export const Menus = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: min(98%, 90rem);
+  width: min(90%, 190rem);
   margin-inline: auto;
+  padding: 0.5rem 0;
   font-family: "Inter", sans-serif;
 `;
 export const Left = styled.div`
   flex: 1;
+  display: flex;
+  img {
+    height: 50px;
+    object-fit: contain;
+  }
 `;
 export const Right = styled.div`
   display: flex;
@@ -72,8 +75,7 @@ export const Right = styled.div`
   .icon {
     margin-right: 1rem;
   }
-  @media (max-width: 736px) {
-    /* display: none; */
+  /* @media (max-width: 736px) {
     a {
       margin-right: 1em;
       font-size: 14px;
@@ -82,7 +84,7 @@ export const Right = styled.div`
       margin-right: 1.2em;
       font-size: 13px;
     }
-  }
+  } */
   @media (max-width: 666px) {
     display: none;
   }
@@ -161,7 +163,7 @@ export const HamBurger = styled.div`
     .bar2,
     .bar3 {
       width: 30px;
-      height: 4px;
+      height: 3px;
       background-color: #333;
       margin: 4px 0;
       border-radius: 5px;
@@ -215,7 +217,7 @@ export const HamBurger = styled.div`
       }
     }
   }
-  @media (min-width: 666px) {
+  @media (min-width: 835px) {
     display: none;
   }
   svg {

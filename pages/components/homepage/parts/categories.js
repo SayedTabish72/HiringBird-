@@ -102,7 +102,7 @@ const Left = styled.div`
     color: #404366;
     margin-bottom: 2rem;
     @media (max-width: 600px) {
-      font-size: 44px;
+      font-size: 45px;
     }
   }
 `;
@@ -118,6 +118,10 @@ const Right = styled.div`
     line-height: 32px;
     color: #18191f;
     margin-bottom: 4%;
+    @media (max-width: 600px) {
+      line-height: 27px;
+      font-size: 18px;
+    }
   }
   h5 {
     text-decoration: underline;

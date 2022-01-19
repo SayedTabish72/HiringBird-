@@ -14,7 +14,11 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
   scroll-behavior: smooth;
-}
+  }
+  a{
+    color:inherit;
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

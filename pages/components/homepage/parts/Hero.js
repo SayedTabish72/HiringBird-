@@ -7,10 +7,7 @@ function Hero() {
     <Container>
       <TopSplit>
         <Left>
-          <div data-testid="heading" className="heading">
-            <h2>Find your dream</h2>
-            <h1>Internship</h1>
-          </div>
+          <h1 data-testid="heading">Find your dream Internship</h1>
           <div className="bottom">
             <Button>Get started</Button>
             <p>
@@ -48,29 +45,14 @@ const TopSplit = styled.div`
 const Left = styled.div`
   display: flex;
   flex-direction: column;
-  .heading {
-    h2 {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 64px;
-      color: #404366;
-    }
-    h1 {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 72px;
-      color: #404366;
-    }
+  h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    color: #404366;
+    margin-bottom: 1.5rem;
     @media (max-width: 600px) {
-      h1 {
-        font-size: 40px;
-        margin-bottom: 2rem;
-      }
-    }
-    @media (max-width: 800px) {
-      h1 {
-        font-size: 60px;
-      }
+      font-size: 44px;
     }
   }
   .bottom {
@@ -80,6 +62,10 @@ const Left = styled.div`
       font-size: 20px;
       line-height: 30px;
       color: #404366;
+      @media (max-width: 600px) {
+        line-height: 25px;
+        font-size: 16px;
+      }
     }
   }
 `;

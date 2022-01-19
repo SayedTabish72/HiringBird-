@@ -171,7 +171,7 @@ const Footer = () => {
           </Follow_Us>
 
           <LogoContainer>
-            <img className="hb" src="/footer/hb-logo.png" alt="" />
+            <img className="hb" src="/footer/hb-logo.svg" alt="" />
             <img className="skilzen" src="/footer/skilzen.svg" alt="" />
           </LogoContainer>
         </Flex>
@@ -246,6 +246,7 @@ const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0.5rem;
   @media (max-width: 773px) {
     align-items: flex-end;
   }
