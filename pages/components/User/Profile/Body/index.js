@@ -101,39 +101,7 @@ const Body = () => {
 
 export default Body;
 
-const Wrapper = styled.div`
-  padding: 1rem;
-`;
-
-const Head = styled.div`
-  margin-bottom: 1rem;
-  ul {
-    list-style: none;
-
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-  }
-`;
-
-const NavLink = styled.li`
-  ${({ active }) =>
-    active &&
-    css`
-      &:before {
-        content: "";
-        height: 4px;
-        border-radius: 20px;
-        background: #f26a7e;
-        right: 0;
-        left: 0;
-        position: absolute;
-        bottom: -8px;
-      }
-    `}
-  position: relative;
-  cursor: pointer;
-`;
+const Wrapper = styled.div``;
 
 const Navigation = styled.div`
   padding: 0.6rem 0;

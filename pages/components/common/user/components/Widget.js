@@ -38,7 +38,7 @@ const Widget = () => {
             />
           </svg>
         </div>
-        <h3>Product Designer</h3>
+        <h3 style={{ fontWeight: "500" }}>Product Designer</h3>
         <p>836XX97XX</p>
         <p>Cnayanika172066_...@gmail.com</p>
         <p>Skilzen.com</p>
@@ -87,16 +87,13 @@ const Widget = () => {
 
 export default Widget;
 
-const Wrapper = styled.div`
-  padding: 1rem;
-`;
+const Wrapper = styled.div``;
 const Container = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
   gap: 1rem;
-  align-items: center;
 
   box-shadow: 0px 2px 17px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
@@ -105,6 +102,7 @@ const Container = styled.div`
     -webkit-appearance: none;
     appearance: none;
     height: 10px;
+    width: 100%;
 
     ::-webkit-progress-bar {
       background-color: #c9cbe2;
