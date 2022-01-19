@@ -63,8 +63,8 @@ const Left = styled.div`
       line-height: 30px;
       color: #404366;
       @media (max-width: 600px) {
-        line-height: 25px;
-        font-size: 16px;
+        line-height: 27px;
+        font-size: 18px;
       }
     }
   }

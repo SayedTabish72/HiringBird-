@@ -85,10 +85,11 @@ const Navbar = () => {
 
         <div className="dropdown" ref={dropdownRef}>
           <ul>
-            <li>My Profile</li>
+            <li>
+              <Link href="/user/profile">My Profile</Link>
+            </li>
             <li>Notifications</li>
             <li>Messages</li>
-            <li>Posted Internships</li>
             <li>Saved Internships</li>
             <li className="special">Log out</li>
           </ul>

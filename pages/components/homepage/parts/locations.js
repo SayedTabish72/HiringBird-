@@ -63,6 +63,9 @@ const Left = styled.div`
     font-weight: 800;
     font-size: 72px;
     color: #404366;
+    @media (max-width: 600px) {
+      font-size: 44px;
+    }
   }
 `;
 const Right = styled.div`
@@ -71,6 +74,10 @@ const Right = styled.div`
     font-size: 20px;
     line-height: 32px;
     color: #18191f;
+    @media (max-width: 600px) {
+      line-height: 27px;
+      font-size: 18px;
+    }
   }
 `;
 const Bottom = styled.div`

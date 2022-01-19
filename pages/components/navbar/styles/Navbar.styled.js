@@ -75,17 +75,7 @@ export const Right = styled.div`
   .icon {
     margin-right: 1rem;
   }
-  /* @media (max-width: 736px) {
-    a {
-      margin-right: 1em;
-      font-size: 14px;
-    }
-    button {
-      margin-right: 1.2em;
-      font-size: 13px;
-    }
-  } */
-  @media (max-width: 666px) {
+  @media (max-width: 835px) {
     display: none;
   }
 `;

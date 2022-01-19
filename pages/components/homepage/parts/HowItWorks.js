@@ -104,7 +104,7 @@ const Right = styled.div`
     color: #18191f;
     margin-bottom: 1em;
     @media (max-width: 600px) {
-      line-height: 25px;
+      line-height: 27px;
       font-size: 18px;
     }
   }

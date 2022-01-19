@@ -2,7 +2,7 @@ import React from "react";
 import Main from "./Main";
 import Navbar from "../../navbar/Navbar";
 import Search from "./Search";
-import Footer from "../../footer/Footer";
+import Footer from "../../Footer";
 
 const Detail = () => {
   return (

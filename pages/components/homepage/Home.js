@@ -9,6 +9,7 @@ import Topcomp from "./parts/Topcomp";
 import TopColleges from "./parts/TopColleges";
 import FeaturedInternships from "./parts/FeaturedInternships";
 import HowItWorks from "./parts/HowItWorks";
+import TopCompanies from "./parts/TopCompanies";
 function Home() {
   return (
     <>
@@ -20,6 +21,7 @@ function Home() {
       <Categories />
       <Locations />
       <TopColleges />
+      <TopCompanies />
       {/* <Topcomp /> */}
       <Footer />
     </>
