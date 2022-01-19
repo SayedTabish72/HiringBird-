@@ -47,9 +47,7 @@ const Body = () => {
 
 export default Body;
 
-const Wrapper = styled.div`
-  padding: 1rem;
-`;
+const Wrapper = styled.div``;
 
 const CardHeader = styled.div`
   display: flex;

@@ -55,4 +55,7 @@ const NavLink = styled.li`
     `}
   position: relative;
   cursor: pointer;
+  @media (max-width: 600px) {
+    font-size: calc(100% - 20%);
+  }
 `;
