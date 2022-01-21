@@ -14,11 +14,11 @@ const Header = () => {
         <NavLink active={router.pathname === "/user/appliedInternships"}>
           <Link href="/user/appliedInternships">Applied Internships</Link>
         </NavLink>{" "}
-        <NavLink>
-          <Link href="#">Saved Internships</Link>
+        <NavLink active={router.pathname === "/user/savedInternships"}>
+          <Link href="/user/savedInternships">Saved Internships</Link>
         </NavLink>{" "}
-        <NavLink>
-          <Link href="#">Resume</Link>
+        <NavLink active={router.pathname === "/user/resume"}>
+          <Link href="/user/resume">Resume</Link>
         </NavLink>
       </ul>
     </Head>

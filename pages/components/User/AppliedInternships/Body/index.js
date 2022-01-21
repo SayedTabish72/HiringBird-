@@ -53,8 +53,8 @@ const CardHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 4rem;
   margin-bottom: 1rem;
-  padding: 1rem 0 0 0;
   h4 {
     font-weight: 500;
     font-size: 18px;
