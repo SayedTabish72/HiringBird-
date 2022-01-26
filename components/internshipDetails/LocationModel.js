@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from "react";
 import styled, { keyframes } from "styled-components";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 
 const LocationModel = ({ show }) => {
   const modalRef = useRef();

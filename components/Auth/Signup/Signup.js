@@ -30,7 +30,7 @@ import {
   Pink,
 } from "./styles/Signup.styled";
 import { signIn } from "next-auth/react";
-import axios from "../../../../utils/axios";
+import axios from "../../../utils/axios";
 import router, { useRouter } from "next/router";
 
 function Signup() {

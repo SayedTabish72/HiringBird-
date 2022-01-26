@@ -13,8 +13,8 @@ import {
 } from "./styles/Contactus.styled";
 import { ApplyNow } from "./styles/CommonComponents/ApplyNow.styled";
 import styled from "styled-components";
-import help from "../../../../public/help.svg";
-import mainimg from "../../../../public/contactus1.svg";
+// import help from "../../../../public/help.svg";
+// import mainimg from "../../../../public/contactus1.svg";
 import { Container } from "./styles/CommonComponents/Container.styled";
 
 function Contactus() {

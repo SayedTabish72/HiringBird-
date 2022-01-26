@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import Head from "next/head";
-import Navbar from "../components/navbar/Navbar";
-import Search from "../components/internshipDetails/Search";
-import Filter from "../components/internshipDetails/Filter";
-import Footer from "../components/internshipDetails/Footer";
-import HeadBar from "../components/internshipDetails/HeadBar";
-import ResponsiveFilter from "../components/internshipDetails/ResponsiveFilter";
-import LocationModel from "../components/internshipDetails/LocationModel";
-import FilterModel from "../components/internshipDetails/FilterModel";
+import Navbar from "../../components/navbar/Navbar";
+import Search from "../../components/internshipDetails/Search";
+import Filter from "../../components/internshipDetails/Filter";
+import Footer from "../../components/internshipDetails/Footer";
+import HeadBar from "../../components/internshipDetails/HeadBar";
+import ResponsiveFilter from "../../components/internshipDetails/ResponsiveFilter";
+import LocationModel from "../../components/internshipDetails/LocationModel";
+import FilterModel from "../../components/internshipDetails/FilterModel";
 import { InternshipContext } from "../../context/internship.context";
 
 export default function home() {

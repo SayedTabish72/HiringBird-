@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Detail from "../components/Internship/Detail";
+import Detail from "../../components/Internship/Detail";
 
 const detail = () => {
   return (

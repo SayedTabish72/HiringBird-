@@ -1,5 +1,5 @@
 import Head from "next/head";
-import HomePage from "./components/homepage/Home";
+import HomePage from "../components/homepage/Home";
 import { getSession } from "next-auth/react";
 
 export default function Home() {

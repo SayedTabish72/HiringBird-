@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import axios from "../../../../utils/axios";
+import axios from "../../../utils/axios";
 import jwt_decode from "jwt-decode";
 import SignInModal from "./SignInModal";
 import { useSelector } from "react-redux";

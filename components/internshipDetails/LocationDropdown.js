@@ -6,7 +6,7 @@ import {
   Options,
   OptionSearch,
 } from "./styles/LocationDropdown.styled";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 
 const useClickOutside = (handler) => {
   const domNode = useRef();

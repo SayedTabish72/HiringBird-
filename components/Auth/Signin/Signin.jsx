@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { Login } from "../../../../api";
+import { Login } from "../../../api";
 import {
   OuterContainer,
   Container,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 import styled from "styled-components";
 import ListCard from "./ListCard";
 import RightDetailCard from "./RightDetailCard";

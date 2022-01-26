@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 import {
   ListCardWrap,
   Wrapper,

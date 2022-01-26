@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Resume from "../components/User/Resume";
+import Resume from "../../components/User/Resume";
 
 const resume = () => {
   return (

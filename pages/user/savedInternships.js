@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import SavedInternships from "../components/User/SavedInternships";
+import SavedInternships from "../../components/User/SavedInternships";
 
 const savedInternships = () => {
   return (

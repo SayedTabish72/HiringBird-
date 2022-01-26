@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 // import axios from "axios";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 import {
   HeadContainer,
   HeadLeft,

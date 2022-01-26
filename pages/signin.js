@@ -1,5 +1,5 @@
 import React from "react";
-import Signin from "./components/Auth/Signin/Signin";
+import Signin from "../components/Auth/Signin/Signin";
 import Head from "next/head";
 
 const signin = () => {

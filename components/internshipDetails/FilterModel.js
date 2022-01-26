@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 import RightFilterModel from "./RightFilterModel";
 
 const LocationModel = ({ show }) => {

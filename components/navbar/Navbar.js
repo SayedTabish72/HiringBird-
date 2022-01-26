@@ -19,10 +19,10 @@ import {
   SigninOptions,
 } from "./styles/Navbar.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../../redux/auth/action";
+import { logout } from "../../redux/auth/action";
 import jwt_decode from "jwt-decode";
 import Notifications from "./Notifications";
-import useOutsideClick from "../../../hooks/useOutsideClick";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 const Navbar = () => {
   const [user1, setUser1] = useState(null);

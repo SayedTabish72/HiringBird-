@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 
 export default function CardGridComp({ internships }) {
   const { getPaginatedInternships } = useContext(InternshipContext);

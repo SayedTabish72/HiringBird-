@@ -7,7 +7,7 @@ import {
   Img2,
 } from "./styles/ResponsiveFilter.styled";
 import LocationDropdown from "./LocationDropdown";
-import { InternshipContext } from "../../../context/internship.context";
+import { InternshipContext } from "../../context/internship.context";
 
 function ResponsiveFilter() {
   const { setFilterModel } = useContext(InternshipContext);

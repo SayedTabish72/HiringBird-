@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import AppliedInternships from "../components/User/AppliedInternships";
+import AppliedInternships from "../../components/User/AppliedInternships";
 
 const appliedInternships = () => {
   return (

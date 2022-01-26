@@ -5,7 +5,7 @@ import SuccessModal from "./SuccessModal";
 import axios from "axios";
 import { useRouter } from "next/router";
 import ErrorModal from "./ErrorModal";
-import questions from "../../../../utils/questions";
+import questions from "../../../utils/questions";
 
 const Body = () => {
   const router = useRouter();

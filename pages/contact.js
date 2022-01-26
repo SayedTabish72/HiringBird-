@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/Footer";
-import Contactus from "./components/homepage/parts/Contactus";
-import ContactForm from "./components/homepage/parts/ContactForm";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/Footer";
+import Contactus from "../components/homepage/parts/Contactus";
+import ContactForm from "../components/homepage/parts/ContactForm";
 import Head from "next/head";
 
 const signup = () => {
