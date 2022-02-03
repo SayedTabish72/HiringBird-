@@ -1,6 +1,6 @@
 import React from "react";
 import Main from "./Main";
-import Navbar from "../../navbar/Navbar";
+import Navbar from "../../Navbar";
 import Search from "./Search";
 import Footer from "../../Footer";
 

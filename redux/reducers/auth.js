@@ -1,27 +1,27 @@
-import { userActionTypes } from "./action";
+import { LOGIN, LOGOUT, ERRORS } from "../constants/auth";
 
-const userInitialState = {
+export const initialState = {
   isAuthenticated: false,
   user: null,
   errors: [],
 };
 
-export default function reducer(state = userInitialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case userActionTypes.login:
+    case LOGIN:
       return {
         ...state,
         isAuthenticated: true,
         user: action.payload,
       };
-    case userActionTypes.logout:
+    case LOGOUT:
       localStorage.removeItem("access_token");
       return {
         ...state,
         isAuthenticated: false,
         user: null,
       };
-    case userActionTypes.setError:
+    case ERRORS:
       console.log(action.payload);
       return {
         ...state,
