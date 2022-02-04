@@ -1,8 +1,8 @@
 import Head from "next/head";
-import HomePage from "../components/homepage/Home";
 import { getSession } from "next-auth/react";
+import Home from "../components/Home";
 
-export default function Home() {
+export default function home() {
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ export default function Home() {
           rel="stylesheet"
         ></link>
       </Head>
-      <HomePage />
+      <Home />
     </>
   );
 }

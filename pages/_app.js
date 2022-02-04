@@ -6,9 +6,13 @@ import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { useStore } from "../redux/store";
 import useAuth from "../hooks/useAuth";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
+
   useAuth(store.dispatch);
   const theme = {
     colors: {

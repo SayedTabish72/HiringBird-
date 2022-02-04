@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import Head from "next/head";
-import Navbar from "../../components/Navbar";
 import Search from "../../components/internshipDetails/Search";
 import Filter from "../../components/internshipDetails/Filter";
 import Footer from "../../components/internshipDetails/Footer";
@@ -9,6 +8,7 @@ import ResponsiveFilter from "../../components/internshipDetails/ResponsiveFilte
 import LocationModel from "../../components/internshipDetails/LocationModel";
 import FilterModel from "../../components/internshipDetails/FilterModel";
 import { InternshipContext } from "../../context/internship.context";
+import Navbar from "../../components/common/components/Navbar";
 
 export default function home() {
   const { showLocationModel, showFilterModel } = useContext(InternshipContext);

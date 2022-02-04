@@ -2,8 +2,7 @@ import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useOutsideClick from "../../hooks/useOutsideClick";
-import { logout } from "../../redux/actions/auth";
+import useOutsideClick from "../../../../hooks/useOutsideClick";
 import Notifications from "./Notifications";
 import {
   Avatar,
