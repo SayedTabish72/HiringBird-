@@ -2,10 +2,13 @@ import GlobalStyle from "../styles/globalStyles";
 import { SessionProvider } from "next-auth/react";
 import { InternshipProvider } from "../context/internship.context";
 import { ThemeProvider } from "styled-components";
+
 // redux
 import { Provider } from "react-redux";
 import { useStore } from "../redux/store";
 import useAuth from "../hooks/useAuth";
+
+// swiper
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -14,6 +17,7 @@ function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
 
   useAuth(store.dispatch);
+  
   const theme = {
     colors: {
       primary: {
