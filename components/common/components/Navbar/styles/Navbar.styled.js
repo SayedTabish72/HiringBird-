@@ -59,7 +59,6 @@ export const Wrapper = styled.div`
   width: min(90%, 190rem);
   margin-inline: auto;
   padding: 0.5rem 0;
-  font-family: "Inter", sans-serif;
 `;
 export const Left = styled.div`
   flex: 1;
@@ -172,15 +171,11 @@ export const HamBurger = styled.div`
     }
   }
   .dropdown {
-    opacity: ${(props) => (props.show ? "1" : "0")};
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
     position: absolute;
-    transition: opacity 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
     right: 0.5rem;
     top: 2.3rem;
-    animation: ${({ show }) => (show ? FadeIn : FadeOut)} 250ms
-      cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
     z-index: 99;
     background: #fff;
     width: 13.5rem;

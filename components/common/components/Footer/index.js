@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -69,10 +70,10 @@ const Footer = () => {
           <h3>Company</h3>
           <ul>
             <li>
-              <a href="#">About Us</a>
+              <Link href="/about">About Us</Link>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <Link href="/contact">Contact Us</Link>
             </li>
             <li>
               <a href="#">Our Services</a>

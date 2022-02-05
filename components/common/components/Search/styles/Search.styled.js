@@ -2,12 +2,7 @@ import styled from "styled-components";
 
 export const SearchContainer = styled.div`
   display: flex;
-  margin: 50px auto;
-  width: 74%;
-  @media (max-width: 600px) {
-    width: 86%;
-    margin: 28px auto;
-  }
+  background: pink;
 `;
 
 export const InputField1 = styled.input`

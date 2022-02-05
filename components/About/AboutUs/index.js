@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "./styles/CommonComponents/Container.styled";
 import styled from "styled-components";
-import Tabs from "../Tabs";
+import { Container } from "../../Home/common/styles/Container.styled";
+import Tabs from "./Tabs";
 
 const TabItem = (props) => <div {...props} />;
 const AboutUs = () => {
@@ -60,12 +60,9 @@ const Left = styled.div`
     }
     h1 {
       font-weight: bold;
-      font-size: 40px;
+      font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
       color: #404366;
       text-decoration: underline;
-      @media (max-width: 1000px) {
-        font-size: 35px;
-      }
       &:last-child {
         color: #c9cbe2;
         margin-left: 2rem;

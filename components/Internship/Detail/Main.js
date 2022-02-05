@@ -7,8 +7,9 @@ import axios from "../../../utils/axios";
 import jwt_decode from "jwt-decode";
 import SignInModal from "./SignInModal";
 import { useSelector } from "react-redux";
+import { Button } from "@/common/styles/OutlineBtn.styled";
 
-const Main = () => {
+const Main = ({ active }) => {
   const router = useRouter();
   const user = useSelector((state) => state.auth.user);
   const { id } = router.query;
@@ -22,7 +23,7 @@ const Main = () => {
         setInternship(res.data);
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err?.response?.data);
       });
   }, [id]);
 
@@ -55,23 +56,6 @@ const Main = () => {
     <>
       <SignInModal showModal={showModal} setShowModal={setShowModal} id={id} />
       <Wrapper>
-        <BackBtn>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className=""
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          <p onClick={() => router.back({ scroll: false })}>Back</p>
-        </BackBtn>
         <Body>
           <Head>
             <Left>
@@ -186,10 +170,10 @@ const Main = () => {
                   }}
                   as={`/internship-questions/${internship?.companyName}`}
                 >
-                  <button>Apply Now</button>
+                  <Button>Apply Now</Button>
                 </Link>
               ) : (
-                <button onClick={() => setShowModal(true)}>Apply Now</button>
+                <Button onClick={() => setShowModal(true)}>Apply Now</Button>
               )}
 
               <ShareBtn>
@@ -199,7 +183,7 @@ const Main = () => {
             </div>
           </Overview>
           <Skills className="common-container">
-            <h1>Skills(s) Required</h1>
+            <h2>Skills(s) Required</h2>
             <div className="childrens">
               {internship?.skills?.map((skill, i) => (
                 <p key={i}>{skill}</p>
@@ -207,15 +191,15 @@ const Main = () => {
             </div>
           </Skills>
           <About className="common-container">
-            <h1>About Skilzen</h1>
+            <h2>About Skilzen</h2>
             <p>{internship?.aboutCompany}</p>
           </About>
           <JobDesc className="common-container">
-            <h1>Job Description</h1>
+            <h2>Job Description</h2>
             <p>{internship?.jobDescription}</p>
           </JobDesc>
           <Responsibility className="common-container">
-            <h1>Selected interns day-to-day responsibilities include:</h1>
+            <h2>Selected interns day-to-day responsibilities include:</h2>
             <p>
               {internship?.responsibilities?.map((data, i) => {
                 return (
@@ -227,7 +211,7 @@ const Main = () => {
             </p>
           </Responsibility>
           <Eligibility className="common-container">
-            <h1>Perks:</h1>
+            <h2>Perks</h2>
             <p>
               {internship?.perks?.map((data, i) => {
                 return <li key={i}>{data}</li>;
@@ -237,7 +221,7 @@ const Main = () => {
 
           <BottomDiv>
             <Link href={`/internship/questions/${internship?.id}`}>
-              <button>Apply Now</button>
+              <Button>Apply Now</Button>
             </Link>
             <a href="#">Report Spam</a>
           </BottomDiv>
@@ -250,34 +234,17 @@ const Main = () => {
 export default Main;
 
 const Wrapper = styled.div`
-  width: min(95%, 75rem);
+  width: min(90%, 90rem);
   margin-inline: auto;
+  background-color: #fff;
 `;
-const BackBtn = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.6em;
-  &:active {
-    opacity: 0.5;
-  }
-  svg {
-    color: #98a8b8;
-    cursor: pointer;
-    height: 1.4rem;
-  }
-  p {
-    color: #98a8b8;
-    font-size: 19px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-`;
+
 const Body = styled.div`
   .common-container {
     margin-bottom: 1em;
-    h1 {
+    h2 {
       font-weight: 600;
-      font-size: 26px;
+      font-size: clamp(1rem, 0.1667rem + 3.7037vw, 1.6rem);
       color: #404366;
       margin-bottom: 0.5em;
     }
@@ -339,18 +306,8 @@ const Overview = styled.div`
   .bottom {
     display: flex;
     align-items: center;
+    gap: 1rem;
     padding: 1rem 0;
-    button {
-      font-weight: 500;
-      font-size: 16px;
-      color: #404366;
-      padding: 13px 22px;
-      border: 1px solid #f898a6;
-      margin-right: 2em;
-      background-color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-    }
   }
 `;
 const Skills = styled.div`
@@ -430,17 +387,6 @@ const BottomDiv = styled.div`
   margin-top: 1em;
   display: flex;
   justify-content: space-between;
-  button {
-    font-weight: 500;
-    font-size: 16px;
-    color: #404366;
-    padding: 13px 22px;
-    border: 1px solid #f898a6;
-    margin-right: 2em;
-    background-color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-  }
   a {
     font-weight: 500;
     font-size: 18px;

@@ -1,6 +1,5 @@
 import GlobalStyle from "../styles/globalStyles";
 import { SessionProvider } from "next-auth/react";
-import { InternshipProvider } from "../context/internship.context";
 import { ThemeProvider } from "styled-components";
 
 // redux
@@ -17,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
 
   useAuth(store.dispatch);
-  
+
   const theme = {
     colors: {
       primary: {
@@ -48,12 +47,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <InternshipProvider>
-            <SessionProvider session={pageProps.session}>
-              <GlobalStyle />
-              <Component {...pageProps} />
-            </SessionProvider>
-          </InternshipProvider>
+          <SessionProvider session={pageProps.session}>
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </SessionProvider>
         </ThemeProvider>
       </Provider>
     </>

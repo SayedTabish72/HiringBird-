@@ -1,7 +1,7 @@
 import React from "react";
-import { FilterContainer, Wrap } from "./styles/Filter.styled";
-import OutlineButton from "./OutlineButton";
-import Dropdown from "./Dropdown";
+import OutlineButton from "../trash/internshipDetails/OutlineButton";
+import Dropdown from "../trash/internshipDetails/Dropdown";
+import styled from "styled-components";
 
 function Filter() {
   return (
@@ -67,3 +67,22 @@ function Filter() {
 }
 
 export default Filter;
+
+export const FilterContainer = styled.div`
+  border: 1px solid #c9cbe2;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  width: min(90%, 85rem);
+  margin: 2rem auto;
+  @media (max-width: 962px) {
+    display: none;
+  }
+`;
+
+export const Wrap = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

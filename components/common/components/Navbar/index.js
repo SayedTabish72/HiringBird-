@@ -1,8 +1,10 @@
+import { AnimatePresence, motion } from "framer-motion";
 import jwt_decode from "jwt-decode";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useOutsideClick from "../../../../hooks/useOutsideClick";
+import { logout } from "../../../../redux/actions/auth";
 import Notifications from "./Notifications";
 import {
   Avatar,
@@ -22,8 +24,22 @@ import {
   Wrapper,
 } from "./styles/Navbar.styled";
 
+const dropIn = {
+  hidden: {
+    y: "20px",
+    opacity: 0,
+  },
+  visible: {
+    y: "0",
+    opacity: 1,
+  },
+  exit: {
+    y: "20px",
+    opacity: 0,
+  },
+};
+
 const Navbar = () => {
-  const [user1, setUser1] = useState(null);
   const [show, setShow] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -48,20 +64,6 @@ const Navbar = () => {
     setShowSignup(!showSignup);
   };
 
-  useEffect(() => {
-    const access_token = localStorage.getItem("access_token");
-    if (access_token) {
-      // eslint-disable-next-line no-undef
-      const payload = jwt_decode(access_token);
-      if (Date.now() >= payload.exp * 1000) {
-        localStorage.removeItem("access_token");
-        setUser1(null);
-      } else {
-        setUser1(payload);
-      }
-    }
-  }, []);
-
   return (
     <Wrapper>
       <Left>
@@ -81,17 +83,32 @@ const Navbar = () => {
           <div className="bar3"></div>
         </div>
 
-        <div className="dropdown" ref={dropdownRef}>
-          <ul>
-            <li>
-              <Link href="/user/profile">My Profile</Link>
-            </li>
-            <li>Notifications</li>
-            <li>Messages</li>
-            <li>Saved Internships</li>
-            <li className="special">Log out</li>
-          </ul>
-        </div>
+        <AnimatePresence
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {showDropdown && (
+            <motion.div
+              variants={dropIn}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="dropdown"
+              ref={dropdownRef}
+            >
+              <ul>
+                <li>
+                  <Link href="/user/profile">My Profile</Link>
+                </li>
+                <li>Notifications</li>
+                <li>Messages</li>
+                <li>Saved Internships</li>
+                <li className="special">Log out</li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </HamBurger>
       {user ? (
         <Right>
@@ -336,16 +353,15 @@ const Navbar = () => {
           </DropdownSelect>
 
           <a href="#">Post an Internship</a>
-          <Link href="/internship/home">Find Internships</Link>
+          <Link href="/internship">Find Internships</Link>
           {/* <Link href="/signin"> */}
           <button className="secondary_btn" onClick={handleSigninClose}>
             Sign In
           </button>
           {/* </Link> */}
           {/* <Link href="/signup"> */}
-          <button className="primary_btn" onClick={handleSignupClose}>
-            Sign Up
-          </button>
+
+          <button className="primary_btn">Sign Up</button>
           {/* </Link> */}
         </Menus>
       )}

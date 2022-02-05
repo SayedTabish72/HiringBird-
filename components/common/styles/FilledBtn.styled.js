@@ -1,13 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const Button = ({ title, padding }) => {
-  return <Wrapper padding={padding}>{title}</Wrapper>;
-};
-
-export default Button;
-
-const Wrapper = styled.div`
+export const Button = styled.button`
   padding: ${(props) => props.padding};
   cursor: pointer;
   background-color: #f26a7e;

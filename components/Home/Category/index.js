@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Container } from "./styles/CommonComponents/Container.styled";
+import { Container } from "../common/styles/Container.styled";
 
-function Categories() {
+function Category() {
   return (
     <Container>
       <Top>
@@ -64,7 +64,7 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default Category;
 
 const Top = styled.div`
   display: flex;

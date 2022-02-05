@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Container } from "./styles/CommonComponents/Container.styled";
+import { Container } from "../../Home/common/styles/Container.styled";
 
 function Achievements() {
   return (

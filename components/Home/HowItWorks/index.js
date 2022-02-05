@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../common/components/Button";
+import { Button } from "../../common/styles/FilledBtn.styled";
 import { Container } from "../common/styles/Container.styled";
 
 const HowItWorks = () => {
@@ -19,7 +19,7 @@ const HowItWorks = () => {
             Perferendis et quaerat eos magni veritatis, itaque unde, quis quas a
             maiores facere.
           </p>
-          <Button title="Apply Now" padding="10px 26px" />
+          <Button padding="10px 26px">Apply Now</Button>
         </Right>
       </Top>
       <Bottom>

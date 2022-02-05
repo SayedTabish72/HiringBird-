@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "../../common/styles/FilledBtn.styled";
 import { Container } from "../common/styles/Container.styled";
 
 const TopCompanies = () => {
@@ -13,7 +14,7 @@ const TopCompanies = () => {
               Get internships in <br /> renowned companies
             </h2>
             <h5>Choose HiringBird for your next internship opportunity</h5>
-            <button>Join Skilzen</button>
+            <Button padding="15px 31px">Join Skilzen</Button>
           </Left>
           <Right>
             <img src="/home/topcompanies/vector.svg" alt="" />
@@ -32,7 +33,7 @@ const Wrapper = styled.div`
   }
   h1 {
     font-weight: 800;
-    font-size: clamp(2.413rem, 2.2507rem + 2.4993vw, 4.5rem);
+    font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
     color: #404366;
     margin-bottom: 1.5rem;
     /* @media (max-width: 600px) {
@@ -56,7 +57,7 @@ const Left = styled.div`
   gap: 0.8rem;
   h2 {
     font-weight: 800;
-    font-size: 36px;
+    font-size: 30px;
     line-height: 41px;
     color: #f26a7e;
     @media (max-width: 800px) {
@@ -73,14 +74,7 @@ const Left = styled.div`
       margin-bottom: 1rem;
     }
   }
-  button {
-    padding: 15px 31px;
-    background: #f26a7e;
-    border-radius: 6px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
+
   @media (max-width: 800px) {
     order: 2;
     flex-basis: 100%;

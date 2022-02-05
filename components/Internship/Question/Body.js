@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import ErrorModal from "./ErrorModal";
 import questions from "../../../utils/questions";
+import { Button } from "@/common/styles/FilledBtn.styled";
 
 const Body = () => {
   const router = useRouter();
@@ -160,7 +161,6 @@ const Body = () => {
 
   return (
     <>
-      {/* poppups */}
       <ErrorModal
         errorModal={errorModal}
         setErrorModal={setErrorModal}
@@ -168,14 +168,9 @@ const Body = () => {
         id={id}
       />
       <SuccessModal show={showModal} setShowModal={setShowModal} />
-      {/* poppups */}
-
       <Wrapper onSubmit={handleSubmit}>
-        <Head>
-          <h1>
-            {internship.jobName} at {internship?.companyName}
-          </h1>
-        </Head>
+        <h1>UI/UX Design internship at Skilzen</h1>
+
         <QuestionsContainer>
           {questions.map((q) => (
             <Question key={q.id}>
@@ -260,11 +255,10 @@ const Body = () => {
             Resume <span>*</span>
           </h2>
           <div style={{ display: "flex", alignItems: "center", gap: ".8rem" }}>
-            <CustomCheckbox className="child">
-              <input type="checkbox" id="check" hidden />
-              <label htmlFor="check"></label>
-              <span>Use resume.pdf</span>
-            </CustomCheckbox>
+            <div className="checkbox-container">
+              <input type="checkbox" id="resume-checkbox" />
+              <label htmlFor="resume-checkbox">Use resume.pdf</label>
+            </div>
             <span style={{ color: "#A9ACCB" }}>or</span>
             {uploaded ? (
               <div className="uploaded-file">
@@ -350,7 +344,15 @@ const Body = () => {
             )}
           </div>
         </ResumeContainer>
-        <SubmitBtn type="submit">Submit</SubmitBtn>
+        <Button
+          style={{
+            alignSelf: "flex-end",
+          }}
+          padding="14px 33px"
+          type="submit"
+        >
+          Submit
+        </Button>
       </Wrapper>
     </>
   );
@@ -359,29 +361,22 @@ const Body = () => {
 export default Body;
 
 const Wrapper = styled.form`
-  width: min(95%, 80rem);
-  margin: 2% auto;
-
-  padding: 1rem;
-  background: #ffffff;
-  box-shadow: 0px 30px 72px rgba(0, 0, 0, 0.05);
-  border-radius: 15px;
-  border: 1px solid #e6e6e6;
+  width: min(90%, 90rem);
+  margin: 1rem auto;
+  border: 1px solid #c9cbe2;
+  padding: 1.5rem;
+  border-radius: 8px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-`;
-const Head = styled.div`
-  margin-bottom: 5%;
+  gap: 2rem;
+
   h1 {
     font-weight: 500;
-    line-height: 39px;
     color: #404366;
-    font-size: 32px;
-    @media (max-width: 768px) {
-      font-size: 24px;
-    }
+    font-size: clamp(1.5rem, 1.2667rem + 1.037vw, 2.2rem);
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -389,7 +384,6 @@ const QuestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  margin-bottom: 2.4%;
 `;
 const Question = styled.div`
   display: flex;
@@ -443,18 +437,59 @@ const Question = styled.div`
 const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.5rem;
 
   h2 {
     font-weight: 600;
     font-size: 20px;
-    line-height: 24px;
     display: flex;
     align-items: center;
     letter-spacing: 0.0987159px;
     color: #404366;
     span {
       color: red;
+    }
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 1.3rem;
+      width: 1.3rem;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #c9cbe2;
+      cursor: pointer;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 10px;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+      &:checked {
+        background-color: #f26a7e;
+        border: none;
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+    label {
+      font-size: 14px;
+      color: #404366;
     }
   }
 
@@ -573,20 +608,5 @@ const ErrorBox = styled.div`
     left: -0.65rem;
     top: 50%;
     transform: translateY(-50%);
-  }
-`;
-
-const SubmitBtn = styled.button`
-  background: #f26a7e;
-  border-radius: 6px;
-  padding: 14px 33px;
-  font-weight: 600;
-  font-size: 16px;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-top: 1em;
-  @media (min-width: 768px) {
-    margin-left: auto;
   }
 `;

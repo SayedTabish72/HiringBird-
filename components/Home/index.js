@@ -4,6 +4,10 @@ import Hero from "./Hero";
 import HowItWorks from "./HowItWorks";
 import FeaturedVideos from "./FeaturedVideos";
 import FeaturedInternships from "./FeaturedInternships";
+import Locations from "./Locations";
+import Category from "./Category";
+import TopColleges from "./TopColleges";
+import TopCompanies from "./TopCompanies";
 
 function Home() {
   return (
@@ -13,6 +17,10 @@ function Home() {
       <HowItWorks />
       <FeaturedVideos />
       <FeaturedInternships />
+      <Locations />
+      <Category />
+      <TopColleges />
+      <TopCompanies />
       <Footer />
     </>
   );

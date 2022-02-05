@@ -1,8 +1,8 @@
 import React from "react";
-import { Container } from "./styles/CommonComponents/Container.styled";
 import styled from "styled-components";
+import { Container } from "../../Home/common/styles/Container.styled";
 
-const Founder = () => {
+const FounderNote = () => {
   return (
     <FounderContainer>
       <Container>
@@ -39,20 +39,17 @@ const Founder = () => {
 
           <div className="team_members">
             <div className="wrap">
-              <img src="team1.png" alt="" />
+              <img src="team2.png" alt="" />
               <p>Lead Designer</p>
             </div>
-
             <div className="wrap">
               <img src="team2.png" alt="" />
               <p>Marketing</p>
             </div>
-
             <div className="wrap">
               <img src="team3.png" alt="" />
               <p>Lead Developer</p>
             </div>
-
             <div className="wrap">
               <img src="team4.png" alt="" />
               <p>Graphic Designer</p>
@@ -64,7 +61,7 @@ const Founder = () => {
   );
 };
 
-export default Founder;
+export default FounderNote;
 
 const FounderContainer = styled.div`
   background-color: #c9cbe2;
@@ -77,14 +74,13 @@ const Split = styled.div`
   grid-template-rows: auto 1fr;
   h1 {
     font-weight: 800;
-    font-size: 72px;
+    font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
     color: #404366;
     grid-column: 1;
     grid-row: 1;
     margin-bottom: 2rem;
     @media (max-width: 600px) {
       grid-column: 1/3;
-      font-size: 52px;
     }
   }
   .desc {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import { Button } from "../../common/styles/FilledBtn.styled";
 import { Container } from "../common/styles/Container.styled";
-import Button from "../common/components/Button";
 
 function Hero() {
   return (
@@ -9,7 +9,7 @@ function Hero() {
         <Left>
           <h1 data-testid="heading">Find your dream Internship</h1>
           <div className="bottom">
-            <Button title="Get Started" padding="17px 35px" />
+            <Button padding="17px 35px">Get Started</Button>
             <p>
               The only way to do great work is to love what you do. If you
               haven’t found it yet, keep looking. Don’t settle. As with all
@@ -48,8 +48,7 @@ const Left = styled.div`
   flex-direction: column;
   gap: 1rem;
   h1 {
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 800;
     font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
     color: #404366;
   }
