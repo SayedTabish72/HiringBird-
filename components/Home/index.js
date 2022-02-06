@@ -8,6 +8,7 @@ import Locations from "./Locations";
 import Category from "./Category";
 import TopColleges from "./TopColleges";
 import TopCompanies from "./TopCompanies";
+import Industries from "./Industries";
 
 function Home() {
   return (
@@ -17,8 +18,9 @@ function Home() {
       <HowItWorks />
       <FeaturedVideos />
       <FeaturedInternships />
+      <Industries />
       <Locations />
-      <Category />
+      {/* <Category /> */}
       <TopColleges />
       <TopCompanies />
       <Footer />

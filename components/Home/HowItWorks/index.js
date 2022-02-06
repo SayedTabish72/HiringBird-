@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../../common/styles/FilledBtn.styled";
@@ -23,22 +24,24 @@ const HowItWorks = () => {
         </Right>
       </Top>
       <Bottom>
-        <Wrap>
-          <ImageContainer>
-            <img
-              data-testid="svg"
-              className="vector-image"
-              src="/home/howitworks/1.svg"
-              alt="universe"
-            />
+        <Link href="/signin">
+          <Wrap>
+            <ImageContainer>
+              <img
+                data-testid="svg"
+                className="vector-image"
+                src="/home/howitworks/1.svg"
+                alt="universe"
+              />
 
-            <div className="backgroundVector">
-              <img src="/home/howitworks/1-bg.svg" alt="" />
-            </div>
-          </ImageContainer>
-          <h3>Sign In</h3>
-          <p>Create an account to get started</p>
-        </Wrap>
+              <div className="backgroundVector">
+                <img src="/home/howitworks/1-bg.svg" alt="" />
+              </div>
+            </ImageContainer>
+            <h3>Sign In</h3>
+            <p>Create an account to get started</p>
+          </Wrap>
+        </Link>
 
         <Wrap>
           <ImageContainer>
@@ -141,6 +144,8 @@ const Wrap = styled.div`
   text-align: center;
   border: 1px solid #d0d2e6;
   border-radius: 10px;
+  user-select: none;
+  cursor: pointer;
   h3 {
     font-weight: 600;
     font-size: 22px;
@@ -156,10 +161,14 @@ const Wrap = styled.div`
     font-feature-settings: "salt" on, "liga" off;
     color: #404366;
   }
+  &:active {
+    transform: scale(0.98);
+  }
 `;
 
 const ImageContainer = styled.div`
   position: relative;
+  aspect-ratio: 4/3;
   .vector-image {
     transform: translateY(1.5rem);
   }
