@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../../common/user/components/Header";
+import Header from "@/common/components/Header";
 import Card from "./Card";
 import styled from "styled-components";
 

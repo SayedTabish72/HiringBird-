@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../../../common/styles/OutlineBtn.styled";
+import { Button } from "@/common/styles/OutlineBtn.styled";
 
 function Card() {
   return (

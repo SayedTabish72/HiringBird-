@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import * as S from "./styles/Signin.styled";
 import { useSelector } from "react-redux";
 import { signin } from "../../../redux/actions/auth";
-import { Button } from "../../common/styles/outlineBtn.styled";
+import { Button } from "@/common/styles/OutlineBtn.styled";
 
 const Signin = () => {
   const dispatch = useDispatch();
