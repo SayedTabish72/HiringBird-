@@ -89,7 +89,8 @@ const BottomSplit = styled.div`
   margin-inline: auto;
   img {
     height: 1.6rem;
-    margin-left: 0.5em;
+    margin-left: 0.4rem;
+    margin-right: 0.2rem;
   }
   input {
     flex: 1;
