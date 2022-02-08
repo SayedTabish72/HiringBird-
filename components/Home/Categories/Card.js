@@ -1,29 +1,30 @@
-import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
 function Card({ title, image }) {
   return (
-    <Link href={`/internship?location=${title.toLowerCase()}`}>
+   
       <Wrapper>
-        <img src={`/home/locations/${image}.svg`} alt="" />
+        <img src={`/home/skills/${image}.svg`} alt="" />
         <h3>{title}</h3>
       </Wrapper>
-    </Link>
+    
   );
-} 
+}
 
 export default Card;
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.9rem;
+width:270px;
 
-  border: 1px solid rgba(75, 75, 75, 0.3);
-  border-radius: 8px;
-  padding: 2.5rem 2rem;
+
+  border: 1px solid rgba(208, 210, 230, 1);
+  border-radius: 4px;
+  padding: 1rem 1rem;
   user-select: none;
   text-align: center;
   cursor: pointer;
@@ -36,3 +37,4 @@ const Wrapper = styled.div`
     transform: scale(0.95);
   }
 `;
+
