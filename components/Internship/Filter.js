@@ -74,7 +74,7 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: center;
   width: min(90%, 85rem);
-  margin: 2rem auto;
+  margin: 3rem auto;
   @media (max-width: 962px) {
     display: none;
   }

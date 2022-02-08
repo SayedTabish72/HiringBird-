@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import useOutsideClick from "../../../../hooks/useOutsideClick";
 import { logout } from "../../../../redux/actions/auth";
-import Dropdown from "../Dropdown";
-import Notifications from "./Notifications";
+import Auth from "../Dropdown/Auth";
+import Dropdown from "../Dropdown/Auth";
+import Home from "../Dropdown/Home";
 import {
   Avatar,
   DropdownSelect,
@@ -43,16 +44,22 @@ const dropIn = {
 };
 
 const Navbar = () => {
-  const [show, setShow] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  // signin
   const signinRef = useRef(null);
   const [signinDropdown, setSigninDropdown] = useState(false);
 
+  // signup
   const signupRef = useRef(null);
   const [signupDropdown, setSignupDropdown] = useState(false);
+
+  // redux
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.isAuthenticated);
+
+  // hooks
   useOutsideClick(dropdownRef, () => {
     if (showDropdown) setShowDropdown(false);
   });
@@ -64,6 +71,7 @@ const Navbar = () => {
   useOutsideClick(signupRef, () => {
     if (signupDropdown) setSignupDropdown(false);
   });
+
   return (
     <Wrapper>
       <Left>
@@ -88,26 +96,7 @@ const Navbar = () => {
           exitBeforeEnter={true}
           onExitComplete={() => null}
         >
-          {showDropdown && (
-            <motion.div
-              variants={dropIn}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="dropdown"
-              ref={dropdownRef}
-            >
-              <ul>
-                <li>
-                  <Link href="/user/profile">My Profile</Link>
-                </li>
-                <li>Notifications</li>
-                <li>Messages</li>
-                <li>Saved Internships</li>
-                <li className="special">Log out</li>
-              </ul>
-            </motion.div>
-          )}
+          {showDropdown && <Home Ref={dropdownRef} />}
         </AnimatePresence>
       </HamBurger>
 
@@ -126,7 +115,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {signinDropdown && <Dropdown Ref={signinRef} />}
+              {signinDropdown && <Auth Ref={signinRef} />}
             </AnimatePresence>
           </SigninContainer>
           <SignupContainer>
@@ -141,7 +130,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {signupDropdown && <Dropdown Ref={signupRef} />}
+              {signupDropdown && <Auth Ref={signupRef} />}
             </AnimatePresence>
           </SignupContainer>
         </Right>

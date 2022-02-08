@@ -72,6 +72,7 @@ const InputContainer = styled.div`
       }
     }
     @media (max-width: 620px) {
+      margin-right: 1rem;
       padding: 0.7rem 0;
     }
   }

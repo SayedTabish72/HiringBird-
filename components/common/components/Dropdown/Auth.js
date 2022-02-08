@@ -6,21 +6,21 @@ import styled from "styled-components";
 const dropIn = {
   hidden: {
     y: 20,
-    x: -45,
+    x: -40,
     opacity: 0,
   },
   visible: {
-    x: -45,
+    x: -40,
     y: 16,
     opacity: 1,
   },
   exit: {
-    y: "20px",
+    y: 20,
     opacity: 0,
   },
 };
 
-function Dropdown({ Ref }) {
+function Auth({ Ref }) {
   return (
     <Wrapper
       variants={dropIn}
@@ -80,7 +80,7 @@ function Dropdown({ Ref }) {
   );
 }
 
-export default Dropdown;
+export default Auth;
 
 const Wrapper = styled(motion.div)`
   padding: 1rem;
@@ -89,8 +89,6 @@ const Wrapper = styled(motion.div)`
   background: #fff;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
-  /* left: 50%;
-  top: 50%; */
   /* transform: translate(-50%, 30%); */
 `;
 
