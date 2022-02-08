@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../../common/user/components/Header";
+import Header from "@/common/components/Header";
 import Card from "./Card";
 
 const Body = () => {

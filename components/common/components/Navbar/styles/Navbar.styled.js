@@ -71,9 +71,7 @@ export const Left = styled.div`
 export const Right = styled.div`
   display: flex;
   align-items: center;
-  .icon {
-    margin-right: 1rem;
-  }
+  gap: 1rem;
   @media (max-width: 835px) {
     display: none;
   }

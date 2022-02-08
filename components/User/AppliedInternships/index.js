@@ -1,8 +1,8 @@
 import React from "react";
-import Widget from "../../common/user/components/Widget";
+import Widget from "@/common/components/Widget";
 import styled from "styled-components";
 import Body from "./Body";
-import Navbar from "../../navbar/Navbar";
+import Navbar from "@/common/components/Navbar";
 
 const AppliedInternships = () => {
   return (

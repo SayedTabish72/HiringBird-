@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../../../common/styles/OutlineBtn.styled";
+import { Button } from "@/common/styles/OutlineBtn.styled";
 
 function Card({ id, active, svg, title }) {
   return (

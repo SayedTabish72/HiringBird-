@@ -1,9 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import Link from "next/link";
+import styled from "styled-components";
 import { useRouter } from "next/dist/client/router";
 import Card from "./Card";
-import Header from "../../../common/user/components/Header";
+import Header from "@/common/components/Header";
 
 const Body = () => {
   const router = useRouter();
@@ -99,30 +98,30 @@ const Body = () => {
                 <path
                   d="M13.9637 2.47852H2.13623V14.338H13.9637V2.47852Z"
                   stroke="#404366"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M32.5496 2.47852H20.7222V14.338H32.5496V2.47852Z"
                   stroke="#404366"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M32.5496 21.1133H20.7222V32.9728H32.5496V21.1133Z"
                   stroke="#404366"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M13.9642 21.1133H2.13672V32.9728H13.9642V21.1133Z"
                   stroke="#404366"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </a>
@@ -140,9 +139,9 @@ const Body = () => {
                 <path
                   d="M31.4178 26.2898C31.4178 27.0853 31.1027 27.8483 30.5417 28.4108C29.9807 28.9733 29.2198 29.2893 28.4264 29.2893H4.4953C3.70193 29.2893 2.94106 28.9733 2.38006 28.4108C1.81907 27.8483 1.50391 27.0853 1.50391 26.2898V5.29343C1.50391 4.49792 1.81907 3.73499 2.38006 3.17247C2.94106 2.60996 3.70193 2.29395 4.4953 2.29395H11.9738L14.9652 6.79317H28.4264C29.2198 6.79317 29.9807 7.10919 30.5417 7.6717C31.1027 8.23421 31.4178 8.99714 31.4178 9.79265V26.2898Z"
                   stroke="#404366"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </a>
