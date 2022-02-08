@@ -5,14 +5,15 @@ import HowItWorks from "./HowItWorks";
 import FeaturedVideos from "./FeaturedVideos";
 import FeaturedInternships from "./FeaturedInternships";
 import Locations from "./Locations";
-import Category from "./Category";
+import Categories from "./Categories";
 import TopColleges from "./TopColleges";
 import TopCompanies from "./TopCompanies";
 import Industries from "./Industries";
+import Skills from "./Skills"
 
 function Home() {
   return (
-    <>
+    <> 
       <Navbar />
       <Hero />
       <HowItWorks />
@@ -20,6 +21,8 @@ function Home() {
       <FeaturedInternships />
       <Industries />
       <Locations />
+      <Categories />
+      <Skills />
       {/* <Category /> */}
       <TopColleges />
       <TopCompanies />

@@ -6,16 +6,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 import Card from "./Card";
 
-function Locations() {
+function Category() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
     <Container>
-      <Header title="Locations" prevRef={prevRef} nextRef={nextRef} />
+      <Header title="Category" prevRef={prevRef} nextRef={nextRef} />
 
       <StyledSwiper
         modules={[Navigation, Pagination]}
-        spaceBetween={30}
+        spaceBetween={290}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
@@ -35,7 +35,7 @@ function Locations() {
           768: {
             slidesPerView: 4,
           },
-          640: { 
+          640: {
             slidesPerView: 3,
           },
 
@@ -48,34 +48,41 @@ function Locations() {
         }}
       >
         <SwiperSlide>
-          <Card title="New Delhi NCR" image="newdelhi" />
+          <Card title="Full-Stack" image="skills" /><br/>
+          <Card title="Data Engineer" image="skills" />
+
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Mumbai" image="mumbai" />
+          <Card title="Back-end" image="skills" /><br/>
+          <Card title="Product Analyst" image="skills" />
+
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Pune" image="pune" />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card title="Kolkalta" image="kolkata" />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card title="Chennai" image="chennai" />
+          <Card title="Front-end" image="skills" /><br/>
+          <Card title="Bussiness Analyst" image="skills" />
+
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Work from Home" image="wfh" />
+          <Card title="DevOps" image="skills" /><br/>
+          <Card title="Mobile" image="skills" />
         </SwiperSlide>{" "}
-      </StyledSwiper>
+        <SwiperSlide>
+        <Card title="Front-end" image="skills" /><br/>
+        <Card title="Data Engineer" image="skills" />
+        </SwiperSlide>
+        <SwiperSlide/>
+        </StyledSwiper>
     </Container>
   );
 }
 
-export default Locations;
+export default Category;
 
 const StyledSwiper = styled(Swiper)`
   /* pagination */
   .swiper-slide {
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
+    
   }
   .swiper-pagination {
   }
@@ -85,3 +92,6 @@ const StyledSwiper = styled(Swiper)`
     background: #f26a7e;
   }
 `;
+const SwiperSlid = styled(SwiperSlide)`
+
+`

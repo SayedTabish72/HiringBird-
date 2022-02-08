@@ -5,7 +5,7 @@ import styled from "styled-components";
 function Card() {
   const skills = ["React"];
 
-  return (
+  return ( 
     <Wrapper>
       <CardHead>
         <div>
@@ -37,11 +37,11 @@ function Card() {
       </CardHead>
 
       <CardComp>
-        <Img src="/company-logo.svg" width="45px" height="45px" />
+        <Img src="/home/featuredinternship/skilzen.svg" />
 
         <Heading>Skilzen</Heading>
         <Id>HB4321</Id>
-        <SubHeading>Frontend Developer</SubHeading>
+        <SubHeading>UI/UX Design Intern</SubHeading>
 
         <p>30 days ago</p>
       </CardComp>
@@ -49,12 +49,12 @@ function Card() {
       <CardDetails>
         <Wrap>
           <DetailsEle>
-            <Img src="/stipend.svg" width="12px" height="12px" />
+            <Img src="/stipend.png" width="12px" height="12px" />
 
-            <p>4000 - 8000 INR</p>
+            <p>7,500 - 10,000 INR</p>
           </DetailsEle>
           <DetailsEle>
-            <Img src="/calendar.svg" width="12px" height="12px" />
+            <Img src="/calendar.svg" width="12px" height="12px"    />
 
             <p>2 months</p>
           </DetailsEle>
@@ -63,13 +63,15 @@ function Card() {
         <DetailsEle>
           <Img src="/calendar.svg" width="12px" height="12px" />
 
-          <p>10/09/21</p>
+          <p>2 June 2021</p>
         </DetailsEle>
       </CardDetails>
 
       <CardSkills>
         {skills.map((skill, index) => {
-          return <p key={index}>{skill}</p>;
+          return <p> User Research, Wireframing, Figma, Sketch  
+           {/* key={index}>{skill} */}
+           </p>;
         })}
       </CardSkills>
 
@@ -176,11 +178,12 @@ const CardDetails = styled.div`
 `;
 
 const Id = styled.span`
-  color: #a3a6c3;
+  color:rgba(236, 31, 40, 1);
+  
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 15px; 
 `;
 
 const Heading = styled.h1`
@@ -228,7 +231,7 @@ const Wrapper = styled.div`
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
   padding-top: 1rem;
-  border: 1px solid #a3a6c3;
+  border: 2px solid #E4E5F0;
   border-radius: 10px;
   background: #ffffff;
   user-select: none;
