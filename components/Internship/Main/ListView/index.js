@@ -18,7 +18,7 @@ function ListView() {
         ))}
       </Left>
       <Right>
-        <Main active={active} />
+        <Main active={active} width={false} />
       </Right>
     </Wrapper>
   );
@@ -29,8 +29,9 @@ export default ListView;
 const Wrapper = styled.div`
   padding: 1.5rem 0;
   display: grid;
-  grid-template-columns: 28rem 1fr;
-  height: 97vh;
+  grid-template-columns: 30rem 1fr;
+  gap: 2rem;
+  height: 100vh;
 `;
 
 const Left = styled.div`
@@ -38,7 +39,7 @@ const Left = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: scroll;
-  padding: 0 0.5rem;
+
   /* hide scrollbar */
   ::-webkit-scrollbar {
     display: none;

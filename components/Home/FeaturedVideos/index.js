@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import { Container } from "../common/styles/Container.styled";
 import Header from "../common/components/Header";
+import Card from "./Card";
+
 
 const FeaturedVideos = () => {
   const skills = ["React"];
@@ -12,7 +14,7 @@ const FeaturedVideos = () => {
   const nextRef = useRef(null);
   return (
     <Container>
-      <Header title="Featured Videos" prevRef={prevRef} nextRef={nextRef} />
+      <Header title="Internship collection" prevRef={prevRef} nextRef={nextRef} />
 
       <StyledSwiper
         modules={[Navigation, Pagination]}
@@ -79,7 +81,3 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-const Card = styled.div`
-  border: 1px solid #c9cbe2;
-  padding: 1rem;
-`;

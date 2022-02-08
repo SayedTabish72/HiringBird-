@@ -9,7 +9,7 @@ import SignInModal from "./SignInModal";
 import { useSelector } from "react-redux";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 
-const Main = ({ active }) => {
+const Main = ({ active, width }) => {
   const router = useRouter();
   const user = useSelector((state) => state.auth.user);
   const { id } = router.query;
@@ -55,7 +55,7 @@ const Main = ({ active }) => {
   return (
     <>
       <SignInModal showModal={showModal} setShowModal={setShowModal} id={id} />
-      <Wrapper>
+      <Wrapper width={width}>
         <Body>
           <Head>
             <Left>
@@ -234,7 +234,7 @@ const Main = ({ active }) => {
 export default Main;
 
 const Wrapper = styled.div`
-  width: min(90%, 90rem);
+  width: ${(props) => props.width && "min(90%, 90rem)"};
   margin-inline: auto;
   background-color: #fff;
 `;

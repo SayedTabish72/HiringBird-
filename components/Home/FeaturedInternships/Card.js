@@ -3,10 +3,10 @@ import React from "react";
 import styled from "styled-components";
 
 function Card() {
-  const skills = ["React"];
+  const skills = ["React"]; 
 
   return ( 
-    <Wrapper>
+    <Wrapper> 
       <CardHead>
         <div>
           <Img src="/wfhome.svg" style={{ marginRight: "5px" }} />

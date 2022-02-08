@@ -29,7 +29,7 @@ const Detail = () => {
         </svg>
         <p onClick={() => router.back({ scroll: false })}>Back</p>
       </BackBtn>
-      <Main />
+      <Main width={true} />
       <Footer />
     </div>
   );

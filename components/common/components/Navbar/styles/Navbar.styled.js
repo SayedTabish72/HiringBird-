@@ -144,6 +144,9 @@ const FadeOut = keyframes`
 export const HamBurger = styled.div`
   position: relative;
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   .icon {
     cursor: pointer;
     .bar1,
