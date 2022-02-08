@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 830px) {
+    padding: 1rem 0;
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 `;
