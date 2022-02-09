@@ -47,7 +47,7 @@ function FeaturedInternships() {
       >
         <SwiperSlide>
           <Card />
-        </SwiperSlide>{" "}
+        </SwiperSlide>{" "} 
         <SwiperSlide>
           <Card />
         </SwiperSlide>{" "}
