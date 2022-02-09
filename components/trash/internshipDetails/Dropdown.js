@@ -37,7 +37,39 @@ const Dropdown = ({ title, options }) => {
     <DropdownSelect ref={domNode}>
       <span onClick={() => handleShow()}>
         {title}{" "}
-        {!show ? <Img src="/down-arrow.svg" /> : <Img src="/up-arrow.svg" />}
+        {!show ? (
+          <svg
+            width="18"
+            height="10"
+            viewBox="0 0 18 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.44482L9 8.42895L1 1.44482"
+              stroke="#A9ACCB"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="20"
+            height="11"
+            viewBox="0 0 20 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 10L10 1L1 10"
+              stroke="#404366"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
       </span>
       {!show ? (
         " "
@@ -52,9 +84,37 @@ const Dropdown = ({ title, options }) => {
                 {title}
               </span>
               {!show ? (
-                <Img src="/down-arrow.svg" />
+                <svg
+                  width="18"
+                  height="10"
+                  viewBox="0 0 18 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17 1.44482L9 8.42895L1 1.44482"
+                    stroke="#A9ACCB"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               ) : (
-                <Img className="up-show" src="/up-arrow.svg" />
+                <svg
+                  width="20"
+                  height="11"
+                  viewBox="0 0 20 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 10L10 1L1 10"
+                    stroke="#404366"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               )}
             </OptionTitle>
             {options.map((option, index) => {
