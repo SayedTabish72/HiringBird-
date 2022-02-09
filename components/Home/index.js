@@ -2,7 +2,7 @@ import Navbar from "../common/components/Navbar";
 import Footer from "../common/components/Footer";
 import Hero from "./Hero";
 import HowItWorks from "./HowItWorks";
-import FeaturedVideos from "./FeaturedVideos";
+import InternshipCollection from "./InternshipCollection";
 import FeaturedInternships from "./FeaturedInternships";
 import Locations from "./Locations";
 import Categories from "./Categories";
@@ -17,7 +17,7 @@ function Home() {
       <Navbar />
       <Hero />
       <HowItWorks />
-      <FeaturedVideos />
+      <InternshipCollection/>
       <FeaturedInternships />
       <Industries />
       <Locations />
