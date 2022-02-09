@@ -5,70 +5,115 @@ import styled from "styled-components";
 function Card() {
   return (
     <Wrapper>
-      <CardHead>
-        <Img src="/hblogo.svg" />
-      </CardHead>
-      <CardComp>
-        <Heading>HIRING NOW</Heading>
-        <SubHeading>UI/UX Design Internships</SubHeading>
-        <Id>02/01/2022-14/03/2022</Id>
-      </CardComp>
+      <img src="/hblogo.svg" alt="" />
+
+      <h2>HIRING NOW</h2>
+      <h3>UI/UX Design Internships</h3>
+      <h5>02/01/2022-14/03/2022</h5>
+
+      <svg
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="19"
+          cy="19"
+          r="17.5"
+          stroke="#404366"
+          strokeOpacity="0.81"
+          strokeWidth="3"
+        />
+        <path
+          d="M27.6367 19.0001L14.6822 26.4794L14.6822 11.5208L27.6367 19.0001Z"
+          fill="#404366"
+          fillOpacity="0.81"
+        />
+      </svg>
+
+      <p>Search with Internship ID and Apply</p>
     </Wrapper>
   );
 }
 export default Card;
 
-const Img = styled.img``;
-
 const Wrapper = styled.div`
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-top: 1rem;
   border: 2px solid #e4e5f0;
   border-radius: 10px;
-  background: #ffffff;
   user-select: none;
-`;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
 
-const CardHead = styled.div`
   display: flex;
-  justify-content: end;
-`;
+  flex-direction: column;
+  gap: 0.3rem;
 
-const Heading = styled.h1`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 29px;
-  display: flex;
-  align-items: center;
-  color: #404366;
-  margin-bottom: 0;
-  margin-top: 25px;
-`;
+  img {
+    height: 45px;
+    object-fit: contain;
+    align-self: end;
+  }
 
-const CardComp = styled.div`
-  margin-bottom: 10px;
-`;
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    color: #404366;
+  }
 
-const SubHeading = styled.h3`
-  display: flex;
-  align-items: center;
-  color: #404366;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 23px;
-  margin-bottom: 5px;
-  margin-top: 10px;
-`;
+  h3 {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: #404366;
+  }
 
-const Id = styled.span`
-  color: rgba(236, 31, 40, 1);
+  h5 {
+    font-size: 14px;
+    color: #ec1f28;
+  }
 
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
+  svg {
+    align-self: center;
+    margin: 1rem 0;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: #404366;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -5.3rem;
+    z-index: -1;
+    height: 16rem;
+    width: 16rem;
+    background: url("/home/internshipCollections/vector.svg") no-repeat center
+      center / cover;
+  }
+
+  @media (max-width: 600px) {
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    h5 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;

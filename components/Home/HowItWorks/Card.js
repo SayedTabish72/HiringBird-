@@ -1,23 +1,26 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
-function Card() {
+function Card({ item }) {
   return (
-    <Wrapper>
-      <ImageContainer>
-        <img
-          className="vector-image"
-          src="/home/howitworks/2.svg"
-          alt="universe"
-        />
+    <Link href={item.redirectUrl}>
+      <Wrapper>
+        <ImageContainer>
+          <img
+            className="vector-image"
+            src={`/home/howitworks/${item.id}.svg`}
+            alt=""
+          />
 
-        <div className="backgroundVector">
-          <img src="/home/howitworks/2-bg.svg" alt="" />
-        </div>
-      </ImageContainer>
-      <h3>Search for internships</h3>
-      <p>Look thorugh our carefully handpicked bunch of internships</p>
-    </Wrapper>
+          <div className="backgroundVector">
+            <img src={`/home/howitworks/${item.id}-bg.svg`} alt="" />
+          </div>
+        </ImageContainer>
+        <h3>{item.title}</h3>
+        <p>{item.desc}</p>
+      </Wrapper>
+    </Link>
   );
 }
 
@@ -33,6 +36,7 @@ const Wrapper = styled.div`
   border: 1px solid #d0d2e6;
   border-radius: 10px;
   user-select: none;
+  height: 100%;
   cursor: pointer;
   h3 {
     font-weight: 600;
@@ -62,7 +66,6 @@ const Wrapper = styled.div`
 `;
 const ImageContainer = styled.div`
   position: relative;
-  aspect-ratio: 4/3;
   .vector-image {
     transform: translateY(1.5rem);
     height: 12rem;

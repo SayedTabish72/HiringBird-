@@ -232,7 +232,7 @@ const Footer = () => {
           </Follow_Us>
 
           <LogoContainer>
-            <img className="hb" src="/footer/hb-logo.svg" alt="" />
+            <img className="hb" src="/footer/hiringbird.png" alt="" />
             <img className="skilzen" src="/footer/skilzen.svg" alt="" />
           </LogoContainer>
         </Flex>

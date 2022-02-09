@@ -71,8 +71,8 @@ function Signup() {
       <Image2 src="/bg2.svg" />
       <MiniContainer>
         <LeftDiv>
-          <Logo src="/skilzenlogo.png" />
-          <SignupImg src="/signup.png" />
+          <Logo src="/auth/signup/hiringbird.png" />
+          <SignupImg src="/auth/signup/vector.svg" />
         </LeftDiv>
         <RightDiv>
           <Heading>Lets get you started!</Heading>
