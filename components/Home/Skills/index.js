@@ -48,30 +48,32 @@ function Skills() {
         }}
       >
         <SwiperSlide>
-          <Card title="Full-Stack" image="skills" /><br/>
+          <Card title="Full-Stack" image="skills" />
+          <br />
           <Card title="Data Engineer" image="skills" />
-
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Back-end" image="skills" /><br/>
+          <Card title="Back-end" image="skills" />
+          <br />
           <Card title="Product Analyst" image="skills" />
-
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Front-end" image="skills" /><br/>
+          <Card title="Front-end" image="skills" />
+          <br />
           <Card title="Bussiness Analyst" image="skills" />
-
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="DevOps" image="skills" /><br/>
+          <Card title="DevOps" image="skills" />
+          <br />
           <Card title="Mobile" image="skills" />
         </SwiperSlide>{" "}
         <SwiperSlide>
-        <Card title="Front-end" image="skills" /><br/>
-        <Card title="Data Engineer" image="skills" />
+          <Card title="Front-end" image="skills" />
+          <br />
+          <Card title="Data Engineer" image="skills" />
         </SwiperSlide>
-        <SwiperSlide/>
-        </StyledSwiper>
+        <SwiperSlide />
+      </StyledSwiper>
     </Container>
   );
 }
@@ -81,8 +83,7 @@ export default Skills;
 const StyledSwiper = styled(Swiper)`
   /* pagination */
   .swiper-slide {
-    padding-bottom: 4rem;
-    
+    padding-bottom: 3rem;
   }
   .swiper-pagination {
   }
@@ -92,6 +93,4 @@ const StyledSwiper = styled(Swiper)`
     background: #f26a7e;
   }
 `;
-const SwiperSlid = styled(SwiperSlide)`
-
-`
+const SwiperSlid = styled(SwiperSlide)``;

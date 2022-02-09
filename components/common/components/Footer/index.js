@@ -6,6 +6,36 @@ const Footer = () => {
   return (
     <Wrapper>
       <Container>
+        <Intern_Location className="common-styles">
+          <h3>Internship Locations</h3>
+          <ul>
+            <li>
+              <a href="#">Internship in India</a>
+            </li>
+            <li>
+              <a href="#">Internship in NCR</a>
+            </li>
+            <li>
+              <a href="#">Internship in Mumbai </a>
+            </li>
+            <li>
+              <a href="#">Internship in Hyderabad</a>
+            </li>
+            <li>
+              <a href="#">Internship in Chennai</a>
+            </li>
+            <li>
+              <a href="#">Internship in Bengaluru</a>
+            </li>
+            <li>
+              <a href="#">Internship in Ahmedabad</a>
+            </li>
+            <li>
+              <a href="#">Internship in Kolkata</a>
+            </li>
+          </ul>
+        </Intern_Location>
+
         <Intern_Field className="common-styles">
           <h3>Internship by Field</h3>
           <ul>
@@ -36,17 +66,47 @@ const Footer = () => {
           </ul>
         </Intern_Field>
 
-        <Intern_Location className="common-styles">
-          <h3>Internship Locations</h3>
+        <Intern_Category className="common-styles">
+          <h3>Internship by Category</h3>
           <ul>
             <li>
-              <a href="#">Internship in India</a>
+              <a href="#">Computer Science/IT</a>
             </li>
             <li>
-              <a href="#">Internship in NCR</a>
+              <a href="#">Electronics</a>
             </li>
             <li>
-              <a href="#">Internship in Mumbai </a>
+              <a href="#">Mechanical</a>
+            </li>
+            <li>
+              <a href="#">Civil</a>
+            </li>
+            <li>
+              <a href="#">Marketing</a>
+            </li>
+            <li>
+              <a href="#">Design</a>
+            </li>
+            <li>
+              <a href="#">Finance</a>
+            </li>
+            <li>
+              <a href="#">Summer Intern</a>
+            </li>
+          </ul>
+        </Intern_Category>
+
+        <Intern_Skills className="common-styles">
+          <h3>Internship By Skills</h3>
+          <ul>
+            <li>
+              <a href="#">Full-stack</a>
+            </li>
+            <li>
+              <a href="#">Back-end</a>
+            </li>
+            <li>
+              <a href="#">Front-end</a>
             </li>
             <li>
               <a href="#">Internship in Hyderabad</a>
@@ -64,7 +124,7 @@ const Footer = () => {
               <a href="#">Internship in Kolkata</a>
             </li>
           </ul>
-        </Intern_Location>
+        </Intern_Skills>
 
         <Company className="common-styles">
           <h3>Company</h3>
@@ -201,16 +261,28 @@ const Wrapper = styled.div`
   background: #f2f2f2;
 `;
 const Container = styled.div`
-  padding: 2.5rem 0;
-  display: flex;
   width: min(90%, 90rem);
   margin: 0 auto;
-  justify-content: space-between;
-  flex-flow: row wrap;
-  @media (max-width: 773px) {
-    flex-direction: column;
-    gap: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 2rem 0;
+
+  @media (max-width: 1436px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
+  @media (max-width: 1162px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 926px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: 773px) {
+    gap: 1.5rem 0;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  padding: 2.5rem 0;
   .common-styles {
     h3 {
       margin-bottom: 1.2rem;
@@ -262,13 +334,11 @@ const LogoContainer = styled.div`
 `;
 
 const Intern_Field = styled.div`
-  flex-basis: 20%;
   @media (max-width: 773px) {
     display: none;
   }
 `;
 const Intern_Location = styled.div`
-  flex-basis: 20%;
   @media (max-width: 773px) {
     display: none;
   }
@@ -339,5 +409,17 @@ const Bottom = styled.div`
         flex-basis: 100%;
       }
     }
+  }
+`;
+
+const Intern_Category = styled.div`
+  @media (max-width: 773px) {
+    display: none;
+  }
+`;
+
+const Intern_Skills = styled.div`
+  @media (max-width: 773px) {
+    display: none;
   }
 `;

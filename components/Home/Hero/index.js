@@ -48,6 +48,9 @@ const Left = styled.div`
   flex-direction: column;
   gap: 1rem;
   h1 {
+    @media (min-width: 836px) {
+      margin-top: 1.5rem;
+    }
     font-weight: 800;
     font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
     color: #404366;

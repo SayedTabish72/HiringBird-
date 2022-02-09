@@ -70,16 +70,16 @@ const Wrapper = styled.div`
   justify-content: space-between;
   alignitems: "center";
   user-select: none;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 
   h1 {
     font-weight: 800;
-    font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
+    font-size: clamp(1.8rem, 1.6083rem + 0.8519vw, 2.375rem);
     color: #404366;
   }
 
   @media (max-width: 866px) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     flex-direction: column;
   }
 `;

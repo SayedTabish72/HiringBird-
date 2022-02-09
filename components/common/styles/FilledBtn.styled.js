@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
   padding: ${(props) => props.padding};
   cursor: pointer;
-  background-color: #f26a7e;
+  background-color: ${(props) => props.color || "#f26a7e"};}};
   color: #fff;
   font-size: 16px;
   border: none;
@@ -12,7 +12,6 @@ export const Button = styled.button`
   border-radius: 6px;
   user-select: none;
   &:hover {
-    background-color: #fc5b73;
   }
   &:active {
     transform: scale(0.9);

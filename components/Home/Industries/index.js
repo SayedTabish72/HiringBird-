@@ -41,8 +41,10 @@ function Industries() {
 
           377: {
             slidesPerView: 2,
+            slidesPerGroup: 2,
           },
           320: {
+            slidesPerGroup: 1,
             slidesPerView: 1,
           },
         }}
@@ -74,6 +76,7 @@ export default Industries;
 
 const StyledSwiper = styled(Swiper)`
   /* pagination */
+  margin-bottom: -2rem;
   .swiper-slide {
     padding-bottom: 3rem;
   }

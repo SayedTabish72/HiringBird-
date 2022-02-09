@@ -71,6 +71,7 @@ function FeaturedInternships() {
 export default FeaturedInternships;
 
 const StyledSwiper = styled(Swiper)`
+  margin-bottom: -2rem;
   /* pagination */
   .swiper-slide {
     padding-bottom: 3rem;

@@ -26,7 +26,15 @@ const Wrapper = styled.div`
   padding: 2.5rem 2rem;
   user-select: none;
   cursor: pointer;
-
+  @media (max-width: 800px) {
+    padding: 2rem 1rem;
+    img {
+      height: 3rem;
+    }
+    h3 {
+      font-size: 14px;
+    }
+  }
   &:hover {
     background: #fff8f8;
   }

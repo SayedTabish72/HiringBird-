@@ -11,7 +11,7 @@ function Card({ title, image }) {
       </Wrapper>
     </Link>
   );
-} 
+}
 
 export default Card;
 
@@ -23,10 +23,20 @@ const Wrapper = styled.div`
 
   border: 1px solid rgba(75, 75, 75, 0.3);
   border-radius: 8px;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 1rem;
   user-select: none;
   text-align: center;
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    padding: 2rem 1rem;
+    img {
+      height: 3rem;
+    }
+    h3 {
+      font-size: 14px;
+    }
+  }
 
   &:hover {
     background: #fff8f8;

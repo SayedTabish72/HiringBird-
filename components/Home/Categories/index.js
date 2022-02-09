@@ -33,6 +33,7 @@ function Category() {
             slidesPerView: 3,
           },
           324: {
+            slidesPerGroup: 2,
             slidesPerView: 2,
           },
         }}
@@ -70,9 +71,10 @@ function Category() {
 export default Category;
 
 const StyledSwiper = styled(Swiper)`
+  margin-bottom: -2rem;
   /* pagination */
   .swiper-slide {
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
   }
   .swiper-pagination {
   }

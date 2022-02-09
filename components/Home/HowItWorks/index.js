@@ -3,27 +3,20 @@ import React from "react";
 import styled from "styled-components";
 import { Button } from "../../common/styles/FilledBtn.styled";
 import { Container } from "../common/styles/Container.styled";
+import { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Card from "./Card";
 
 const HowItWorks = () => {
   return (
     <Container>
       <Top>
-        <Left>
-          <h1 data-testid="heading">
-            How does it <br /> work?
-          </h1>
-        </Left>
-        <Right>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed atque
-            nihil labore repudiandae eligendi, animi accusamus facere.
-            Perferendis et quaerat eos magni veritatis, itaque unde, quis quas a
-            maiores facere.
-          </p>
-          <Button padding="10px 26px">Apply Now</Button>
-        </Right>
+        <h1>Get Internship’s directly to What’s app</h1>
+        <Button color="#128C7E" padding=".7rem .8rem">
+          Link WhatsApp
+        </Button>
       </Top>
-      <Bottom>
+      {/* <Bottom>
         <Link href="/signin">
           <Wrap>
             <ImageContainer>
@@ -73,7 +66,36 @@ const HowItWorks = () => {
           <h3>Apply and follow procedure</h3>
           <p>Now sit back and wait for the call back and follow simple steps</p>
         </Wrap>
-      </Bottom>
+      </Bottom> */}{" "}
+      <StyledSwiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        slidesPerView={3}
+        breakpoints={{
+          1022: {
+            slidesPerView: 3,
+          },
+          798: {
+            slidesPerView: 2,
+          },
+          320: {
+            slidesPerView: 1,
+          },
+        }}
+      >
+        <SwiperSlide>
+          <Card />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card />
+        </SwiperSlide>{" "}
+      </StyledSwiper>
     </Container>
   );
 };
@@ -82,104 +104,34 @@ export default HowItWorks;
 
 const Top = styled.div`
   display: flex;
-  margin-bottom: 3rem;
-  @media (max-width: 945px) {
-    margin-bottom: 1.5rem;
-    flex-direction: column;
-  }
-`;
-const Left = styled.div`
-  flex-basis: 50%;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
   h1 {
     font-weight: 800;
-    font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
+    font-size: clamp(1.8rem, 1.6083rem + 0.8519vw, 2.375rem);
     color: #404366;
-    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 1.4rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
-const Right = styled.div`
-  flex-basis: 50%;
-  p {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 32px;
-    color: #18191f;
-    margin-bottom: 1em;
-    @media (max-width: 600px) {
-      line-height: 27px;
-      font-size: 18px;
+
+const StyledSwiper = styled(Swiper)`
+  width: min(100%, 60rem);
+  .swiper-slide {
+    @media (max-width: 1022px) {
+      padding-bottom: 2.5rem;
     }
   }
-  button {
+  .swiper-pagination {
+  }
+  .swiper-pagination-bullet {
+  }
+  .swiper-pagination-bullet-active {
     background: #f26a7e;
-    border-radius: 4px;
-    padding: 10px 26px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-`;
-
-const Bottom = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 3%;
-  width: min(100%, 75rem);
-  margin-inline: auto;
-  @media (max-width: 1274px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 700px) {
-    gap: 2%;
-    grid-template-columns: 1fr;
-  }
-`;
-
-const Wrap = styled.div`
-  border: 1px solid lightgrey;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 1px solid #d0d2e6;
-  border-radius: 10px;
-  user-select: none;
-  cursor: pointer;
-  h3 {
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 32px;
-    font-feature-settings: "salt" on, "liga" off;
-    color: #404366;
-    margin-bottom: 0.3em;
-  }
-  p {
-    font-size: 16px;
-    line-height: 26px;
-    text-align: center;
-    font-feature-settings: "salt" on, "liga" off;
-    color: #404366;
-  }
-  &:active {
-    transform: scale(0.98);
-  }
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  aspect-ratio: 4/3;
-  .vector-image {
-    transform: translateY(1.5rem);
-  }
-  .backgroundVector {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-    img {
-      max-width: 100%;
-    }
   }
 `;
