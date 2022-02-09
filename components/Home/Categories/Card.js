@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 function Card({ title, image }) {
   return (
-    <Wrapper>
-      <img src={`/home/skills/${image}.svg`} alt="" />
-      <h3>{title}</h3>
-    </Wrapper>
+    <Link href={`/internship/?categories=${title.toLowerCase()}`}>
+      <Wrapper>
+        <img src={`${image}`} alt="" />
+        <h3>{title}</h3>
+      </Wrapper>
+    </Link>
   );
 }
 
@@ -23,6 +26,9 @@ const Wrapper = styled.div`
   user-select: none;
   text-align: center;
   cursor: pointer;
+  img {
+    height: 2rem;
+  }
 
   &:hover {
     background: #fff8f8;
@@ -37,4 +43,20 @@ const Wrapper = styled.div`
       font-size: 0.85rem;
     }
   }
+`;
+
+const ima = styled.image`
+  position: absolute;
+  inset: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  border: none;
+  margin: auto;
+  display: block;
+  width: 0px;
+  height: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
 `;

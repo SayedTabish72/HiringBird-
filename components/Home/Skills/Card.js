@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 function Card({ title, image }) {
   return (
-    <Wrapper>
-      <img src={`${image}`} alt="" />
-      <h3>{title}</h3>
-    </Wrapper>
+    <Link href={`/internship/?skills=${title.toLowerCase()}`}>
+      <Wrapper>
+        <img src={`${image}`} alt="" />
+        <h3>{title}</h3>
+      </Wrapper>
+    </Link> 
   );
 }
 
