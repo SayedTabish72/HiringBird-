@@ -7,14 +7,17 @@ import { Container } from "../common/styles/Container.styled";
 import Header from "../common/components/Header";
 import Card from "./Card";
 
-
 const FeaturedVideos = () => {
   const skills = ["React"];
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
     <Container>
-      <Header title="Internship collection" prevRef={prevRef} nextRef={nextRef} />
+      <Header
+        title="Internship collection"
+        prevRef={prevRef}
+        nextRef={nextRef}
+      />
 
       <StyledSwiper
         modules={[Navigation, Pagination]}
@@ -69,6 +72,7 @@ const FeaturedVideos = () => {
 export default FeaturedVideos;
 
 const StyledSwiper = styled(Swiper)`
+  margin-bottom: -2rem;
   .swiper-slide {
     padding-bottom: 3rem;
   }
@@ -80,4 +84,3 @@ const StyledSwiper = styled(Swiper)`
     background: #f26a7e;
   }
 `;
-

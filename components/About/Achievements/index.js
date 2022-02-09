@@ -8,7 +8,9 @@ function Achievements() {
       <SmallContainer>
         <Achievement>
           <LeftText>
-            <Heading>Our 3 years of achievements</Heading>
+            <Heading>
+              Our 3 years of <br /> achievements
+            </Heading>
             <Para>With our super powers we have reached this</Para>
           </LeftText>
           <RightRecord>
@@ -158,10 +160,8 @@ export const RightRecord = styled.div`
 
 export const Heading = styled.h1`
   font-family: Inter;
-  font-style: normal;
   font-weight: 900;
-  font-size: 56.6512px;
-  line-height: 76px;
+  font-size: clamp(1.8rem, 1.6083rem + 0.8519vw, 2.375rem);
   font-feature-settings: "salt" on, "liga" off;
   color: #404366;
   @media (max-width: 444px) {

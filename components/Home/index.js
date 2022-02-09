@@ -9,11 +9,11 @@ import Categories from "./Categories";
 import TopColleges from "./TopColleges";
 import TopCompanies from "./TopCompanies";
 import Industries from "./Industries";
-import Skills from "./Skills"
+import Skills from "./Skills";
 
 function Home() {
   return (
-    <> 
+    <>
       <Navbar />
       <Hero />
       <HowItWorks />

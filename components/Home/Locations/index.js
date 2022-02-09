@@ -35,14 +35,16 @@ function Locations() {
           768: {
             slidesPerView: 4,
           },
-          640: { 
+          640: {
             slidesPerView: 3,
           },
 
           377: {
+            slidesPerGroup: 2,
             slidesPerView: 2,
           },
           320: {
+            slidesPerGroup: 1,
             slidesPerView: 1,
           },
         }}
@@ -73,6 +75,7 @@ function Locations() {
 export default Locations;
 
 const StyledSwiper = styled(Swiper)`
+  margin-bottom: -2rem;
   /* pagination */
   .swiper-slide {
     padding-bottom: 3rem;

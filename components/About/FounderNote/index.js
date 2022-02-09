@@ -74,7 +74,7 @@ const Split = styled.div`
   grid-template-rows: auto 1fr;
   h1 {
     font-weight: 800;
-    font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
+    font-size: clamp(1.8rem, 1.6083rem + 0.8519vw, 2.375rem);
     color: #404366;
     grid-column: 1;
     grid-row: 1;
