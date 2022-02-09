@@ -39,51 +39,37 @@ function Skills() {
         }}
       >
         <SwiperSlide>
-<< HEAD
-          <Card title="React/Node" image="https://d2mk45aasx86xg.cloudfront.net/Node_js_developers_95b2c48703.svg" />
+          <Card
+            title="React/Node"
+            image="https://d2mk45aasx86xg.cloudfront.net/Node_js_developers_95b2c48703.svg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Java" image="https://d2mk45aasx86xg.cloudfront.net/Java_developers_86c5bc8f57.svg" />
+          <Card
+            title="Java"
+            image="https://d2mk45aasx86xg.cloudfront.net/Java_developers_86c5bc8f57.svg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Python" image="https://d2mk45aasx86xg.cloudfront.net/Python_developers_a5a044727a.svg" />
+          <Card
+            title="Python"
+            image="https://d2mk45aasx86xg.cloudfront.net/Python_developers_a5a044727a.svg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Angular" image="https://d2mk45aasx86xg.cloudfront.net/Angular_developer_6af28faf86.svg" />
+          <Card
+            title="Angular"
+            image="https://d2mk45aasx86xg.cloudfront.net/Angular_developer_6af28faf86.svg"
+          />
         </SwiperSlide>{" "}
         <SwiperSlide>
-          <Card title="AI/ML" image="https://d2mk45aasx86xg.cloudfront.net/AI_developers_7da8704a5f.svg" />
+          <Card
+            title="AI/ML"
+            image="https://d2mk45aasx86xg.cloudfront.net/AI_developers_7da8704a5f.svg"
+          />
         </SwiperSlide>
-      </StyledSwiper>
-      </Container>
-          <Card title="Full-Stack" image="skills" />
-          <br />
-          <Card title="Data Engineer" image="skills" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card title="Back-end" image="skills" />
-          <br />
-          <Card title="Product Analyst" image="skills" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card title="Front-end" image="skills" />
-          <br />
-          <Card title="Bussiness Analyst" image="skills" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card title="DevOps" image="skills" />
-          <br />
-          <Card title="Mobile" image="skills" />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card title="Front-end" image="skills" />
-          <br />
-          <Card title="Data Engineer" image="skills" />
-        </SwiperSlide>
-        <SwiperSlide />
       </StyledSwiper>
     </Container>
->>>>>>> d4e855a3e9d8958812deeb9bc118e43b8fecd385
   );
 }
 
