@@ -163,11 +163,6 @@ const Text1 = styled.h3`
   color: #404366;
 `;
 
-const Logo = styled.img`
-  width: 113px;
-  height: 113px;
-`;
-
 const InfoDiv = styled.div`
   display: flex;
   justify-content: space-between;
