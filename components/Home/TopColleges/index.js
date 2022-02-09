@@ -46,28 +46,26 @@ function TopColleges() {
               },
             }}
           >
-            {/* <Text data-testid="heading">Top Colleges</Text> */}
-
             <SwiperSlide>
-              {" "}
-              <Logo src="/c2.svg" alt="college" />{" "}
+              <img src="/home/topColleges/1.svg" alt="college" />
             </SwiperSlide>
             <SwiperSlide>
-              {" "}
-              <Logo src="/c1.svg" alt="college" />{" "}
+              <img src="/home/topColleges/2.svg" alt="college" />
             </SwiperSlide>
             <SwiperSlide>
-              <Logo src="/c3.svg" alt="college" />{" "}
+              <img src="/home/topColleges/3.svg" alt="college" />
             </SwiperSlide>
             <SwiperSlide>
-              <Logo src="/c5.svg" alt="college" />{" "}
-            </SwiperSlide>
+              <img src="/home/topColleges/4.svg" alt="college" />
+            </SwiperSlide>{" "}
             <SwiperSlide>
-              {" "}
-              <Logo src="/c2.svg" alt="college" />{" "}
-            </SwiperSlide>
+              <img src="/home/topColleges/5.svg" alt="college" />
+            </SwiperSlide>{" "}
             <SwiperSlide>
-              <Logo src="/c6.svg" alt="college" />{" "}
+              <img src="/home/topColleges/6.svg" alt="college" />
+            </SwiperSlide>{" "}
+            <SwiperSlide>
+              <img src="/home/topColleges/7.svg" alt="college" />
             </SwiperSlide>
           </StyledSwiper>
         </OneRow>
@@ -76,7 +74,7 @@ function TopColleges() {
           <InfoDiv>
             <Info>
               <LineContainer>
-                <Line src="/pink-line.svg" alt="line" />
+                <Line src="/home/topColleges/line.svg" alt="line" />
               </LineContainer>
               <TextContainer>
                 <LargeText>40+</LargeText>
@@ -85,7 +83,7 @@ function TopColleges() {
             </Info>
             <Info>
               <LineContainer>
-                <Line src="/pink-line.svg" alt="line" />
+                <Line src="/home/topColleges/line.svg" alt="line" />
               </LineContainer>
               <TextContainer>
                 <LargeText>540+</LargeText>
@@ -94,7 +92,7 @@ function TopColleges() {
             </Info>
             <Info>
               <LineContainer>
-                <Line src="/pink-line.svg" alt="line" />
+                <Line src="/home/topColleges/line.svg" alt="line" />
               </LineContainer>
               <TextContainer>
                 <LargeText>100+</LargeText>
@@ -103,7 +101,7 @@ function TopColleges() {
             </Info>
             <Info>
               <LineContainer>
-                <Line src="/pink-line.svg" alt="line" />
+                <Line src="/home/topColleges/line.svg" alt="line" />
               </LineContainer>
               <TextContainer>
                 <LargeText>300</LargeText>
@@ -243,6 +241,12 @@ const StyledSwiper = styled(Swiper)`
   /* pagination */
   .swiper-slide {
     padding-bottom: 3rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    img {
+      max-width: 100%;
+    }
   }
   .swiper-pagination {
   }

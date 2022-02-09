@@ -109,19 +109,19 @@ const Footer = () => {
               <a href="#">Front-end</a>
             </li>
             <li>
-              <a href="#">Internship in Hyderabad</a>
+              <a href="#">Business Analyst</a>
             </li>
             <li>
-              <a href="#">Internship in Chennai</a>
+              <a href="#">DevOps</a>
             </li>
             <li>
-              <a href="#">Internship in Bengaluru</a>
+              <a href="#">Product Analyst</a>
             </li>
             <li>
-              <a href="#">Internship in Ahmedabad</a>
+              <a href="#">Mobile</a>
             </li>
             <li>
-              <a href="#">Internship in Kolkata</a>
+              <a href="#">Data Engineer</a>
             </li>
           </ul>
         </Intern_Skills>

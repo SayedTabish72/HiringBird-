@@ -10,7 +10,7 @@ const FounderNote = () => {
           <h1>Founder’s Note</h1>
 
           <div className="desc">
-            <img src="“.png" alt="" />
+            <img src="/about/founder/“.png" alt="" />
             <div className="desc_right">
               <p>
                 We had an incredible experience working with Skilzen and were
@@ -29,7 +29,7 @@ const FounderNote = () => {
           </div>
 
           <Right>
-            <img src="Founder.png" alt="" />
+            <img src="/about/founder/founder.png" alt="" />
           </Right>
         </Split>
         <Team>
@@ -39,19 +39,19 @@ const FounderNote = () => {
 
           <div className="team_members">
             <div className="wrap">
-              <img src="team2.png" alt="" />
+              <img src="/about/founder/1.png" alt="" />
               <p>Lead Designer</p>
             </div>
             <div className="wrap">
-              <img src="team2.png" alt="" />
+              <img src="/about/founder/2.png" alt="" />
               <p>Marketing</p>
             </div>
             <div className="wrap">
-              <img src="team3.png" alt="" />
+              <img src="/about/founder/3.png" alt="" />
               <p>Lead Developer</p>
             </div>
             <div className="wrap">
-              <img src="team4.png" alt="" />
+              <img src="/about/founder/4.png" alt="" />
               <p>Graphic Designer</p>
             </div>
           </div>
@@ -80,6 +80,7 @@ const Split = styled.div`
     grid-row: 1;
     margin-bottom: 2rem;
     @media (max-width: 600px) {
+      margin-bottom: 0;
       grid-column: 1/3;
     }
   }

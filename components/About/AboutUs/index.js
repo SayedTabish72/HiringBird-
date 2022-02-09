@@ -6,7 +6,7 @@ import Tabs from "./Tabs";
 const TabItem = (props) => <div {...props} />;
 const AboutUs = () => {
   return (
-    <Container id="about-us">
+    <Container>
       <Split>
         <Left>
           <div className="tabs">
@@ -25,7 +25,7 @@ const AboutUs = () => {
           </div>
         </Left>
         <Right>
-          <img src="aboutus.png" alt="hello" />
+          <img src="/about/aboutus/vector.png" alt="hello" />
         </Right>
       </Split>
     </Container>
@@ -92,8 +92,4 @@ const Right = styled.div`
     max-width: 100%;
     margin-inline: auto;
   }
-`;
-
-const CustomTabs = styled(Tabs)`
-  padding: 3rem;
 `;

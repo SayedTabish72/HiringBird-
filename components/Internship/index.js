@@ -1,3 +1,4 @@
+import Footer from "@/common/components/Footer";
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../../components/common/components/Navbar";
@@ -13,6 +14,7 @@ const Internship = () => {
       <Filter />
 
       <Main />
+      <Footer />
     </>
   );
 };

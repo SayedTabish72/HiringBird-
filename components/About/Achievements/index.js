@@ -17,7 +17,7 @@ function Achievements() {
             <RightTop>
               <Box>
                 <Left>
-                  <Icon src="01.svg" alt="one" />
+                  <Icon src="/about/achievements/4.svg" alt="one" />
                 </Left>
                 <Right>
                   <CountBig>10,000+</CountBig>
@@ -26,7 +26,7 @@ function Achievements() {
               </Box>
               <Box>
                 <Left>
-                  <Icon src="02.svg" alt="one" />
+                  <Icon src="/about/achievements/1.svg" alt="one" />
                 </Left>
                 <Right>
                   <CountBig>2 Million</CountBig>
@@ -37,7 +37,7 @@ function Achievements() {
             <RightBottom>
               <Box>
                 <Left>
-                  <Icon src="03.svg" alt="one" />
+                  <Icon src="/about/achievements/2.svg" alt="one" />
                 </Left>
                 <Right>
                   <CountBig>500+</CountBig>
@@ -46,7 +46,7 @@ function Achievements() {
               </Box>
               <Box>
                 <Left>
-                  <Icon src="04.svg" alt="one" />
+                  <Icon src="/about/achievements/3.svg" alt="one" />
                 </Left>
                 <Right>
                   <CountBig>140</CountBig>
@@ -61,12 +61,40 @@ function Achievements() {
           <Wrap>
             <Div>
               <Top>
-                <Circle src="/circle.svg" alt="circle" />
-                <LineIndicator src="line-indicator.svg" alt="line-indicator" />
-                <VerticalLine
-                  src="/vertical-line-indicator.svg"
-                  alt="vertical-line-indicator"
-                />
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12.7784"
+                    cy="12.7784"
+                    r="12.7784"
+                    fill="#F26A7E"
+                  />
+                </svg>
+
+                <svg
+                  width="195"
+                  height="3"
+                  viewBox="0 0 195 3"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    opacity="0.4"
+                    x1="1.17815"
+                    y1="1.71346"
+                    x2="193.919"
+                    y2="1.71346"
+                    stroke="#F26A7E"
+                    stroke-width="2.12973"
+                    stroke-linecap="round"
+                    stroke-dasharray="2.13 8.52"
+                  />
+                </svg>
               </Top>
               <Bottom>
                 <Year>Started 2013</Year>
@@ -75,12 +103,39 @@ function Achievements() {
             </Div>
             <Div>
               <Top>
-                <Circle src="/circle.svg" alt="circle" />
-                <LineIndicator src="line-indicator.svg" alt="line-indicator" />
-                <VerticalLine
-                  src="/vertical-line-indicator.svg"
-                  alt="vertical-line-indicator"
-                />
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12.7784"
+                    cy="12.7784"
+                    r="12.7784"
+                    fill="#F26A7E"
+                  />
+                </svg>
+                <svg
+                  width="195"
+                  height="3"
+                  viewBox="0 0 195 3"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    opacity="0.4"
+                    x1="1.17815"
+                    y1="1.71346"
+                    x2="193.919"
+                    y2="1.71346"
+                    stroke="#F26A7E"
+                    stroke-width="2.12973"
+                    stroke-linecap="round"
+                    stroke-dasharray="2.13 8.52"
+                  />
+                </svg>
               </Top>
               <Bottom>
                 <Year>2015</Year>
@@ -89,12 +144,39 @@ function Achievements() {
             </Div>
             <Div>
               <Top>
-                <Circle src="/circle.svg" alt="circle" />
-                <LineIndicator src="line-indicator.svg" alt="line-indicator" />
-                <VerticalLine
-                  src="/vertical-line-indicator.svg"
-                  alt="vertical-line-indicator"
-                />
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12.7784"
+                    cy="12.7784"
+                    r="12.7784"
+                    fill="#F26A7E"
+                  />
+                </svg>
+                <svg
+                  width="195"
+                  height="3"
+                  viewBox="0 0 195 3"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    opacity="0.4"
+                    x1="1.17815"
+                    y1="1.71346"
+                    x2="193.919"
+                    y2="1.71346"
+                    stroke="#F26A7E"
+                    stroke-width="2.12973"
+                    stroke-linecap="round"
+                    stroke-dasharray="2.13 8.52"
+                  />
+                </svg>
               </Top>
               <Bottom>
                 <Year>2016</Year>
@@ -103,12 +185,39 @@ function Achievements() {
             </Div>
             <Div>
               <Top>
-                <Circle src="/circle.svg" alt="circle" />
-                <LineIndicator src="line-indicator.svg" alt="line-indicator" />
-                <VerticalLine
-                  src="/vertical-line-indicator.svg"
-                  alt="vertical-line-indicator"
-                />
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12.7784"
+                    cy="12.7784"
+                    r="12.7784"
+                    fill="#F26A7E"
+                  />
+                </svg>
+                <svg
+                  width="195"
+                  height="3"
+                  viewBox="0 0 195 3"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    opacity="0.4"
+                    x1="1.17815"
+                    y1="1.71346"
+                    x2="193.919"
+                    y2="1.71346"
+                    stroke="#F26A7E"
+                    stroke-width="2.12973"
+                    stroke-linecap="round"
+                    stroke-dasharray="2.13 8.52"
+                  />
+                </svg>
               </Top>
               <Bottom>
                 <Year>2021</Year>
@@ -117,7 +226,20 @@ function Achievements() {
             </Div>
             <Div>
               <Top>
-                <Circle src="/circle.svg" alt="circle" />
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 26 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12.7784"
+                    cy="12.7784"
+                    r="12.7784"
+                    fill="#F26A7E"
+                  />
+                </svg>
                 {/* <LineIndicator src="line-indicator.svg" alt="line-indicator" /> */}
               </Top>
               <Bottom>
@@ -159,7 +281,6 @@ export const RightRecord = styled.div`
 `;
 
 export const Heading = styled.h1`
-  font-family: Inter;
   font-weight: 900;
   font-size: clamp(1.8rem, 1.6083rem + 0.8519vw, 2.375rem);
   font-feature-settings: "salt" on, "liga" off;
