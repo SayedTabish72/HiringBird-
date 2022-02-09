@@ -10,6 +10,7 @@ import TopColleges from "./TopColleges";
 import TopCompanies from "./TopCompanies";
 import Industries from "./Industries";
 import Skills from "./Skills";
+import GetInTouch from "./GetInTouch";
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
       <Locations />
       <Categories />
       <Skills />
+      <GetInTouch />
       {/* <Category /> */}
       <TopColleges />
       <TopCompanies />
