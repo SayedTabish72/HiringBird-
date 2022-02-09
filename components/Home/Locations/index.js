@@ -50,22 +50,22 @@ function Locations() {
         }}
       >
         <SwiperSlide>
-          <Card title="New Delhi NCR" image="newdelhi" />
+          <Card title="New Delhi" image="newdelhi" />
         </SwiperSlide>
         <SwiperSlide>
           <Card title="Mumbai" image="mumbai" />
         </SwiperSlide>
         <SwiperSlide>
+          <Card title="Bangalore" image="bangalore" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Gurgaon" image="gurgaon" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
           <Card title="Pune" image="pune" />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card title="Kolkalta" image="kolkata" />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card title="Chennai" image="chennai" />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Work from Home" image="wfh" />
+          <Card title="Noida" image="noida" />
         </SwiperSlide>{" "}
       </StyledSwiper>
     </Container>

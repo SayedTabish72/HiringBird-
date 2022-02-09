@@ -50,10 +50,10 @@ function Industries() {
         }}
       >
         <SwiperSlide>
-          <Card title="Engineering" image="engineering" />
+          <Card title="Engineering" image={"engineer"} />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Commerce" image="money" />
+          <Card title="Law" image="law" />
         </SwiperSlide>
         <SwiperSlide>
           <Card title="Managment" image="level" />
@@ -62,10 +62,10 @@ function Industries() {
           <Card title="Medical" image="heart" />
         </SwiperSlide>{" "}
         <SwiperSlide>
-          <Card title="Science" image="atom" />
+          <Card title="Design" image="design" />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="L.T" image="coding" />
+          <Card title="Education" image="education" />
         </SwiperSlide>{" "}
       </StyledSwiper>
     </Container>

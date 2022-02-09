@@ -39,29 +39,59 @@ function Category() {
         }}
       >
         <SwiperSlide>
-          <Card title="Full-Stack" image="skills" />
+          <Card
+            title="Data-Engineers"
+            image="https://d2mk45aasx86xg.cloudfront.net/Data_Engineer_e64c7fd32c.svg"
+          />
           <br />
-          <Card title="Data Engineer" image="skills" />
+          <Card
+            title="ML Scientists"
+            image="https://d2mk45aasx86xg.cloudfront.net/ML_engineers_348bc984d5.svg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Back-end" image="skills" />
+          <Card
+            title="Blockchain Engineers"
+            image="https://d2mk45aasx86xg.cloudfront.net/Blockchain_developers_380a575c3c.svg"
+          />
           <br />
-          <Card title="Product Analyst" image="skills" />
+          <Card
+            title="Full-Stack Developers"
+            image="https://d2mk45aasx86xg.cloudfront.net/Full_Stack_developers_68c054aab9.svg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Front-end" image="skills" />
+          <Card
+            title="Android Developers"
+            image="https://d2mk45aasx86xg.cloudfront.net/Mobile_developers_c3a673d24b.svg"
+          />
           <br />
-          <Card title="Bussiness Analyst" image="skills" />
+          <Card
+            title="Data Scientists"
+            image="https://d2mk45aasx86xg.cloudfront.net/Data_science_ff76d8eb45.svg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="DevOps" image="skills" />
+          <Card
+            title="Front-end Developers"
+            image="https://d2mk45aasx86xg.cloudfront.net/Front_end_developers_b69d047610.svg"
+          />
           <br />
-          <Card title="Mobile" image="skills" />
+          <Card
+            title="Cloud Architect"
+            image="https://d2mk45aasx86xg.cloudfront.net/cloud_c3dc5bb877.svg"
+          />
         </SwiperSlide>{" "}
         <SwiperSlide>
-          <Card title="Front-end" image="skills" />
+          <Card
+            title="ML Engineers"
+            image="https://d2mk45aasx86xg.cloudfront.net/ML_engineers_348bc984d5.svg"
+          />
           <br />
-          <Card title="Data Engineer" image="skills" />
+          <Card
+            title="Product Analyst"
+            image="https://d2mk45aasx86xg.cloudfront.net/role_backend_996ce8298a.svg"
+          />
         </SwiperSlide>
       </StyledSwiper>
     </Container>
