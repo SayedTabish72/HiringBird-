@@ -8,6 +8,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "./Card";
 
 const HowItWorks = () => {
+  const data = [
+    {
+      id: 1,
+      title: "Sign In",
+      desc: "Create an account to get started.",
+      redirectUrl: "/signin",
+    },
+    {
+      id: 2,
+      title: "Search for internships",
+      desc: "Look thorugh our carefully handpicked bunch of internships",
+      redirectUrl: "/internship",
+    },
+    {
+      id: 3,
+      title: "Apply and follow procedure",
+      desc: "Now sit back and wait for the call back and follow simple steps",
+      redirectUrl: "/internship",
+    },
+  ];
+
   return (
     <Container>
       <Top>
@@ -16,57 +37,6 @@ const HowItWorks = () => {
           Link WhatsApp
         </Button>
       </Top>
-      {/* <Bottom>
-        <Link href="/signin">
-          <Wrap>
-            <ImageContainer>
-              <img
-                data-testid="svg"
-                className="vector-image"
-                src="/home/howitworks/1.svg"
-                alt="universe"
-              />
-
-              <div className="backgroundVector">
-                <img src="/home/howitworks/1-bg.svg" alt="" />
-              </div>
-            </ImageContainer>
-            <h3>Sign In</h3>
-            <p>Create an account to get started</p>
-          </Wrap>
-        </Link>
-
-        <Wrap>
-          <ImageContainer>
-            <img
-              className="vector-image"
-              src="/home/howitworks/2.svg"
-              alt="universe"
-            />
-
-            <div className="backgroundVector">
-              <img src="/home/howitworks/2-bg.svg" alt="" />
-            </div>
-          </ImageContainer>
-          <h3>Search for internships</h3>
-          <p>Look thorugh our carefully handpicked bunch of internships</p>
-        </Wrap>
-
-        <Wrap>
-          <ImageContainer>
-            <img
-              className="vector-image"
-              src="/home/howitworks/3.svg"
-              alt="universe"
-            />
-            <div className="backgroundVector">
-              <img src="/home/howitworks/3-bg.svg" alt="" />
-            </div>
-          </ImageContainer>
-          <h3>Apply and follow procedure</h3>
-          <p>Now sit back and wait for the call back and follow simple steps</p>
-        </Wrap>
-      </Bottom> */}{" "}
       <StyledSwiper
         modules={[Navigation, Pagination]}
         spaceBetween={30}
@@ -86,15 +56,11 @@ const HowItWorks = () => {
           },
         }}
       >
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>{" "}
+        {data.map((item, i) => (
+          <SwiperSlide key={i}>
+            <Card item={item} />
+          </SwiperSlide>
+        ))}
       </StyledSwiper>
     </Container>
   );
@@ -126,6 +92,7 @@ const StyledSwiper = styled(Swiper)`
     @media (max-width: 1022px) {
       padding-bottom: 2.5rem;
     }
+    height: auto;
   }
   .swiper-pagination {
   }

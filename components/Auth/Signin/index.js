@@ -31,7 +31,7 @@ const Signin = () => {
     <S.OuterContainer>
       <S.Split>
         <div className="left">
-          <img className="logo" src="/images/skillzen-logo.svg" alt="" />
+          <img className="logo" src="/auth/signin/hiringbird.png" alt="" />
           <img className="vector" src="/auth/signin/vector.svg" alt="" />
         </div>
 

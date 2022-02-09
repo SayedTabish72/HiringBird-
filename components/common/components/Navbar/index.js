@@ -76,7 +76,7 @@ const Navbar = () => {
     <Wrapper>
       <Left>
         <Link href="/">
-          <img src="/footer/hb-logo.svg" alt="" />
+          <img src="/footer/hiringbird.png" alt="" />
         </Link>
       </Left>
       <HamBurger show={showDropdown}>
