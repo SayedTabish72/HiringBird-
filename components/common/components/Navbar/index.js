@@ -121,7 +121,7 @@ const Navbar = () => {
           <SignupContainer>
             <Button
               onClick={() => setSignupDropdown(!signupDropdown)}
-              padding=".5rem"
+              padding="0.625em 1.625em"
             >
               Sign Up
             </Button>

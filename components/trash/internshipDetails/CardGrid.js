@@ -131,10 +131,8 @@ export default function CardGridComp({ internships }) {
           );
         })}
       </CardGrid>
-      <Pagination onClick={() => getPaginatedInternships()}>
-        {/* <Link href="/" passHref> */}
+      <Pagination>
         <LoadMore>Load More</LoadMore>
-        {/* </Link> */}
       </Pagination>
     </>
   );
