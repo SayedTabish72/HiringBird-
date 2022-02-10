@@ -7,6 +7,11 @@ const ContactUs = () => {
   return (
     <Container>
       <Split>
+        <Box>
+          <ImgWrap>
+            <img src="/contact/earphone.svg" alt="earphone"></img>
+          </ImgWrap>
+        </Box>
         <Left>
           <h1>Contact us</h1>
 
@@ -17,7 +22,7 @@ const ContactUs = () => {
             eius suscipit voluptatem aspernatur voluptatum.
           </p>
 
-          <Button padding="1rem">Join Skilzen</Button>
+          <Button padding="1.063em 2.1875em">Join Skilzen</Button>
         </Left>
         <Right>
           <img src="/about/aboutus/vector.png" alt="hello" />
@@ -29,17 +34,43 @@ const ContactUs = () => {
 
 export default ContactUs;
 
+const ImgWrap = styled.div`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #f26a7e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Box = styled.div`
+  display:flex;
+  align-items:flex-end;
+  @media (max-width:861px){
+    display:none;
+  }
+img{
+  width: 33px;
+  height: 33px;
+}
+
+  }
+`;
+
 const Split = styled.div`
+  ${"" /* position: relative; */}
   display: flex;
   @media (max-width: 860px) {
     flex-direction: column;
   }
+  gap: 2rem;
 `;
 const Left = styled.div`
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 40px;
   gap: 5rem;
 
   h1 {
