@@ -6,21 +6,29 @@ function ContactForm() {
     <BigContainer>
       <Container>
         <LeftContainer>
-          <Heading>Submit an Enquiry</Heading>
+          <Heading style={{ marginBottom: "45px" }}>Submit an Enquiry</Heading>
           <InputFieldContainer>
-            <Label>Full Name</Label>
+            <Label>
+              Full Name<span>*</span>
+            </Label>
             <Input type="text" />
           </InputFieldContainer>
           <InputFieldContainer>
-            <Label>Email Address </Label>
+            <Label>
+              Email Address <span>*</span>
+            </Label>
             <Input type="email" />
           </InputFieldContainer>
           <InputFieldContainer>
-            <Label>Subject</Label>
+            <Label>
+              Subject<span>*</span>
+            </Label>
             <Input type="text" />
           </InputFieldContainer>
           <InputFieldContainer>
-            <Label>Message</Label>
+            <Label>
+              Message<span>*</span>
+            </Label>
             <TextArea />
           </InputFieldContainer>
           <Button>Submit</Button>
@@ -35,6 +43,7 @@ function ContactForm() {
                 viewBox="0 0 1 321"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                style={{ marginTop: "-50px" }}
               >
                 <line
                   x1="0.382445"
@@ -175,10 +184,14 @@ const Label = styled.h3`
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
   color: #404366;
   margin-bottom: 20px;
+  span {
+    color: #f26a7e;
+    margin-left: 7px;
+  }
 `;
 
 const Input = styled.input`
@@ -300,7 +313,7 @@ const Text = styled.p`
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
   color: #404366;
 `;
