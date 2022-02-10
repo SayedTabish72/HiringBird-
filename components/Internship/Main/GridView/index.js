@@ -4,18 +4,44 @@ import Card from "./Card";
 
 function GridView() {
   return (
-    <Wrapper>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </Wrapper>
+      <Pagination>
+        <LoadMore>Load More</LoadMore>
+      </Pagination>
+    </>
   );
 }
 
 export default GridView;
+
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 60px;
+`;
+
+const LoadMore = styled.span`
+  cursor: pointer;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #f26a7e;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.175px;
+  text-transform: capitalize;
+  color: #404366;
+`;
 
 const Wrapper = styled.div`
   padding: 1.5rem 0;

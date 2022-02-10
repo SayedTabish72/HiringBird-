@@ -10,6 +10,50 @@ export const Container = styled.div`
   }
 `;
 
+export const Blob1 = styled.div`
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+`;
+
+export const Blob2 = styled.div`
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+export const OuterContainer = styled.div`
+  height: 100vh;
+  background-color: #e5e5e5;
+  display: grid;
+  place-items: center;
+  position: relative;
+`;
+
+export const Split = styled.div`
+  display: flex;
+  height: 80%;
+  width: min(88%, 80rem);
+  background-color: #fff;
+  margin-inline: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 99;
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 export const Image1 = styled.img`
   position: absolute;
   right: 4.17%;
@@ -54,13 +98,15 @@ export const MiniContainer = styled.div`
 `;
 
 export const LeftDiv = styled.div`
-  height: 670px;
-  background-color: #ffd9df30;
-  width: 45%;
-  ${"" /* flex: 1.5; */}
-  border-top-left-radius: 20px;
-  position: relative;
-  @media (max-width: 1025px) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.2em 0 2.3em 0;
+  height: 100%;
+  background-color: #fff8f8;
+  width: 31.5rem;
+  @media (max-width: 1100px) {
     display: none;
   }
 `;
@@ -68,6 +114,11 @@ export const LeftDiv = styled.div`
 export const RightDiv = styled.div`
   padding: 45px 80px;
   width: 50%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+  }
   @media (max-width: 1025px) {
     width: 100%;
   }
@@ -86,18 +137,15 @@ export const Cross = styled.img`
 `;
 
 export const SignupImg = styled.img`
-  position: absolute;
-  bottom: 50px;
-  height: 45%;
-  ${"" /* width: 390px; */}
-  width: 80%;
-  left: 40px;
+  display: block;
+  width: 100%;
+  height: 70%;
+  margin-inline: auto;
+  padding: 0 3em;
 `;
 
 export const Logo = styled.img`
-  position: absolute;
-  top: 20px;
-  left: 30px;
+  margin-left: 1em;
 `;
 
 export const Heading = styled.h1`
@@ -125,7 +173,7 @@ export const SubHeading = styled.h3`
 
 export const IconsDiv = styled.div`
   display: flex;
-  width: 200px;
+  width: 150px;
   justify-content: space-between;
   margin-bottom: 26px;
   @media (max-width: 511px) {
