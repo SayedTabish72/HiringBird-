@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 30rem 1fr;
   gap: 2rem;
-  height: 100vh;
+  min-height: 100%;
 `;
 
 const Left = styled.div`
@@ -39,6 +39,7 @@ const Left = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: scroll;
+  height: 100%;
 
   /* hide scrollbar */
   ::-webkit-scrollbar {
