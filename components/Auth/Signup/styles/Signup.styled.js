@@ -116,6 +116,50 @@ export const RightDiv = styled.div`
   width: 50%;
   overflow-y: scroll;
   position: relative;
+
+  .checkbox-container {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 1.2rem;
+      width: 1.2rem;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #c9cbe2;
+      cursor: pointer;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 10px;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+      &:checked {
+        background-color: #f26a7e;
+        border: none;
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+    label {
+      font-size: 14px;
+      color: #404366;
+    }
+  }
+
   &::-webkit-scrollbar {
     display: none;
     scrollbar-width: none;

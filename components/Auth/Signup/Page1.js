@@ -90,10 +90,10 @@ function Page1({ page, setPage }) {
             autoComplete="new-password"
           ></InputField>
         </InputSeperate>
-        <CheckboxContainer>
-          <CheckboxField type="checkbox"></CheckboxField>
-          <CheckboxText>Show Password</CheckboxText>
-        </CheckboxContainer>
+        <div className="checkbox-container">
+          <input type="checkbox" id="password-checkbox" />
+          <label htmlFor="password-checkbox">Show Password</label>
+        </div>
 
         <Wrap>
           <SignupButton onClick={() => setPage(page + 1)}>Finish</SignupButton>
