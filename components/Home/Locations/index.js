@@ -15,7 +15,7 @@ function Locations() {
 
       <StyledSwiper
         modules={[Navigation, Pagination]}
-        spaceBetween={30}
+        spaceBetween={17}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
@@ -26,6 +26,10 @@ function Locations() {
           clickable: true,
         }}
         breakpoints={{
+          1275: {
+            slidesPerGroup: 4,
+            slidesPerView: 6,
+          },
           1522: {
             slidesPerView: 6,
           },
@@ -66,6 +70,18 @@ function Locations() {
         </SwiperSlide>
         <SwiperSlide>
           <Card title="Noida" image="noida" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Hyderabad" image="hyderabad" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Chennai" image="chennai" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Kolkata" image="kolkata" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Work From Home" image="wfh" />
         </SwiperSlide>{" "}
       </StyledSwiper>
     </Container>

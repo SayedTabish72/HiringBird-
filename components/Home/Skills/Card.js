@@ -6,10 +6,10 @@ function Card({ title, image }) {
   return (
     <Link href={`/internship/?skills=${title.toLowerCase()}`}>
       <Wrapper>
-        <img src={`${image}`} alt="" />
+        <img src={`/home/skills/${image}.png`} alt="" />
         <h3>{title}</h3>
       </Wrapper>
-    </Link> 
+    </Link>
   );
 }
 
@@ -26,6 +26,12 @@ const Wrapper = styled.div`
   user-select: none;
   text-align: center;
   cursor: pointer;
+  @media (max-width: 512px) {
+    gap: 0.5rem;
+  }
+  img {
+    height: 2rem;
+  }
 
   &:hover {
     background: #fff8f8;
@@ -36,7 +42,15 @@ const Wrapper = styled.div`
   }
 
   h3 {
+    text-align: left;
     @media (max-width: 620px) {
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 1281px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 568px) {
       font-size: 0.85rem;
     }
   }
