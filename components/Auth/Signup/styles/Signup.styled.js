@@ -115,6 +115,7 @@ export const RightDiv = styled.div`
   padding: 45px 80px;
   width: 50%;
   overflow-y: scroll;
+  position: relative;
   &::-webkit-scrollbar {
     display: none;
     scrollbar-width: none;
@@ -127,6 +128,60 @@ export const RightDiv = styled.div`
   }
 `;
 
+export const Text = styled.p`
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #c9cbe2;
+  width: 380px;
+  span {
+    color: #404366;
+  }
+`;
+
+export const Box = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 60px;
+  .customFileInput {
+    margin-top: -30px;
+    button {
+      border-radius: 6px;
+      padding: 12px 30px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #404366;
+      border: 1px solid #f26a7e;
+      cursor: pointer;
+      background: ${(props) => (props.uploaded ? "#f26a7e" : "#ffffff")};
+
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      svg {
+        color: #a9accb;
+        height: 1.3rem;
+      }
+    }
+  }
+`;
+
+export const TextWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+export const SubBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 export const Cross = styled.img`
   position: absolute;
   right: 20px;
@@ -139,7 +194,15 @@ export const Cross = styled.img`
 export const SignupImg = styled.img`
   display: block;
   width: 100%;
-  height: 70%;
+  height: 90%;
+  margin-inline: auto;
+  padding: 0 3em;
+`;
+
+export const SignupImg1 = styled.img`
+  display: block;
+  width: 100%;
+  height: 80%;
   margin-inline: auto;
   padding: 0 3em;
 `;
@@ -154,6 +217,7 @@ export const Heading = styled.h1`
   font-size: 38px;
   line-height: 40.83px;
   margin-right: -35px;
+  margin-bottom: 30px;
   @media (max-width: 511px) {
     font-size: 30px;
   }
@@ -284,7 +348,24 @@ export const Wrap = styled.div`
   margin-top: 70px;
 `;
 
+export const Wrap1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  position: absolute;
+  bottom: 45px;
+  left: 40%;
+`;
+
 export const Pink = styled.span`
   color: #ff5f66;
   cursor: pointer;
+`;
+
+export const Pink1 = styled.span`
+  color: #ff5f66;
+  cursor: pointer;
+  border-bottom: 1px solid #ff5f66;
 `;
