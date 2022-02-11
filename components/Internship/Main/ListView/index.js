@@ -31,16 +31,15 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 30rem 1fr;
   gap: 2rem;
-  min-height: 100%;
 `;
 
 const Left = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  overflow-y: scroll;
+  overflow-y: auto;
+  max-height: 50rem;
   height: 100%;
-
   /* hide scrollbar */
   ::-webkit-scrollbar {
     display: none;
