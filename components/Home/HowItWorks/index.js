@@ -88,10 +88,12 @@ const Top = styled.div`
 
 const StyledSwiper = styled(Swiper)`
   width: min(100%, 60rem);
+
   .swiper-slide {
     @media (max-width: 1022px) {
       padding-bottom: 2.5rem;
     }
+    margin-top: 1rem;
     height: auto;
   }
   .swiper-pagination {

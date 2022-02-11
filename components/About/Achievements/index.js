@@ -90,9 +90,9 @@ function Achievements() {
                     x2="193.919"
                     y2="1.71346"
                     stroke="#F26A7E"
-                    stroke-width="2.12973"
-                    stroke-linecap="round"
-                    stroke-dasharray="2.13 8.52"
+                    strokeWidth="2.12973"
+                    strokeLinecap="round"
+                    strokeDasharray="2.13 8.52"
                   />
                 </svg>
               </Top>
@@ -131,9 +131,9 @@ function Achievements() {
                     x2="193.919"
                     y2="1.71346"
                     stroke="#F26A7E"
-                    stroke-width="2.12973"
-                    stroke-linecap="round"
-                    stroke-dasharray="2.13 8.52"
+                    strokeWidth="2.12973"
+                    strokeLinecap="round"
+                    strokeDasharray="2.13 8.52"
                   />
                 </svg>
               </Top>
@@ -172,9 +172,9 @@ function Achievements() {
                     x2="193.919"
                     y2="1.71346"
                     stroke="#F26A7E"
-                    stroke-width="2.12973"
-                    stroke-linecap="round"
-                    stroke-dasharray="2.13 8.52"
+                    strokeWidth="2.12973"
+                    strokeLinecap="round"
+                    strokeDasharray="2.13 8.52"
                   />
                 </svg>
               </Top>
@@ -213,9 +213,9 @@ function Achievements() {
                     x2="193.919"
                     y2="1.71346"
                     stroke="#F26A7E"
-                    stroke-width="2.12973"
-                    stroke-linecap="round"
-                    stroke-dasharray="2.13 8.52"
+                    strokeWidth="2.12973"
+                    strokeLinecap="round"
+                    strokeDasharray="2.13 8.52"
                   />
                 </svg>
               </Top>

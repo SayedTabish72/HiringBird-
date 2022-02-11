@@ -94,9 +94,9 @@ const Dropdown = ({ title, options }) => {
                   <path
                     d="M17 1.44482L9 8.42895L1 1.44482"
                     stroke="#A9ACCB"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               ) : (
@@ -110,9 +110,9 @@ const Dropdown = ({ title, options }) => {
                   <path
                     d="M19 10L10 1L1 10"
                     stroke="#404366"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               )}

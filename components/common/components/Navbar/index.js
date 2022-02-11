@@ -8,40 +8,8 @@ import styled from "styled-components";
 import useOutsideClick from "../../../../hooks/useOutsideClick";
 import { logout } from "../../../../redux/actions/auth";
 import Auth from "../Dropdown/Auth";
-import Dropdown from "../Dropdown/Auth";
 import Home from "../Dropdown/Home";
-import {
-  Avatar,
-  DropdownSelect,
-  HamBurger,
-  Icons,
-  Img,
-  Left,
-  Menus,
-  Option,
-  Options,
-  OptionTitle,
-  Right,
-  SBtn,
-  SigninOptions,
-  SLink,
-  Wrapper,
-} from "./styles/Navbar.styled";
-
-const dropIn = {
-  hidden: {
-    y: "20px",
-    opacity: 0,
-  },
-  visible: {
-    y: "0",
-    opacity: 1,
-  },
-  exit: {
-    y: "20px",
-    opacity: 0,
-  },
-};
+import { HamBurger, Left, Right, Wrapper } from "./styles/Navbar.styled";
 
 const Navbar = () => {
   const dropdownRef = useRef(null);
@@ -120,8 +88,8 @@ const Navbar = () => {
           </SigninContainer>
           <SignupContainer>
             <Button
+              padding=".5em 1em"
               onClick={() => setSignupDropdown(!signupDropdown)}
-              padding="10px"
             >
               Sign Up
             </Button>
