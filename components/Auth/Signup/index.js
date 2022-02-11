@@ -1,6 +1,10 @@
 import React from "react";
-import Link from "next/link";
+
 import { useState } from "react";
+import Page1 from "./Page1";
+import Page2 from "./Page2";
+import Page3 from "./Page3";
+import Page4 from "./Page4";
 import {
   LeftDiv,
   RightDiv,
@@ -28,12 +32,14 @@ import {
   Blob1,
   Blob2,
 } from "./styles/Signup.styled";
-import { signIn } from "next-auth/react";
+
 import axios from "../../../utils/axios";
 import { useRouter } from "next/router";
 
 function Signup() {
   const router = useRouter();
+
+  const [page, setPage] = useState(1);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setemail] = useState("");
@@ -65,124 +71,10 @@ function Signup() {
 
   return (
     <OuterContainer>
-      <Split>
-        <LeftDiv>
-          <Logo src="/auth/signup/hiringbird.png" />
-          <SignupImg src="/auth/signup/vector.svg" />
-        </LeftDiv>
-        <RightDiv>
-          <Heading>Lets get you started!</Heading>
-          <SubHeading>Sign Up</SubHeading>
-          <IconsDiv>
-            <Icon
-              onClick={() => {
-                signIn("facebook", {
-                  callbackUrl: "http://localhost:3000",
-                });
-              }}
-              src="/images/fb.svg"
-            />
-            <Icon
-              onClick={() => {
-                signIn("google", {
-                  callbackUrl: "http://localhost:3000",
-                });
-              }}
-              src="/images/google.svg"
-            />
-            <Icon
-              onClick={() =>
-                signIn("linkedin", {
-                  callbackUrl: "http://localhost:3000",
-                })
-              }
-              src="/images/linkedin.svg"
-            />
-          </IconsDiv>
-          <Info>
-            <Input>
-              <InputName>
-                First Name <Star>*</Star>
-              </InputName>
-              <InputField
-                type="text"
-                placeholder="John"
-                onChange={(e) => setFname(e.target.value)}
-                autocomplete="off"
-              ></InputField>
-            </Input>
-            <Input>
-              <InputName>
-                Last Name <Star>*</Star>
-              </InputName>
-              <InputField
-                type="text"
-                placeholder="Doe"
-                onChange={(e) => setLname(e.target.value)}
-                autocomplete="off"
-              ></InputField>
-            </Input>
-          </Info>
-          <Info>
-            <Input>
-              <InputName>
-                Email Address <Star>*</Star>
-              </InputName>
-              <InputField
-                type="email"
-                placeholder="Johndoe@gmail.com"
-                onChange={(e) => setemail(e.target.value)}
-                autocomplete="off"
-              ></InputField>
-            </Input>
-            <Input>
-              <InputName>
-                Mobile Number <Star>*</Star>
-              </InputName>
-              <InputField
-                type="text"
-                placeholder="7007409205"
-                onChange={(e) => setphone(e.target.value)}
-              ></InputField>
-            </Input>
-          </Info>
-          <InputSeperate>
-            <InputName>
-              Password <Star>*</Star>
-            </InputName>
-            <InputField
-              type="text"
-              placeholder="abrakadabra"
-              onChange={(e) => setpass(e.target.value)}
-            ></InputField>
-          </InputSeperate>
-          <InputSeperate>
-            <InputName>
-              Re-enter Password <Star>*</Star>
-            </InputName>
-            <InputField
-              type="password"
-              placeholder="************"
-              autoComplete="new-password"
-              // onChange={(e) => setrepass(e.target.value)}
-            ></InputField>
-          </InputSeperate>
-          <CheckboxContainer>
-            <CheckboxField type="checkbox"></CheckboxField>
-            <CheckboxText>Show Password</CheckboxText>
-          </CheckboxContainer>
-
-          <Wrap>
-            <SignupButton onClick={onCreateuser}>Sign Up</SignupButton>
-            <SignupText>
-              Already on Skilzen ? Go to{" "}
-              <Link href="/signin">
-                <Pink>Sign In</Pink>
-              </Link>
-            </SignupText>
-          </Wrap>
-        </RightDiv>
-      </Split>
+      {page === 1 ? <Page1 setPage={setPage} page={page} /> : ""}
+      {page === 2 ? <Page2 setPage={setPage} page={page} /> : ""}
+      {page === 3 ? <Page3 setPage={setPage} page={page} /> : ""}
+      {page === 4 ? <Page4 setPage={setPage} page={page} /> : ""}
       <Blob1>
         <img src="/images/blob1.svg" />
       </Blob1>
