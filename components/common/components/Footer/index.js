@@ -271,6 +271,7 @@ const Container = styled.div`
   @media (max-width: 1436px) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
+
   @media (max-width: 1162px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -334,12 +335,12 @@ const LogoContainer = styled.div`
 `;
 
 const Intern_Field = styled.div`
-  @media (max-width: 773px) {
+  @media (max-width: 1162px) {
     display: none;
   }
 `;
 const Intern_Location = styled.div`
-  @media (max-width: 773px) {
+  @media (max-width: 1436px) {
     display: none;
   }
 `;
@@ -413,7 +414,7 @@ const Bottom = styled.div`
 `;
 
 const Intern_Category = styled.div`
-  @media (max-width: 773px) {
+  @media (max-width: 926px) {
     display: none;
   }
 `;

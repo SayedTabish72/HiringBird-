@@ -56,7 +56,7 @@ export const Menus = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: min(90%, 190rem);
+  width: min(90%, 90rem);
   margin-inline: auto;
   padding: 0.5rem 0;
 `;

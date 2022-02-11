@@ -24,7 +24,29 @@ function Hero() {
       </TopSplit>
 
       <BottomSplit>
-        <img src="./search.svg" alt="" />
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.3831 22.7346C17.958 22.7346 22.4772 18.2154 22.4772 12.6407C22.4772 7.06597 17.958 2.54675 12.3831 2.54675C6.80834 2.54675 2.28906 7.06597 2.28906 12.6407C2.28906 18.2154 6.80834 22.7346 12.3831 22.7346Z"
+            stroke="#404366"
+            strokeWidth="4.50002"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M24.9999 25.258L19.5112 19.7694"
+            stroke="#404366"
+            strokeWidth="4.50002"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+
         <input type="text" placeholder="Search for interships" />
         <button>Search</button>
       </BottomSplit>
@@ -81,39 +103,46 @@ const BottomSplit = styled.div`
   display: flex;
   align-items: center;
   margin-top: 2rem;
-  padding: 4px;
+  padding-left: 4px;
   width: 90%;
   border: 1px solid #c9cbe2;
-  position: relative;
   border-radius: 4px;
-  @media (max-width: 600px) {
-    width: 100%;
-  }
   margin-inline: auto;
-  img {
+  svg {
     height: 1.6rem;
     margin-left: 0.4rem;
-    margin-right: 0.2rem;
   }
   input {
     flex: 1;
-    padding: 0.7rem 0;
-
     margin: 0 0.5rem;
     border: none;
     outline: none;
     font-size: 1rem;
   }
   button {
-    position: absolute;
     background: #404366;
     right: 0;
     border-radius: 4px;
-    padding: 0 40px;
-    height: 100%;
+    padding: 14px 40px;
     color: #fff;
     cursor: pointer;
     border: none;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+
+    svg {
+      height: 1.3rem;
+    }
+
+    input {
+      font-size: 0.8rem;
+    }
+
+    button {
+      padding: 10px 20px;
+    }
   }
 `;
 
