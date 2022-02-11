@@ -6,7 +6,7 @@ function Card({ title, image }) {
   return (
     <Link href={`/internship/?categories=${title.toLowerCase()}`}>
       <Wrapper>
-        <img src={`${image}`} alt="" />
+        <img src={`/home/categories/${image}.png`} alt="" />
         <h3>{title}</h3>
       </Wrapper>
     </Link>
@@ -26,6 +26,9 @@ const Wrapper = styled.div`
   user-select: none;
   text-align: center;
   cursor: pointer;
+  @media (max-width: 512px) {
+    gap: 0.2rem;
+  }
   img {
     height: 2rem;
   }
@@ -42,21 +45,11 @@ const Wrapper = styled.div`
     @media (max-width: 620px) {
       font-size: 0.85rem;
     }
+    @media (max-width: 1281px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 568px) {
+      font-size: 0.85rem;
+    }
   }
-`;
-
-const ima = styled.image`
-  position: absolute;
-  inset: 0px;
-  box-sizing: border-box;
-  padding: 0px;
-  border: none;
-  margin: auto;
-  display: block;
-  width: 0px;
-  height: 0px;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  max-height: 100%;
 `;
