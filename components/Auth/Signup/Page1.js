@@ -22,6 +22,7 @@ import {
   Split,
 } from "./styles/Signup.styled";
 import Link from "next/link";
+import { Button } from "@/common/styles/OutlineBtn.styled";
 
 function Page1({ page, setPage }) {
   return (
@@ -40,6 +41,7 @@ function Page1({ page, setPage }) {
               First Name <Star>*</Star>
             </InputName>
             <InputField
+              required
               type="text"
               placeholder="John"
               autocomplete="off"
@@ -50,6 +52,7 @@ function Page1({ page, setPage }) {
               Last Name <Star>*</Star>
             </InputName>
             <InputField
+              required
               type="text"
               placeholder="Doe"
               autocomplete="off"
@@ -62,6 +65,7 @@ function Page1({ page, setPage }) {
               Email Address <Star>*</Star>
             </InputName>
             <InputField
+              required
               type="email"
               placeholder="Johndoe@gmail.com"
               autocomplete="off"
@@ -71,32 +75,42 @@ function Page1({ page, setPage }) {
             <InputName>
               Mobile Number <Star>*</Star>
             </InputName>
-            <InputField type="text" placeholder="7007409205"></InputField>
+            <InputField
+              required
+              type="text"
+              placeholder="7007409205"
+            ></InputField>
           </Input>
         </Info>
         <InputSeperate>
           <InputName>
             Password <Star>*</Star>
           </InputName>
-          <InputField type="text" placeholder="abrakadabra"></InputField>
+          <InputField
+            required
+            type="text"
+            placeholder="abrakadabra"
+          ></InputField>
         </InputSeperate>
         <InputSeperate>
           <InputName>
             Re-enter Password <Star>*</Star>
           </InputName>
           <InputField
+            required
             type="password"
             placeholder="************"
             autoComplete="new-password"
           ></InputField>
         </InputSeperate>
-        <CheckboxContainer>
-          <CheckboxField type="checkbox"></CheckboxField>
-          <CheckboxText>Show Password</CheckboxText>
-        </CheckboxContainer>
+        <div className="checkbox-container">
+          <input type="checkbox" id="password-checkbox" />
+          <label htmlFor="password-checkbox">Show Password</label>
+        </div>
 
         <Wrap>
-          <SignupButton onClick={() => setPage(page + 1)}>Finish</SignupButton>
+          {/* <SignupButton onClick={() => setPage(page + 1)}>Finish</SignupButton> */}
+          <Button onClick={() => setPage(page + 1)}>Finish</Button>
           <SignupText>
             Already on HiringBird ? Go to{" "}
             <Link href="/signin">
