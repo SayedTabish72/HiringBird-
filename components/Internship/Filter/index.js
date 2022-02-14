@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 import Duration from "./Dropdown/Duration";
 import StipendRange from "./Dropdown/StipendRange";
 import InternshipType from "./Dropdown/InternshipType";
-import Sortby from "./Dropdown/Sortby";
+import Skills from "./Dropdown/Skills";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 import useMediaQuery from "hooks/useMediaQuery";
 import { AnimatePresence } from "framer-motion";
@@ -217,7 +217,8 @@ function Filter() {
             <Dropdown title="internship type" component={<InternshipType />} />
           </Wrap>
           <Wrap>
-            <Dropdown title="sort by" component={<Sortby />} />
+            {/* <Dropdown title="sort by" component={<Sortby />} /> */}
+            <Dropdown title="skills" component={<Skills />} />
           </Wrap>
           <Button padding=".8em 3em">Reset</Button>
         </FilterContainer>

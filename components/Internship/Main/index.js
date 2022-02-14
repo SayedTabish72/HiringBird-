@@ -3,6 +3,8 @@ import styled from "styled-components";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import GridView from "./GridView";
 import ListView from "./ListView";
+import Sortby from "../Filter/Dropdown/Sortby";
+import Dropdown from "../Filter/Dropdown";
 
 function Main() {
   const isMobile = useMediaQuery("(max-width: 1122px)");
@@ -18,6 +20,9 @@ function Main() {
       <Head>
         <h3>120 internships for UI/UX Design</h3>
         <Tabs>
+          <Wrap>
+            <Dropdown title="Sort By" component={<Sortby />} />
+          </Wrap>
           <TabItem
             active={bindIndex === 0}
             viewBox="0 0 25 23"
@@ -121,4 +126,8 @@ const TabItem = styled.svg`
 const Wrapper = styled.div`
   margin: 0 auto;
   width: min(90%, 90rem);
+`;
+
+const Wrap = styled.div`
+  margin-right: 20px;
 `;

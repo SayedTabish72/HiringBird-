@@ -82,6 +82,7 @@ function Achievements() {
                   viewBox="0 0 195 3"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="line"
                 >
                   <line
                     opacity="0.4"
@@ -123,6 +124,7 @@ function Achievements() {
                   viewBox="0 0 195 3"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="line"
                 >
                   <line
                     opacity="0.4"
@@ -164,6 +166,7 @@ function Achievements() {
                   viewBox="0 0 195 3"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="line"
                 >
                   <line
                     opacity="0.4"
@@ -205,6 +208,7 @@ function Achievements() {
                   viewBox="0 0 195 3"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="line"
                 >
                   <line
                     opacity="0.4"
@@ -388,6 +392,16 @@ export const Top = styled.div`
     flex-direction: column;
     gap: 0;
     align-items: flex-start;
+  }
+  svg {
+    @media (max-width: 625px) {
+      margin-top: 5px;
+    }
+  }
+  .line {
+    @media (max-width: 625px) {
+      display: none;
+    }
   }
 `;
 
