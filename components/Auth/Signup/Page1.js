@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   LeftDiv,
   RightDiv,
@@ -25,6 +25,8 @@ import Link from "next/link";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 
 function Page1({ page, setPage }) {
+  const [showPass, setShowPass] = useState(false);
+
   return (
     <Split>
       <LeftDiv>
@@ -98,13 +100,17 @@ function Page1({ page, setPage }) {
           </InputName>
           <InputField
             required
-            type="password"
+            type={`${showPass ? "text" : "password"}`}
             placeholder="************"
             autoComplete="new-password"
           ></InputField>
         </InputSeperate>
         <div className="checkbox-container">
-          <input type="checkbox" id="password-checkbox" />
+          <input
+            type="checkbox"
+            id="password-checkbox"
+            onChange={(e) => setShowPass(e.target.checked)}
+          />
           <label htmlFor="password-checkbox">Show Password</label>
         </div>
 

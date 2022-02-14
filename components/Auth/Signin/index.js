@@ -89,7 +89,7 @@ const Signin = () => {
       </div>
 
       <div className="forgotPass">
-        <Link href="/forgotpass">Forgot Password?</Link>
+        <Link href="/forgotPassword">Forgot Password?</Link>
       </div>
 
       {/* checkbox */}
