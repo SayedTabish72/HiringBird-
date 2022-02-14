@@ -1,31 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Container } from "../../Home/common/styles/Container.styled";
-import Tabs from "./Tabs";
 
-const TabItem = (props) => <div {...props} />;
 const AboutUs = () => {
+  const tabs = ["About Us", "Contact Us"];
+  const [active, setActive] = useState(tabs[0]);
   return (
     <Container>
       <Split>
         <Left>
-          <div className="tabs">
-            <Tabs defaultIndex="1" onTabClick={console.log}>
-              <TabItem label="About us" index="1">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit
-                id illum sint, at minus est laudantium aliquam recusandae
-                debitis exercitationem iusto error excepturi repellat earum esse
-                quibusdam. Consequuntur, dolor quidem.
+          <TabsHeader>
+            {tabs.map((t, i) => (
+              <TabItem
+                active={active === t}
+                onClick={() => setActive(t)}
+                key={i}
+              >
+                {t}
               </TabItem>
-              <TabItem label="Our mission" index="2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptate, pariatur.
-              </TabItem>
-            </Tabs>
-          </div>
+            ))}
+          </TabsHeader>
+
+          <TabsBody>
+            {active === "About Us" && (
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex
+                numquam perferendis totam iure esse alias beatae magnam, odit
+                saepe repudiandae unde sed qui quae. Earum nisi numquam ex
+                quaerat exercitationem?
+              </p>
+            )}
+
+            {active === "Contact Us" && (
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Voluptatibus, cupiditate!
+              </p>
+            )}
+          </TabsBody>
         </Left>
         <Right>
-          <img src="/about/aboutus/vector.png" alt="hello" />
+          {active === "About Us" && (
+            <img src="/about/aboutus/vector.png" alt="hello" />
+          )}
+          {active === "Contact Us" && (
+            <img src="/about/aboutus/vector2.svg" alt="hello" />
+          )}
         </Right>
       </Split>
     </Container>
@@ -41,45 +61,9 @@ const Split = styled.div`
   }
 `;
 const Left = styled.div`
-  margin-top: 3rem;
   flex-basis: 50%;
-  @media (max-width: 860px) {
-    margin-top: 0;
-  }
-  .tabs {
-    margin-top: 3rem;
-  }
-  .head {
-    display: flex;
-    align-items: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    @media (max-width: 860px) {
-      margin-top: 0;
-      margin-bottom: 1em;
-    }
-    h1 {
-      font-weight: bold;
-      font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
-      color: #404366;
-      text-decoration: underline;
-      &:last-child {
-        color: #c9cbe2;
-        margin-left: 2rem;
-        text-decoration: none;
-      }
-    }
-  }
-  .body {
-    p {
-      font-weight: normal;
-      font-size: 20px;
-      line-height: 32px;
-      @media (max-width: 1000px) {
-        font-size: 17px;
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
 `;
 const Right = styled.div`
   flex-basis: 50%;
@@ -91,5 +75,38 @@ const Right = styled.div`
     display: block;
     max-width: 100%;
     margin-inline: auto;
+  }
+`;
+
+const TabsHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 1.5rem;
+  margin-top: 4rem;
+
+  @media (max-width: 40em) {
+    margin-bottom: 0.7em;
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+`;
+const TabsBody = styled.div`
+  padding: 1rem 0;
+  font-size: 18px;
+  line-height: 32px;
+  color: #18191f;
+`;
+const TabItem = styled.div`
+  padding: 0.4rem 0;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: bold;
+  color: ${({ active }) => (active ? "#404366" : "#c9cbe2")};
+  border-bottom: 3px solid
+    ${(props) => (props.active ? "#F26A7E" : "transparent")};
+
+  @media (max-width: 40em) {
+    font-size: 24px;
   }
 `;

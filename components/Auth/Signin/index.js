@@ -9,22 +9,65 @@ import { signin } from "../../../redux/actions/auth";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 
 const Signin = () => {
+  // redux
   const dispatch = useDispatch();
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const signinErr = useSelector((state) => state.auth.error.signin);
+
+  // states
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  console.log({ values });
+
+  const [errors, setErrors] = useState({
+    email: null,
+    password: null,
+  });
+
+  console.log({ errors });
+
   const [showPass, setShowPass] = useState(false);
-  const errors = useSelector((state) => state.auth.errors);
   const { id } = router.query;
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.password) {
+      errors.password = "Required";
+    } else if (values.password.length < 8) {
+      errors.password = "Password must be at least 8 characters";
+    }
+
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Invalid email address";
+    }
+
+    return errors;
+  };
+
+  const handleChange = (event) => {
+    event.persist();
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formData = {
-      email,
-      password,
-    };
-    dispatch(signin(formData, id, router));
+    const errObj = validate(values);
+    setErrors(errObj);
+
+    if (Object.values(errObj).every((el) => el === null)) {
+      dispatch(signin(values, id, router));
+    }
   };
 
   return (
@@ -67,12 +110,23 @@ const Signin = () => {
           Email <span>*</span>{" "}
         </label>
         <input
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
+          value={values.email}
+          onChange={handleChange}
+          type="text"
           placeholder="yourname@gmail.com"
+          style={{
+            borderBottom: errors.email && "1px solid red",
+          }}
+          name="email"
         />
+        {errors.email && (
+          <S.ErrorBox>
+            <p>{errors.email}</p>
+            <svg width="20" height="20">
+              <circle cx="50%" cy="50%" r="8" fill="red" />
+            </svg>
+          </S.ErrorBox>
+        )}
       </div>
 
       <div className="text-field">
@@ -80,12 +134,23 @@ const Signin = () => {
           Password <span>*</span>{" "}
         </label>
         <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={values.password}
+          onChange={handleChange}
           type={`${showPass ? "text" : "password"}`}
           placeholder="yourpassword"
-          autoComplete="new-password"
+          style={{
+            borderBottom: errors.password && "1px solid red",
+          }}
+          name="password"
         />
+        {errors.password && (
+          <S.ErrorBox>
+            <p>{errors.password}</p>
+            <svg width="20" height="20">
+              <circle cx="50%" cy="50%" r="8" fill="red" />
+            </svg>
+          </S.ErrorBox>
+        )}
       </div>
 
       <div className="forgotPass">
@@ -108,28 +173,14 @@ const Signin = () => {
         <label htmlFor="loggedin-checkbox">Keep me logged in</label>
       </div>
 
-      <div
-        style={{
-          display: `${errors?.length != 0 ? "block" : "none"}`,
-        }}
-        className="error-box"
-      >
-        {errors?.map((e, i) => (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginTop: "-3px",
-            }}
-            key={i}
-          >
-            <div className="small-circle" />
-            <p>{e}</p>
-          </div>
-        ))}
-
-        <div className="circle"></div>
-      </div>
+      {signinErr && (
+        <S.ErrorBox>
+          <p>{signinErr}</p>
+          <svg width="20" height="20">
+            <circle cx="50%" cy="50%" r="8" fill="red" />
+          </svg>
+        </S.ErrorBox>
+      )}
 
       <div className="button-container">
         <Button

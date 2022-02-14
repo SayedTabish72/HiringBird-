@@ -11,7 +11,7 @@ const signin = () => {
         <meta name="description" content="hiringbird signin page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AuthContainer svg="/auth/signin/vector.svg" form={<Signin />} />
+      <AuthContainer svg="/auth/signin/vector2.svg" form={<Signin />} />
     </>
   );
 };

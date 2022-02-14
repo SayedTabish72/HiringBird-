@@ -19,12 +19,7 @@ function MyApp({ Component, pageProps }) {
 
   const theme = {
     colors: {
-      primary: {
-        1: "#F26A7E",
-        2: "#F8F8F8",
-        3: "#FFFFF",
-        4: "#E88D9A",
-      },
+      primary: "#F26A7E",
       secondary: {
         1: "#69DE5D",
         2: "#FF5C5C",

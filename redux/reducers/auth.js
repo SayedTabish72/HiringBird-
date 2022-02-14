@@ -1,9 +1,12 @@
-import { LOGIN, LOGOUT, ERRORS } from "../constants/auth";
+import { LOGIN, LOGOUT, SIGNIN_ERRORS } from "../constants/auth";
 
 export const initialState = {
   isAuthenticated: false,
   user: null,
-  errors: [],
+  error: {
+    signin: null,
+    signup: null,
+  },
 };
 
 export default function reducer(state = initialState, action) {
@@ -21,13 +24,14 @@ export default function reducer(state = initialState, action) {
         isAuthenticated: false,
         user: null,
       };
-    case ERRORS:
+    case SIGNIN_ERRORS:
       console.log(action.payload);
       return {
         ...state,
-        errors: Array.isArray(action.payload)
-          ? action.payload
-          : [action.payload],
+        error: {
+          ...state.error,
+          signin: action.payload.message,
+        },
       };
     default:
       return state;

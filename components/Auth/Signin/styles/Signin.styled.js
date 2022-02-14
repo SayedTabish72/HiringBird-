@@ -270,3 +270,28 @@ export const Blob2 = styled.div`
   top: 0;
   right: 0;
 `;
+
+export const ErrorBox = styled.div`
+  border: 1px solid #ec1f28;
+  position: relative;
+  padding: 1em;
+  border-radius: 3px;
+  background: #fff9fa;
+  margin-top: 0.2rem;
+
+  display: flex;
+  width: 100%;
+  p {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.216454px;
+    color: #395185;
+    text-align: left;
+  }
+  svg {
+    position: absolute;
+    left: -0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+`;

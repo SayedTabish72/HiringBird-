@@ -72,6 +72,8 @@ const Navbar = () => {
         <></>
       ) : (
         <Right>
+          <Link href="/about">About us</Link>
+          <Link href="/contact">Contact us</Link>
           <Link href="#">Post an Internship</Link>
           <Link href="/internship">Find Internships</Link>
           <SigninContainer>
@@ -83,7 +85,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {signinDropdown && <Auth Ref={signinRef} />}
+              {signinDropdown && <Auth Ref={signinRef} url="/signin" />}
             </AnimatePresence>
           </SigninContainer>
           <SignupContainer>
@@ -98,7 +100,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {signupDropdown && <Auth Ref={signupRef} />}
+              {signupDropdown && <Auth Ref={signupRef} url="/signup" />}
             </AnimatePresence>
           </SignupContainer>
         </Right>

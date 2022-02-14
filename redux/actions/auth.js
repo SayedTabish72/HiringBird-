@@ -1,5 +1,5 @@
 import axios from "../../utils/axios";
-import { ERRORS, LOGIN, LOGOUT } from "../constants/auth";
+import { ERRORS, LOGIN, LOGOUT, SIGNIN_ERRORS } from "../constants/auth";
 
 export const signin = (formData, id, router) => async (dispatch) => {
   try {
@@ -13,7 +13,7 @@ export const signin = (formData, id, router) => async (dispatch) => {
       : router.push("/");
   } catch (err) {
     dispatch({
-      type: ERRORS,
+      type: SIGNIN_ERRORS,
       payload: err.response.data,
     });
   }

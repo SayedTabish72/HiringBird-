@@ -79,6 +79,12 @@ export const Right = styled.div`
   @media (max-width: 835px) {
     display: none;
   }
+
+  a {
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
 `;
 export const Icons = styled.div`
   display: flex;

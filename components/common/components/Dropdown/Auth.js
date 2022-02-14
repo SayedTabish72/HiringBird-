@@ -20,7 +20,7 @@ const dropIn = {
   },
 };
 
-function Auth({ Ref }) {
+function Auth({ Ref, url }) {
   return (
     <Wrapper
       variants={dropIn}
@@ -30,7 +30,7 @@ function Auth({ Ref }) {
       ref={Ref}
     >
       <ul>
-        <Link href="/signin">
+        <Link href={url}>
           <Item>
             <svg
               viewBox="0 0 32 36"

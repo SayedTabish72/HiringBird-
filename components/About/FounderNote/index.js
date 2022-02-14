@@ -102,6 +102,11 @@ const Split = styled.div`
     img {
       object-fit: contain;
       margin-right: 2rem;
+      height: 3rem;
+      @media (max-width: 40em) {
+        height: 1.5rem;
+        margin-right: 1em;
+      }
     }
     grid-column: 1;
     grid-row: 2;
@@ -115,10 +120,10 @@ const Split = styled.div`
       line-height: 32px;
       color: #404366;
       margin-bottom: 2rem;
-      @media (max-width: 600px) {
-      }
-      @media (max-width: 800px) {
-        font-size: 22px;
+
+      @media (max-width: 40em) {
+        line-height: 1.5;
+        font-size: 14px;
       }
     }
   }
