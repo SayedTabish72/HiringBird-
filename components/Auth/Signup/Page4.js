@@ -7,14 +7,13 @@ import {
   Heading,
   SubHeading,
   SignupText,
-  SignupButton,
   Pink,
   Split,
   Text,
   Box,
   Wrap1,
 } from "./styles/Signup.styled";
-
+import { Button } from "@/common/styles/OutlineBtn.styled";
 import Link from "next/link";
 
 function Page4() {
@@ -62,7 +61,7 @@ function Page4() {
         </Box>
 
         <Wrap1>
-          <SignupButton>Sign Up</SignupButton>
+          <Button>Sign Up</Button>
           <SignupText>
             Already on HiringBird ? Go to{" "}
             <Link href="/signin">

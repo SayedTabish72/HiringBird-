@@ -7,7 +7,6 @@ import {
   Heading,
   SubHeading,
   SignupText,
-  SignupButton,
   Wrap,
   Pink,
   Split,
@@ -18,6 +17,7 @@ import {
   Pink1,
 } from "./styles/Signup.styled";
 import Link from "next/link";
+import { Button } from "@/common/styles/OutlineBtn.styled";
 
 function Page2({ page, setPage }) {
   return (
@@ -62,7 +62,7 @@ function Page2({ page, setPage }) {
         </TextWrap>
 
         <Wrap>
-          <SignupButton onClick={() => setPage(page + 1)}>Verify</SignupButton>
+          <Button onClick={() => setPage(page + 1)}>Verify</Button>
           <SignupText>
             Already on HiringBird ? Go to{" "}
             <Link href="/signin">

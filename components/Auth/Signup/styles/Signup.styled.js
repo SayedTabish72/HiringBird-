@@ -170,6 +170,49 @@ export const RightDiv = styled.div`
   @media (max-width: 622px) {
     padding: 25px 30px;
   }
+
+  .checkbox-container {
+    display: flex;
+    margin-top: 17px;
+    align-items: center;
+    gap: 0.7rem;
+    user-select: none;
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 1.3rem;
+      width: 1.3rem;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #c9cbe2;
+      cursor: pointer;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 10px;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+      &:checked {
+        background-color: #f26a7e;
+        border: none;
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+    label {
+      font-size: 14px;
+      color: #404366;
+    }
+  }
 `;
 
 export const Text = styled.p`
@@ -379,7 +422,7 @@ export const SignupButton = styled.button`
 `;
 
 export const SignupText = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   color: #404366;
   margin-top: 8px;
 `;
@@ -400,7 +443,7 @@ export const Wrap1 = styled.div`
   margin-top: 70px;
   position: absolute;
   bottom: 45px;
-  left: 40%;
+  left: 35%;
 `;
 
 export const Pink = styled.span`
