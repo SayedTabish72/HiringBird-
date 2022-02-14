@@ -66,6 +66,10 @@ export const Left = styled.div`
   img {
     height: 50px;
     object-fit: contain;
+
+    @media (max-width: 40em) {
+      height: 40px;
+    }
   }
 `;
 export const Right = styled.div`

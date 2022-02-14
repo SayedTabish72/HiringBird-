@@ -8,7 +8,7 @@ import Locations from "./Locations";
 import Categories from "./Categories";
 import TopColleges from "./TopColleges";
 import TopCompanies from "./TopCompanies";
-import Industries from "./Industries";
+import Fields from "./Fields";
 import Skills from "./Skills";
 import GetInTouch from "./GetInTouch";
 
@@ -18,9 +18,9 @@ function Home() {
       <Navbar />
       <Hero />
       <HowItWorks />
-      <InternshipCollection/>
+      <InternshipCollection />
       <FeaturedInternships />
-      <Industries />
+      <Fields />
       <Locations />
       <Categories />
       <Skills />

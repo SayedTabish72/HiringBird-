@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Card() {
   return (
     <Wrapper>
-      <img src="/hblogo.svg" alt="" />
+      <img src="/home/internshipCollections/hb-logo.png" alt="" />
 
       <h2>HIRING NOW</h2>
       <h3>UI/UX Design Internships</h3>
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   gap: 0.3rem;
 
   img {
-    height: 45px;
+    height: 30px;
     object-fit: contain;
     align-self: end;
   }

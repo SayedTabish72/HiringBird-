@@ -7,15 +7,15 @@ import Header from "../common/components/Header";
 import { Container } from "../common/styles/Container.styled";
 import Card from "./Card";
 
-function Industries() {
+function Fields() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
     <Container>
-      <Header title="Industries" prevRef={prevRef} nextRef={nextRef} />
+      <Header title="Fields" prevRef={prevRef} nextRef={nextRef} />
       <StyledSwiper
         modules={[Navigation, Pagination]}
-        spaceBetween={30}
+        spaceBetween={17}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
@@ -26,9 +26,11 @@ function Industries() {
           clickable: true,
         }}
         breakpoints={{
-          1522: {
+          1275: {
+            slidesPerGroup: 6,
             slidesPerView: 6,
           },
+
           1024: {
             slidesPerView: 5,
           },
@@ -67,12 +69,54 @@ function Industries() {
         <SwiperSlide>
           <Card title="Education" image="education" />
         </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Marketing" image="market" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Sales & BD" image="sales" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Finance" image="finance" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Operations" image="operation" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Product" image="product" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Personnel" image="personnel" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Media & Film" image="media" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Automobile" image="automobile" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Trade" image="trade" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Logistics" image="logistics" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Constructions" image="construction" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="Tourism" image="tourism" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="Manufacturing" image="manufacturing" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title="BPO/KPO" image="bpo" />
+        </SwiperSlide>
       </StyledSwiper>
     </Container>
   );
 }
 
-export default Industries;
+export default Fields;
 
 const StyledSwiper = styled(Swiper)`
   /* pagination */

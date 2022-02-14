@@ -43,7 +43,7 @@ function Home({ Ref }) {
 
         <Item>
           <Link href="/signup">
-            <Button>Sign Up</Button>
+            <Button padding=".6em 1em">Sign Up</Button>
           </Link>
         </Item>
       </ul>

@@ -18,6 +18,6 @@ export const Button = styled.button`
   }
   @media (max-width: 800px) {
     font-size: 14px;
-    padding: 12px 20px;
+    /* padding: 12px 20px; */
   }
 `;

@@ -38,18 +38,37 @@ export const Split = styled.div`
 
   .right {
     flex: 1;
-    /* background-color: lightgray; */
-    display: flex;
-    align-items: center;
-    overflow-y: scroll;
+    padding: 3em 0;
     &::-webkit-scrollbar {
       display: none;
       scrollbar-width: none;
+    }
+
+    @media (max-width: 1100px) {
+      padding: 2em 0;
+    }
+
+    @media (max-width: 40em) {
+      padding: 1.5em 0;
     }
   }
 `;
 
 export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+  background-color: #fff;
+
+  justify-content: start;
+
+  width: 80%;
+  margin-inline: auto;
+
+  @media (max-width: 1100px) {
+    width: 90%;
+  }
   .hiringbird-logo {
     display: none;
     @media (max-width: 1100px) {
@@ -60,6 +79,13 @@ export const Form = styled.form`
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    a {
+      font-size: 12px;
+      color: #404366;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   .checkbox-container {
     display: flex;
@@ -102,27 +128,24 @@ export const Form = styled.form`
       color: #404366;
     }
   }
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: flex-start;
-  background-color: #fff;
-  height: 85%;
-  width: 80%;
-  @media (max-width: 600px) {
-    width: 90%;
-    height: 90%;
-  }
-  margin-inline: auto;
+
   h1 {
-    font-weight: 600;
-    font-size: 42px;
     color: #ec1f28;
+    font-weight: 600;
+    font-size: 38px;
+    margin-bottom: 0.3em;
+    @media (max-width: 511px) {
+      font-size: 30px;
+    }
   }
   h2 {
-    font-weight: 600;
-    font-size: 32px;
     color: #404366;
+    font-size: 27px;
+    margin-bottom: 0.3em;
+    font-weight: 600;
+    @media (max-width: 511px) {
+      font-size: 20px;
+    }
   }
   .icons {
     * {
@@ -131,13 +154,15 @@ export const Form = styled.form`
     margin: 1em 0;
   }
   .button-container {
-    margin-top: 10px;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding-bottom: 20px;
     p {
+      font-size: 14px;
+      color: #404366;
     }
     span {
       color: #f26a7e;

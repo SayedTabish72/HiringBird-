@@ -14,8 +14,8 @@ function Category() {
       <Header title="Category" prevRef={prevRef} nextRef={nextRef} />
 
       <StyledSwiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={20}
+        modules={[Navigation]}
+        spaceBetween={10}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
@@ -27,6 +27,7 @@ function Category() {
         }}
         breakpoints={{
           1275: {
+            slidesPerGroup: 4,
             slidesPerView: 4,
           },
           927: {
@@ -39,59 +40,111 @@ function Category() {
         }}
       >
         <SwiperSlide>
-          <Card
-            title="Data-Engineers"
-            image="https://d2mk45aasx86xg.cloudfront.net/Data_Engineer_e64c7fd32c.svg"
-          />
+          <Card title="Quality Assuarance" image="case" />
           <br />
-          <Card
-            title="ML Scientists"
-            image="https://d2mk45aasx86xg.cloudfront.net/ML_engineers_348bc984d5.svg"
-          />
+          <Card title="Mobile App" image="phone" />
         </SwiperSlide>
         <SwiperSlide>
-          <Card
-            title="Blockchain Engineers"
-            image="https://d2mk45aasx86xg.cloudfront.net/Blockchain_developers_380a575c3c.svg"
-          />
+          <Card title="Cloud Archtect" image="cloud" />
           <br />
-          <Card
-            title="Full-Stack Developers"
-            image="https://d2mk45aasx86xg.cloudfront.net/Full_Stack_developers_68c054aab9.svg"
-          />
+          <Card title="Web Development" image="web" />
         </SwiperSlide>
         <SwiperSlide>
-          <Card
-            title="Android Developers"
-            image="https://d2mk45aasx86xg.cloudfront.net/Mobile_developers_c3a673d24b.svg"
-          />
+          <Card title="Testing & Automation" image="test" />
           <br />
-          <Card
-            title="Data Scientists"
-            image="https://d2mk45aasx86xg.cloudfront.net/Data_science_ff76d8eb45.svg"
-          />
+          <Card title=" Front-end Developers" image="layout" />
         </SwiperSlide>
         <SwiperSlide>
-          <Card
-            title="Front-end Developers"
-            image="https://d2mk45aasx86xg.cloudfront.net/Front_end_developers_b69d047610.svg"
-          />
+          <Card title="ML Engineers" image="machine" />
           <br />
-          <Card
-            title="Cloud Architect"
-            image="https://d2mk45aasx86xg.cloudfront.net/cloud_c3dc5bb877.svg"
-          />
+          <Card title="Back-end Developer" image="settings" />
         </SwiperSlide>{" "}
         <SwiperSlide>
-          <Card
-            title="ML Engineers"
-            image="https://d2mk45aasx86xg.cloudfront.net/ML_engineers_348bc984d5.svg"
-          />
+          <Card title="Product Analysts" image="case" />
           <br />
-          <Card
-            title="Product Analyst"
-            image="https://d2mk45aasx86xg.cloudfront.net/role_backend_996ce8298a.svg"
-          />
+          <Card title="Data Engineers" image="data" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Data Scientist" image="data" />
+          <br />
+          <Card title="Java Developer" image="java" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Python Developer" image="python" />
+          <br />
+          <Card title=" Cloud Engineer" image="cloud" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Full StacK iOS" image="phone" />
+          <br />
+          <Card title=" Analytics Engineer" image="analysis" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title=" Infrastructure Engineer " image="layout" />
+          <br />
+          <Card title="Deep Learning" image="machine" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title=" DevOps Engineers" image="data" />
+          <br />
+          <Card title=" AI/ML/Data Engineers" image="machine" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Card title=" ML Scientists " image="machine" />
+          <br />
+          <Card title="  Web Developer " image="web" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Site Reliabiity" image="web" />
+          <br />
+          <Card title="Tele Sales " image="case" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" UI/UX Designers" image="web" />
+          <br />
+          <Card title="  Full Stack Egineer " image="stack" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Software Developer " image="web" />
+          <br />
+          <Card title="  Human Resource " image="case" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" iOs/Andriod Developer " image="phone" />
+          <br />
+          <Card title="  IT Engineer " image="web" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" UI/UX Designer " image="layout" />
+          <br />
+          <Card title=" Business Analysts " image="analysis" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" PHP Developer " image="web" />
+          <br />
+          <Card title="  Business Developer" image="case" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Accountant" image="analysis" />
+
+          <br />
+          <Card title="  Operations " image="data" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title="  Customer Service" image="data" />
+          <br />
+          <Card title="Embedded Software" image="web" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Digital Marketing " image="case" />
+
+          <br />
+          <Card title="  Sales Executive" image="case" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Card title=" Data Entry" image="web" />
+          <br />
+          <Card title=" Data Analyst" image="data" />
         </SwiperSlide>
       </StyledSwiper>
     </Container>
@@ -112,5 +165,7 @@ const StyledSwiper = styled(Swiper)`
   }
   .swiper-pagination-bullet-active {
     background: #f26a7e;
+
+    24
   }
 `;

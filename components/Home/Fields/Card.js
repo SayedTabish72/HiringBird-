@@ -26,10 +26,28 @@ const Wrapper = styled.div`
   padding: 2.5rem 2rem;
   user-select: none;
   cursor: pointer;
+  h3 {
+    font-size: 16px;
+  }
   img {
     height: 3rem;
   }
   @media (max-width: 800px) {
+    padding: 2rem 1rem;
+    img {
+      height: 3rem;
+    }
+    h3 {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 1036px) {
+    
+    h3 {
+      font-size: 15px;
+    }
+  }
+  @media (max-width: 872px) {
     padding: 2rem 1rem;
     img {
       height: 3rem;

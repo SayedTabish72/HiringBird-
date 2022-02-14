@@ -32,7 +32,7 @@ const Signin = () => {
       <img className="hiringbird-logo" src="/images/hiringbird.png" alt="" />
       <h1>Welcome Back!</h1>
       <h2>Sign In</h2>
-      <div className="icons">
+      {/* <div className="icons">
         <img
           onClick={() => {
             signIn("facebook", {
@@ -60,7 +60,7 @@ const Signin = () => {
           src="/images/linkedin.svg"
           alt=""
         />
-      </div>
+      </div> */}
 
       <div className="text-field">
         <label htmlFor="">

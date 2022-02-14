@@ -7,16 +7,18 @@ function Hero() {
     <Container>
       <TopSplit>
         <Left>
-          <h1 data-testid="heading">Find your dream Internship</h1>
-          <div className="bottom">
-            <Button padding="17px 35px">Get Started</Button>
-            <p>
-              The only way to do great work is to love what you do. If you
-              haven’t found it yet, keep looking. Don’t settle. As with all
-              matters of the heart, you’ll know when you find it.” <br />{" "}
-              <span>-Steve Jobs</span>
-            </p>
-          </div>
+          <h1 data-testid="heading">
+            Find your dream
+            <br /> Internship
+          </h1>
+
+          <Button padding=".9em 1.2em">Get Started</Button>
+          <p>
+            The only way to do great work is to love what you do. If you haven’t
+            found it yet, keep looking. Don’t settle. As with all matters of the
+            heart, you’ll know when you find it.” <br />{" "}
+            <span>-Steve Jobs</span>
+          </p>
         </Left>
         <Right>
           <img src="./home/hero/hero.svg" alt="adobe illutstration" />
@@ -58,8 +60,9 @@ export default Hero;
 
 const TopSplit = styled.div`
   display: flex;
-  * {
-    flex-basis: 100%;
+
+  & > * {
+    flex-basis: 50%;
   }
   @media (max-width: 836px) {
     flex-direction: column;
@@ -68,27 +71,30 @@ const TopSplit = styled.div`
 const Left = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: flex-start;
+  justify-content: center;
   h1 {
-    @media (min-width: 836px) {
-      margin-top: 1.5rem;
-    }
     font-weight: 800;
-    font-size: clamp(2rem, 1.5rem + 2.2222vw, 3.5rem);
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.5714285714285714rem + 2.142857142857143vw, 3.5rem);
     color: #404366;
+    margin-bottom: 1.7em;
   }
-  .bottom {
-    p {
-      font-style: italic;
-      margin-top: 0.7rem;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 30px;
-      color: #404366;
 
-      span {
-        font-weight: 800;
-      }
+  p {
+    font-style: italic;
+    margin-top: 0.7rem;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #404366;
+    span {
+      font-weight: 800;
+    }
+
+    @media (max-width: 40em) {
+      line-height: 25px;
+      font-size: 15px;
     }
   }
 `;
