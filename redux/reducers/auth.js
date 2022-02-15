@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, SIGNIN_ERRORS } from "../constants/auth";
+import { LOGIN, LOGOUT, SET_USER, SIGNIN_ERRORS } from "../constants/auth";
 
 export const initialState = {
   isAuthenticated: false,
@@ -12,6 +12,16 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
+      localStorage.setItem(
+        "access_token",
+        action.payload.authToken.accessToken
+      );
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+      };
+    case SET_USER:
       return {
         ...state,
         isAuthenticated: true,

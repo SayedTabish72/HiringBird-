@@ -12,7 +12,6 @@ function GetInTouch() {
   const [currImgSrc, setCurrSrc] = useState(images[i]);
 
   const changeImg = () => {
-    console.log("running");
     if (i < images.length - 1) {
       setI(i + 1);
     } else {
