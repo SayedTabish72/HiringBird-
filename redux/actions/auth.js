@@ -36,5 +36,5 @@ export const logout = (router) => async (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
-  router.push("/");
+  router.push("/signin");
 };

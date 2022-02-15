@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import { logout, signin } from "../redux/actions/auth";
+import { logout } from "../redux/actions/auth";
 const useAuth = (dispatch) => {
   useEffect(() => {
     const access_token = localStorage.getItem("access_token");
@@ -10,7 +10,10 @@ const useAuth = (dispatch) => {
         localStorage.removeItem("access_token");
         dispatch(logout());
       } else {
-        dispatch(signin(payload));
+        dispatch({
+          type: "SET_USER",
+          payload: payload,
+        });
       }
     }
   }, [dispatch]);
