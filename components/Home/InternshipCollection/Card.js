@@ -4,11 +4,14 @@ import styled from "styled-components";
 function Card() {
   return (
     <Wrapper>
-      <img src="/home/internshipCollections/hb-logo.png" alt="" />
-
-      <h2>HIRING NOW</h2>
-      <h3>UI/UX Design Internships</h3>
-      <h5>02/01/2022-14/03/2022</h5>
+      <div className="flex">
+        <div className="content">
+          <h2>HIRING NOW</h2>
+          <h3>UI/UX Design Internships</h3>
+          <h5>02/01/2022-14/03/2022</h5>
+        </div>
+        <img src="/home/internshipCollections/hb-logo.svg" alt="" />
+      </div>
 
       <svg
         width="38"
@@ -50,10 +53,14 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 0.3rem;
 
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
   img {
     height: 30px;
     object-fit: contain;
-    align-self: end;
   }
 
   h2 {

@@ -3,7 +3,7 @@ import Header from "@/common/components/Header";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 
-const FileViewer = dynamic(() => import("react-file-viewer"), {
+const PDFViewer = dynamic(() => import("./pdf-viewer"), {
   ssr: false,
 });
 
@@ -68,7 +68,7 @@ const Body = () => {
       </CardHeader>
 
       <PdfContainer>
-        <FileViewer fileType="pdf" filePath="/resume.pdf" />
+        <PDFViewer />
       </PdfContainer>
     </div>
   );
@@ -95,7 +95,7 @@ const CardHeader = styled.div`
 `;
 
 const PdfContainer = styled.div`
-  .pg-viewer-wrapper {
+  /* .pg-viewer-wrapper {
     overflow-y: scroll;
     ::-webkit-scrollbar {
       display: none;
@@ -105,5 +105,5 @@ const PdfContainer = styled.div`
   canvas {
     max-width: 100%;
     max-height: 100%;
-  }
+  } */
 `;

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 
-function Card({ id, active, svg, title }) {
-  const skills = ["User Experience", "Front-end", "Back-end"];
+function Card({ id, active, svg, title, skills }) {
   return (
     <Wrapper active={active === id}>
       <div style={{ alignSelf: "end", display: "flex", gap: ".8rem" }}>
@@ -78,7 +77,7 @@ function Card({ id, active, svg, title }) {
         </svg>
 
         <Content>
-          <h1>UI/UX Design Intern</h1>
+          <h1>{title}</h1>
           <h3>
             Skilzen{" "}
             <span style={{ fontSize: "12px", color: "#EC1F28" }}>HB4321</span>{" "}

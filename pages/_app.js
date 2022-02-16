@@ -11,6 +11,7 @@ import useAuth from "../hooks/useAuth";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);

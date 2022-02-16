@@ -1,61 +1,57 @@
+import Dropdown from "@/common/components/Dropdown";
 import { Button } from "@/common/styles/FilledBtn.styled";
-import { AnimatePresence, motion } from "framer-motion";
-import jwt_decode from "jwt-decode";
+import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import useOutsideClick from "../../../../hooks/useOutsideClick";
-import { logout } from "../../../../redux/actions/auth";
 import Auth from "../Dropdown/Auth";
 import Home from "../Dropdown/Home";
+import Notification from "../Dropdown/Notification";
 import User from "../Dropdown/User";
 import * as S from "./styles/Navbar.styled";
-import Dropdown from "@/common/components/Dropdown";
-import Notification from "../Dropdown/Notification";
 
 const Navbar = () => {
-  const notificationDropdownRef = useRef(null);
-  const [showNotificationDropdown, setShowNotificationDropdown] =
-    useState(false);
-
-  const userRef = useRef();
-  const [showUserDropdown, setShowUserDropdown] = useState(false);
-
-  const dropdownRef = useRef(null);
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  // signin
+  // refs
+  const notificationRef = useRef(null);
+  const avatarRef = useRef(null);
   const signinRef = useRef(null);
-  const [signinDropdown, setSigninDropdown] = useState(false);
-
-  // signup
   const signupRef = useRef(null);
-  const [signupDropdown, setSignupDropdown] = useState(false);
+  const hamburgerRef = useRef(null);
+
+  // states
+  const [dropdowns, setDropdowns] = useState({
+    notification: false,
+    avatar: false,
+    signin: false,
+    signup: false,
+    hamburger: false,
+  });
 
   // redux
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   // hooks
-  useOutsideClick(notificationDropdownRef, () => {
-    if (showNotificationDropdown) setShowNotificationDropdown(false);
+  useOutsideClick(notificationRef, () => {
+    if (dropdowns.notification)
+      setDropdowns({ ...dropdowns, notification: false });
   });
 
-  useOutsideClick(userRef, () => {
-    if (showUserDropdown) setShowUserDropdown(false);
-  });
-
-  useOutsideClick(dropdownRef, () => {
-    if (showDropdown) setShowDropdown(false);
+  useOutsideClick(avatarRef, () => {
+    if (dropdowns.avatar) setDropdowns({ ...dropdowns, avatar: false });
   });
 
   useOutsideClick(signinRef, () => {
-    if (signinDropdown) setSigninDropdown(false);
+    if (dropdowns.signin) setDropdowns({ ...dropdowns, signin: false });
   });
 
   useOutsideClick(signupRef, () => {
-    if (signupDropdown) setSignupDropdown(false);
+    if (dropdowns.signup) setDropdowns({ ...dropdowns, signup: false });
+  });
+
+  useOutsideClick(hamburgerRef, () => {
+    if (dropdowns.hamburger) setDropdowns({ ...dropdowns, hamburger: false });
   });
 
   return (
@@ -65,11 +61,11 @@ const Navbar = () => {
           <img src="/footer/hiringbird.png" alt="" />
         </Link>
       </S.Left>
-      <S.HamBurger show={showDropdown}>
+      <S.HamBurger show={dropdowns.hamburger}>
         <div
           className="icon"
           onClick={() => {
-            setShowDropdown(true);
+            setDropdowns({ ...dropdowns, hamburger: !dropdowns.hamburger });
           }}
         >
           <div className="bar1"></div>
@@ -82,10 +78,10 @@ const Navbar = () => {
           exitBeforeEnter={true}
           onExitComplete={() => null}
         >
-          {showDropdown && <Home Ref={dropdownRef} />}
+          {dropdowns.hamburger && <Home Ref={hamburgerRef} />}
         </AnimatePresence>
       </S.HamBurger>
-      {user ? (
+      {isAuthenticated ? (
         <S.Right>
           <Link href="/about">About us</Link>
           <Link href="/contact">Contact us</Link>
@@ -117,7 +113,10 @@ const Navbar = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 onClick={() =>
-                  setShowNotificationDropdown(!showNotificationDropdown)
+                  setDropdowns({
+                    ...dropdowns,
+                    notification: !dropdowns.notification,
+                  })
                 }
               >
                 <path
@@ -131,8 +130,8 @@ const Navbar = () => {
                 exitBeforeEnter={true}
                 onExitComplete={() => null}
               >
-                {showNotificationDropdown && (
-                  <Dropdown Ref={notificationDropdownRef} top="2rem">
+                {dropdowns.notification && (
+                  <Dropdown Ref={notificationRef} top="2rem">
                     <Notification />
                   </Dropdown>
                 )}
@@ -140,7 +139,7 @@ const Navbar = () => {
             </NotificationContainer>
             <AvatarContainer>
               <div
-                onClick={() => setShowUserDropdown(!showUserDropdown)}
+                onClick={() => setDropdowns({ ...dropdowns, avatar: true })}
                 className="avatar"
               >
                 <img src="/navbar/avatar.svg" alt="avatar" />
@@ -150,8 +149,8 @@ const Navbar = () => {
                 exitBeforeEnter={true}
                 onExitComplete={() => null}
               >
-                {showUserDropdown && (
-                  <Dropdown Ref={userRef}>
+                {dropdowns.avatar && (
+                  <Dropdown Ref={avatarRef}>
                     <User />
                   </Dropdown>
                 )}
@@ -166,7 +165,11 @@ const Navbar = () => {
           <Link href="#">Post an Internship</Link>
           <Link href="/internship">Find Internships</Link>
           <SigninContainer>
-            <button onClick={() => setSigninDropdown(!signinDropdown)}>
+            <button
+              onClick={() =>
+                setDropdowns({ ...dropdowns, signin: !dropdowns.signin })
+              }
+            >
               Sign In
             </button>
             <AnimatePresence
@@ -174,13 +177,15 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {signinDropdown && <Auth Ref={signinRef} url="/signin" />}
+              {dropdowns.signin && <Auth Ref={signinRef} url="/signin" />}
             </AnimatePresence>
           </SigninContainer>
           <SignupContainer>
             <Button
               padding=".5em 1em"
-              onClick={() => setSignupDropdown(!signupDropdown)}
+              onClick={() =>
+                setDropdowns({ ...dropdowns, signup: !dropdowns.signup })
+              }
             >
               Sign Up
             </Button>
@@ -189,7 +194,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {signupDropdown && <Auth Ref={signupRef} url="/signup" />}
+              {dropdowns.signup && <Auth Ref={signupRef} url="/signup" />}
             </AnimatePresence>
           </SignupContainer>
         </S.Right>
