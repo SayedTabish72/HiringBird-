@@ -1,12 +1,19 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
-function Card() {
-  const skills = ["User Research", "Wireframing", "Figma"];
-
+function Card({
+  id,
+  title,
+  internshipType,
+  company,
+  skills,
+  createdAt,
+  applicantsCount,
+}) {
   return (
-    <Wrapper>
+    <Wrapper layout>
       <CardHead>
         <div style={{ display: "flex", alignItems: "center", gap: ".4rem" }}>
           <svg
@@ -22,7 +29,7 @@ function Card() {
             />
           </svg>
 
-          <Type>Work from home</Type>
+          <Type>{internshipType}</Type>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: ".8rem" }}>
           <svg
@@ -96,13 +103,13 @@ function Card() {
           />
         </svg>
 
-        <Heading>Skilzen</Heading>
+        <Heading>{company}</Heading>
         <Id>HB4321</Id>
-        <SubHeading>Frontend Developer</SubHeading>
+        <SubHeading>{title}</SubHeading>
 
         <ul>
           <li>30 days ago</li>
-          <li>150 Applicants</li>
+          <li>{applicantsCount} Applicants</li>
         </ul>
       </CardComp>
 
@@ -203,7 +210,7 @@ function Card() {
           <button>Apply Now</button>
         </Link>
 
-        <Link href="/internship/detail/dfldjjf">
+        <Link href={`/internship/detail/${id}`}>
           <button
             style={{ display: "flex", alignItems: "center", gap: ".4rem" }}
           >
@@ -376,7 +383,7 @@ const CardComp = styled.div`
 
 const Type = styled.p``;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;

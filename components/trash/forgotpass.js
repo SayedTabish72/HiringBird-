@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from "next/head";
-import Forgotpass from "../Auth/Forgotpass/parts/Forgotpassword"
+import Forgotpass from "../Auth/ForgotPass/parts/Forgotpassword"
 const forgotpass = () => {
   return (
       <>

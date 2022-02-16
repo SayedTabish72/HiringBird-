@@ -6,26 +6,21 @@ import { useRouter } from "next/router";
 import axios from "../../../utils/axios";
 import jwt_decode from "jwt-decode";
 import SignInModal from "./SignInModal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/common/styles/OutlineBtn.styled";
+import { fetchInternshipById } from "redux/actions/internship";
 
 const Main = ({ active, width }) => {
   const router = useRouter();
   const user = useSelector((state) => state.auth.user);
   const { id } = router.query;
   const [showModal, setShowModal] = useState(false);
-  const [internship, setInternship] = useState({});
+  const dispatch = useDispatch();
+  const internship = useSelector((state) => state.internship.internship);
+
   useEffect(() => {
-    axios
-      .get(`/internship/${id}`)
-      .then((res) => {
-        console.log(res.data);
-        setInternship(res.data);
-      })
-      .catch((err) => {
-        console.log(err?.response?.data);
-      });
-  }, [id]);
+    dispatch(fetchInternshipById(id || active));
+  }, [id, active]);
 
   function convertDateTotimeago(date) {
     var seconds = Math.floor((new Date() - date) / 1000);

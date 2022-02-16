@@ -5,15 +5,23 @@ import GridView from "./GridView";
 import ListView from "./ListView";
 import Sortby from "../Filter/Dropdown/Sortby";
 import Dropdown from "../Filter/Dropdown";
+import { useDispatch } from "react-redux";
+import { fetchInternships } from "redux/actions/internship";
 
 function Main() {
+  const dispatch = useDispatch();
   const isMobile = useMediaQuery("(max-width: 1122px)");
+  const [page, setPage] = useState(1);
 
   const [bindIndex, setBindIndex] = useState(1);
 
   useEffect(() => {
     isMobile && setBindIndex(1);
   }, [isMobile]);
+
+  useEffect(() => {
+    dispatch(fetchInternships(page));
+  }, [dispatch, page]);
 
   return (
     <Wrapper>
@@ -85,6 +93,9 @@ function Main() {
 
       {bindIndex === 0 && <ListView />}
       {bindIndex === 1 && <GridView />}
+      <Pagination>
+        <LoadMore onClick={() => setPage(page + 1)}>Load More</LoadMore>
+      </Pagination>
     </Wrapper>
   );
 }
@@ -130,4 +141,25 @@ const Wrapper = styled.div`
 
 const Wrap = styled.div`
   margin-right: 20px;
+`;
+
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 60px;
+`;
+
+const LoadMore = styled.span`
+  cursor: pointer;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #f26a7e;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.175px;
+  text-transform: capitalize;
+  color: #404366;
 `;
