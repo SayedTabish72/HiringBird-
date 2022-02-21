@@ -1,36 +1,66 @@
 const initialState = {
-  isLoading: true,
   internships: [],
-  error: null,
+  internshipsLoading: true,
+  internshipsError: null,
+
+  internship: null,
+  internshipLoading: true,
+  internshipError: null,
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case "START_LOADING":
-      return { ...state, isLoading: true };
-    case "END_LOADING":
-      return { ...state, isLoading: false };
-    case "FETCH_INTERNSHIPS_SUCCESS":
+    // internships
+    case "FETCH_INTERNSHIPS_SUCCESS": {
+      const internships = [...state.internships, ...action.payload.data];
+      const uniqueInternships = internships.filter(
+        (internship, index) =>
+          internships.findIndex((i) => i.id === internship.id) === index
+      );
+
       return {
         ...state,
-        internships: [...state.internships, ...action.payload.data],
+        internships: uniqueInternships,
         currentPage: action.payload.currPage,
-        numberOfPages: action.payload.totalPages,
+        totalPages: action.payload.totalPages,
+        internshipsLoading: false,
       };
+    }
 
     case "FETCH_INTERNSHIPS_FAILURE":
-      return { ...state, error: action.payload };
+      return {
+        ...state,
+        internshipsError: action.payload,
+        internshipsLoading: false,
+      };
 
+    case "RESET_INTERNSHIPS":
+      return {
+        ...state,
+        internships: [],
+        internshipsLoading: true,
+      };
+
+    // internship
     case "FETCH_INTERNSHIP_BY_ID_SUCCESS":
       return {
         ...state,
         internship: action.payload,
+        internshipLoading: false,
       };
 
-    case "FETCH_INTERNSHIP_BY_ID_ERROR":
+    case "FETCH_INTERNSHIP_BY_ID_FAILURE":
       return {
         ...state,
-        error: action.payload,
+        internshipError: action.payload,
+        internshipLoading: false,
+      };
+
+    case "RESET_INTERNSHIP_BY_ID":
+      return {
+        ...state,
+        internship: null,
+        internshipLoading: true,
       };
 
     default:

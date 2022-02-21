@@ -4,12 +4,40 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Duration from "../../../../components/Internship/Filter/Dropdown/Duration";
 
-function FilterModal() {
+function FilterModal({ setShow }) {
   const tabs = ["Duration", "Internship Type", "Stipend Range"];
   const [active, setActive] = useState(tabs[0]);
 
   return (
     <Wrapper>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          alignSelf: "end",
+          cursor: "pointer",
+          marginBottom: "1.2em",
+        }}
+        onClick={() => setShow(false)}
+      >
+        <path
+          d="M15 1L1 14.3258"
+          stroke="#C9CBE2"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1 1L15 14.3258"
+          stroke="#C9CBE2"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
       <Head>
         <svg
           width="20"
@@ -54,6 +82,7 @@ export default FilterModal;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
 `;
 
 const Head = styled.div`

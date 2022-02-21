@@ -7,7 +7,7 @@ export const signin = (formData, id, router) => async (dispatch) => {
     dispatch({ type: LOGIN, payload: res.data });
     id
       ? router.push({
-          pathname: "/internship/questions/[id]",
+          pathname: "/internship/question/[id]",
           query: { id },
         })
       : router.push("/");

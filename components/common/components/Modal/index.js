@@ -17,7 +17,7 @@ const dropIn = {
   },
 };
 
-function Modal({ Ref, component, setShow }) {
+function Modal({ Ref, width, children }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -37,36 +37,9 @@ function Modal({ Ref, component, setShow }) {
         animate="visible"
         exit="exit"
         ref={Ref}
+        width={width}
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{
-            alignSelf: "end",
-            cursor: "pointer",
-          }}
-          onClick={() => setShow(false)}
-        >
-          <path
-            d="M15 1L1 14.3258"
-            stroke="#C9CBE2"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M1 1L15 14.3258"
-            stroke="#C9CBE2"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        {component}
+        {children}
       </Container>
     </Wrapper>
   );
@@ -89,17 +62,9 @@ const Wrapper = styled(motion.div)`
 `;
 const Container = styled(motion.div)`
   margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  width: min(90%, ${({ width }) => width});
 
   background: #ffffff;
   box-shadow: 0px 30px 72px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
-  padding: 1.5rem;
-
-  @media (min-width: 768px) {
-    padding: 2rem;
-  }
 `;

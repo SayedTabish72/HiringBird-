@@ -66,10 +66,6 @@ const Body = () => {
           </li>
         </ul>
       </CardHeader>
-
-      <PdfContainer>
-        <PDFViewer />
-      </PdfContainer>
     </div>
   );
 };

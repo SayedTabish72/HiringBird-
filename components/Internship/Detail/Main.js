@@ -160,7 +160,7 @@ const Main = ({ active, width }) => {
               {user ? (
                 <Link
                   href={{
-                    pathname: `/internship/questions/[id]`,
+                    pathname: `/internship/question/[id]`,
                     query: { id: internship?.id },
                   }}
                   as={`/internship-questions/${internship?.companyName}`}
@@ -215,7 +215,7 @@ const Main = ({ active, width }) => {
           </Eligibility>
 
           <BottomDiv>
-            <Link href={`/internship/questions/${internship?.id}`}>
+            <Link href={`/internship/question/${internship?.id}`}>
               <Button>Apply Now</Button>
             </Link>
             <a href="#">Report Spam</a>

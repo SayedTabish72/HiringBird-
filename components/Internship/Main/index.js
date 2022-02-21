@@ -5,13 +5,16 @@ import GridView from "./GridView";
 import ListView from "./ListView";
 import Sortby from "../Filter/Dropdown/Sortby";
 import Dropdown from "../Filter/Dropdown";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchInternships } from "redux/actions/internship";
 
 function Main() {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery("(max-width: 1122px)");
-  const [page, setPage] = useState(1);
+  const currentPage = useSelector((state) => state.internship.currentPage);
+  const [page, setPage] = useState(currentPage || 1);
+  const totalPages = useSelector((state) => state.internship.totalPages);
+  console.log({ totalPages });
 
   const [bindIndex, setBindIndex] = useState(1);
 
@@ -22,6 +25,10 @@ function Main() {
   useEffect(() => {
     dispatch(fetchInternships(page));
   }, [dispatch, page]);
+
+  const loadMore = () => {
+    page < totalPages && setPage(page + 1);
+  };
 
   return (
     <Wrapper>
@@ -94,7 +101,7 @@ function Main() {
       {bindIndex === 0 && <ListView />}
       {bindIndex === 1 && <GridView />}
       <Pagination>
-        <LoadMore onClick={() => setPage(page + 1)}>Load More</LoadMore>
+        <LoadMore onClick={() => loadMore()}>Load More</LoadMore>
       </Pagination>
     </Wrapper>
   );

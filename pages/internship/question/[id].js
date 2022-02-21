@@ -5,7 +5,7 @@ import Questions from "../../../components/Internship/Question";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-const questions = () => {
+const question = () => {
   return (
     <>
       <Head>
@@ -18,6 +18,4 @@ const questions = () => {
   );
 };
 
-export default questions;
-
-const Container = styled.div``;
+export default question;

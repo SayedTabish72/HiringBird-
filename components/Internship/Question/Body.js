@@ -1,32 +1,45 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
-import SuccessModal from "./SuccessModal";
-// import axios from "../../../../utils/axios";
-import axios from "axios";
-import { useRouter } from "next/router";
-import ErrorModal from "./ErrorModal";
-import questions from "../../../utils/questions";
+import Modal from "@/common/components/Modal";
+import InternshipError from "@/common/components/Modal/InternshipError";
+import InternshipSuccess from "@/common/components/Modal/InternshipSuccess";
 import { Button } from "@/common/styles/FilledBtn.styled";
+import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  fetchInternshipById,
+  resetInternshipById,
+} from "redux/actions/internship";
+import styled from "styled-components";
+import questions from "../../../utils/questions";
 
 const Body = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const { id } = router.query;
-  const [errorModal, setErrorModal] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
-  const [internship, setInternship] = useState({});
+
+  // states
+  const [showErrModal, setShowErrModal] = useState(true);
+  const [showSuccModal, setShowSuccModal] = useState(false);
   const [values, setValues] = useState({
     experience: "",
     figma_skill: "",
     url: "",
     reason: "",
   });
-  console.log({ values });
   const [file, setFile] = useState(null);
   const hiddenFileInput = useRef(null);
   const [uploaded, setUploaded] = useState(false);
+  const [errors, setErrors] = useState({});
 
-  // convert lastmodified to date
+  useEffect(() => {
+    dispatch(fetchInternshipById(id));
+
+    return () => {
+      dispatch(resetInternshipById());
+    };
+  }, [id]);
+
   const convertDate = (date) => {
     const d = new Date(date);
     const month = `0${d.getMonth() + 1}`.slice(-2);
@@ -34,23 +47,6 @@ const Body = () => {
     const year = d.getFullYear();
     return `${day}/${month}/${year}`;
   };
-
-  useEffect(() => {
-    axios
-      .get(`/internship/${id}`)
-      .then((res) => {
-        setInternship({
-          jobName: res?.data?.jobName,
-          companyName: res?.data?.companyName,
-        });
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-        // err
-      });
-  }, [id]);
-
-  const [errors, setErrors] = useState({});
 
   const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/;
   const rx_url =
@@ -88,9 +84,9 @@ const Body = () => {
     } else if (values.reason.length > 100) {
       errors.reason = "Must be less than 100 words";
     }
-    if (!file) {
-      errors.file = "Required";
-    }
+    // if (!file) {
+    //   errors.file = "Required";
+    // }
 
     return errors;
   };
@@ -104,40 +100,7 @@ const Body = () => {
     const errObj = validate(values);
     setErrors(errObj);
     if (checkObjEmpty(errObj)) {
-      const formData = new FormData();
-      formData.append("resume", file);
-      formData.append(
-        "answers",
-        JSON.stringify([
-          {
-            questionID: 1,
-            answer: values.experience,
-          },
-          {
-            questionID: 2,
-            answer: values.figma_skill,
-          },
-          {
-            questionID: 3,
-            answer: values.url,
-          },
-          {
-            questionID: 4,
-            answer: values.reason,
-          },
-        ])
-      );
-      axios
-        .post("http://localhost:8000/api/v1/auth/file-upload", formData)
-        .then((res) => {
-          console.log(res.data);
-          setShowModal(true);
-        })
-        .catch((err) => {
-          console.log(err.response.data);
-          setErrMsg(err.response.data.message);
-          setErrorModal(true);
-        });
+      //  call api
     } else {
       console.log("solve validation errors");
     }
@@ -154,20 +117,35 @@ const Body = () => {
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
-    console.log(file);
     setFile(file);
     file && setUploaded(true);
   };
 
   return (
     <>
-      <ErrorModal
-        errorModal={errorModal}
-        setErrorModal={setErrorModal}
-        err={errMsg}
-        id={id}
-      />
-      <SuccessModal show={showModal} setShowModal={setShowModal} />
+      <AnimatePresence
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {showErrModal && (
+          <Modal width="33rem">
+            <InternshipError setShow={setShowErrModal} />
+          </Modal>
+        )}
+      </AnimatePresence>
+      <AnimatePresence
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {showSuccModal && (
+          <Modal width="37rem">
+            <InternshipSuccess setShow={setShowSuccModal} />
+          </Modal>
+        )}
+      </AnimatePresence>
+
       <Wrapper onSubmit={handleSubmit}>
         <h1>UI/UX Design internship at Skilzen</h1>
 
@@ -254,7 +232,7 @@ const Body = () => {
           <h2>
             Resume <span>*</span>
           </h2>
-          <div style={{ display: "flex", alignItems: "center", gap: ".8rem" }}>
+          <div className="flex">
             <div className="checkbox-container">
               <input type="checkbox" id="resume-checkbox" />
               <label htmlFor="resume-checkbox">Use resume.pdf</label>
@@ -378,6 +356,12 @@ const Wrapper = styled.form`
     font-size: clamp(1.5rem, 1.2667rem + 1.037vw, 2.2rem);
     margin-bottom: 1.5rem;
   }
+
+  textarea {
+    border: 1px solid #c9cbe2;
+    border-radius: 8px;
+    padding: 0.5rem;
+  }
 `;
 
 const QuestionsContainer = styled.div`
@@ -410,6 +394,10 @@ const Question = styled.div`
     outline: none;
     font-weight: 500;
     font-size: 15px;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   .customFileInput {
@@ -438,6 +426,16 @@ const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  .flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
 
   h2 {
     font-weight: 600;

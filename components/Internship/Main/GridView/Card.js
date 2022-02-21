@@ -206,7 +206,7 @@ function Card({
       </CardSkills>
 
       <CardButtons>
-        <Link href="/internship/questions/dsfaldfj">
+        <Link href="/internship/question/dsfaldfj">
           <button>Apply Now</button>
         </Link>
 

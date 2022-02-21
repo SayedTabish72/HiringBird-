@@ -15,35 +15,7 @@ const ErrorModal = ({ errorModal, setErrorModal, err, id }) => {
       document.body.style.overflow = "unset";
     };
   }, [errorModal]);
-  return (
-    <Wrapper show={errorModal}>
-      <Container>
-        <img src="/intershipdetail/warning.png" alt="" />
-        <h1>Error</h1>
-        <p>{err}</p>
-        <div className="line" />
-        <Link href="/internship/home">
-          <button>
-            Find Internships{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-        </Link>
-      </Container>
-    </Wrapper>
-  );
+  return <Wrapper show={errorModal}></Wrapper>;
 };
 
 export default ErrorModal;

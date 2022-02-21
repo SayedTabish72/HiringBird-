@@ -2,31 +2,32 @@ import axios from "../../utils/axios";
 
 export const fetchInternships = (page) => async (dispatch) => {
   try {
-    dispatch({ type: "START_LOADING" });
-    const res = await axios.get(`/internship?page=${page}&limit=1`);
-    console.log({ res });
+    const res = await axios.get(`/internship?page=${page}&limit=12`);
     dispatch({ type: "FETCH_INTERNSHIPS_SUCCESS", payload: res.data });
-    dispatch({ type: "END_LOADING" });
   } catch (err) {
     dispatch({
-      type: "ERROR",
-      payload: err.response.data,
+      type: "FETCH_INTERNSHIPS_FAILURE",
+      payload: err?.response?.data,
     });
-    dispatch({ type: "END_LOADING" });
   }
+};
+
+export const resetInternships = () => (dispatch) => {
+  dispatch({ type: "RESET_INTERNSHIPS" });
 };
 
 export const fetchInternshipById = (id) => async (dispatch) => {
   try {
-    dispatch({ type: "START_LOADING" });
     const res = await axios.get(`/internship/${id}`);
-    console.log({ res });
     dispatch({ type: "FETCH_INTERNSHIP_BY_ID_SUCCESS", payload: res.data });
-    dispatch({ type: "END_LOADING" });
   } catch (error) {
     dispatch({
-      type: "ERROR",
-      payload: error.response.data,
+      type: "FETCH_INTERNSHIP_BY_ID_FAILURE",
+      payload: error?.response?.data,
     });
   }
+};
+
+export const resetInternshipById = () => (dispatch) => {
+  dispatch({ type: "RESET_INTERNSHIP_BY_ID" });
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function LocationModal() {
+function LocationModal({ setShow }) {
   const locations = [
     "Mumbai",
     "Pune",
@@ -15,6 +15,34 @@ function LocationModal() {
   ];
   return (
     <Wrapper>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          alignSelf: "end",
+          marginBottom: "1.2em",
+          cursor: "pointer",
+        }}
+        onClick={() => setShow(false)}
+      >
+        <path
+          d="M15 1L1 14.3258"
+          stroke="#C9CBE2"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1 1L15 14.3258"
+          stroke="#C9CBE2"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
       <Head>
         <svg
           width="9"
@@ -73,6 +101,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  padding: 1.5rem;
 `;
 const Head = styled.div`
   display: flex;

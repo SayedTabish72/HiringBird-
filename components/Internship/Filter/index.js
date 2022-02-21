@@ -57,11 +57,9 @@ function Filter() {
         onExitComplete={() => null}
       >
         {showLocModal && (
-          <Modal
-            Ref={locModalRef}
-            component={<LocationModal />}
-            setShow={setShowLocModal}
-          />
+          <Modal Ref={locModalRef} width="30rem">
+            <LocationModal setShow={setShowLocModal} />
+          </Modal>
         )}
       </AnimatePresence>
       <AnimatePresence
@@ -70,11 +68,9 @@ function Filter() {
         onExitComplete={() => null}
       >
         {showFilterModal && (
-          <Modal
-            Ref={filterModalRef}
-            component={<FilterModal />}
-            setShow={setShowFilterModal}
-          />
+          <Modal Ref={filterModalRef} width="30rem">
+            <FilterModal setShow={setShowFilterModal} />
+          </Modal>
         )}
       </AnimatePresence>
       {isMobile ? (
