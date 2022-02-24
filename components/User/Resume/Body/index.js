@@ -1,11 +1,6 @@
 import React from "react";
 import Header from "@/common/components/Header";
 import styled from "styled-components";
-import dynamic from "next/dynamic";
-
-const PDFViewer = dynamic(() => import("./pdf-viewer"), {
-  ssr: false,
-});
 
 const Body = () => {
   return (
