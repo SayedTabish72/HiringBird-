@@ -6,7 +6,7 @@ import ListView from "./ListView";
 import Sortby from "../Filter/Dropdown/Sortby";
 import Dropdown from "../Filter/Dropdown";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchInternships } from "redux/actions/internship";
+import { fetchInternships, resetInternships } from "redux/actions/internship";
 
 function Main() {
   const dispatch = useDispatch();
@@ -14,7 +14,6 @@ function Main() {
   const currentPage = useSelector((state) => state.internship.currentPage);
   const [page, setPage] = useState(currentPage || 1);
   const totalPages = useSelector((state) => state.internship.totalPages);
-  console.log({ totalPages });
 
   const [bindIndex, setBindIndex] = useState(1);
 
@@ -161,12 +160,15 @@ const LoadMore = styled.span`
   cursor: pointer;
   padding-bottom: 5px;
   border-bottom: 2px solid #f26a7e;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
   letter-spacing: 0.175px;
   text-transform: capitalize;
   color: #404366;
+  user-select: none;
+
+  &:active {
+    transform: scale(0.9);
+  }
 `;

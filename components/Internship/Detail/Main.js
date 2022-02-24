@@ -8,19 +8,28 @@ import jwt_decode from "jwt-decode";
 import SignInModal from "./SignInModal";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/common/styles/OutlineBtn.styled";
-import { fetchInternshipById } from "redux/actions/internship";
+import {
+  fetchInternshipById,
+  resetInternshipById,
+} from "redux/actions/internship";
 
 const Main = ({ active, width }) => {
   const router = useRouter();
-  const user = useSelector((state) => state.auth.user);
   const { id } = router.query;
-  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const internship = useSelector((state) => state.internship.internship);
 
   useEffect(() => {
-    dispatch(fetchInternshipById(id || active));
+    if (id || active) {
+      dispatch(fetchInternshipById(id || active));
+    }
   }, [id, active]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetInternshipById());
+    };
+  }, []);
 
   function convertDateTotimeago(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
@@ -48,181 +57,184 @@ const Main = ({ active, width }) => {
   }
 
   return (
-    <>
-      <SignInModal showModal={showModal} setShowModal={setShowModal} id={id} />
-      <Wrapper width={width}>
-        <Body>
-          <Head>
-            <Left>
-              <h1>{internship?.jobName}</h1>
-              <Flex>
-                <h2>{internship?.companyName}</h2>
-                <LinkContainer>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="#F898A6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                  <a href="#">{internship?.companyUrl}</a>
-                </LinkContainer>
-              </Flex>
-              <Flex>
-                <p>
-                  {convertDateTotimeago(new Date(internship?.createdAt)) +
-                    "  ago"}
-                </p>
-                <p>{`${internship?.numberOfApplicants} Applicants applied`}</p>
-              </Flex>
-            </Left>
-            <Right>
-              <Image
-                width={72}
-                height={70}
-                objectFit="contain"
-                src="/intershipdetail/skillzen.png"
-                alt=""
-              />
-            </Right>
-          </Head>
-          <Overview>
-            <div className="grid">
-              <Wrap>
-                <h5>Stipend</h5>
-                {(() => {
-                  if (internship?.compensation == true) {
-                    return (
-                      <>
-                        <h3>
-                          {internship?.minStipen} - {internship?.maxStipen} INR
-                        </h3>
-                      </>
-                    );
-                  } else if (internship?.compensation == false);
-                  {
-                    return (
-                      <>
-                        <h3>Unpaid</h3>
-                      </>
-                    );
-                  }
-                })()}
-              </Wrap>
-              <Wrap>
-                {(() => {
-                  if (internship?.internshipType == "workfromhome") {
-                    return (
-                      <>
-                        <h5>Internship Type</h5> <h3>Work From Home</h3>
-                      </>
-                    );
-                  } else if (internship?.internshipType == "onsite");
-                  {
-                    return (
-                      <>
-                        <h5>Internship Type</h5>{" "}
-                        <h3>Onsite - {internship?.location}</h3>
-                      </>
-                    );
-                  }
-                })()}
-              </Wrap>
-              <Wrap>
-                <h5>Number of openings</h5>
-                <h3>{internship?.noOfOpening}</h3>
-              </Wrap>
-              <Wrap>
-                <h5>Internship start date</h5>
-                <h3>
-                  {new Date(internship?.startDate).toLocaleDateString("en-GB")}
-                </h3>
-              </Wrap>
-              <Wrap>
-                <h5>Duration</h5>
-                <h3>{internship?.internshipPeriod} Months</h3>
-              </Wrap>
-              <Wrap>
-                <h5>Apply By</h5>
-                <h3>
-                  {new Date(internship?.applyBy).toLocaleDateString("en-GB")}
-                </h3>
-              </Wrap>
-            </div>
-            <div className="bottom">
-              {user ? (
-                <Link
-                  href={{
-                    pathname: `/internship/question/[id]`,
-                    query: { id: internship?.id },
-                  }}
-                  as={`/internship-questions/${internship?.companyName}`}
+    <Wrapper width={width}>
+      <Body>
+        <Head>
+          <Left>
+            <h1>{internship?.jobName}</h1>
+            <Flex>
+              <h2>{internship?.companyName}</h2>
+              <LinkContainer>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#F898A6"
                 >
-                  <Button>Apply Now</Button>
-                </Link>
-              ) : (
-                <Button onClick={() => setShowModal(true)}>Apply Now</Button>
-              )}
-
-              <ShareBtn>
-                <img src="/intershipdetail/whatsapp-icon.png" alt="" />
-                <p>Share</p>
-              </ShareBtn>
-            </div>
-          </Overview>
-          <Skills className="common-container">
-            <h2>Skills(s) Required</h2>
-            <div className="childrens">
-              {internship?.skills?.map((skill, i) => (
-                <p key={i}>{skill}</p>
-              ))}
-            </div>
-          </Skills>
-          <About className="common-container">
-            <h2>About Skilzen</h2>
-            <p>{internship?.aboutCompany}</p>
-          </About>
-          <JobDesc className="common-container">
-            <h2>Job Description</h2>
-            <p>{internship?.jobDescription}</p>
-          </JobDesc>
-          <Responsibility className="common-container">
-            <h2>Selected interns day-to-day responsibilities include:</h2>
-            <p>
-              {internship?.responsibilities?.map((data, i) => {
-                return (
-                  <li type="1" key={i}>
-                    {data}
-                  </li>
-                );
-              })}
-            </p>
-          </Responsibility>
-          <Eligibility className="common-container">
-            <h2>Perks</h2>
-            <p>
-              {internship?.perks?.map((data, i) => {
-                return <li key={i}>{data}</li>;
-              })}
-            </p>
-          </Eligibility>
-
-          <BottomDiv>
-            <Link href={`/internship/question/${internship?.id}`}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+                <a href="#">{internship?.companyUrl}</a>
+              </LinkContainer>
+            </Flex>
+            <Flex>
+              <p>
+                {convertDateTotimeago(new Date(internship?.createdAt)) +
+                  "  ago"}
+              </p>
+              <p>{`${internship?.numberOfApplicants} Applicants applied`}</p>
+            </Flex>
+          </Left>
+          <Right>
+            <Image
+              width={72}
+              height={70}
+              objectFit="contain"
+              src="/intershipdetail/skillzen.png"
+              alt=""
+            />
+          </Right>
+        </Head>
+        <Overview>
+          <div className="grid">
+            <Wrap>
+              <h5>Stipend</h5>
+              {(() => {
+                if (internship?.compensation == true) {
+                  return (
+                    <>
+                      <h3>
+                        {internship?.minStipen} - {internship?.maxStipen} INR
+                      </h3>
+                    </>
+                  );
+                } else if (internship?.compensation == false);
+                {
+                  return (
+                    <>
+                      <h3>Unpaid</h3>
+                    </>
+                  );
+                }
+              })()}
+            </Wrap>
+            <Wrap>
+              {(() => {
+                if (internship?.internshipType == "workfromhome") {
+                  return (
+                    <>
+                      <h5>Internship Type</h5> <h3>Work From Home</h3>
+                    </>
+                  );
+                } else if (internship?.internshipType == "onsite");
+                {
+                  return (
+                    <>
+                      <h5>Internship Type</h5>{" "}
+                      <h3>Onsite - {internship?.location}</h3>
+                    </>
+                  );
+                }
+              })()}
+            </Wrap>
+            <Wrap>
+              <h5>Number of openings</h5>
+              <h3>{internship?.noOfOpening}</h3>
+            </Wrap>
+            <Wrap>
+              <h5>Internship start date</h5>
+              <h3>
+                {new Date(internship?.startDate).toLocaleDateString("en-GB")}
+              </h3>
+            </Wrap>
+            <Wrap>
+              <h5>Duration</h5>
+              <h3>{internship?.internshipPeriod} Months</h3>
+            </Wrap>
+            <Wrap>
+              <h5>Apply By</h5>
+              <h3>
+                {new Date(internship?.applyBy).toLocaleDateString("en-GB")}
+              </h3>
+            </Wrap>
+          </div>
+          <div className="bottom">
+            <Link href={`/internship/question/${id}`}>
               <Button>Apply Now</Button>
             </Link>
-            <a href="#">Report Spam</a>
-          </BottomDiv>
-        </Body>
-      </Wrapper>
-    </>
+
+            <ShareBtn>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.564 12.0232L14.5565 12.0812C12.7271 11.2333 12.5358 11.1203 12.2995 11.4499C12.1356 11.6781 11.6581 12.1957 11.5142 12.3489C11.3686 12.4998 11.2239 12.5114 10.9768 12.4069C10.7272 12.2909 9.92611 12.0472 8.97774 11.258C8.23902 10.643 7.7432 9.88867 7.59679 9.65657C7.35304 9.2651 7.863 9.2094 8.3272 8.39241C8.41039 8.22994 8.36796 8.10229 8.3064 7.98701C8.24401 7.87096 7.74736 6.73368 7.53939 6.28032C7.33973 5.8285 7.13425 5.88575 6.98035 5.88575C6.50118 5.84707 6.15095 5.85326 5.84231 6.15189C4.49962 7.52436 4.83821 8.94016 5.98706 10.4457C8.24484 13.1937 9.44777 13.6997 11.6473 14.4022C12.2413 14.5778 12.7829 14.5531 13.2113 14.4958C13.6888 14.4254 14.6812 13.938 14.8884 13.3926C15.1005 12.8471 15.1005 12.3946 15.0381 12.2901C14.9766 12.1857 14.8135 12.1276 14.564 12.0232Z"
+                  fill="#404366"
+                />
+                <path
+                  d="M17.0705 3.62279C10.674 -2.12783 0.0880593 2.04298 0.0838998 10.1556C0.0838998 11.7772 0.540613 13.3585 1.41078 14.755L-0.00012207 19.5223L5.26996 18.2442C11.8461 21.5477 19.9621 17.1611 19.9655 10.1602C19.9655 7.70307 18.9339 5.3906 17.058 3.65296L17.0705 3.62279ZM18.3033 10.1347C18.2983 16.04 11.3279 19.7281 5.81486 16.7139L5.51537 16.5483L2.39575 17.3027L3.23181 14.4827L3.03299 14.1925C-0.39777 9.11346 3.54377 2.47545 10.0426 2.47545C12.2504 2.47545 14.3227 3.27619 15.8833 4.7268C17.4432 6.16504 18.3033 8.09223 18.3033 10.1347Z"
+                  fill="#404366"
+                />
+              </svg>
+
+              <p>Share</p>
+            </ShareBtn>
+          </div>
+        </Overview>
+        <Skills className="common-container">
+          <h2>Skills(s) Required</h2>
+          <div className="childrens">
+            {internship?.skills?.map((skill, i) => (
+              <p key={i}>{skill}</p>
+            ))}
+          </div>
+        </Skills>
+        <About className="common-container">
+          <h2>About Skilzen</h2>
+          <p>{internship?.aboutCompany}</p>
+        </About>
+        <JobDesc className="common-container">
+          <h2>Job Description</h2>
+          <p>{internship?.jobDescription}</p>
+        </JobDesc>
+        <Responsibility className="common-container">
+          <h2>Selected interns day-to-day responsibilities include:</h2>
+          <p>
+            {internship?.responsibilities?.map((data, i) => {
+              return (
+                <li type="1" key={i}>
+                  {data}
+                </li>
+              );
+            })}
+          </p>
+        </Responsibility>
+        <Eligibility className="common-container">
+          <h2>Perks</h2>
+          <p>
+            {internship?.perks?.map((data, i) => {
+              return <li key={i}>{data}</li>;
+            })}
+          </p>
+        </Eligibility>
+
+        <BottomDiv>
+          <Link href={`/internship/question/${internship?.id}`}>
+            <Button>Apply Now</Button>
+          </Link>
+          <a href="#">Report Spam</a>
+        </BottomDiv>
+      </Body>
+    </Wrapper>
   );
 };
 

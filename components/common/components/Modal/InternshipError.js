@@ -2,8 +2,13 @@ import { Button } from "@/common/styles/FilledBtn.styled";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 function InternshipError({ setShow }) {
+  const internshipApplyError = useSelector(
+    (state) => state.internship.internshipApplyError
+  );
+
   return (
     <Wrapper>
       <svg
@@ -77,9 +82,15 @@ function InternshipError({ setShow }) {
       </svg>
 
       <h1>Error</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, dolor!
-      </p>
+      {Array.isArray(internshipApplyError.message) ? (
+        <p>
+          {internshipApplyError.message.map((error, index) => (
+            <span key={index}>{error}</span>
+          ))}
+        </p>
+      ) : (
+        <p>{internshipApplyError.message}</p>
+      )}
       <div className="line" />
       <Link href="/internship">
         <Button padding=".7em 1em">Find internships</Button>

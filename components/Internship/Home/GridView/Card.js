@@ -197,16 +197,11 @@ function Card({
       </CardDetails>
 
       <CardSkills>
-        {/* join skills array with comma and map */}
-        {skills
-          .map((skill, index) => {
-            return <p key={index}>{skill}</p>;
-          })
-          .reduce((prev, curr) => [prev, ",", curr])}
+        <p>{skills.map((skill) => skill).join(", ")}</p>
       </CardSkills>
 
       <CardButtons>
-        <Link href="/internship/question/dsfaldfj">
+        <Link href={`/internship/question/${id}`}>
           <button>Apply Now</button>
         </Link>
 

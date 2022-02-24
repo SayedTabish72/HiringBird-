@@ -4,6 +4,7 @@ import Head from "next/head";
 import Questions from "../../../components/Internship/Question";
 import { useRouter } from "next/router";
 import axios from "axios";
+import withAuth from "hoc/withAuth";
 
 const question = () => {
   return (
@@ -18,4 +19,4 @@ const question = () => {
   );
 };
 
-export default question;
+export default withAuth(question);

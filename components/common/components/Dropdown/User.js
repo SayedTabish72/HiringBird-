@@ -25,7 +25,7 @@ function User() {
       </li>
 
       <li>
-        <a href="#" onClick={() => dispatch(logout(router))}>
+        <a href="#" onClick={() => dispatch(logout())}>
           Log out
         </a>
       </li>

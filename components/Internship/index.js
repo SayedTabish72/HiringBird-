@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Navbar from "../../components/common/components/Navbar";
 import Search from "../common/components/Search";
 import Filter from "./Filter";
-import Main from "./Main";
+import Main from "./Home";
 
 const Internship = () => {
   const router = useRouter();

@@ -32,9 +32,8 @@ export const signup = (formData, router) => async (dispatch) => {
   }
 };
 
-export const logout = (router) => async (dispatch) => {
+export const logout = () => async (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
-  router.push("/signin");
 };

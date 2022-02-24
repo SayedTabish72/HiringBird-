@@ -5,9 +5,11 @@ import { Button } from "@/common/styles/FilledBtn.styled";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fetchInternshipById,
+  internshipApply,
+  resetInternshipApply,
   resetInternshipById,
 } from "redux/actions/internship";
 import styled from "styled-components";
@@ -17,9 +19,12 @@ const Body = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { id } = router.query;
+  const internshipApplyStatus = useSelector(
+    (state) => state.internship.internshipApplyStatus
+  );
 
   // states
-  const [showErrModal, setShowErrModal] = useState(true);
+  const [showErrModal, setShowErrModal] = useState(false);
   const [showSuccModal, setShowSuccModal] = useState(false);
   const [values, setValues] = useState({
     experience: "",
@@ -33,12 +38,26 @@ const Body = () => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    dispatch(fetchInternshipById(id));
+    id && dispatch(fetchInternshipById(id));
 
     return () => {
       dispatch(resetInternshipById());
     };
   }, [id]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetInternshipApply());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (internshipApplyStatus === "succeeded") {
+      setShowSuccModal(true);
+    } else if (internshipApplyStatus === "failed") {
+      setShowErrModal(true);
+    }
+  }, [internshipApplyStatus]);
 
   const convertDate = (date) => {
     const d = new Date(date);
@@ -100,7 +119,29 @@ const Body = () => {
     const errObj = validate(values);
     setErrors(errObj);
     if (checkObjEmpty(errObj)) {
-      //  call api
+      const answers = [
+        {
+          questionID: 1,
+          answer: values.experience,
+        },
+        {
+          questionID: 2,
+          answer: values.figma_skill,
+        },
+        {
+          questionID: 3,
+          answer: values.url,
+        },
+        {
+          questionID: 4,
+          answer: values.reason,
+        },
+      ];
+
+      const formData = new FormData();
+      formData.append("answers", JSON.stringify(answers));
+      formData.append("file", file);
+      dispatch(internshipApply(id, formData));
     } else {
       console.log("solve validation errors");
     }
