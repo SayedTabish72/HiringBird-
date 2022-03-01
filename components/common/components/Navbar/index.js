@@ -58,7 +58,7 @@ const Navbar = () => {
     <S.Wrapper>
       <S.Left>
         <Link href="/">
-          <img src="/footer/hiringbird.png" alt="" />
+          <img src="/hb-logo.svg" alt="" />
         </Link>
       </S.Left>
       <S.HamBurger show={dropdowns.hamburger}>

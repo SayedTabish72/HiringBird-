@@ -37,7 +37,9 @@ export const resetInternshipById = () => (dispatch) => {
 export const internshipApply = (id, formData) => async (dispatch) => {
   try {
     dispatch({ type: "INTERNSHIP_APPLY_PENDING" });
-    const res = await axios.post(`/internship/apply/${id}`, formData);
+    const res = await axios.post(`/internship/apply/${id}`, {
+      answers: formData,
+    });
     dispatch({ type: "INTERNSHIP_APPLY_SUCCESS", payload: res.data });
   } catch (error) {
     dispatch({

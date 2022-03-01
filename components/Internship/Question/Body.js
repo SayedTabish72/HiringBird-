@@ -122,11 +122,11 @@ const Body = () => {
       const answers = [
         {
           questionID: 1,
-          answer: values.experience,
+          answer: parseInt(values.experience),
         },
         {
           questionID: 2,
-          answer: values.figma_skill,
+          answer: parseInt(values.figma_skill),
         },
         {
           questionID: 3,
@@ -137,11 +137,7 @@ const Body = () => {
           answer: values.reason,
         },
       ];
-
-      const formData = new FormData();
-      formData.append("answers", JSON.stringify(answers));
-      formData.append("file", file);
-      dispatch(internshipApply(id, formData));
+      dispatch(internshipApply(id, answers));
     } else {
       console.log("solve validation errors");
     }
