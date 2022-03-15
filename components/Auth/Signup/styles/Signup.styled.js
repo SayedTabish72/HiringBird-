@@ -232,7 +232,7 @@ export const Box = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: 60px;
+  margin-top: 50px;
   .customFileInput {
     margin-top: -30px;
     button {
@@ -268,6 +268,20 @@ export const SubBox = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  input {
+    width: 80px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  input:focus {
+    border: none;
+  }
+  img {
+    width: 60px;
+  }
 `;
 export const Cross = styled.img`
   position: absolute;

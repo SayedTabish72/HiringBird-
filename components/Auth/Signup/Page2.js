@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   LeftDiv,
   RightDiv,
@@ -18,8 +18,56 @@ import {
 } from "./styles/Signup.styled";
 import Link from "next/link";
 import { Button } from "@/common/styles/OutlineBtn.styled";
+import axios from "../../../utils/axios";
 
-function Page2({ page, setPage }) {
+function Page2({ page, setPage, email }) {
+  const [one, setOne] = useState("");
+  const [two, setTwo] = useState("");
+  const [three, setThree] = useState("");
+  const [four, setFour] = useState("");
+  const [five, setFive] = useState("");
+  const [six, setSix] = useState("");
+  const [resend, setResend] = useState(false);
+
+  const handleSubmit = async () => {
+    await axios
+      .post("/otp/verify", {
+        email: `${email}`,
+        otp: `${one + two + three + four + five + six}`,
+      })
+      .then((res) => {
+        console.log(res);
+        setPage(page + 1);
+      })
+      .catch((err) => console.log(err));
+    console.log(one + two + three + four + five + six);
+  };
+
+  // resend text delay
+  const [currentCount, setCount] = useState(10);
+  const timer = () => setCount(currentCount - 1);
+
+  useEffect(() => {
+    if (currentCount <= 0) {
+      return;
+    }
+    const id = setInterval(timer, 1000);
+    return () => clearInterval(id);
+  }, [currentCount]);
+  console.log(currentCount);
+
+  const handleResendEmail = async () => {
+    await axios
+      .post("/otp/resend", {
+        email: `${email}`,
+      })
+      .then((res) => {
+        setResend(true);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <Split>
       <LeftDiv>
@@ -30,39 +78,83 @@ function Page2({ page, setPage }) {
         <Heading>Lets get you started!</Heading>
         <SubHeading>E-mail Verification</SubHeading>
         <Text>
-          Enter the 4 digit code sent to <span>vikrant.negi74@gmail.com</span>{" "}
-          for verification
+          Enter the 6 digit code sent to <span>{email}</span> for verification
         </Text>
 
         <Box>
           <SubBox>
-            <h1>*</h1>
+            <input
+              type="text"
+              value={one}
+              onChange={(e) => setOne(e.target.value)}
+            />
             <img src="/auth/signup/line-signup.svg" alt="line"></img>
           </SubBox>
           <SubBox>
-            <h1>*</h1>
+            <input
+              type="text"
+              value={two}
+              onChange={(e) => setTwo(e.target.value)}
+            />
             <img src="/auth/signup/line-signup.svg" alt="line"></img>
           </SubBox>
           <SubBox>
-            <h1>*</h1>
+            <input
+              type="text"
+              value={three}
+              onChange={(e) => setThree(e.target.value)}
+            />
             <img src="/auth/signup/line-signup.svg" alt="line"></img>
           </SubBox>
           <SubBox>
-            <h1>0</h1>
+            <input
+              type="text"
+              value={four}
+              onChange={(e) => setFour(e.target.value)}
+            />
+            <img src="/auth/signup/line-signup.svg" alt="line"></img>
+          </SubBox>
+          <SubBox>
+            <input
+              type="text"
+              value={five}
+              onChange={(e) => setFive(e.target.value)}
+            />
+            <img src="/auth/signup/line-signup.svg" alt="line"></img>
+          </SubBox>
+          <SubBox>
+            <input
+              type="text"
+              value={six}
+              onChange={(e) => setSix(e.target.value)}
+            />
             <img src="/auth/signup/line-signup.svg" alt="line"></img>
           </SubBox>
         </Box>
         <TextWrap>
-          <SignupText>
-            Didn’t receive a code?{" "}
-            <Link href="/signin">
-              <Pink1>Resend OTP</Pink1>
-            </Link>
-          </SignupText>
+          {resend ? (
+            <SignupText>
+              We have resend you the otp,
+              <Pink1>please check your email.</Pink1>
+            </SignupText>
+          ) : (
+            <>
+              {currentCount < 1 ? (
+                <SignupText>
+                  Didn’t receive a code?{" "}
+                  <span onClick={handleResendEmail}>
+                    <Pink1>Resend OTP</Pink1>
+                  </span>
+                </SignupText>
+              ) : (
+                ""
+              )}
+            </>
+          )}
         </TextWrap>
 
         <Wrap>
-          <Button onClick={() => setPage(page + 1)}>Verify</Button>
+          <Button onClick={handleSubmit}>Verify</Button>
           <SignupText>
             Already on HiringBird ? Go to{" "}
             <Link href="/signin">

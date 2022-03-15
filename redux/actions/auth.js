@@ -27,7 +27,7 @@ export const signup = (formData, router) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: ERRORS,
-      payload: err.response.data,
+      payload: err.response?.data,
     });
   }
 };

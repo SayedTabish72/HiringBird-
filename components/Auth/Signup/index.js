@@ -42,7 +42,7 @@ function Signup() {
   const [page, setPage] = useState(1);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
-  const [email, setemail] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setphone] = useState("");
   const [pass, setpass] = useState("");
 
@@ -71,8 +71,26 @@ function Signup() {
 
   return (
     <OuterContainer>
-      {page === 1 ? <Page1 setPage={setPage} page={page} /> : ""}
-      {page === 2 ? <Page2 setPage={setPage} page={page} /> : ""}
+      {page === 1 ? (
+        <Page1
+          setPage={setPage}
+          page={page}
+          email={email}
+          setEmail={setEmail}
+        />
+      ) : (
+        ""
+      )}
+      {page === 2 ? (
+        <Page2
+          setPage={setPage}
+          page={page}
+          email={email}
+          setEmail={setEmail}
+        />
+      ) : (
+        ""
+      )}
       {page === 3 ? <Page3 setPage={setPage} page={page} /> : ""}
       {page === 4 ? <Page4 setPage={setPage} page={page} /> : ""}
       <Blob1>

@@ -12,20 +12,46 @@ import {
   InputName,
   InputField,
   InputSeperate,
-  CheckboxContainer,
-  CheckboxField,
-  CheckboxText,
   SignupText,
-  SignupButton,
   Wrap,
   Pink,
   Split,
 } from "./styles/Signup.styled";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Button } from "@/common/styles/OutlineBtn.styled";
+import { useDispatch } from "react-redux";
+import { signup } from "../../../redux/actions/auth";
 
-function Page1({ page, setPage }) {
+function Page1({ page, setPage, setEmail }) {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [showPass, setShowPass] = useState(false);
+  const [values, setValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    mobileNumber: "",
+    userType: "recruiter",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(signup(values, router));
+    setPage(page + 1);
+  };
+
+  const handleChange = (e) => {
+    e.persist();
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    }
+  };
 
   return (
     <Split>
@@ -47,6 +73,8 @@ function Page1({ page, setPage }) {
               type="text"
               placeholder="John"
               autocomplete="off"
+              onChange={handleChange}
+              name="firstName"
             ></InputField>
           </Input>
           <Input>
@@ -58,6 +86,8 @@ function Page1({ page, setPage }) {
               type="text"
               placeholder="Doe"
               autocomplete="off"
+              onChange={handleChange}
+              name="lastName"
             ></InputField>
           </Input>
         </Info>
@@ -71,6 +101,8 @@ function Page1({ page, setPage }) {
               type="email"
               placeholder="Johndoe@gmail.com"
               autocomplete="off"
+              name="email"
+              onChange={handleChange}
             ></InputField>
           </Input>
           <Input>
@@ -81,6 +113,8 @@ function Page1({ page, setPage }) {
               required
               type="text"
               placeholder="7007409205"
+              name="mobileNumber"
+              onChange={handleChange}
             ></InputField>
           </Input>
         </Info>
@@ -92,6 +126,8 @@ function Page1({ page, setPage }) {
             required
             type="text"
             placeholder="abrakadabra"
+            name="password"
+            onChange={handleChange}
           ></InputField>
         </InputSeperate>
         <InputSeperate>
@@ -116,7 +152,7 @@ function Page1({ page, setPage }) {
 
         <Wrap>
           {/* <SignupButton onClick={() => setPage(page + 1)}>Finish</SignupButton> */}
-          <Button onClick={() => setPage(page + 1)}>Finish</Button>
+          <Button onClick={handleSubmit}>Finish</Button>
           <SignupText>
             Already on HiringBird ? Go to{" "}
             <Link href="/signin">
