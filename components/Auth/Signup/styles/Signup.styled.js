@@ -230,29 +230,17 @@ export const Text = styled.p`
 
 export const Box = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 50px;
-  .customFileInput {
-    margin-top: -30px;
-    button {
-      border-radius: 6px;
-      padding: 12px 30px;
-      font-weight: 600;
-      font-size: 16px;
-      color: #404366;
-      border: 1px solid #f26a7e;
-      cursor: pointer;
-      background: ${(props) => (props.uploaded ? "#f26a7e" : "#ffffff")};
-
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      svg {
-        color: #a9accb;
-        height: 1.3rem;
-      }
-    }
+  justify-content: center;
+  padding: 2rem;
+  gap: 1rem;
+  input {
+    text-align: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
   }
 `;
 
@@ -439,6 +427,8 @@ export const SignupText = styled.p`
   font-size: 14px;
   color: #404366;
   margin-top: 8px;
+  display: flex;
+  gap: 0.5rem;
 `;
 
 export const Wrap = styled.div`

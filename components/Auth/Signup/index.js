@@ -1,40 +1,11 @@
-import React from "react";
-
-import { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import axios from "../../../utils/axios";
 import Page1 from "./Page1";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
 import Page4 from "./Page4";
-import {
-  LeftDiv,
-  RightDiv,
-  SignupImg,
-  Logo,
-  Heading,
-  SubHeading,
-  IconsDiv,
-  Icon,
-  Info,
-  Star,
-  Input,
-  InputName,
-  InputField,
-  InputSeperate,
-  CheckboxContainer,
-  CheckboxField,
-  CheckboxText,
-  SignupText,
-  SignupButton,
-  Wrap,
-  Pink,
-  OuterContainer,
-  Split,
-  Blob1,
-  Blob2,
-} from "./styles/Signup.styled";
-
-import axios from "../../../utils/axios";
-import { useRouter } from "next/router";
+import { Blob1, Blob2, OuterContainer } from "./styles/Signup.styled";
 
 function Signup() {
   const router = useRouter();
