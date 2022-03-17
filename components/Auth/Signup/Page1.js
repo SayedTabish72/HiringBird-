@@ -23,7 +23,7 @@ import { Button } from "@/common/styles/OutlineBtn.styled";
 import { useDispatch } from "react-redux";
 import { signup } from "../../../redux/actions/auth";
 
-function Page1({ page, setPage, setEmail }) {
+function Page1({ page, setPage, setEmail, setMobile }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const [showPass, setShowPass] = useState(false);
@@ -50,6 +50,9 @@ function Page1({ page, setPage, setEmail }) {
     });
     if (e.target.name === "email") {
       setEmail(e.target.value);
+    }
+    if (e.target.name === "mobileNumber") {
+      setMobile(e.target.value);
     }
   };
 

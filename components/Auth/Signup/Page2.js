@@ -19,8 +19,9 @@ import {
 import Link from "next/link";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 import axios from "../../../utils/axios";
+import axios1 from "axios";
 
-function Page2({ page, setPage, email }) {
+function Page2({ page, setPage, email, mobile }) {
   const [one, setOne] = useState("");
   const [two, setTwo] = useState("");
   const [three, setThree] = useState("");
@@ -28,6 +29,25 @@ function Page2({ page, setPage, email }) {
   const [five, setFive] = useState("");
   const [six, setSix] = useState("");
   const [resend, setResend] = useState(false);
+
+  async function sendOtpTOUser(mobile) {
+    const template = "6069426a75253726a5582ae5";
+    const apiKey = "225232A3aN25Eko5b44538b";
+    const sendotp =
+      "https://api.msg91.com/api/v5/otp?template_id=" +
+      template +
+      "&mobile=" +
+      mobile +
+      "&authkey=" +
+      apiKey;
+    // let request_options1 = {
+    //   method: "get",
+    //   url: sendotp,
+    // };
+
+    let otpResponse = await axios1(sendotp);
+    console.log(otpResponse.data);
+  }
 
   const handleSubmit = async () => {
     await axios
@@ -37,10 +57,11 @@ function Page2({ page, setPage, email }) {
       })
       .then((res) => {
         console.log(res);
-        setPage(page + 1);
+        // setPage(page + 1);
       })
       .catch((err) => console.log(err));
     console.log(one + two + three + four + five + six);
+    sendOtpTOUser(mobile);
   };
 
   // resend text delay

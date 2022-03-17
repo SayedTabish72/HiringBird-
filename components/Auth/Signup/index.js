@@ -43,7 +43,7 @@ function Signup() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setphone] = useState("");
+  const [mobile, setMobile] = useState("");
   const [pass, setpass] = useState("");
 
   const onCreateuser = (e) => {
@@ -53,7 +53,7 @@ function Signup() {
       lastName: lname,
       email: email,
       password: pass,
-      mobileNumber: phone,
+      mobileNumber: mobile,
       countryCode: "+91",
       userType: "student",
     };
@@ -77,6 +77,7 @@ function Signup() {
           page={page}
           email={email}
           setEmail={setEmail}
+          setMobile={setMobile}
         />
       ) : (
         ""
@@ -87,11 +88,16 @@ function Signup() {
           page={page}
           email={email}
           setEmail={setEmail}
+          mobile={mobile}
         />
       ) : (
         ""
       )}
-      {page === 3 ? <Page3 setPage={setPage} page={page} /> : ""}
+      {page === 3 ? (
+        <Page3 setPage={setPage} page={page} mobile={mobile} />
+      ) : (
+        ""
+      )}
       {page === 4 ? <Page4 setPage={setPage} page={page} /> : ""}
       <Blob1>
         <img src="/images/blob1.svg" />
