@@ -20,6 +20,24 @@ import Link from "next/link";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 
 function Page3({ page, setPage }) {
+  // const authKey = "225232A3aN25Eko5b44538b";
+  // const templateId = "6069426a75253726a5582ae5";
+
+  // fetch(
+  //   `https://api.msg91.com/api/v5/otp?template_id=${templateId}&mobile=${mobile}&authkey=${authKey}`,
+  //   { mode: "no-cors" }
+  // )
+  //   .then((res) => {
+  //     console.log("Phone otp success");
+  //     console.log(res);
+  //     console.log("Phone otp success");
+  //   })
+  //   .catch((err) => {
+  //     console.log("Phone otp failure");
+  //     console.log(err);
+  //     console.log("Phone otp failure");
+  //   });
+
   return (
     <Split>
       <LeftDiv>
