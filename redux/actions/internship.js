@@ -3,7 +3,7 @@ import axios from "../../utils/axios";
 export const fetchInternships = (page) => async (dispatch) => {
   try {
     dispatch({ type: "FETCH_INTERNSHIPS_PENDING" });
-    const res = await axios.get(`/internship?page=${page}&limit=1`);
+    const res = await axios.get(`/internship?page=${page}&limit=10`);
     dispatch({ type: "FETCH_INTERNSHIPS_SUCCESS", payload: res.data });
   } catch (err) {
     dispatch({

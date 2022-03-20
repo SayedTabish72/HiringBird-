@@ -18,6 +18,7 @@ const Main = ({ active, width }) => {
   const { id } = router.query;
   const dispatch = useDispatch();
   const internship = useSelector((state) => state.internship.internship);
+  console.log("🚀 ~ file: Main.js ~ line 21 ~ Main ~ internship", internship);
 
   useEffect(() => {
     if (id || active) {
@@ -164,9 +165,19 @@ const Main = ({ active, width }) => {
             </Wrap>
           </div>
           <div className="bottom">
-            <Link href={`/internship/question/${id}`}>
-              <Button>Apply Now</Button>
-            </Link>
+            {internship?.internshipLink ? (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://careers.google.com/jobs/results/113751209304564422-senior-software-engineer-infrastructure-core/`}
+              >
+                <Button>Apply Now</Button>
+              </a>
+            ) : (
+              <Link href={`/internship/question/${id}`}>
+                <Button>Apply Now</Button>
+              </Link>
+            )}
 
             <ShareBtn>
               <svg
@@ -228,9 +239,19 @@ const Main = ({ active, width }) => {
         </Eligibility>
 
         <BottomDiv>
-          <Link href={`/internship/question/${internship?.id}`}>
-            <Button>Apply Now</Button>
-          </Link>
+          {internship?.internshipLink ? (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://careers.google.com/jobs/results/113751209304564422-senior-software-engineer-infrastructure-core/`}
+            >
+              <Button>Apply Now</Button>
+            </a>
+          ) : (
+            <Link href={`/internship/question/${id}`}>
+              <Button>Apply Now</Button>
+            </Link>
+          )}
           <a href="#">Report Spam</a>
         </BottomDiv>
       </Body>
