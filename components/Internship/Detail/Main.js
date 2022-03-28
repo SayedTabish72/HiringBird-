@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import { Button } from "@/common/styles/OutlineBtn.styled";
+import AuthContainer from "components/Auth/Common/AuthContainer";
+import Signin from "components/Auth/Signin";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import axios from "../../../utils/axios";
-import jwt_decode from "jwt-decode";
-import SignInModal from "./SignInModal";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "@/common/styles/OutlineBtn.styled";
 import {
   fetchInternshipById,
   resetInternshipById,
 } from "redux/actions/internship";
+import styled from "styled-components";
+import withAuth from "../../../hoc/withAuth";
 
 const Main = ({ active, width }) => {
   const router = useRouter();
   const { id } = router.query;
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const internship = useSelector((state) => state.internship.internship);
   console.log("🚀 ~ file: Main.js ~ line 21 ~ Main ~ internship", internship);
 
@@ -56,6 +57,18 @@ const Main = ({ active, width }) => {
     }
     return Math.floor(seconds) + " seconds";
   }
+
+  // const checkAuth = () => {
+  //   if (!isAuthenticated) {
+  //     router.push(`/signin?redirect=internship/detail/${id}`);
+  //   } else {
+  //     window.open(
+  //       "https://careers.google.com/jobs/results/113751209304564422-senior-software-engineer-infrastructure-core/" ||
+  //         internship.link,
+  //       "_blank"
+  //     );
+  //   }
+  // };
 
   return (
     <Wrapper width={width}>
@@ -174,6 +187,7 @@ const Main = ({ active, width }) => {
                 <Button>Apply Now</Button>
               </a>
             ) : (
+              // </a>
               <Link href={`/internship/question/${id}`}>
                 <Button>Apply Now</Button>
               </Link>

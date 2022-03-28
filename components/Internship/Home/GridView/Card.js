@@ -11,6 +11,7 @@ function Card({
   skills,
   createdAt,
   applicantsCount,
+  internshipLink,
 }) {
   return (
     <Wrapper layout>
@@ -201,9 +202,20 @@ function Card({
       </CardSkills>
 
       <CardButtons>
-        <Link href={`/internship/question/${id}`}>
-          <button>Apply Now</button>
-        </Link>
+        {internshipLink ? (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://careers.google.com/jobs/results/113751209304564422-senior-software-engineer-infrastructure-core/`}
+          >
+            <button>Apply Now</button>
+          </a>
+        ) : (
+          // </a>
+          <Link href={`/internship/question/${id}`}>
+            <button>Apply Now</button>
+          </Link>
+        )}
 
         <Link href={`/internship/detail/${id}`}>
           <button

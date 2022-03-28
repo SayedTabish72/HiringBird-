@@ -9,9 +9,11 @@ import { signin } from "../../../redux/actions/auth";
 import { Button } from "@/common/styles/OutlineBtn.styled";
 
 const Signin = () => {
+  // router query
+  const router = useRouter();
+
   // redux
   const dispatch = useDispatch();
-  const router = useRouter();
   const signinErr = useSelector((state) => state.auth.error.signin);
 
   // states
@@ -66,7 +68,7 @@ const Signin = () => {
     setErrors(errObj);
 
     if (Object.values(errObj).every((el) => el === null)) {
-      dispatch(signin(values, id, router));
+      dispatch(signin(values, router));
     }
   };
 

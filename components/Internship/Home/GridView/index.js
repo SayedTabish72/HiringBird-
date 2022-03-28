@@ -51,6 +51,7 @@ function GridView() {
                 skills={i.skills}
                 createdAt={i.createdAt}
                 applicantsCount={i.numberOfApplicants}
+                internshipLink={i.internshipLink}
               />
             ))}
           </>

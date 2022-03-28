@@ -1,16 +1,11 @@
 import axios from "../../utils/axios";
 import { ERRORS, LOGIN, LOGOUT, SIGNIN_ERRORS } from "../constants/auth";
 
-export const signin = (formData, id, router) => async (dispatch) => {
+export const signin = (formData, router) => async (dispatch) => {
   try {
     const res = await axios.post("/login", formData);
     dispatch({ type: LOGIN, payload: res.data });
-    id
-      ? router.push({
-          pathname: "/internship/question/[id]",
-          query: { id },
-        })
-      : router.push("/");
+    router.query.redirect && router.push("/");
   } catch (err) {
     dispatch({
       type: SIGNIN_ERRORS,
