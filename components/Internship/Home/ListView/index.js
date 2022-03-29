@@ -10,7 +10,7 @@ function ListView() {
   const internships = useSelector((state) => state.internship.internships);
   const isLoading = useSelector((state) => state.internship.isLoading);
 
-  const [active, setActive] = useState(internships[0].id);
+  const [active, setActive] = useState(internships[0]?.id);
 
   console.log(active);
 

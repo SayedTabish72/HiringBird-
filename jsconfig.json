@@ -1,9 +1,11 @@
 {
-    "compilerOptions": {
-      "jsx": "react",
-      "baseUrl": ".",
-      "paths": {
-        "@/common/*": ["components/common/*"]
-      }
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/common/*": ["components/common/*"],
+      "@/ui/*": ["ui/*"],
+      "@/layout/*": ["layout/*"]
     }
   }
+}

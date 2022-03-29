@@ -1,8 +1,8 @@
+import Duration from "components/Internship/Filter/Dropdown/Duration";
 import InternshipType from "components/Internship/Filter/Dropdown/InternshipType";
 import StipendRange from "components/Internship/Filter/Dropdown/StipendRange";
 import React, { useState } from "react";
 import styled from "styled-components";
-import Duration from "../../../../components/Internship/Filter/Dropdown/Duration";
 
 function FilterModal({ setShow }) {
   const tabs = ["Duration", "Internship Type", "Stipend Range"];

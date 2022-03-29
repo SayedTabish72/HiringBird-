@@ -154,12 +154,13 @@ export const Form = styled.form`
     margin: 1em 0;
   }
   .button-container {
-    margin-top: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding-bottom: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2em;
+    gap: 1em;
     p {
       font-size: 14px;
       color: #404366;

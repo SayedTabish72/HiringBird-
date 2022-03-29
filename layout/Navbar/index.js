@@ -1,16 +1,17 @@
-import Dropdown from "@/common/components/Dropdown";
 import { Button } from "@/common/styles/FilledBtn.styled";
+import Dropdown from "@/ui/Dropdown";
+import Auth from "@/ui/Dropdown/Auth";
+import Home from "@/ui/Dropdown/Home";
+import Notification from "@/ui/Dropdown/Notification";
+import User from "@/ui/Dropdown/User";
 import { AnimatePresence } from "framer-motion";
+import useOutsideClick from "hooks/useOutsideClick";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import useOutsideClick from "../../../../hooks/useOutsideClick";
-import Auth from "../Dropdown/Auth";
-import Home from "../Dropdown/Home";
-import Notification from "../Dropdown/Notification";
-import User from "../Dropdown/User";
-import * as S from "./styles/Navbar.styled";
+
+import * as S from "./Navbar.styled";
 
 const Navbar = () => {
   // refs
@@ -177,7 +178,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {dropdowns.signin && <Auth Ref={signinRef} url="/signin" />}
+              {dropdowns.signin && <Auth Ref={signinRef} url="signin" />}
             </AnimatePresence>
           </SigninContainer>
           <SignupContainer>
@@ -194,7 +195,7 @@ const Navbar = () => {
               exitBeforeEnter={true}
               onExitComplete={() => null}
             >
-              {dropdowns.signup && <Auth Ref={signupRef} url="/signup" />}
+              {dropdowns.signup && <Auth Ref={signupRef} url="signup" />}
             </AnimatePresence>
           </SignupContainer>
         </S.Right>

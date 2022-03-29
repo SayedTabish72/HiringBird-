@@ -1,4 +1,4 @@
-import Filter from "@/common/components/Dropdown/Filter";
+import Filter from "@/ui/Dropdown/Filter";
 import { AnimatePresence } from "framer-motion";
 import useOutsideClick from "hooks/useOutsideClick";
 import React, { useRef, useState } from "react";

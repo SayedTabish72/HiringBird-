@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../../styles/FilledBtn.styled";
+import Button from "@/ui/Button";
 
 const dropIn = {
   hidden: {
@@ -38,14 +38,14 @@ function Home({ Ref }) {
         </Item>
 
         <Item>
-          <Link href="/signin">Sign In</Link>
+          <Link href="/auth/signin">Sign In</Link>
         </Item>
 
-        <Item>
-          <Link href="/signup">
-            <Button padding=".6em 1em">Sign Up</Button>
-          </Link>
-        </Item>
+        <Link href="/auth/signup">
+          <Item>
+            <Button size="sm">Sign Up</Button>
+          </Item>
+        </Link>
       </ul>
     </Wrapper>
   );

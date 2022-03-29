@@ -1,6 +1,6 @@
-import Modal from "@/common/components/Modal";
-import InternshipError from "@/common/components/Modal/InternshipError";
-import InternshipSuccess from "@/common/components/Modal/InternshipSuccess";
+import Modal from "@/ui/Modal";
+import InternshipError from "@/ui/Modal/InternshipError";
+import InternshipSuccess from "@/ui/Modal/InternshipSuccess";
 import { Button } from "@/common/styles/FilledBtn.styled";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";

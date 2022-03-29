@@ -30,7 +30,7 @@ function Auth({ Ref, url }) {
       ref={Ref}
     >
       <ul>
-        <Link href={`${url}/?redirect=true`}>
+        <Link href={`/auth/${url}/?redirect=true`}>
           <Item>
             <svg
               viewBox="0 0 32 36"
@@ -49,7 +49,7 @@ function Auth({ Ref, url }) {
           </Item>
         </Link>
 
-        <Link href="/signin">
+        <Link href={`/auth/${url}`}>
           <Item>
             <svg
               viewBox="0 0 32 30"

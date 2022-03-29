@@ -1,5 +1,5 @@
 import React from "react";
-import Signin from "../components/Auth/Signin";
+import Signin from "../../components/Auth/Signin";
 import Head from "next/head";
 import AuthContainer from "components/Auth/Common/AuthContainer";
 
@@ -11,7 +11,7 @@ const signin = () => {
         <meta name="description" content="hiringbird signin page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AuthContainer svg="/auth/signin/vector2.svg" form={<Signin />} />
+      <Signin />
     </>
   );
 };

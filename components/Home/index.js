@@ -1,5 +1,3 @@
-import Navbar from "../common/components/Navbar";
-import Footer from "../common/components/Footer";
 import Hero from "./Hero";
 import HowItWorks from "./HowItWorks";
 import InternshipCollection from "./InternshipCollection";
@@ -11,6 +9,8 @@ import TopCompanies from "./TopCompanies";
 import Fields from "./Fields";
 import Skills from "./Skills";
 import GetInTouch from "./GetInTouch";
+import Navbar from "layout/Navbar";
+import Footer from "layout/Footer";
 
 function Home() {
   return (

@@ -13,7 +13,7 @@ const useAuth = (dispatch) => {
         dispatch(logout(router));
       } else {
         dispatch({
-          type: "SET_USER",
+          type: "SET_CURRENT_USER",
           payload: payload,
         });
       }

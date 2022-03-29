@@ -10,7 +10,7 @@ import { Blob1, Blob2, OuterContainer } from "./styles/Signup.styled";
 function Signup() {
   const router = useRouter();
 
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");

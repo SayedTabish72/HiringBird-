@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../common/components/Footer";
-import Navbar from "../common/components/Navbar";
+import Footer from "@/layout/Footer";
+import Navbar from "@/layout/Navbar";
 import ContactForm from "./ContactForm";
 import Contactus from "./ContactUs";
 

@@ -1,5 +1,11 @@
-export const LOGIN = "LOGIN";
-export const LOGOUT = "LOGOUT";
-export const ERRORS = "ERRORS";
-export const SET_USER = "SET_USER";
-export const SIGNIN_ERRORS = "SIGNIN_ERRORS";
+export const SIGNIN_REQUEST = "SIGNIN_REQUEST";
+export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
+export const SIGNIN_FAILURE = "SIGNIN_FAILURE";
+
+export const SIGNUP_REQUEST = "SIGNUP_REQUEST";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
+
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+export const LOGOUT_USER = "LOGOUT_USER";

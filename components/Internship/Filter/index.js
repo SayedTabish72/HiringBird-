@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Dropdown from "./Dropdown";
-import Duration from "./Dropdown/Duration";
-import StipendRange from "./Dropdown/StipendRange";
-import InternshipType from "./Dropdown/InternshipType";
-import Skills from "./Dropdown/Skills";
-import { Button } from "@/common/styles/OutlineBtn.styled";
+import Dropdown from "@/ui/Dropdown";
+import Button from "@/ui/Button";
 import useMediaQuery from "hooks/useMediaQuery";
 import { AnimatePresence } from "framer-motion";
 import useOutsideClick from "hooks/useOutsideClick";
-import Location from "@/common/components/Dropdown/Location";
-import Modal from "@/common/components/Modal";
-import LocationModal from "@/common/components/Modal/LocationModal";
-import FilterModal from "@/common/components/Modal/FilterModal";
+import Location from "@/ui/Dropdown/Location";
+import Modal from "@/ui/Modal";
+import LocationModal from "@/ui/Modal/LocationModal";
+import FilterModal from "@/ui/Modal/FilterModal";
+import Duration from "./Dropdown/Duration";
+import Skills from "./Dropdown/Skills";
+import InternshipType from "./Dropdown/InternshipType";
+import StipendRange from "./Dropdown/StipendRange";
 
 function Filter() {
   const isMobile = useMediaQuery("(max-width: 962px)");

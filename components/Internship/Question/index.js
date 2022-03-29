@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@/common/components/Navbar";
+import Navbar from "@/layout/Navbar";
 import Body from "./Body";
 
 const Questions = () => {

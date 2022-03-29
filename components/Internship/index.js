@@ -1,8 +1,8 @@
-import Footer from "@/common/components/Footer";
+import Footer from "@/layout/Footer";
 import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
-import Navbar from "../../components/common/components/Navbar";
+import Navbar from "@/layout/Navbar";
 import Search from "../common/components/Search";
 import Filter from "./Filter";
 import Main from "./Home";

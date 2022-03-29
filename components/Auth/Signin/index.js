@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import * as S from "./styles/Signin.styled";
 import { useSelector } from "react-redux";
 import { signin } from "../../../redux/actions/auth";
-import { Button } from "@/common/styles/OutlineBtn.styled";
+import Button from "@/ui/Button";
+import Loader from "@/ui/Loader";
 
 const Signin = () => {
   // router query
@@ -14,7 +15,16 @@ const Signin = () => {
 
   // redux
   const dispatch = useDispatch();
-  const signinErr = useSelector((state) => state.auth.error.signin);
+  const signinErrors = useSelector((state) => state.auth.signinErrors);
+  const signinStatus = useSelector((state) => state.auth.signinStatus);
+  console.log(
+    "🚀 ~ file: index.js ~ line 19 ~ Signin ~ signinStatus",
+    signinStatus
+  );
+  console.log(
+    "🚀 ~ file: index.js ~ line 18 ~ Signin ~ signinErrors",
+    signinErrors
+  );
 
   // states
   const [values, setValues] = useState({
@@ -22,17 +32,12 @@ const Signin = () => {
     password: "",
   });
 
-  console.log({ values });
-
   const [errors, setErrors] = useState({
     email: null,
     password: null,
   });
 
-  console.log({ errors });
-
   const [showPass, setShowPass] = useState(false);
-  const { id } = router.query;
 
   const validate = (values) => {
     const errors = {};
@@ -73,133 +78,130 @@ const Signin = () => {
   };
 
   return (
-    <S.Form onSubmit={handleSubmit}>
-      <img className="hiringbird-logo" src="/images/hiringbird.png" alt="" />
-      <h1>Welcome Back!</h1>
-      <h2>Sign In</h2>
-      {/* <div className="icons">
-        <img
-          onClick={() => {
-            signIn("facebook", {
-              callbackUrl: "http://localhost:3000",
-            });
-          }}
-          src="/images/fb.svg"
-          alt=""
-        />
-        <img
-          onClick={() => {
-            signIn("google", {
-              callbackUrl: "http://localhost:3000",
-            });
-          }}
-          src="/images/google.svg"
-          alt=""
-        />
-        <img
-          onClick={() =>
-            signIn("linkedin", {
-              callbackUrl: "http://localhost:3000",
-            })
-          }
-          src="/images/linkedin.svg"
-          alt=""
-        />
-      </div> */}
-
-      <div className="text-field">
-        <label htmlFor="">
-          Email <span>*</span>{" "}
-        </label>
-        <input
-          value={values.email}
-          onChange={handleChange}
-          type="text"
-          placeholder="yourname@gmail.com"
-          style={{
-            borderBottom: errors.email && "1px solid red",
-          }}
-          name="email"
-        />
-        {errors.email && (
-          <S.ErrorBox>
-            <p>{errors.email}</p>
-            <svg width="20" height="20">
-              <circle cx="50%" cy="50%" r="8" fill="red" />
-            </svg>
-          </S.ErrorBox>
-        )}
-      </div>
-
-      <div className="text-field">
-        <label htmlFor="">
-          Password <span>*</span>{" "}
-        </label>
-        <input
-          value={values.password}
-          onChange={handleChange}
-          type={`${showPass ? "text" : "password"}`}
-          placeholder="yourpassword"
-          style={{
-            borderBottom: errors.password && "1px solid red",
-          }}
-          name="password"
-        />
-        {errors.password && (
-          <S.ErrorBox>
-            <p>{errors.password}</p>
-            <svg width="20" height="20">
-              <circle cx="50%" cy="50%" r="8" fill="red" />
-            </svg>
-          </S.ErrorBox>
-        )}
-      </div>
-
-      <div className="forgotPass">
-        <Link href="/forgotPassword">Forgot Password?</Link>
-      </div>
-
-      {/* checkbox */}
-      <div className="checkbox-container">
-        <input
-          onChange={(e) => setShowPass(e.target.checked)}
-          type="checkbox"
-          id="password-checkbox"
-        />
-        <label htmlFor="password-checkbox">Show Password</label>
-      </div>
-
-      {/* checkbox */}
-      <div className="checkbox-container">
-        <input type="checkbox" name="" id="loggedin-checkbox" />
-        <label htmlFor="loggedin-checkbox">Keep me logged in</label>
-      </div>
-
-      {signinErr && (
-        <S.ErrorBox>
-          <p>{signinErr}</p>
-          <svg width="20" height="20">
-            <circle cx="50%" cy="50%" r="8" fill="red" />
-          </svg>
-        </S.ErrorBox>
-      )}
-
-      <div className="button-container">
-        <Button
-          style={{
-            marginBottom: "1rem",
-          }}
-        >
-          Sign In
-        </Button>
-        <p>
-          Already on Skilzen ? Go to
-          <Link href="/signup">
-            <span> Sign Up</span>
+    <S.OuterContainer>
+      <S.Split>
+        <div className="left">
+          <Link href="/">
+            <img className="logo" src="/auth/signin/hiringbird.png" alt="" />
           </Link>
-        </p>
-      </div>
-    </S.Form>
+          <img className="vector" src="/auth/signin/vector2.svg" alt="" />
+        </div>
+
+        <div className="right">
+          <S.Form onSubmit={handleSubmit}>
+            <img
+              className="hiringbird-logo"
+              src="/images/hiringbird.png"
+              alt=""
+            />
+            <h1>Welcome Back!</h1>
+            <h2>Sign In</h2>
+
+            <div className="text-field">
+              <label htmlFor="">
+                Email <span>*</span>{" "}
+              </label>
+              <input
+                value={values.email}
+                onChange={handleChange}
+                type="text"
+                placeholder="yourname@gmail.com"
+                style={{
+                  borderBottom: errors.email && "1px solid red",
+                }}
+                name="email"
+              />
+              {errors.email && (
+                <S.ErrorBox>
+                  <p>{errors.email}</p>
+                  <svg width="20" height="20">
+                    <circle cx="50%" cy="50%" r="8" fill="red" />
+                  </svg>
+                </S.ErrorBox>
+              )}
+            </div>
+
+            <div className="text-field">
+              <label htmlFor="">
+                Password <span>*</span>{" "}
+              </label>
+              <input
+                value={values.password}
+                onChange={handleChange}
+                type={`${showPass ? "text" : "password"}`}
+                placeholder="yourpassword"
+                style={{
+                  borderBottom: errors.password && "1px solid red",
+                }}
+                name="password"
+              />
+              {errors.password && (
+                <S.ErrorBox>
+                  <p>{errors.password}</p>
+                  <svg width="20" height="20">
+                    <circle cx="50%" cy="50%" r="8" fill="red" />
+                  </svg>
+                </S.ErrorBox>
+              )}
+            </div>
+
+            <div className="forgotPass">
+              <Link href="/forgotPassword">Forgot Password?</Link>
+            </div>
+
+            {/* checkbox */}
+            <div className="checkbox-container">
+              <input
+                onChange={(e) => setShowPass(e.target.checked)}
+                type="checkbox"
+                id="password-checkbox"
+              />
+              <label htmlFor="password-checkbox">Show Password</label>
+            </div>
+
+            {/* checkbox */}
+            <div className="checkbox-container">
+              <input type="checkbox" name="" id="loggedin-checkbox" />
+              <label htmlFor="loggedin-checkbox">Keep me logged in</label>
+            </div>
+
+            {signinErrors && (
+              <S.ErrorBox>
+                <p>{signinErrors}</p>
+                <svg width="20" height="20">
+                  <circle cx="50%" cy="50%" r="8" fill="red" />
+                </svg>
+              </S.ErrorBox>
+            )}
+
+            <div className="button-container">
+              {signinStatus === "loading" ? (
+                <Button size="lg" variant="filled">
+                  <Loader />
+                </Button>
+              ) : (
+                <Button size="lg" variant="outlined">
+                  Sign In
+                </Button>
+              )}
+
+              <p>
+                Already on Skilzen ? Go to
+                <Link href="/signup">
+                  <span> Sign Up</span>
+                </Link>
+              </p>
+            </div>
+          </S.Form>
+        </div>
+      </S.Split>
+      <S.Blob1>
+        <img src="/images/blob1.svg" alt="universe" />
+      </S.Blob1>
+      <S.Blob2>
+        <img src="/images/blob2.svg" alt="universe" />
+      </S.Blob2>
+    </S.OuterContainer>
   );
 };
 

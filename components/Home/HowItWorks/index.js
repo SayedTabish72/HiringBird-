@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../../common/styles/FilledBtn.styled";
 import { Container } from "../common/styles/Container.styled";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "./Card";
+import Button from "@/ui/Button";
 
 const HowItWorks = () => {
   const data = [
@@ -33,8 +33,8 @@ const HowItWorks = () => {
     <Container>
       <Top>
         <h1>Get Internship’s directly to What’s app</h1>
-        <Button color="#128C7E" padding=".7rem .8rem">
-          Link WhatsApp
+        <Button size="lg" color="#128C7E" variant="filled">
+          Link whatsapp
         </Button>
       </Top>
       <StyledSwiper
