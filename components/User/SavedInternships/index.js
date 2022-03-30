@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Widget from "@/common/components/Widget";
-import Navbar from "@/common/components/Navbar";
+import Navbar from "../../../layout/Navbar";
 import Body from "./Body";
 
 const SavedInternships = () => {
