@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "@/common/components/Navbar";
+import Navbar from "../../../layout/Navbar";
 import Widget from "@/common/components/Widget";
 import Body from "./Body";
 
